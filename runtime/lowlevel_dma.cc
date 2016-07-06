@@ -2673,12 +2673,13 @@ namespace LegionRuntime {
 
 	// GPU FB-related copies should be handled by module-provided dma channels now
 	if((src_kind == MemoryImpl::MKIND_GPUFB) || (dst_kind == MemoryImpl::MKIND_GPUFB)) {
-	  assert(0);
+	  //assert(0);
 	}
 
 	// try as many things as we can think of
-	if((dst_kind == MemoryImpl::MKIND_REMOTE) ||
-	   (dst_kind == MemoryImpl::MKIND_RDMA)) {
+	if(src_kind != MemoryImpl::MKIND_GPUFB
+          &&((dst_kind == MemoryImpl::MKIND_REMOTE) ||
+	    (dst_kind == MemoryImpl::MKIND_RDMA))) {
 	  assert(src_kind != MemoryImpl::MKIND_REMOTE);
 	  return new RemoteWriteMemPairCopier(src_mem, dst_mem);
 	}
