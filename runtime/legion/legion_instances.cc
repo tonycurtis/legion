@@ -1963,6 +1963,7 @@ namespace Legion {
         layout = field_node->create_layout_description(instance_mask,
                  layout_constraints, mask_index_map, serdez, field_sizes);
       }
+
       switch (constraints.specialized_constraint.get_kind())
       {
         case NO_SPECIALIZE:

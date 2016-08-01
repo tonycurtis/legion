@@ -534,6 +534,12 @@ namespace LegionRuntime {
       for (it = path.begin(); it != path.end(); it++) {
         destroy_xfer_des(*it);
       }
+      mem_path.clear();
+      for (IBByInst::iterator it = ib_by_inst.begin(); it != ib_by_inst.end(); it++) {
+        IBVec& ib_vec = it->second;
+        ib_vec.clear();
+      }
+      ib_by_inst.clear();
       delete ib_req;
       //</NEWDMA>
       delete oas_by_inst;
@@ -690,7 +696,7 @@ namespace LegionRuntime {
       Message::request(target, args);
     }
 
-#define IB_MAX_SIZE (16 * 1024 * 1024)
+#define IB_MAX_SIZE (32 * 1024 * 1024)
 
     void CopyRequest::alloc_intermediate_buffer(InstPair inst_pair, Memory tgt_mem, int idx)
     {
@@ -707,7 +713,10 @@ namespace LegionRuntime {
           // perform a 1D copy from first_element to last_element
           Realm::StaticAccess<IndexSpaceImpl> data(ispace);
           assert(data->num_elmts > 0);
-          Rect<1> new_rect(make_point(data->first_elmt), make_point(data->last_elmt));
+          ElementMask::Enumerator *e = ispace->valid_mask->enumerate_enabled();
+                coord_t rstart; size_t rlen;
+                e->get_next(rstart,rlen);
+                Rect<1> new_rect(make_point(rstart), make_point(rstart + rlen - 1));
           Domain new_domain = Domain::from_rect<1>(new_rect);
           domain_size = new_domain.get_volume();
         } else {
@@ -822,6 +831,8 @@ namespace LegionRuntime {
 	state = STATE_GEN_PATH;
       }
 
+      //mark_ready();
+      //mark_started();
       if(state == STATE_GEN_PATH) {
         log_dma.debug("generate paths");
         Memory src_mem = get_runtime()->get_instance_impl(oas_by_inst->begin()->first.first)->memory;
@@ -851,6 +862,7 @@ namespace LegionRuntime {
         ib_req->mark_finished(true);
         state = STATE_ALLOC_IB;
       }
+
 
       if(state == STATE_ALLOC_IB) {
         log_dma.debug("wait for the ib allocations to complete");
@@ -3189,6 +3201,10 @@ namespace LegionRuntime {
     template<unsigned DIM>
     void CopyRequest::perform_new_dma(Memory src_mem, Memory dst_mem)
     {
+      //long long cur_time = Realm::Clock::current_time_in_microseconds();
+      //printf("perform_new_dma: src_mem = " IDFMT "dst_mem = " IDFMT "time = %lld\n", src_mem.id, dst_mem.id, cur_time);
+      if (src_mem.kind() == Memory::GPU_FB_MEM && dst_mem.kind() == Memory::Z_COPY_MEM)
+        add_num_created_remote_xd();
       mark_started();
       //std::vector<Memory> mem_path;
       //find_shortest_path(src_mem, dst_mem, mem_path);
@@ -3250,18 +3266,23 @@ namespace LegionRuntime {
                 // perform a 1D copy from first_element to last_element
                 Realm::StaticAccess<IndexSpaceImpl> data(ispace);
                 assert(data->num_elmts > 0);
-                Rect<1> new_rect(make_point(data->first_elmt), make_point(data->last_elmt));
+                ElementMask::Enumerator *e = ispace->valid_mask->enumerate_enabled();
+                coord_t rstart; size_t rlen;
+                e->get_next(rstart,rlen);
+                Rect<1> new_rect(make_point(rstart), make_point(rstart + rlen - 1));
                 Domain new_domain = Domain::from_rect<1>(new_rect);
                 if (idx != mem_path.size() - 1) {
+                  Translation<1> inst_offset(-rstart);
+                  DomainLinearization dl = DomainLinearization::from_mapping<1>(Mapping<1,1>::new_dynamic_mapping(inst_offset));
                   cur_buf = simple_create_intermediate_buffer(ibvec[idx-1],
-                              new_domain, oasvec, oasvec_src, oasvec_dst, dst_buf.linearization);
+                              new_domain, oasvec, oasvec_src, oasvec_dst, dl);
                 } else {
                   cur_buf = dst_buf;
                   oasvec_src = oasvec;
                   oasvec.clear();
                 }
                 create_xfer_des<1>(this, gasnet_mynode(), xd_guid, pre_xd_guid, next_xd_guid,
-                                   pre_buf, cur_buf, new_domain, oasvec_src, 1024 * 1024/*max_req_size*/,
+                                   pre_buf, cur_buf, new_domain, oasvec_src, 2 * 1024 * 1024 /*max_req_size*/,
                                    100/*max_nr*/, priority, order, kind, complete_fence, hdf_inst);
               } else {
                 if (idx != mem_path.size() - 1) {
@@ -3273,7 +3294,7 @@ namespace LegionRuntime {
                   oasvec.clear();
                 }
                 create_xfer_des<0>(this, gasnet_mynode(), xd_guid, pre_xd_guid, next_xd_guid,
-                                   pre_buf, cur_buf, domain, oasvec_src, 1024 * 1024 /*max_req_size*/,
+                                   pre_buf, cur_buf, domain, oasvec_src, 2 * 1024 * 1024 /*max_req_size*/,
                                    100/*max_nr*/, priority, order, kind, complete_fence, hdf_inst);
               }
             }
@@ -3287,7 +3308,7 @@ namespace LegionRuntime {
                 oasvec.clear();
               }
               create_xfer_des<DIM>(this, gasnet_mynode(), xd_guid, pre_xd_guid, next_xd_guid,
-                                   pre_buf, cur_buf, domain, oasvec_src, 1024 * 1024/*max_req_size*/,
+                                   pre_buf, cur_buf, domain, oasvec_src, 2 * 1024 * 1024 /*max_req_size*/,
                                    100/*max_nr*/, priority, order, kind, complete_fence, hdf_inst);
             }
             pre_buf = cur_buf;

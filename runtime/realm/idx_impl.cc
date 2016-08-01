@@ -119,11 +119,14 @@ namespace Realm {
       assert((data->valid_mask_owners >> gasnet_mynode()) & 1);
 #else
       if(!r_impl->valid_mask_complete) {
+	//long long start_time = Realm::Clock::current_time_in_microseconds();
 	Event wait_on = r_impl->request_valid_mask();
 	
 	log_copy.info() << "missing valid mask (" << *this << ") - waiting for " << wait_on;
 
 	wait_on.wait();
+	//long long stop_time = Realm::Clock::current_time_in_microseconds();
+	//printf("get_valid_mask[%llu] takes %lld us\n", id, stop_time - start_time);
       }
 #endif
       return *(r_impl->valid_mask);
@@ -334,6 +337,7 @@ namespace Realm {
                                            const ProfilingRequestSet &reqs,
 					   ReductionOpID redop_id) const
     {
+      //long long start_time = Realm::Clock::current_time_in_microseconds();
       DetailedTimer::ScopedPush sp(TIME_LOW_LEVEL);      
       ID id(memory);
 
@@ -464,6 +468,8 @@ namespace Realm {
 						 RegionInstance::NO_INST);
       log_meta.info("instance created: region=" IDFMT " memory=" IDFMT " id=" IDFMT " bytes=%zd",
 	       this->is_id, memory.id, i.id, inst_bytes);
+      //long long stop_time = Realm::Clock::current_time_in_microseconds();
+      //printf("[%d] create_instance takes %lld us\n", gasnet_mynode(), stop_time - start_time);
       return i;
     }
 
@@ -1813,17 +1819,17 @@ namespace Realm {
 
     // send data in 2KB blocks
     unsigned block_id = 0;
-    while(mask_len >= (1 << 11)) {
+    while(mask_len >= (1 << 18)) {
       ValidMaskDataMessage::send_request(args.sender, args.is, block_id,
 					 mask->first_element,
 					 mask->num_elements,
 					 mask->first_enabled_elmt,
 					 mask->last_enabled_elmt,
 					 mask_data,
-					 1 << 11,
+					 1 << 18,
 					 PAYLOAD_KEEP);
-      mask_data += 1 << 11;
-      mask_len -= 1 << 11;
+      mask_data += 1 << 18;
+      mask_len -= 1 << 18;
       block_id++;
     }
     if(mask_len) {
@@ -1836,6 +1842,8 @@ namespace Realm {
 					 mask_len,
 					 PAYLOAD_KEEP);
     }
+    //long long time_stamp = Realm::Clock::current_time_in_microseconds();
+    //printf("[%d] valid_mask_request[%llu] reponse ts: %lld us\n", gasnet_mynode(), args.is.id, time_stamp);
   }
 
   /*static*/ void ValidMaskRequestMessage::send_request(gasnet_node_t target,
@@ -1883,12 +1891,12 @@ namespace Realm {
 	free(mask->raw_data);
 	size_t bytes_needed = ElementMaskImpl::bytes_needed(args.first_element, args.num_elements);
 	mask->raw_data = (char *)calloc(1, bytes_needed);  // sets initial values to 0
-	r_impl->valid_mask_count = (mask->raw_size() + 2047) >> 11;
+	r_impl->valid_mask_count = (mask->raw_size() + (1 << 18) - 1) >> 18;
       }
 
-      assert((args.block_id << 11) < mask->raw_size());
+      assert((args.block_id << 18) < mask->raw_size());
 
-      memcpy(mask->raw_data + (args.block_id << 11), data, datalen);
+      memcpy(mask->raw_data + (args.block_id << 18), data, datalen);
 
       //printf("got piece of valid mask data for region " IDFMT " (%d expected)\n",
       //       args.region.id, r_impl->valid_mask_count);
@@ -1925,7 +1933,7 @@ namespace Realm {
     args.num_elements = num_elements;
     args.first_enabled_elmt = first_enabled_elmt;
     args.last_enabled_elmt = last_enabled_elmt;
-    Message::request(target, args, data, datalen, payload_mode);
+    Message::request(target, args, data, datalen, payload_mode, NULL, 100);
   }
   
 }; // namespace Realm

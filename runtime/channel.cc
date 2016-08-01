@@ -46,6 +46,8 @@ namespace LegionRuntime {
 #ifdef USE_CUDA
       std::vector<GPU*> dma_all_gpus;
 #endif
+
+      static int num_created_remote_xd = 0;
       // we use a single queue for all xferDes
       static XferDesQueue *xferDes_queue = 0;
 
@@ -1751,6 +1753,8 @@ namespace LegionRuntime {
 
       long RemoteWriteChannel::available()
       {
+        if (gasnet_mynode() == 0 && (num_created_remote_xd < gasnet_nodes() * 2))
+          return 0;
         return capacity;
       }
 
@@ -2226,6 +2230,11 @@ namespace LegionRuntime {
         dma_all_gpus.push_back(gpu);
       }
 #endif
+      void add_num_created_remote_xd(void)
+      {
+        num_created_remote_xd ++;
+      }
+
       void start_channel_manager(int count, int max_nr, Realm::CoreReservationSet& crs)
       {
         xferDes_queue = new XferDesQueue(crs);

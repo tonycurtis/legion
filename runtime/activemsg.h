@@ -26,6 +26,8 @@
 
 #include <sys/types.h>
 
+#define PRIORITY_OUT_MESSAGE_QUEUE
+
     enum ActiveMessageIDs {
       FIRST_AVAILABLE = 140,
       NODE_ANNOUNCE_MSGID,
@@ -238,18 +240,18 @@ enum { MSGID_RELEASE_SRCPTR = 252 };
 extern void enqueue_message(gasnet_node_t target, int msgid,
 			    const void *args, size_t arg_size,
 			    const void *payload, size_t payload_size,
-			    int payload_mode, void *dstptr = 0);
+			    int payload_mode, int priority = 0, void *dstptr = 0);
 
 extern void enqueue_message(gasnet_node_t target, int msgid,
 			    const void *args, size_t arg_size,
 			    const void *payload, size_t line_size,
 			    off_t line_stride, size_t line_count,
-			    int payload_mode, void *dstptr = 0);
+			    int payload_mode, int priority = 0, void *dstptr = 0);
 
 extern void enqueue_message(gasnet_node_t target, int msgid,
 			    const void *args, size_t arg_size,
 			    const SpanList& spans, size_t payload_size,
-			    int payload_mode, void *dstptr = 0);
+			    int payload_mode, int priority = 0, void *dstptr = 0);
 
 class IncomingMessage; // defined below
 class IncomingMessageManager;
@@ -614,30 +616,30 @@ class ActiveMessageMediumNoReply {
 
   static void request(gasnet_node_t dest, /*const*/ MSGTYPE &args, 
                       const void *data, size_t datalen,
-		      int payload_mode, void *dstptr = 0)
+		      int payload_mode, void *dstptr = 0, int priority = 0)
   {
     args.set_magic();
     enqueue_message(dest, MSGID, &args, sizeof(MSGTYPE),
-		    data, datalen, payload_mode, dstptr);
+		    data, datalen, payload_mode, priority, dstptr);
   }
 
   static void request(gasnet_node_t dest, /*const*/ MSGTYPE &args, 
                       const void *data, size_t line_len,
 		      off_t line_stride, size_t line_count,
-		      int payload_mode, void *dstptr = 0)
+		      int payload_mode, void *dstptr = 0, int priority = 0)
   {
     args.set_magic();
     enqueue_message(dest, MSGID, &args, sizeof(MSGTYPE),
-		    data, line_len, line_stride, line_count, payload_mode, dstptr);
+		    data, line_len, line_stride, line_count, payload_mode, priority, dstptr);
   }
 
   static void request(gasnet_node_t dest, /*const*/ MSGTYPE &args, 
                       const SpanList& spans, size_t datalen,
-		      int payload_mode, void *dstptr = 0)
+		      int payload_mode, void *dstptr = 0, int priority = 0)
   {
     args.set_magic();
     enqueue_message(dest, MSGID, &args, sizeof(MSGTYPE),
-		    spans, datalen, payload_mode, dstptr);
+		    spans, datalen, payload_mode, priority, dstptr);
   }
 
   static int add_handler_entries(gasnet_handlerentry_t *entries, const char *description)

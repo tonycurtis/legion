@@ -171,7 +171,7 @@ protected:
 };
 
 struct OutgoingMessage {
-  OutgoingMessage(unsigned _msgid, unsigned _num_args, const void *_args);
+  OutgoingMessage(unsigned _msgid, unsigned _num_args, const void *_args, int _priority = 0);
   ~OutgoingMessage(void);
 
   void set_payload(PayloadSource *_payload, size_t _payload_size,
@@ -190,6 +190,7 @@ struct OutgoingMessage {
 
   void assign_srcdata_pointer(void *ptr);
 
+  int priority;
   unsigned msgid;
   unsigned num_args;
   void *payload;
@@ -531,8 +532,8 @@ void record_spill_free(int msgid, size_t bytes)
 #endif
 
 OutgoingMessage::OutgoingMessage(unsigned _msgid, unsigned _num_args,
-				 const void *_args)
-  : msgid(_msgid), num_args(_num_args),
+				 const void *_args, int _priority)
+  : priority(_priority), msgid(_msgid), num_args(_num_args),
     payload(0), payload_size(0), payload_mode(PAYLOAD_NONE), dstptr(0),
     payload_src(0)
 {
@@ -969,11 +970,22 @@ public:
       //  on the receiving end
       if(out_long_hdrs.size() > 0) {
 	OutgoingMessage *hdr;
+#ifdef PRIORITY_OUT_MESSAGE_QUEUE
+	hdr = *out_long_hdrs.begin();
+        //if (gasnet_mynode() == 0) {
+          //printf("peer = %d, hdr->priority = %d, payload_size = %lu, out_long_hdrs.size() = %lu\n", peer, hdr->priority, hdr->payload_size, out_long_hdrs.size());
+        //}
+#else
 	hdr = out_long_hdrs.front();
+#endif
 
 	// no payload?  this happens when a short/medium message needs to be ordered with long messages
 	if(hdr->payload_size == 0) {
+#ifdef PRIORITY_OUT_MESSAGE_QUEUE
+	  out_long_hdrs.erase(hdr);
+#else
 	  out_long_hdrs.pop();
+#endif
 	  still_more = !(out_short_hdrs.empty() && out_long_hdrs.empty());
 #ifdef DETAILED_MESSAGE_TIMING
 	  int timing_idx = detailed_message_timing.get_next_index(); // grab this while we still hold the lock
@@ -1015,7 +1027,11 @@ public:
 	// do we have a known destination pointer on the target?  if so, no need to use LMB
 	if(hdr->dstptr != 0) {
 	  //printf("sending long message directly to %p (%zd bytes)\n", hdr->dstptr, hdr->payload_size);
+#ifdef PRIORITY_OUT_MESSAGE_QUEUE
+	  out_long_hdrs.erase(hdr);
+#else
 	  out_long_hdrs.pop();
+#endif
 	  still_more = !(out_short_hdrs.empty() && out_long_hdrs.empty());
 #ifdef DETAILED_MESSAGE_TIMING
 	  int timing_idx = detailed_message_timing.get_next_index(); // grab this while we still hold the lock
@@ -1066,7 +1082,11 @@ public:
           if(cur_write_offset & 0x7f)
             cur_write_offset = ((cur_write_offset >> 7) + 1) << 7;
 	  cur_write_count++;
+#ifdef PRIORITY_OUT_MESSAGE_QUEUE
+	  out_long_hdrs.erase(hdr);
+#else
 	  out_long_hdrs.pop();
+#endif
 	  still_more = !(out_short_hdrs.empty() && out_long_hdrs.empty());
 
 #ifdef DETAILED_MESSAGE_TIMING
@@ -1162,8 +1182,13 @@ public:
     //  (unless they need to maintain ordering with long packets)
     if(!in_order && (hdr->payload_size <= gasnet_AMMaxMedium()))
       out_short_hdrs.push(hdr);
-    else
+    else {
+#ifdef PRIORITY_OUT_MESSAGE_QUEUE
+      out_long_hdrs.insert(hdr);
+#else
       out_long_hdrs.push(hdr);
+#endif
+    }
     // Signal in case there is a sleeping sender
     gasnett_cond_signal(&cond);
 
@@ -1706,7 +1731,21 @@ protected:
   gasnett_cond_t cond;
 public:
   std::queue<OutgoingMessage *> out_short_hdrs;
+#ifdef PRIORITY_OUT_MESSAGE_QUEUE
+  class CompareOutgoingMessage {
+  public:
+    bool operator() (OutgoingMessage* a, OutgoingMessage* b) {
+      if (a->priority == b->priority)
+        return (a < b);
+      else
+        return (a->priority > b->priority);
+    }
+  };
+  typedef std::set<OutgoingMessage *, CompareOutgoingMessage> PriorityOutgoingMessageQueue;
+  PriorityOutgoingMessageQueue out_long_hdrs;
+#else
   std::queue<OutgoingMessage *> out_long_hdrs;
+#endif
 
   int cur_write_lmb, cur_write_count;
   size_t cur_write_offset;
@@ -2015,8 +2054,13 @@ public:
       fprintf(f, "AMS: %d->%d: S=%zd L=%zd(%zd) W=%d,%d,%zd,%c,%c R=%d,%d\n",
               mynode, i,
               e->out_short_hdrs.size(),
+#ifdef PRIORITY_OUT_MESSAGE_QUEUE
+              e->out_long_hdrs.size(), (e->out_long_hdrs.size() ? 
+                                        (*e->out_long_hdrs.begin())->payload_size : 0),
+#else
               e->out_long_hdrs.size(), (e->out_long_hdrs.size() ? 
                                         (e->out_long_hdrs.front())->payload_size : 0),
+#endif
               e->cur_write_lmb, e->cur_write_count, e->cur_write_offset,
               (e->lmb_w_avail[0] ? 'y' : 'n'), (e->lmb_w_avail[1] ? 'y' : 'n'),
               e->lmb_r_counts[0], e->lmb_r_counts[1]);
@@ -2323,13 +2367,13 @@ void stop_activemsg_threads(void)
 void enqueue_message(gasnet_node_t target, int msgid,
 		     const void *args, size_t arg_size,
 		     const void *payload, size_t payload_size,
-		     int payload_mode, void *dstptr)
+		     int payload_mode, int priority, void *dstptr)
 {
   assert(target != gasnet_mynode());
 
   OutgoingMessage *hdr = new OutgoingMessage(msgid, 
 					     (arg_size + sizeof(int) - 1) / sizeof(int),
-					     args);
+					     args, priority);
 
   // if we have a contiguous payload that is in the KEEP mode, and in
   //  registered memory, we may be able to avoid a copy
@@ -2354,13 +2398,13 @@ void enqueue_message(gasnet_node_t target, int msgid,
 		     const void *args, size_t arg_size,
 		     const void *payload, size_t line_size,
 		     off_t line_stride, size_t line_count,
-		     int payload_mode, void *dstptr)
+		     int payload_mode, int priority, void *dstptr)
 {
   assert(target != gasnet_mynode());
 
   OutgoingMessage *hdr = new OutgoingMessage(msgid, 
 					     (arg_size + sizeof(int) - 1) / sizeof(int),
-					     args);
+					     args, priority);
 
   if (payload_mode != PAYLOAD_NONE)
   {
@@ -2379,13 +2423,13 @@ void enqueue_message(gasnet_node_t target, int msgid,
 void enqueue_message(gasnet_node_t target, int msgid,
 		     const void *args, size_t arg_size,
 		     const SpanList& spans, size_t payload_size,
-		     int payload_mode, void *dstptr)
+		     int payload_mode, int priority, void *dstptr)
 {
   assert(target != gasnet_mynode());
 
   OutgoingMessage *hdr = new OutgoingMessage(msgid, 
   					     (arg_size + sizeof(int) - 1) / sizeof(int),
-  					     args);
+  					     args, priority);
 
   if (payload_mode != PAYLOAD_NONE)
   {

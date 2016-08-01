@@ -383,6 +383,9 @@ namespace LegionRuntime{
         pthread_mutex_destroy(&xd_lock);
         pthread_mutex_destroy(&update_read_lock);
         pthread_mutex_destroy(&update_write_lock);
+        // Make sure there are no duplicated reads/writes
+        assert(segments_read.empty());
+        assert(segments_write.empty());
       };
 
       virtual long get_requests(Request** requests, long nr) = 0;
@@ -1312,7 +1315,7 @@ namespace LegionRuntime{
         args.req = req;
         args.sender = gasnet_mynode();
         //TODO: need to ask Sean what payload mode we should use
-        Message::request(target, args, src_buf, nbytes, PAYLOAD_KEEP, dst_buf);
+        Message::request(target, args, src_buf, nbytes, PAYLOAD_KEEP, dst_buf, 0/*we have low priority*/);
       }
     };
 
@@ -1667,6 +1670,7 @@ namespace LegionRuntime{
 #ifdef USE_CUDA
     void register_gpu_in_dma_systems(GPU* gpu);
 #endif
+    void add_num_created_remote_xd(void);
     void start_channel_manager(int count, int max_nr, Realm::CoreReservationSet& crs);
     void stop_channel_manager();
     template<unsigned DIM>
