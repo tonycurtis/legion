@@ -122,7 +122,8 @@ void top_level_task(const Task *task,
     DomainPoint point = DomainPoint::from_point<1>(Point<1>(idx));
     local_args.set_point(point, TaskArgument(&(pieces[idx]),sizeof(CircuitPiece)));
   }
-
+  
+  printf("[PROF] before init = %lld ms\n", Realm::Clock::current_time_in_microseconds() / 1000);
   // <NEW_COPY_TASK>
   RegionRequirement wires_req(circuit.all_wires, READ_WRITE, EXCLUSIVE, circuit.all_wires);
   wires_req.add_field(FID_IN_PTR);
@@ -142,6 +143,7 @@ void top_level_task(const Task *task,
   Future future = runtime->execute_task(ctx, copy_task_launcher);
   future.get_void_result();
   // </NEW_COPY_TASK>>
+  printf("[PROF] after init = %lld ms\n", Realm::Clock::current_time_in_microseconds() / 1000);
 
   // Make the launchers
   Rect<1> launch_rect(Point<1>(0), Point<1>(num_pieces-1)); 

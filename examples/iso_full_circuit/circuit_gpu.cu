@@ -163,6 +163,7 @@ __host__
 void CalcNewCurrentsTask::gpu_base_impl(const CircuitPiece &piece,
                                         const std::vector<PhysicalRegion> &regions)
 {
+  printf("PROF(%d) CNC starts at %lld ms\n", gasnet_mynode(), Realm::Clock::current_time_in_microseconds() / 1000);
 #ifndef DISABLE_MATH
   RegionAccessor<AccessorType::Generic, float> fa_current[WIRE_SEGMENTS];
   for (int i = 0; i < WIRE_SEGMENTS; i++)
@@ -335,6 +336,7 @@ __host__
 void DistributeChargeTask::gpu_base_impl(const CircuitPiece &piece,
                                          const std::vector<PhysicalRegion> &regions)
 {
+  printf("PROF(%d) DC starts at %lld ms\n", gasnet_mynode(), Realm::Clock::current_time_in_microseconds() / 1000);
 #ifndef DISABLE_MATH
   RegionAccessor<AccessorType::Generic, ptr_t> fa_in_ptr = 
     regions[0].get_field_accessor(FID_IN_PTR).typeify<ptr_t>();
@@ -452,6 +454,7 @@ __host__
 void UpdateVoltagesTask::gpu_base_impl(const CircuitPiece &piece,
                                        const std::vector<PhysicalRegion> &regions)
 {
+  printf("PROF(%d) UV starts at %lld ms\n", gasnet_mynode(), Realm::Clock::current_time_in_microseconds() / 1000);
 #ifndef DISABLE_MATH
   RegionAccessor<AccessorType::Generic, float> fa_pvt_voltage = 
     regions[0].get_field_accessor(FID_NODE_VOLTAGE).typeify<float>();
