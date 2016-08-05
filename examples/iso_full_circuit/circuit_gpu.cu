@@ -160,10 +160,10 @@ void calc_new_currents_kernel(ptr_t first,
 
 /*static*/
 __host__
-void CalcNewCurrentsTask::gpu_base_impl(const CircuitPiece &piece,
+void CalcNewCurrentsTask::gpu_base_impl(int idx, const CircuitPiece &piece,
                                         const std::vector<PhysicalRegion> &regions)
 {
-  printf("PROF(%d) CNC starts at %lld ms\n", gasnet_mynode(), Realm::Clock::current_time_in_microseconds() / 1000);
+  printf("PROF(%d) CNC starts at %lld ms\n", idx, Realm::Clock::current_time_in_microseconds() / 1000);
 #ifndef DISABLE_MATH
   RegionAccessor<AccessorType::Generic, float> fa_current[WIRE_SEGMENTS];
   for (int i = 0; i < WIRE_SEGMENTS; i++)
@@ -270,6 +270,7 @@ void CalcNewCurrentsTask::gpu_base_impl(const CircuitPiece &piece,
   free(soa_current);
   free(soa_voltage);
 #endif
+  //printf("PROF(%d) CNC ends at %lld ms\n", idx, Realm::Clock::current_time_in_microseconds() / 1000);
 }
 
 template<typename REDOP, typename AT1, typename AT2>
@@ -333,10 +334,10 @@ void distribute_charge_kernel(ptr_t first,
 
 /*static*/
 __host__
-void DistributeChargeTask::gpu_base_impl(const CircuitPiece &piece,
+void DistributeChargeTask::gpu_base_impl(int idx, const CircuitPiece &piece,
                                          const std::vector<PhysicalRegion> &regions)
 {
-  printf("PROF(%d) DC starts at %lld ms\n", gasnet_mynode(), Realm::Clock::current_time_in_microseconds() / 1000);
+  printf("PROF(%d) DC starts at %lld ms\n", idx, Realm::Clock::current_time_in_microseconds() / 1000);
 #ifndef DISABLE_MATH
   RegionAccessor<AccessorType::Generic, ptr_t> fa_in_ptr = 
     regions[0].get_field_accessor(FID_IN_PTR).typeify<ptr_t>();
@@ -402,6 +403,7 @@ void DistributeChargeTask::gpu_base_impl(const CircuitPiece &piece,
                                                              fold_shr_charge,
                                                              fold_ghost_charge);
 #endif
+  //printf("PROF(%d) DC ends at %lld ms\n", idx, Realm::Clock::current_time_in_microseconds() / 1000);
 }
 
 template<typename AT>
@@ -451,10 +453,10 @@ void update_voltages_kernel(ptr_t first,
 
 /*static*/
 __host__
-void UpdateVoltagesTask::gpu_base_impl(const CircuitPiece &piece,
+void UpdateVoltagesTask::gpu_base_impl(int idx, const CircuitPiece &piece,
                                        const std::vector<PhysicalRegion> &regions)
 {
-  printf("PROF(%d) UV starts at %lld ms\n", gasnet_mynode(), Realm::Clock::current_time_in_microseconds() / 1000);
+  printf("PROF(%d) UV starts at %lld ms\n", idx, Realm::Clock::current_time_in_microseconds() / 1000);
 #ifndef DISABLE_MATH
   RegionAccessor<AccessorType::Generic, float> fa_pvt_voltage = 
     regions[0].get_field_accessor(FID_NODE_VOLTAGE).typeify<float>();
@@ -519,5 +521,6 @@ void UpdateVoltagesTask::gpu_base_impl(const CircuitPiece &piece,
                                                            soa_shr_leakage,
                                                            soa_ptr_loc);
 #endif
+  //printf("PROF(%d) UV ends at %lld ms\n", idx, Realm::Clock::current_time_in_microseconds() / 1000);
 }
 

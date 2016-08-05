@@ -156,7 +156,7 @@ public:
                             const std::vector<PhysicalRegion> &regions,
                             Context ctx, HighLevelRuntime* rt);
 #ifdef USE_CUDA
-  static void gpu_base_impl(const CircuitPiece &piece,
+  static void gpu_base_impl(int idx, const CircuitPiece &piece,
                             const std::vector<PhysicalRegion> &regions);
 #endif
 };
@@ -184,7 +184,7 @@ public:
                             const std::vector<PhysicalRegion> &regions,
                             Context ctx, HighLevelRuntime* rt);
 #ifdef USE_CUDA
-  static void gpu_base_impl(const CircuitPiece &piece,
+  static void gpu_base_impl(int idx, const CircuitPiece &piece,
                             const std::vector<PhysicalRegion> &regions);
 #endif
 };
@@ -211,7 +211,7 @@ public:
                             const std::vector<PhysicalRegion> &regions,
                             Context ctx, HighLevelRuntime* rt);
 #ifdef USE_CUDA
-  static void gpu_base_impl(const CircuitPiece &piece,
+  static void gpu_base_impl(int idx, const CircuitPiece &piece,
                             const std::vector<PhysicalRegion> &regions);
 #endif
 };
@@ -269,8 +269,9 @@ namespace TaskHelper {
                         const std::vector<PhysicalRegion> &regions,
                         Context ctx, HighLevelRuntime *runtime)
   {
+    int idx = task->index_point.point_data[0];
     const CircuitPiece *p = (CircuitPiece*)task->local_args;
-    T::gpu_base_impl(*p, regions); 
+    T::gpu_base_impl(idx, *p, regions); 
   }
 #endif
 
