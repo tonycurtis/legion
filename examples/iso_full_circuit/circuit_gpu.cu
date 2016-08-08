@@ -169,7 +169,7 @@ __host__
 void CalcNewCurrentsTask::gpu_base_impl(int idx, const CircuitPiece &piece,
                                         const std::vector<PhysicalRegion> &regions)
 {
-  printf("[%d]PROF_CNC(%d) starts at %lld ms\n", piece.current_iteration, idx, Realm::Clock::current_time_in_microseconds() / 1000);
+  printf("[%d]PROF_CNC(%d)[%d] starts at %lld ms\n", piece.current_iteration, idx, (unsigned int) gasnet_mynode(), Realm::Clock::current_time_in_microseconds() / 1000);
 #ifndef DISABLE_MATH
   RegionAccessor<AccessorType::Generic, float> fa_current[WIRE_SEGMENTS];
   for (int i = 0; i < WIRE_SEGMENTS; i++)
