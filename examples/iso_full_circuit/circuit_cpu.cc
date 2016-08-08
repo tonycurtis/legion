@@ -96,10 +96,12 @@ CalcNewCurrentsTask::CalcNewCurrentsTask(LogicalPartition lp_pvt_wires,
   rr_shared.add_field(FID_NODE_VOLTAGE);
   add_region_requirement(rr_shared);
 
+#ifdef USE_INTER_NODE 
   RegionRequirement rr_ghost(lp_ghost_nodes, 0/*identity*/,
                              READ_ONLY, EXCLUSIVE, lr_all_nodes);
   rr_ghost.add_field(FID_NODE_VOLTAGE);
   add_region_requirement(rr_ghost);
+#endif
 }
 
 /*static*/ const char * const CalcNewCurrentsTask::TASK_NAME = "calc_new_currents";
@@ -495,10 +497,12 @@ DistributeChargeTask::DistributeChargeTask(LogicalPartition lp_pvt_wires,
   rr_shared.add_field(FID_CHARGE);
   add_region_requirement(rr_shared);
 
+#ifdef USE_INTER_NODE
   RegionRequirement rr_ghost(lp_ghost_nodes, 0/*identity*/,
                              REDUCE_ID, SIMULTANEOUS, lr_all_nodes);
   rr_ghost.add_field(FID_CHARGE);
   add_region_requirement(rr_ghost);
+#endif
 }
 
 /*static*/ const char * const DistributeChargeTask::TASK_NAME = "distribute_charge";

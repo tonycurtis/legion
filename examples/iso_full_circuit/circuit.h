@@ -99,6 +99,7 @@ struct CircuitPiece {
 
   float         dt;
   int           steps;
+  int           current_iteration;
 };
 
 struct Partitions {

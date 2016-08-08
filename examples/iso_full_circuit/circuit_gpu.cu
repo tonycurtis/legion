@@ -58,7 +58,9 @@ template<typename AT>
 __device__ __forceinline__
 float find_node_voltage(const RegionAccessor<AT,float> &pvt,
                         const RegionAccessor<AT,float> &shr,
+#ifdef USE_INTER_NODE
                         const RegionAccessor<AT,float> &ghost,
+#endif
                         ptr_t ptr, PointerLocation loc)
 {
   switch (loc)
@@ -67,8 +69,10 @@ float find_node_voltage(const RegionAccessor<AT,float> &pvt,
       return pvt.read(ptr);
     case SHARED_PTR:
       return shr.read(ptr);
+#ifdef USE_INTER_NODE
     case GHOST_PTR:
       return ghost.read(ptr);
+#endif
     default:
       break; // assert(false);
   }
@@ -90,7 +94,9 @@ void calc_new_currents_kernel(ptr_t first,
                               RegionAccessor<AT2,float> fa_wire_cap,
                               RegionAccessor<AT2,float> fa_pvt_voltage,
                               RegionAccessor<AT2,float> fa_shr_voltage,
+#ifdef USE_INTER_NODE
                               RegionAccessor<AT2,float> fa_ghost_voltage,
+#endif
                               SegmentAccessors<RegionAccessor<AT2,float>,WIRE_SEGMENTS> fa_currents,
                               SegmentAccessors<RegionAccessor<AT2,float>,WIRE_SEGMENTS-1> fa_voltages)
 {
@@ -123,11 +129,11 @@ void calc_new_currents_kernel(ptr_t first,
     ptr_t in_ptr = fa_in_ptr.read(wire_ptr);
     PointerLocation in_loc = fa_in_loc.read(wire_ptr);
     temp_v[0] = 
-      find_node_voltage(fa_pvt_voltage, fa_shr_voltage, fa_ghost_voltage, in_ptr, in_loc);
+      find_node_voltage(fa_pvt_voltage, fa_shr_voltage, /*fa_ghost_voltage,*/ in_ptr, in_loc);
     ptr_t out_ptr = fa_out_ptr.read(wire_ptr);
     PointerLocation out_loc = fa_out_loc.read(wire_ptr);
     temp_v[WIRE_SEGMENTS] = 
-      find_node_voltage(fa_pvt_voltage, fa_shr_voltage, fa_ghost_voltage, in_ptr, in_loc);
+      find_node_voltage(fa_pvt_voltage, fa_shr_voltage, /*fa_ghost_voltage,*/ in_ptr, in_loc);
 
     // Solve the RLC model iteratively
     float inductance = fa_inductance.read(wire_ptr);
@@ -163,7 +169,7 @@ __host__
 void CalcNewCurrentsTask::gpu_base_impl(int idx, const CircuitPiece &piece,
                                         const std::vector<PhysicalRegion> &regions)
 {
-  printf("PROF(%d) CNC starts at %lld ms\n", idx, Realm::Clock::current_time_in_microseconds() / 1000);
+  printf("[%d]PROF_CNC(%d) starts at %lld ms\n", piece.current_iteration, idx, Realm::Clock::current_time_in_microseconds() / 1000);
 #ifndef DISABLE_MATH
   RegionAccessor<AccessorType::Generic, float> fa_current[WIRE_SEGMENTS];
   for (int i = 0; i < WIRE_SEGMENTS; i++)
@@ -189,8 +195,10 @@ void CalcNewCurrentsTask::gpu_base_impl(int idx, const CircuitPiece &piece,
     regions[2].get_field_accessor(FID_NODE_VOLTAGE).typeify<float>();
   RegionAccessor<AccessorType::Generic, float> fa_shr_voltage =
     regions[3].get_field_accessor(FID_NODE_VOLTAGE).typeify<float>();
+#ifdef USE_INTER_NODE
   RegionAccessor<AccessorType::Generic, float> fa_ghost_voltage = 
     regions[4].get_field_accessor(FID_NODE_VOLTAGE).typeify<float>();
+#endif
   // We better be able to convert all of our accessors to SOA for the GPU
   // If no we'll assert.
   if (!fa_in_ptr.can_convert<AccessorType::SOA<0> >()) assert(false);
@@ -202,7 +210,9 @@ void CalcNewCurrentsTask::gpu_base_impl(int idx, const CircuitPiece &piece,
   if (!fa_wire_cap.can_convert<AccessorType::SOA<0> >()) assert(false);
   if (!fa_pvt_voltage.can_convert<AccessorType::SOA<0> >()) assert(false);
   if (!fa_shr_voltage.can_convert<AccessorType::SOA<0> >()) assert(false);
+#ifdef USE_INTER_NODE
   if (!fa_ghost_voltage.can_convert<AccessorType::SOA<0> >()) assert(false);
+#endif
   for (int i = 0; i < WIRE_SEGMENTS; i++)
     if (!fa_current[i].can_convert<AccessorType::SOA<0> >()) assert(false);
   for (int i = 0; i < (WIRE_SEGMENTS-1); i++)
@@ -226,8 +236,10 @@ void CalcNewCurrentsTask::gpu_base_impl(int idx, const CircuitPiece &piece,
     fa_pvt_voltage.convert<AccessorType::SOA<sizeof(float)> >();
   RegionAccessor<AccessorType::SOA<sizeof(float)>,float> soa_shr_voltage = 
     fa_shr_voltage.convert<AccessorType::SOA<sizeof(float)> >();
+#ifdef USE_INTER_NODE
   RegionAccessor<AccessorType::SOA<sizeof(float)>,float> soa_ghost_voltage = 
     fa_ghost_voltage.convert<AccessorType::SOA<sizeof(float)> >();
+#endif
   // Use malloc here to allocate memory without invoking default constructors
   // which would prematurely test the templated field condition
   RegionAccessor<AccessorType::SOA<sizeof(float)>,float> *soa_current = 
@@ -263,7 +275,9 @@ void CalcNewCurrentsTask::gpu_base_impl(int idx, const CircuitPiece &piece,
                                                              soa_wire_cap,
                                                              soa_pvt_voltage,
                                                              soa_shr_voltage,
+#ifdef USE_INTER_NODE
                                                              soa_ghost_voltage,
+#endif
                                                              current_segments,
                                                              voltage_segments);
 
@@ -277,7 +291,9 @@ template<typename REDOP, typename AT1, typename AT2>
 __device__ __forceinline__
 void reduce_local(const RegionAccessor<AT1, float> &pvt,
                   const RegionAccessor<AT2, float> &shr,
+#ifdef USE_INTER_NODE
                   const RegionAccessor<AT2, float> &ghost,
+#endif
                   ptr_t ptr, PointerLocation loc, typename REDOP::RHS value)
 {
   switch (loc)
@@ -288,9 +304,11 @@ void reduce_local(const RegionAccessor<AT1, float> &pvt,
     case SHARED_PTR:
       shr.reduce(ptr, value);
       break;
+#ifdef USE_INTER_NODE
     case GHOST_PTR:
       ghost.reduce(ptr, value);
       break;
+#endif
     default:
       break; // assert(false); // should never make it here
   }
@@ -308,8 +326,11 @@ void distribute_charge_kernel(ptr_t first,
                               RegionAccessor<AT1,float> fa_in_current,
                               RegionAccessor<AT1,float> fa_out_current,
                               RegionAccessor<AT1,float> fa_pvt_charge,
-                              RegionAccessor<AT3,float> fa_shr_charge,
-                              RegionAccessor<AT3,float> fa_ghost_charge)
+                              RegionAccessor<AT3,float> fa_shr_charge
+#ifdef USE_INTER_NODE
+                              ,RegionAccessor<AT3,float> fa_ghost_charge
+#endif
+                             )
 {
   const int tid = blockIdx.x * blockDim.x + threadIdx.x;
   
@@ -322,12 +343,12 @@ void distribute_charge_kernel(ptr_t first,
     
     ptr_t in_ptr = fa_in_ptr.read(wire_ptr);
     PointerLocation in_loc = fa_in_loc.read(wire_ptr);
-    reduce_local<GPUAccumulateCharge>(fa_pvt_charge, fa_shr_charge, fa_ghost_charge,
+    reduce_local<GPUAccumulateCharge>(fa_pvt_charge, fa_shr_charge, /*fa_ghost_charge,*/
                                       in_ptr, in_loc, in_dq);
 
     ptr_t out_ptr = fa_out_ptr.read(wire_ptr);
     PointerLocation out_loc = fa_out_loc.read(wire_ptr);
-    reduce_local<GPUAccumulateCharge>(fa_pvt_charge, fa_shr_charge, fa_ghost_charge,
+    reduce_local<GPUAccumulateCharge>(fa_pvt_charge, fa_shr_charge, /*fa_ghost_charge,*/
                                       out_ptr, out_loc, out_dq);
   }
 }
@@ -337,7 +358,7 @@ __host__
 void DistributeChargeTask::gpu_base_impl(int idx, const CircuitPiece &piece,
                                          const std::vector<PhysicalRegion> &regions)
 {
-  printf("PROF(%d) DC starts at %lld ms\n", idx, Realm::Clock::current_time_in_microseconds() / 1000);
+  printf("[%d]PROF_DC(%d) starts at %lld ms\n", piece.current_iteration, idx, Realm::Clock::current_time_in_microseconds() / 1000);
 #ifndef DISABLE_MATH
   RegionAccessor<AccessorType::Generic, ptr_t> fa_in_ptr = 
     regions[0].get_field_accessor(FID_IN_PTR).typeify<ptr_t>();
@@ -355,8 +376,10 @@ void DistributeChargeTask::gpu_base_impl(int idx, const CircuitPiece &piece,
     regions[1].get_field_accessor(FID_CHARGE).typeify<float>();
   RegionAccessor<AccessorType::Generic, float> fa_shr_charge = 
     regions[2].get_accessor().typeify<float>();
+#ifdef USE_INTER_NODE
   RegionAccessor<AccessorType::Generic, float> fa_ghost_charge =
     regions[3].get_accessor().typeify<float>();
+#endif
 
   if (!fa_in_ptr.can_convert<AccessorType::SOA<0> >()) assert(false);
   if (!fa_out_ptr.can_convert<AccessorType::SOA<0> >()) assert(false);
@@ -366,7 +389,9 @@ void DistributeChargeTask::gpu_base_impl(int idx, const CircuitPiece &piece,
   if (!fa_out_current.can_convert<AccessorType::SOA<0> >()) assert(false);
   if (!fa_pvt_charge.can_convert<AccessorType::SOA<0> >()) assert(false);
   if (!fa_shr_charge.can_convert<AccessorType::ReductionFold<GPUAccumulateCharge> >()) assert(false);
+#ifdef USE_INTER_NODE
   if (!fa_ghost_charge.can_convert<AccessorType::ReductionFold<GPUAccumulateCharge> >()) assert(false);
+#endif
 
   RegionAccessor<AccessorType::SOA<sizeof(ptr_t)>,ptr_t> soa_in_ptr = 
     fa_in_ptr.convert<AccessorType::SOA<sizeof(ptr_t)> >();
@@ -384,9 +409,10 @@ void DistributeChargeTask::gpu_base_impl(int idx, const CircuitPiece &piece,
     fa_pvt_charge.convert<AccessorType::SOA<sizeof(float)> >();
   RegionAccessor<AccessorType::ReductionFold<GPUAccumulateCharge>,float> fold_shr_charge = 
     fa_shr_charge.convert<AccessorType::ReductionFold<GPUAccumulateCharge> >();
+#ifdef USE_INTER_NODE
   RegionAccessor<AccessorType::ReductionFold<GPUAccumulateCharge>,float> fold_ghost_charge = 
     fa_ghost_charge.convert<AccessorType::ReductionFold<GPUAccumulateCharge> >();
-
+#endif
   const int threads_per_block = 256;
   const int num_blocks = (piece.num_wires + (threads_per_block-1)) / threads_per_block;
 
@@ -400,8 +426,11 @@ void DistributeChargeTask::gpu_base_impl(int idx, const CircuitPiece &piece,
                                                              soa_in_current,
                                                              soa_out_current,
                                                              soa_pvt_charge,
-                                                             fold_shr_charge,
-                                                             fold_ghost_charge);
+                                                             fold_shr_charge
+#ifdef USE_INTER_NODE
+                                                             ,fold_ghost_charge
+#endif
+                                                            );
 #endif
   //printf("PROF(%d) DC ends at %lld ms\n", idx, Realm::Clock::current_time_in_microseconds() / 1000);
 }
@@ -456,7 +485,7 @@ __host__
 void UpdateVoltagesTask::gpu_base_impl(int idx, const CircuitPiece &piece,
                                        const std::vector<PhysicalRegion> &regions)
 {
-  printf("PROF(%d) UV starts at %lld ms\n", idx, Realm::Clock::current_time_in_microseconds() / 1000);
+  printf("[%d]PROF_UV(%d) starts at %lld ms\n", piece.current_iteration, idx, Realm::Clock::current_time_in_microseconds() / 1000);
 #ifndef DISABLE_MATH
   RegionAccessor<AccessorType::Generic, float> fa_pvt_voltage = 
     regions[0].get_field_accessor(FID_NODE_VOLTAGE).typeify<float>();

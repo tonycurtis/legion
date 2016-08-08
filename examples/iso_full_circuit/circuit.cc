@@ -115,13 +115,6 @@ void top_level_task(const Task *task,
   Partitions parts = load_circuit(circuit, pieces, ctx, runtime, num_pieces, nodes_per_piece,
                                   wires_per_piece, pct_wire_in_piece, random_seed, steps);
 
-  // Arguments for each point
-  ArgumentMap local_args;
-  for (int idx = 0; idx < num_pieces; idx++)
-  {
-    DomainPoint point = DomainPoint::from_point<1>(Point<1>(idx));
-    local_args.set_point(point, TaskArgument(&(pieces[idx]),sizeof(CircuitPiece)));
-  }
   
   printf("[PROF] before init = %lld ms\n", Realm::Clock::current_time_in_microseconds() / 1000);
   // <NEW_COPY_TASK>
@@ -145,18 +138,6 @@ void top_level_task(const Task *task,
   // </NEW_COPY_TASK>>
   printf("[PROF] after init = %lld ms\n", Realm::Clock::current_time_in_microseconds() / 1000);
 
-  // Make the launchers
-  Rect<1> launch_rect(Point<1>(0), Point<1>(num_pieces-1)); 
-  Domain launch_domain = Domain::from_rect<1>(launch_rect);
-  CalcNewCurrentsTask cnc_launcher(parts.pvt_wires, parts.pvt_nodes, parts.shr_nodes, parts.ghost_nodes,
-                                   circuit.all_wires, circuit.all_nodes, launch_domain, local_args);
-
-  DistributeChargeTask dsc_launcher(parts.pvt_wires, parts.pvt_nodes, parts.shr_nodes, parts.ghost_nodes,
-                                    circuit.all_wires, circuit.all_nodes, launch_domain, local_args);
-
-  UpdateVoltagesTask upv_launcher(parts.pvt_nodes, parts.shr_nodes, parts.node_locations,
-                                 circuit.all_nodes, circuit.node_locator, launch_domain, local_args);
-
   printf("Starting main simulation loop\n");
   //struct timespec ts_start, ts_end;
   //clock_gettime(CLOCK_MONOTONIC, &ts_start);
@@ -166,6 +147,27 @@ void top_level_task(const Task *task,
   bool simulation_success = true;
   for (int i = 0; i < num_loops; i++)
   {
+    // Arguments for each point
+    ArgumentMap local_args;
+    for (int idx = 0; idx < num_pieces; idx++)
+    {
+      DomainPoint point = DomainPoint::from_point<1>(Point<1>(idx));
+      pieces[idx].current_iteration = i;
+      local_args.set_point(point, TaskArgument(&(pieces[idx]),sizeof(CircuitPiece)));
+    }
+
+    // Make the launchers
+    Rect<1> launch_rect(Point<1>(0), Point<1>(num_pieces-1)); 
+    Domain launch_domain = Domain::from_rect<1>(launch_rect);
+    CalcNewCurrentsTask cnc_launcher(parts.pvt_wires, parts.pvt_nodes, parts.shr_nodes, parts.ghost_nodes,
+                                     circuit.all_wires, circuit.all_nodes, launch_domain, local_args);
+
+    DistributeChargeTask dsc_launcher(parts.pvt_wires, parts.pvt_nodes, parts.shr_nodes, parts.ghost_nodes,
+                                      circuit.all_wires, circuit.all_nodes, launch_domain, local_args);
+
+    UpdateVoltagesTask upv_launcher(parts.pvt_nodes, parts.shr_nodes, parts.node_locations,
+                                   circuit.all_nodes, circuit.node_locator, launch_domain, local_args);
+
     TaskHelper::dispatch_task<CalcNewCurrentsTask>(cnc_launcher, ctx, runtime, 
                                                    perform_checks, simulation_success);
     TaskHelper::dispatch_task<DistributeChargeTask>(dsc_launcher, ctx, runtime, 
