@@ -15,6 +15,7 @@
 
 
 #include "circuit.h"
+#include <mpi.h>
 
 #include "cuda_runtime.h"
 
@@ -169,7 +170,9 @@ __host__
 void CalcNewCurrentsTask::gpu_base_impl(int idx, const CircuitPiece &piece,
                                         const std::vector<PhysicalRegion> &regions)
 {
-  printf("[%d]PROF_CNC(%d)[%d] starts at %lld ms\n", piece.current_iteration, idx, (unsigned int) gasnet_mynode(), Realm::Clock::current_time_in_microseconds() / 1000);
+  int my_rank = 0;	
+   MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);	
+  printf("[%d]PROF_CNC(%d)[%d][%d] starts at %lld ms\n", piece.current_iteration, idx, (unsigned int) gasnet_mynode(), (unsigned int)   my_rank, Realm::Clock::current_time_in_microseconds() / 1000);
 #ifndef DISABLE_MATH
   RegionAccessor<AccessorType::Generic, float> fa_current[WIRE_SEGMENTS];
   for (int i = 0; i < WIRE_SEGMENTS; i++)

@@ -136,7 +136,7 @@ void top_level_task(const Task *task,
   Future future = runtime->execute_task(ctx, copy_task_launcher);
   future.get_void_result();
   // </NEW_COPY_TASK>>
-  printf("[PROF][%d][%d] after init = %lld ms\n", (unsiged int) ganset_nodes(), (unsigned int) gasnet_mynode(), Realm::Clock::current_time_in_microseconds() / 1000);
+  printf("[PROF][%d][%d] after init = %lld ms\n", (unsigned int) gasnet_nodes(), (unsigned int) gasnet_mynode(), Realm::Clock::current_time_in_microseconds() / 1000);
 
   printf("Starting main simulation loop\n");
   //struct timespec ts_start, ts_end;
