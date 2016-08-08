@@ -162,6 +162,8 @@ void top_level_task(const Task *task,
     CalcNewCurrentsTask cnc_launcher(parts.pvt_wires, parts.pvt_nodes, parts.shr_nodes, parts.ghost_nodes,
                                      circuit.all_wires, circuit.all_nodes, launch_domain, local_args);
 
+    DummyTask dummy_launcher(parts.pvt_wires, circuit.all_wires, launch_domain, local_args);
+
     DistributeChargeTask dsc_launcher(parts.pvt_wires, parts.pvt_nodes, parts.shr_nodes, parts.ghost_nodes,
                                       circuit.all_wires, circuit.all_nodes, launch_domain, local_args);
 
@@ -170,6 +172,8 @@ void top_level_task(const Task *task,
 
     TaskHelper::dispatch_task<CalcNewCurrentsTask>(cnc_launcher, ctx, runtime, 
                                                    perform_checks, simulation_success);
+    TaskHelper::dispatch_task<DummyTask>(dummy_launcher, ctx, runtime,
+                                         perform_checks, simulation_success);
     TaskHelper::dispatch_task<DistributeChargeTask>(dsc_launcher, ctx, runtime, 
                                                     perform_checks, simulation_success);
     TaskHelper::dispatch_task<UpdateVoltagesTask>(upv_launcher, ctx, runtime, 
@@ -269,10 +273,12 @@ int main(int argc, char **argv)
   // If we're running on the shared low-level then only register cpu tasks
 #ifdef SHARED_LOWLEVEL
   TaskHelper::register_cpu_variants<CalcNewCurrentsTask>();
+  TaskHelper::register_cpu_variants<DummyTask>();
   TaskHelper::register_cpu_variants<DistributeChargeTask>();
   TaskHelper::register_cpu_variants<UpdateVoltagesTask>();
 #else
   TaskHelper::register_hybrid_variants<CalcNewCurrentsTask>();
+  TaskHelper::register_hybrid_variants<DummyTask>();
   TaskHelper::register_hybrid_variants<DistributeChargeTask>();
   TaskHelper::register_hybrid_variants<UpdateVoltagesTask>();
 #endif

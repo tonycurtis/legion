@@ -170,9 +170,9 @@ __host__
 void CalcNewCurrentsTask::gpu_base_impl(int idx, const CircuitPiece &piece,
                                         const std::vector<PhysicalRegion> &regions)
 {
-  int my_rank = 0;	
-   MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);	
-  printf("[%d]PROF_CNC(%d)[%d][%d] starts at %lld ms\n", piece.current_iteration, idx, (unsigned int) gasnet_mynode(), (unsigned int)   my_rank, Realm::Clock::current_time_in_microseconds() / 1000);
+  int my_rank = 0;
+  MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
+  printf("[%d]PROF_CNC(%d)(%d) starts at %lld ms\n", piece.current_iteration, idx, my_rank, Realm::Clock::current_time_in_microseconds() / 1000);
 #ifndef DISABLE_MATH
   RegionAccessor<AccessorType::Generic, float> fa_current[WIRE_SEGMENTS];
   for (int i = 0; i < WIRE_SEGMENTS; i++)
@@ -288,6 +288,15 @@ void CalcNewCurrentsTask::gpu_base_impl(int idx, const CircuitPiece &piece,
   free(soa_voltage);
 #endif
   //printf("PROF(%d) CNC ends at %lld ms\n", idx, Realm::Clock::current_time_in_microseconds() / 1000);
+}
+
+__host__
+void DummyTask::gpu_base_impl(int idx, const CircuitPiece &piece,
+                              const std::vector<PhysicalRegion> &regions)
+{
+  int my_rank = 0;
+  MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
+  printf("[%d]PROF_DUMMY(%d)(%d) starts at %lld ms\n", piece.current_iteration, idx, my_rank, Realm::Clock::current_time_in_microseconds() / 1000);
 }
 
 template<typename REDOP, typename AT1, typename AT2>

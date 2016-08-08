@@ -466,6 +466,35 @@ void CalcNewCurrentsTask::cpu_base_impl(const CircuitPiece &p,
 #endif
 }
 
+DummyTask::DummyTask(LogicalPartition lp_pvt_wires,
+                     LogicalRegion lr_all_wires,
+                     const Domain &launch_domain,
+                     const ArgumentMap &arg_map)
+ : IndexLauncher(DummyTask::TASK_ID, launch_domain, TaskArgument(), arg_map,
+                 Predicate::TRUE_PRED, false/*must*/, DummyTask::MAPPER_ID)
+{
+  RegionRequirement rr_out(lp_pvt_wires, 0/*identity*/, 
+                           READ_ONLY, EXCLUSIVE, lr_all_wires);
+  for (int i = 0; i < WIRE_SEGMENTS; i++)
+    rr_out.add_field(FID_CURRENT+i);
+  for (int i = 0; i < (WIRE_SEGMENTS-1); i++)
+    rr_out.add_field(FID_WIRE_VOLTAGE+i);
+  add_region_requirement(rr_out);
+}
+
+bool DummyTask::launch_check_fields(Context ctx, HighLevelRuntime *runtime)
+{
+  return true;
+}
+
+/*static*/ const char * const DummyTask::TASK_NAME = "dummy_task";
+
+void DummyTask::cpu_base_impl(const CircuitPiece &p,
+                              const std::vector<PhysicalRegion> &regions,
+                              Context ctx, HighLevelRuntime* rt)
+{
+}
+
 DistributeChargeTask::DistributeChargeTask(LogicalPartition lp_pvt_wires,
                                            LogicalPartition lp_pvt_nodes,
                                            LogicalPartition lp_shr_nodes,
