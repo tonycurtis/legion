@@ -1,0 +1,2699 @@
+Currently Loaded Modulefiles:
+  1) gcc/4.8.2         3) java/1.8.0_45
+  2) openmpi/1.6.5     4) cudatoolkit/7.5
+cputime      unlimited
+filesize     unlimited
+datasize     unlimited
+stacksize    unlimited
+coredumpsize unlimited
+memoryuse    unlimited
+vmemoryuse   unlimited
+descriptors  65536 
+memorylocked unlimited
+maxproc      8192 
+Mon Aug  8 08:20:52 MDT 2016
+374092
+running 32 nodes dma_circuit branch
+Reported: 32 (out of 32) daemons - 32 (out of 32) procs
+[0 - 2ba45d01e700] {3}{circuit}: circuit settings: loops=20 pieces=32 nodes/piece=250000 wires/piece=500000 pct_in_piece=95 seed=12345
+[0 - 2ba45d01e700] {3}{circuit}: Initializing circuit simulation...
+#privates = 226520, #shared = 23480, #ghose = 24787
+#privates = 226176, #shared = 23824, #ghose = 25148
+#privates = 226031, #shared = 23969, #ghose = 25026
+#privates = 226186, #shared = 23814, #ghose = 25222
+#privates = 226238, #shared = 23762, #ghose = 25168
+#privates = 226247, #shared = 23753, #ghose = 25114
+#privates = 226112, #shared = 23888, #ghose = 24938
+#privates = 226104, #shared = 23896, #ghose = 25006
+#privates = 226053, #shared = 23947, #ghose = 24902
+#privates = 226029, #shared = 23971, #ghose = 25073
+#privates = 226197, #shared = 23803, #ghose = 25030
+#privates = 226274, #shared = 23726, #ghose = 25050
+#privates = 226226, #shared = 23774, #ghose = 25140
+#privates = 226176, #shared = 23824, #ghose = 24921
+#privates = 226236, #shared = 23764, #ghose = 24945
+#privates = 226019, #shared = 23981, #ghose = 25087
+#privates = 226122, #shared = 23878, #ghose = 24759
+#privates = 226182, #shared = 23818, #ghose = 24913
+#privates = 226179, #shared = 23821, #ghose = 24941
+#privates = 226371, #shared = 23629, #ghose = 24961
+#privates = 225881, #shared = 24119, #ghose = 24990
+#privates = 226262, #shared = 23738, #ghose = 25159
+#privates = 226196, #shared = 23804, #ghose = 24571
+#privates = 226347, #shared = 23653, #ghose = 24963
+#privates = 226139, #shared = 23861, #ghose = 25204
+#privates = 226036, #shared = 23964, #ghose = 24927
+#privates = 226396, #shared = 23604, #ghose = 24842
+#privates = 226367, #shared = 23633, #ghose = 25086
+#privates = 226152, #shared = 23848, #ghose = 24994
+#privates = 225871, #shared = 24129, #ghose = 25130
+#privates = 226285, #shared = 23715, #ghose = 25129
+#privates = 226135, #shared = 23865, #ghose = 24960
+[0 - 2ba45d01e700] {3}{circuit}: Finished initializing simulation...
+[PROF] before init = 55814 ms
+[PROF] after init = 56806 ms
+Starting main simulation loop
+[0 - 2ba45d016700] {4}{runtime}: Region requirements 3 and 3 of index task calc_new_currents (UID 320) in parent task top_level (UID 32) are interfering.  This behavior is currently undefined. You better really know what you are doing.
+[0 - 2ba45d016700] {4}{runtime}: Region requirements 2 and 2 of index task distribute_charge (UID 352) in parent task top_level (UID 32) are interfering.  This behavior is currently undefined. You better really know what you are doing.
+[0 - 2ba45d016700] {4}{runtime}: Region requirements 3 and 3 of index task calc_new_currents (UID 416) in parent task top_level (UID 32) are interfering.  This behavior is currently undefined. You better really know what you are doing.
+[0 - 2ba45d016700] {4}{runtime}: Region requirements 2 and 2 of index task distribute_charge (UID 448) in parent task top_level (UID 32) are interfering.  This behavior is currently undefined. You better really know what you are doing.
+[0 - 2ba45d016700] {4}{runtime}: Region requirements 3 and 3 of index task calc_new_currents (UID 512) in parent task top_level (UID 32) are interfering.  This behavior is currently undefined. You better really know what you are doing.
+[0 - 2ba45d016700] {4}{runtime}: Region requirements 2 and 2 of index task distribute_charge (UID 544) in parent task top_level (UID 32) are interfering.  This behavior is currently undefined. You better really know what you are doing.
+[0 - 2ba45d016700] {4}{runtime}: Region requirements 3 and 3 of index task calc_new_currents (UID 608) in parent task top_level (UID 32) are interfering.  This behavior is currently undefined. You better really know what you are doing.
+[0 - 2ba45d016700] {4}{runtime}: Region requirements 2 and 2 of index task distribute_charge (UID 640) in parent task top_level (UID 32) are interfering.  This behavior is currently undefined. You better really know what you are doing.
+[0 - 2ba45d016700] {4}{runtime}: Region requirements 3 and 3 of index task calc_new_currents (UID 704) in parent task top_level (UID 32) are interfering.  This behavior is currently undefined. You better really know what you are doing.
+[0 - 2ba45d016700] {4}{runtime}: Region requirements 2 and 2 of index task distribute_charge (UID 736) in parent task top_level (UID 32) are interfering.  This behavior is currently undefined. You better really know what you are doing.
+[0 - 2ba45d016700] {4}{runtime}: Region requirements 3 and 3 of index task calc_new_currents (UID 800) in parent task top_level (UID 32) are interfering.  This behavior is currently undefined. You better really know what you are doing.
+[0 - 2ba45d016700] {4}{runtime}: Region requirements 2 and 2 of index task distribute_charge (UID 832) in parent task top_level (UID 32) are interfering.  This behavior is currently undefined. You better really know what you are doing.
+[0 - 2ba45d016700] {4}{runtime}: Region requirements 3 and 3 of index task calc_new_currents (UID 896) in parent task top_level (UID 32) are interfering.  This behavior is currently undefined. You better really know what you are doing.
+[0 - 2ba45d016700] {4}{runtime}: Region requirements 2 and 2 of index task distribute_charge (UID 928) in parent task top_level (UID 32) are interfering.  This behavior is currently undefined. You better really know what you are doing.
+[0 - 2ba45d016700] {4}{runtime}: Region requirements 3 and 3 of index task calc_new_currents (UID 992) in parent task top_level (UID 32) are interfering.  This behavior is currently undefined. You better really know what you are doing.
+[0 - 2ba45d016700] {4}{runtime}: Region requirements 2 and 2 of index task distribute_charge (UID 1024) in parent task top_level (UID 32) are interfering.  This behavior is currently undefined. You better really know what you are doing.
+[0 - 2ba45d016700] {4}{runtime}: Region requirements 3 and 3 of index task calc_new_currents (UID 1088) in parent task top_level (UID 32) are interfering.  This behavior is currently undefined. You better really know what you are doing.
+[0 - 2ba45d016700] {4}{runtime}: Region requirements 2 and 2 of index task distribute_charge (UID 1120) in parent task top_level (UID 32) are interfering.  This behavior is currently undefined. You better really know what you are doing.
+[0 - 2ba45d016700] {4}{runtime}: Region requirements 3 and 3 of index task calc_new_currents (UID 1184) in parent task top_level (UID 32) are interfering.  This behavior is currently undefined. You better really know what you are doing.
+[0 - 2ba45d016700] {4}{runtime}: Region requirements 2 and 2 of index task distribute_charge (UID 1216) in parent task top_level (UID 32) are interfering.  This behavior is currently undefined. You better really know what you are doing.
+[0 - 2ba45d016700] {4}{runtime}: Region requirements 3 and 3 of index task calc_new_currents (UID 1280) in parent task top_level (UID 32) are interfering.  This behavior is currently undefined. You better really know what you are doing.
+[0 - 2ba45d016700] {4}{runtime}: Region requirements 2 and 2 of index task distribute_charge (UID 1312) in parent task top_level (UID 32) are interfering.  This behavior is currently undefined. You better really know what you are doing.
+[0 - 2ba45d016700] {4}{runtime}: Region requirements 3 and 3 of index task calc_new_currents (UID 1376) in parent task top_level (UID 32) are interfering.  This behavior is currently undefined. You better really know what you are doing.
+[0 - 2ba45d016700] {4}{runtime}: Region requirements 2 and 2 of index task distribute_charge (UID 1408) in parent task top_level (UID 32) are interfering.  This behavior is currently undefined. You better really know what you are doing.
+[0 - 2ba45d016700] {4}{runtime}: Region requirements 3 and 3 of index task calc_new_currents (UID 1472) in parent task top_level (UID 32) are interfering.  This behavior is currently undefined. You better really know what you are doing.
+[0 - 2ba45d016700] {4}{runtime}: Region requirements 2 and 2 of index task distribute_charge (UID 1504) in parent task top_level (UID 32) are interfering.  This behavior is currently undefined. You better really know what you are doing.
+[0 - 2ba45d016700] {4}{runtime}: Region requirements 3 and 3 of index task calc_new_currents (UID 1568) in parent task top_level (UID 32) are interfering.  This behavior is currently undefined. You better really know what you are doing.
+[0 - 2ba45d016700] {4}{runtime}: Region requirements 2 and 2 of index task distribute_charge (UID 1600) in parent task top_level (UID 32) are interfering.  This behavior is currently undefined. You better really know what you are doing.
+[0 - 2ba45d016700] {4}{runtime}: Region requirements 3 and 3 of index task calc_new_currents (UID 1664) in parent task top_level (UID 32) are interfering.  This behavior is currently undefined. You better really know what you are doing.
+[0 - 2ba45d016700] {4}{runtime}: Region requirements 2 and 2 of index task distribute_charge (UID 1696) in parent task top_level (UID 32) are interfering.  This behavior is currently undefined. You better really know what you are doing.
+[0 - 2ba45d016700] {4}{runtime}: Region requirements 3 and 3 of index task calc_new_currents (UID 1760) in parent task top_level (UID 32) are interfering.  This behavior is currently undefined. You better really know what you are doing.
+[0 - 2ba45d016700] {4}{runtime}: Region requirements 2 and 2 of index task distribute_charge (UID 1792) in parent task top_level (UID 32) are interfering.  This behavior is currently undefined. You better really know what you are doing.
+[0 - 2ba45d016700] {4}{runtime}: Region requirements 3 and 3 of index task calc_new_currents (UID 1856) in parent task top_level (UID 32) are interfering.  This behavior is currently undefined. You better really know what you are doing.
+[0 - 2ba45d016700] {4}{runtime}: Region requirements 2 and 2 of index task distribute_charge (UID 1888) in parent task top_level (UID 32) are interfering.  This behavior is currently undefined. You better really know what you are doing.
+[0 - 2ba45d016700] {4}{runtime}: Region requirements 3 and 3 of index task calc_new_currents (UID 1952) in parent task top_level (UID 32) are interfering.  This behavior is currently undefined. You better really know what you are doing.
+[0 - 2ba45d016700] {4}{runtime}: Region requirements 2 and 2 of index task distribute_charge (UID 1984) in parent task top_level (UID 32) are interfering.  This behavior is currently undefined. You better really know what you are doing.
+[0 - 2ba45d016700] {4}{runtime}: Region requirements 3 and 3 of index task calc_new_currents (UID 2048) in parent task top_level (UID 32) are interfering.  This behavior is currently undefined. You better really know what you are doing.
+[0 - 2ba45d016700] {4}{runtime}: Region requirements 2 and 2 of index task distribute_charge (UID 2080) in parent task top_level (UID 32) are interfering.  This behavior is currently undefined. You better really know what you are doing.
+PROF(0) CNC starts at 56958 ms
+PROF(0) DC starts at 59596 ms
+PROF(16) CNC starts at 59976 ms
+PROF(10) CNC starts at 59981 ms
+PROF(31) CNC starts at 60041 ms
+PROF(14) CNC starts at 60109 ms
+PROF(3) CNC starts at 60178 ms
+PROF(11) CNC starts at 60188 ms
+PROF(15) CNC starts at 60189 ms
+PROF(5) CNC starts at 60190 ms
+PROF(2) CNC starts at 60211 ms
+PROF(12) CNC starts at 60252 ms
+PROF(13) CNC starts at 60253 ms
+PROF(7) CNC starts at 60258 ms
+PROF(22) CNC starts at 60280 ms
+PROF(9) CNC starts at 60280 ms
+PROF(6) CNC starts at 60287 ms
+PROF(19) CNC starts at 60287 ms
+PROF(20) CNC starts at 60288 ms
+PROF(17) CNC starts at 60289 ms
+PROF(25) CNC starts at 60289 ms
+PROF(8) CNC starts at 60295 ms
+PROF(23) CNC starts at 60301 ms
+PROF(18) CNC starts at 60302 ms
+PROF(29) CNC starts at 60303 ms
+PROF(4) CNC starts at 60304 ms
+PROF(21) CNC starts at 60311 ms
+PROF(28) CNC starts at 60313 ms
+PROF(27) CNC starts at 60313 ms
+PROF(24) CNC starts at 60314 ms
+PROF(30) CNC starts at 60315 ms
+PROF(1) CNC starts at 60315 ms
+PROF(26) CNC starts at 60319 ms
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00010000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00020000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00030000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00040000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00050000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00060000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00070000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00080000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00090000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000f0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00100000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00110000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00120000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00130000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00140000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00150000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00160000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00170000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00180000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00190000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001f0000000002!
+PROF(10) DC starts at 60783 ms
+PROF(16) DC starts at 60789 ms
+PROF(31) DC starts at 60790 ms
+PROF(3) DC starts at 60793 ms
+PROF(14) DC starts at 60797 ms
+PROF(11) DC starts at 60803 ms
+PROF(15) DC starts at 60804 ms
+PROF(5) DC starts at 60805 ms
+PROF(2) DC starts at 60824 ms
+PROF(12) DC starts at 60867 ms
+PROF(13) DC starts at 60869 ms
+PROF(7) DC starts at 60873 ms
+PROF(22) DC starts at 60892 ms
+PROF(9) DC starts at 60896 ms
+PROF(6) DC starts at 60900 ms
+PROF(20) DC starts at 60900 ms
+PROF(19) DC starts at 60902 ms
+PROF(17) DC starts at 60904 ms
+PROF(25) DC starts at 60905 ms
+PROF(8) DC starts at 60908 ms
+PROF(18) DC starts at 60915 ms
+PROF(23) DC starts at 60917 ms
+PROF(4) DC starts at 60917 ms
+PROF(29) DC starts at 60918 ms
+PROF(21) DC starts at 60923 ms
+PROF(28) DC starts at 60925 ms
+PROF(1) DC starts at 60927 ms
+PROF(27) DC starts at 60928 ms
+PROF(24) DC starts at 60929 ms
+PROF(30) DC starts at 60930 ms
+PROF(26) DC starts at 60934 ms
+PROF(0) UV starts at 61009 ms
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e00010000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e00020000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e00030000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e00040000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e00050000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e00060000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e00070000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e00080000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e00090000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e000a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e000b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e000c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e000d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e000e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e000f0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e00100000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e00110000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e00120000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e00130000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e00140000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e00150000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e00160000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e00170000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e00180000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e00190000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e001a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e001b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e001c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e001d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e001e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e001f0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e00020000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e00030000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e00010000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e00050000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e00040000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e00070000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e00090000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e000a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e00080000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e000e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e000b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e000c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e000f0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e00100000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e00110000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e00120000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e00130000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e000d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e00160000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e00140000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e00170000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e00060000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e00150000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e001c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e001d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e00180000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e001f0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e001e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e001a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e001b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000002 and 1e00190000000002!
+PROF(4) UV starts at 61469 ms
+PROF(3) UV starts at 61474 ms
+PROF(11) UV starts at 61481 ms
+PROF(9) UV starts at 61481 ms
+PROF(2) UV starts at 61482 ms
+PROF(16) UV starts at 61483 ms
+PROF(24) UV starts at 61483 ms
+PROF(30) UV starts at 61483 ms
+PROF(13) UV starts at 61483 ms
+PROF(29) UV starts at 61484 ms
+PROF(1) UV starts at 61484 ms
+PROF(6) UV starts at 61484 ms
+PROF(7) UV starts at 61484 ms
+PROF(10) UV starts at 61485 ms
+PROF(8) UV starts at 61485 ms
+PROF(31) UV starts at 61487 ms
+PROF(14) UV starts at 61488 ms
+PROF(27) UV starts at 61487 ms
+PROF(17) UV starts at 61488 ms
+PROF(18) UV starts at 61488 ms
+PROF(15) UV starts at 61488 ms
+PROF(5) UV starts at 61487 ms
+PROF(25) UV starts at 61489 ms
+PROF(20) UV starts at 61489 ms
+PROF(23) UV starts at 61489 ms
+PROF(19) UV starts at 61489 ms
+PROF(21) UV starts at 61489 ms
+PROF(28) UV starts at 61492 ms
+PROF(26) UV starts at 61492 ms
+PROF(22) UV starts at 61492 ms
+PROF(12) UV starts at 61492 ms
+PROF(0) CNC starts at 61563 ms
+PROF(1) CNC starts at 61562 ms
+PROF(2) CNC starts at 61568 ms
+PROF(3) CNC starts at 61575 ms
+PROF(4) CNC starts at 61578 ms
+PROF(5) CNC starts at 61580 ms
+PROF(6) CNC starts at 61583 ms
+PROF(7) CNC starts at 61585 ms
+PROF(8) CNC starts at 61588 ms
+PROF(9) CNC starts at 61589 ms
+PROF(10) CNC starts at 61592 ms
+PROF(11) CNC starts at 61592 ms
+PROF(12) CNC starts at 61594 ms
+PROF(13) CNC starts at 61595 ms
+PROF(14) CNC starts at 61597 ms
+PROF(15) CNC starts at 61599 ms
+PROF(16) CNC starts at 61600 ms
+PROF(17) CNC starts at 61602 ms
+PROF(18) CNC starts at 61608 ms
+PROF(19) CNC starts at 61609 ms
+PROF(20) CNC starts at 61610 ms
+PROF(21) CNC starts at 61612 ms
+PROF(22) CNC starts at 61613 ms
+PROF(23) CNC starts at 61615 ms
+PROF(24) CNC starts at 61618 ms
+PROF(25) CNC starts at 61619 ms
+PROF(26) CNC starts at 61621 ms
+PROF(27) CNC starts at 61624 ms
+PROF(28) CNC starts at 61627 ms
+PROF(29) CNC starts at 61630 ms
+PROF(30) CNC starts at 61632 ms
+PROF(31) CNC starts at 61634 ms
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00010000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00020000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00030000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00040000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00050000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00060000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00070000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00080000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00090000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000f0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00100000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00110000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00120000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00130000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00140000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00150000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00160000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00170000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00180000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00190000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001f0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00010000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00020000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00030000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00040000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00050000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00060000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00070000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00080000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00090000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000f0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00100000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00110000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00120000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00130000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00140000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00150000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00160000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00170000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00180000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00190000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001f0000000002!
+PROF(0) DC starts at 62173 ms
+PROF(1) DC starts at 62173 ms
+PROF(2) DC starts at 62179 ms
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00010000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00020000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00030000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00040000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00050000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00060000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00070000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00080000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00090000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000f0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00100000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00110000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00120000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00130000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00140000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00150000000002!
+PROF(3) DC starts at 62186 ms
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00160000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00170000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00180000000002!
+PROF(4) DC starts at 62189 ms
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00190000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001c0000000002!
+PROF(5) DC starts at 62191 ms
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001f0000000002!
+PROF(6) DC starts at 62194 ms
+PROF(7) DC starts at 62196 ms
+PROF(8) DC starts at 62199 ms
+PROF(9) DC starts at 62200 ms
+PROF(10) DC starts at 62203 ms
+PROF(11) DC starts at 62204 ms
+PROF(12) DC starts at 62205 ms
+PROF(13) DC starts at 62206 ms
+PROF(14) DC starts at 62208 ms
+PROF(15) DC starts at 62210 ms
+PROF(16) DC starts at 62211 ms
+PROF(17) DC starts at 62213 ms
+PROF(18) DC starts at 62219 ms
+PROF(19) DC starts at 62220 ms
+PROF(20) DC starts at 62222 ms
+PROF(21) DC starts at 62223 ms
+PROF(22) DC starts at 62224 ms
+PROF(23) DC starts at 62226 ms
+PROF(24) DC starts at 62228 ms
+PROF(25) DC starts at 62230 ms
+PROF(26) DC starts at 62232 ms
+PROF(27) DC starts at 62235 ms
+PROF(28) DC starts at 62239 ms
+PROF(29) DC starts at 62241 ms
+PROF(30) DC starts at 62242 ms
+PROF(31) DC starts at 62245 ms
+PROF(0) UV starts at 62264 ms
+PROF(15) UV starts at 62267 ms
+PROF(21) UV starts at 62267 ms
+PROF(1) UV starts at 62267 ms
+PROF(5) UV starts at 62267 ms
+PROF(22) UV starts at 62267 ms
+PROF(16) UV starts at 62267 ms
+PROF(12) UV starts at 62267 ms
+PROF(14) UV starts at 62267 ms
+PROF(30) UV starts at 62267 ms
+PROF(3) UV starts at 62267 ms
+PROF(25) UV starts at 62268 ms
+PROF(17) UV starts at 62267 ms
+PROF(13) UV starts at 62267 ms
+PROF(10) UV starts at 62268 ms
+PROF(23) UV starts at 62267 ms
+PROF(24) UV starts at 62267 ms
+PROF(20) UV starts at 62268 ms
+PROF(11) UV starts at 62267 ms
+PROF(2) UV starts at 62267 ms
+PROF(28) UV starts at 62268 ms
+PROF(19) UV starts at 62268 ms
+PROF(9) UV starts at 62267 ms
+PROF(8) UV starts at 62267 ms
+PROF(29) UV starts at 62268 ms
+PROF(4) UV starts at 62267 ms
+PROF(26) UV starts at 62267 ms
+PROF(7) UV starts at 62267 ms
+PROF(18) UV starts at 62268 ms
+PROF(31) UV starts at 62268 ms
+PROF(6) UV starts at 62267 ms
+PROF(27) UV starts at 62268 ms
+PROF(0) CNC starts at 62272 ms
+PROF(2) CNC starts at 62272 ms
+PROF(7) CNC starts at 62273 ms
+PROF(3) CNC starts at 62273 ms
+PROF(8) CNC starts at 62273 ms
+PROF(9) CNC starts at 62273 ms
+PROF(4) CNC starts at 62273 ms
+PROF(15) CNC starts at 62273 ms
+PROF(5) CNC starts at 62273 ms
+PROF(1) CNC starts at 62273 ms
+PROF(6) CNC starts at 62273 ms
+PROF(16) CNC starts at 62273 ms
+PROF(10) CNC starts at 62273 ms
+PROF(12) CNC starts at 62273 ms
+PROF(14) CNC starts at 62273 ms
+PROF(25) CNC starts at 62274 ms
+PROF(11) CNC starts at 62273 ms
+PROF(17) CNC starts at 62273 ms
+PROF(13) CNC starts at 62273 ms
+PROF(20) CNC starts at 62273 ms
+PROF(23) CNC starts at 62274 ms
+PROF(28) CNC starts at 62274 ms
+PROF(19) CNC starts at 62274 ms
+PROF(21) CNC starts at 62273 ms
+PROF(26) CNC starts at 62274 ms
+PROF(29) CNC starts at 62274 ms
+PROF(22) CNC starts at 62274 ms
+PROF(31) CNC starts at 62274 ms
+PROF(27) CNC starts at 62274 ms
+PROF(30) CNC starts at 62274 ms
+PROF(24) CNC starts at 62274 ms
+PROF(18) CNC starts at 62273 ms
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00010000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00020000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00030000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00040000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00050000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00060000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00070000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00080000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00090000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000f0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00100000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00110000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00120000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00130000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00140000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00150000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00160000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00170000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00180000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00190000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001f0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00010000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00020000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00030000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00040000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00050000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00060000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00070000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00080000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00090000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000f0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00100000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00110000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00120000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00130000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00140000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00150000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00160000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00170000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00180000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00190000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001f0000000002!
+PROF(0) DC starts at 62882 ms
+PROF(3) DC starts at 62884 ms
+PROF(11) DC starts at 62884 ms
+PROF(13) DC starts at 62884 ms
+PROF(4) DC starts at 62884 ms
+PROF(9) DC starts at 62884 ms
+PROF(1) DC starts at 62883 ms
+PROF(6) DC starts at 62884 ms
+PROF(15) DC starts at 62884 ms
+PROF(5) DC starts at 62884 ms
+PROF(22) DC starts at 62884 ms
+PROF(14) DC starts at 62884 ms
+PROF(12) DC starts at 62884 ms
+PROF(24) DC starts at 62885 ms
+PROF(2) DC starts at 62884 ms
+PROF(25) DC starts at 62885 ms
+PROF(10) DC starts at 62884 ms
+PROF(17) DC starts at 62885 ms
+PROF(23) DC starts at 62885 ms
+PROF(28) DC starts at 62885 ms
+PROF(20) DC starts at 62884 ms
+PROF(8) DC starts at 62884 ms
+PROF(19) DC starts at 62885 ms
+PROF(26) DC starts at 62885 ms
+PROF(21) DC starts at 62885 ms
+PROF(31) DC starts at 62885 ms
+PROF(16) DC starts at 62885 ms
+PROF(27) DC starts at 62885 ms
+PROF(30) DC starts at 62885 ms
+PROF(7) DC starts at 62885 ms
+PROF(18) DC starts at 62884 ms
+PROF(29) DC starts at 62886 ms
+PROF(2) UV starts at 63993 ms
+PROF(1) UV starts at 63993 ms
+PROF(6) UV starts at 63993 ms
+PROF(4) UV starts at 63993 ms
+PROF(0) UV starts at 63994 ms
+PROF(5) UV starts at 63993 ms
+PROF(10) UV starts at 63994 ms
+PROF(3) UV starts at 63993 ms
+PROF(7) UV starts at 63993 ms
+PROF(9) UV starts at 63993 ms
+PROF(13) UV starts at 63994 ms
+PROF(8) UV starts at 63993 ms
+PROF(22) UV starts at 63994 ms
+PROF(15) UV starts at 63994 ms
+PROF(12) UV starts at 63994 ms
+PROF(16) UV starts at 63994 ms
+PROF(14) UV starts at 63994 ms
+PROF(24) UV starts at 63995 ms
+PROF(17) UV starts at 63994 ms
+PROF(25) UV starts at 63995 ms
+PROF(23) UV starts at 63995 ms
+PROF(28) UV starts at 63995 ms
+PROF(20) UV starts at 63994 ms
+PROF(19) UV starts at 63994 ms
+PROF(18) UV starts at 63994 ms
+PROF(21) UV starts at 63994 ms
+PROF(26) UV starts at 63995 ms
+PROF(11) UV starts at 63995 ms
+PROF(31) UV starts at 63997 ms
+PROF(27) UV starts at 63997 ms
+PROF(29) UV starts at 63997 ms
+PROF(30) UV starts at 63999 ms
+PROF(0) CNC starts at 64008 ms
+PROF(30) CNC starts at 64012 ms
+PROF(20) CNC starts at 64013 ms
+PROF(29) CNC starts at 64013 ms
+PROF(22) CNC starts at 64013 ms
+PROF(6) CNC starts at 64013 ms
+PROF(4) CNC starts at 64014 ms
+PROF(21) CNC starts at 64014 ms
+PROF(2) CNC starts at 64014 ms
+PROF(31) CNC starts at 64015 ms
+PROF(14) CNC starts at 64015 ms
+PROF(17) CNC starts at 64016 ms
+PROF(10) CNC starts at 64016 ms
+PROF(11) CNC starts at 64016 ms
+PROF(24) CNC starts at 64015 ms
+PROF(3) CNC starts at 64016 ms
+PROF(8) CNC starts at 64016 ms
+PROF(5) CNC starts at 64016 ms
+PROF(7) CNC starts at 64014 ms
+PROF(1) CNC starts at 64016 ms
+PROF(18) CNC starts at 64016 ms
+PROF(9) CNC starts at 64016 ms
+PROF(28) CNC starts at 64016 ms
+PROF(23) CNC starts at 64016 ms
+PROF(26) CNC starts at 64016 ms
+PROF(15) CNC starts at 64016 ms
+PROF(19) CNC starts at 64016 ms
+PROF(27) CNC starts at 64016 ms
+PROF(12) CNC starts at 64016 ms
+PROF(16) CNC starts at 64016 ms
+PROF(25) CNC starts at 64016 ms
+PROF(13) CNC starts at 64016 ms
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00010000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00020000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00030000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00040000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00050000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00060000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00070000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00080000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00090000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000f0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00100000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00110000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00120000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00130000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00140000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00150000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00160000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00170000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00180000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00190000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001f0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00010000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00020000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00030000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00040000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00050000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00060000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00070000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00080000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00090000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000f0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00100000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00110000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00120000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00130000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00140000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00150000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00160000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00170000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00180000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00190000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001f0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00010000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00020000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00030000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00040000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00050000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00060000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00070000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00080000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00090000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000f0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00100000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00110000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00120000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00130000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00140000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00150000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00160000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00170000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00180000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00190000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001f0000000002!
+PROF(0) DC starts at 64618 ms
+PROF(30) DC starts at 64623 ms
+PROF(20) DC starts at 64624 ms
+PROF(29) DC starts at 64624 ms
+PROF(22) DC starts at 64624 ms
+PROF(4) DC starts at 64625 ms
+PROF(6) DC starts at 64624 ms
+PROF(21) DC starts at 64625 ms
+PROF(2) DC starts at 64625 ms
+PROF(31) DC starts at 64626 ms
+PROF(16) DC starts at 64626 ms
+PROF(27) DC starts at 64626 ms
+PROF(12) DC starts at 64627 ms
+PROF(24) DC starts at 64626 ms
+PROF(17) DC starts at 64627 ms
+PROF(25) DC starts at 64627 ms
+PROF(7) DC starts at 64625 ms
+PROF(23) DC starts at 64627 ms
+PROF(28) DC starts at 64627 ms
+PROF(18) DC starts at 64627 ms
+PROF(19) DC starts at 64627 ms
+PROF(8) DC starts at 64627 ms
+PROF(9) DC starts at 64627 ms
+PROF(15) DC starts at 64627 ms
+PROF(26) DC starts at 64627 ms
+PROF(1) DC starts at 64627 ms
+PROF(5) DC starts at 64627 ms
+PROF(14) DC starts at 64627 ms
+PROF(11) DC starts at 64627 ms
+PROF(10) DC starts at 64627 ms
+PROF(3) DC starts at 64627 ms
+PROF(13) DC starts at 64627 ms
+PROF(13) UV starts at 66802 ms
+PROF(6) UV starts at 66802 ms
+PROF(22) UV starts at 66802 ms
+PROF(2) UV starts at 66802 ms
+PROF(20) UV starts at 66802 ms
+PROF(19) UV starts at 66802 ms
+PROF(18) UV starts at 66803 ms
+PROF(23) UV starts at 66803 ms
+PROF(0) UV starts at 66804 ms
+PROF(27) UV starts at 66806 ms
+PROF(14) UV starts at 66806 ms
+PROF(21) UV starts at 66806 ms
+PROF(9) UV starts at 66806 ms
+PROF(12) UV starts at 66806 ms
+PROF(1) UV starts at 66806 ms
+PROF(3) UV starts at 66806 ms
+PROF(17) UV starts at 66806 ms
+PROF(10) UV starts at 66806 ms
+PROF(16) UV starts at 66806 ms
+PROF(4) UV starts at 66806 ms
+PROF(5) UV starts at 66806 ms
+PROF(8) UV starts at 66806 ms
+PROF(25) UV starts at 66806 ms
+PROF(24) UV starts at 66806 ms
+PROF(11) UV starts at 66806 ms
+PROF(7) UV starts at 66806 ms
+PROF(15) UV starts at 66806 ms
+PROF(28) UV starts at 66807 ms
+PROF(29) UV starts at 66806 ms
+PROF(30) UV starts at 66807 ms
+PROF(26) UV starts at 66808 ms
+PROF(31) UV starts at 66810 ms
+PROF(2) CNC starts at 66813 ms
+PROF(3) CNC starts at 66814 ms
+PROF(7) CNC starts at 66814 ms
+PROF(4) CNC starts at 66814 ms
+PROF(8) CNC starts at 66814 ms
+PROF(9) CNC starts at 66814 ms
+PROF(1) CNC starts at 66813 ms
+PROF(6) CNC starts at 66814 ms
+PROF(5) CNC starts at 66814 ms
+PROF(0) CNC starts at 66815 ms
+PROF(14) CNC starts at 66814 ms
+PROF(16) CNC starts at 66814 ms
+PROF(12) CNC starts at 66814 ms
+PROF(11) CNC starts at 66814 ms
+PROF(10) CNC starts at 66814 ms
+PROF(17) CNC starts at 66815 ms
+PROF(23) CNC starts at 66815 ms
+PROF(20) CNC starts at 66815 ms
+PROF(13) CNC starts at 66814 ms
+PROF(19) CNC starts at 66815 ms
+PROF(28) CNC starts at 66815 ms
+PROF(18) CNC starts at 66814 ms
+PROF(21) CNC starts at 66815 ms
+PROF(26) CNC starts at 66815 ms
+PROF(29) CNC starts at 66815 ms
+PROF(22) CNC starts at 66815 ms
+PROF(31) CNC starts at 66815 ms
+PROF(30) CNC starts at 66815 ms
+PROF(27) CNC starts at 66815 ms
+PROF(24) CNC starts at 66815 ms
+PROF(25) CNC starts at 66815 ms
+PROF(15) CNC starts at 66817 ms
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00010000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00020000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00030000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00040000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00050000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00060000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00070000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00080000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00090000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000f0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00100000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00110000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00120000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00130000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00140000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00150000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00160000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00170000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00180000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00190000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001f0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00010000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00020000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00030000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00040000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00050000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00060000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00070000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00080000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00090000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000f0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00100000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00110000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00120000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00130000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00140000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00150000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00160000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00170000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00180000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00190000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001f0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00010000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00020000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00030000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00040000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00050000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00060000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00070000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00080000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00090000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000f0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00100000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00110000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00120000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00130000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00140000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00150000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00160000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00170000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00180000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00190000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001f0000000002!
+PROF(3) DC starts at 67425 ms
+PROF(0) DC starts at 67425 ms
+PROF(1) DC starts at 67424 ms
+PROF(7) DC starts at 67425 ms
+PROF(8) DC starts at 67425 ms
+PROF(13) DC starts at 67425 ms
+PROF(4) DC starts at 67425 ms
+PROF(9) DC starts at 67425 ms
+PROF(6) DC starts at 67425 ms
+PROF(22) DC starts at 67425 ms
+PROF(5) DC starts at 67425 ms
+PROF(10) DC starts at 67425 ms
+PROF(2) DC starts at 67425 ms
+PROF(17) DC starts at 67426 ms
+PROF(11) DC starts at 67425 ms
+PROF(12) DC starts at 67425 ms
+PROF(23) DC starts at 67426 ms
+PROF(24) DC starts at 67426 ms
+PROF(14) DC starts at 67425 ms
+PROF(20) DC starts at 67425 ms
+PROF(21) DC starts at 67426 ms
+PROF(26) DC starts at 67426 ms
+PROF(18) DC starts at 67426 ms
+PROF(19) DC starts at 67426 ms
+PROF(29) DC starts at 67426 ms
+PROF(16) DC starts at 67426 ms
+PROF(27) DC starts at 67426 ms
+PROF(30) DC starts at 67426 ms
+PROF(25) DC starts at 67426 ms
+PROF(28) DC starts at 67426 ms
+PROF(15) DC starts at 67427 ms
+PROF(31) DC starts at 67426 ms
+PROF(3) UV starts at 68531 ms
+PROF(2) UV starts at 68531 ms
+PROF(1) UV starts at 68531 ms
+PROF(4) UV starts at 68531 ms
+PROF(6) UV starts at 68531 ms
+PROF(5) UV starts at 68531 ms
+PROF(0) UV starts at 68532 ms
+PROF(11) UV starts at 68532 ms
+PROF(10) UV starts at 68531 ms
+PROF(7) UV starts at 68531 ms
+PROF(8) UV starts at 68531 ms
+PROF(9) UV starts at 68531 ms
+PROF(16) UV starts at 68533 ms
+PROF(14) UV starts at 68532 ms
+PROF(13) UV starts at 68533 ms
+PROF(20) UV starts at 68533 ms
+PROF(23) UV starts at 68533 ms
+PROF(25) UV starts at 68533 ms
+PROF(19) UV starts at 68533 ms
+PROF(26) UV starts at 68533 ms
+PROF(18) UV starts at 68533 ms
+PROF(15) UV starts at 68533 ms
+PROF(21) UV starts at 68533 ms
+PROF(22) UV starts at 68533 ms
+PROF(31) UV starts at 68533 ms
+PROF(27) UV starts at 68533 ms
+PROF(24) UV starts at 68533 ms
+PROF(30) UV starts at 68533 ms
+PROF(12) UV starts at 68533 ms
+PROF(17) UV starts at 68534 ms
+PROF(29) UV starts at 68535 ms
+PROF(28) UV starts at 68537 ms
+PROF(0) CNC starts at 68554 ms
+PROF(2) CNC starts at 68553 ms
+PROF(4) CNC starts at 68556 ms
+PROF(1) CNC starts at 68557 ms
+PROF(15) CNC starts at 68564 ms
+PROF(6) CNC starts at 68564 ms
+PROF(12) CNC starts at 68564 ms
+PROF(14) CNC starts at 68564 ms
+PROF(13) CNC starts at 68564 ms
+PROF(20) CNC starts at 68564 ms
+PROF(7) CNC starts at 68565 ms
+PROF(8) CNC starts at 68565 ms
+PROF(26) CNC starts at 68564 ms
+PROF(21) CNC starts at 68564 ms
+PROF(5) CNC starts at 68567 ms
+PROF(29) CNC starts at 68567 ms
+PROF(16) CNC starts at 68567 ms
+PROF(11) CNC starts at 68567 ms
+PROF(19) CNC starts at 68567 ms
+PROF(27) CNC starts at 68568 ms
+PROF(28) CNC starts at 68569 ms
+PROF(9) CNC starts at 68569 ms
+PROF(18) CNC starts at 68569 ms
+PROF(22) CNC starts at 68569 ms
+PROF(24) CNC starts at 68569 ms
+PROF(30) CNC starts at 68569 ms
+PROF(10) CNC starts at 68569 ms
+PROF(17) CNC starts at 68569 ms
+PROF(25) CNC starts at 68569 ms
+PROF(3) CNC starts at 68569 ms
+PROF(23) CNC starts at 68569 ms
+PROF(31) CNC starts at 68569 ms
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00010000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00020000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00030000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00040000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00050000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00060000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00070000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00080000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00090000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000f0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00100000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00110000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00120000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00130000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00140000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00150000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00160000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00170000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00180000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00190000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001f0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00010000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00020000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00030000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00040000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00050000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00060000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00070000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00080000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00090000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000f0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00100000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00110000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00120000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00130000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00140000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00150000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00160000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00170000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00180000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00190000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001f0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00010000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00020000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00030000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00040000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00050000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00060000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00070000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00080000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00090000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000f0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00100000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00110000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00120000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00130000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00140000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00150000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00160000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00170000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00180000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00190000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001f0000000002!
+PROF(0) DC starts at 69164 ms
+PROF(2) DC starts at 69165 ms
+PROF(4) DC starts at 69167 ms
+PROF(1) DC starts at 69168 ms
+PROF(20) DC starts at 69175 ms
+PROF(13) DC starts at 69175 ms
+PROF(6) DC starts at 69175 ms
+PROF(12) DC starts at 69175 ms
+PROF(8) DC starts at 69176 ms
+PROF(21) DC starts at 69175 ms
+PROF(26) DC starts at 69176 ms
+PROF(15) DC starts at 69176 ms
+PROF(14) DC starts at 69176 ms
+PROF(7) DC starts at 69176 ms
+PROF(29) DC starts at 69178 ms
+PROF(5) DC starts at 69178 ms
+PROF(16) DC starts at 69178 ms
+PROF(11) DC starts at 69178 ms
+PROF(19) DC starts at 69178 ms
+PROF(27) DC starts at 69179 ms
+PROF(9) DC starts at 69180 ms
+PROF(22) DC starts at 69180 ms
+PROF(10) DC starts at 69180 ms
+PROF(30) DC starts at 69180 ms
+PROF(24) DC starts at 69181 ms
+PROF(3) DC starts at 69180 ms
+PROF(17) DC starts at 69180 ms
+PROF(25) DC starts at 69180 ms
+PROF(23) DC starts at 69180 ms
+PROF(28) DC starts at 69180 ms
+PROF(31) DC starts at 69180 ms
+PROF(18) DC starts at 69180 ms
+PROF(6) UV starts at 70284 ms
+PROF(1) UV starts at 70284 ms
+PROF(5) UV starts at 70284 ms
+PROF(2) UV starts at 70284 ms
+PROF(3) UV starts at 70284 ms
+PROF(0) UV starts at 70285 ms
+PROF(4) UV starts at 70285 ms
+PROF(10) UV starts at 70286 ms
+PROF(7) UV starts at 70285 ms
+PROF(13) UV starts at 70286 ms
+PROF(8) UV starts at 70286 ms
+PROF(19) UV starts at 70286 ms
+PROF(21) UV starts at 70286 ms
+PROF(18) UV starts at 70286 ms
+PROF(22) UV starts at 70286 ms
+PROF(15) UV starts at 70286 ms
+PROF(16) UV starts at 70286 ms
+PROF(12) UV starts at 70286 ms
+PROF(11) UV starts at 70286 ms
+PROF(14) UV starts at 70286 ms
+PROF(23) UV starts at 70286 ms
+PROF(9) UV starts at 70287 ms
+PROF(17) UV starts at 70286 ms
+PROF(25) UV starts at 70289 ms
+PROF(28) UV starts at 70289 ms
+PROF(20) UV starts at 70289 ms
+PROF(26) UV starts at 70289 ms
+PROF(27) UV starts at 70289 ms
+PROF(24) UV starts at 70289 ms
+PROF(30) UV starts at 70289 ms
+PROF(31) UV starts at 70293 ms
+PROF(29) UV starts at 70298 ms
+PROF(1) CNC starts at 70314 ms
+PROF(2) CNC starts at 70314 ms
+PROF(3) CNC starts at 70314 ms
+PROF(5) CNC starts at 70316 ms
+PROF(4) CNC starts at 70316 ms
+PROF(0) CNC starts at 70318 ms
+PROF(16) CNC starts at 70323 ms
+PROF(12) CNC starts at 70323 ms
+PROF(28) CNC starts at 70323 ms
+PROF(6) CNC starts at 70322 ms
+PROF(15) CNC starts at 70323 ms
+PROF(29) CNC starts at 70323 ms
+PROF(24) CNC starts at 70323 ms
+PROF(14) CNC starts at 70323 ms
+PROF(10) CNC starts at 70323 ms
+PROF(25) CNC starts at 70323 ms
+PROF(26) CNC starts at 70324 ms
+PROF(19) CNC starts at 70323 ms
+PROF(9) CNC starts at 70324 ms
+PROF(18) CNC starts at 70324 ms
+PROF(8) CNC starts at 70324 ms
+PROF(31) CNC starts at 70324 ms
+PROF(30) CNC starts at 70325 ms
+PROF(11) CNC starts at 70324 ms
+PROF(17) CNC starts at 70325 ms
+PROF(23) CNC starts at 70324 ms
+PROF(13) CNC starts at 70325 ms
+PROF(20) CNC starts at 70324 ms
+PROF(21) CNC starts at 70324 ms
+PROF(22) CNC starts at 70324 ms
+PROF(27) CNC starts at 70325 ms
+PROF(7) CNC starts at 70324 ms
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00010000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00020000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00030000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00040000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00050000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00060000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00070000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00080000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00090000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000f0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00100000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00110000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00120000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00130000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00140000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00150000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00160000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00170000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00180000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00190000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001f0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00010000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00020000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00030000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00040000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00050000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00060000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00070000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00080000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00090000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000f0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00100000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00110000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00120000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00130000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00140000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00150000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00160000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00170000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00180000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00190000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001f0000000002!
+PROF(1) DC starts at 70925 ms
+PROF(2) DC starts at 70925 ms
+PROF(3) DC starts at 70925 ms
+PROF(5) DC starts at 70927 ms
+PROF(4) DC starts at 70927 ms
+PROF(0) DC starts at 70929 ms
+PROF(12) DC starts at 70933 ms
+PROF(28) DC starts at 70934 ms
+PROF(6) DC starts at 70933 ms
+PROF(29) DC starts at 70934 ms
+PROF(16) DC starts at 70934 ms
+PROF(24) DC starts at 70934 ms
+PROF(14) DC starts at 70934 ms
+PROF(10) DC starts at 70934 ms
+PROF(25) DC starts at 70934 ms
+PROF(7) DC starts at 70935 ms
+PROF(9) DC starts at 70935 ms
+PROF(15) DC starts at 70934 ms
+PROF(22) DC starts at 70935 ms
+PROF(27) DC starts at 70936 ms
+PROF(11) DC starts at 70935 ms
+PROF(23) DC starts at 70935 ms
+PROF(20) DC starts at 70935 ms
+PROF(13) DC starts at 70936 ms
+PROF(8) DC starts at 70935 ms
+PROF(19) DC starts at 70936 ms
+PROF(18) DC starts at 70935 ms
+PROF(21) DC starts at 70935 ms
+PROF(26) DC starts at 70935 ms
+PROF(30) DC starts at 70936 ms
+PROF(17) DC starts at 70936 ms
+PROF(31) DC starts at 70936 ms
+PROF(2) UV starts at 73111 ms
+PROF(3) UV starts at 73111 ms
+PROF(1) UV starts at 73110 ms
+PROF(4) UV starts at 73111 ms
+PROF(5) UV starts at 73111 ms
+PROF(10) UV starts at 73111 ms
+PROF(11) UV starts at 73111 ms
+PROF(9) UV starts at 73111 ms
+PROF(8) UV starts at 73111 ms
+PROF(6) UV starts at 73112 ms
+PROF(12) UV starts at 73112 ms
+PROF(0) UV starts at 73114 ms
+PROF(18) UV starts at 73117 ms
+PROF(21) UV starts at 73117 ms
+PROF(15) UV starts at 73117 ms
+PROF(14) UV starts at 73117 ms
+PROF(17) UV starts at 73117 ms
+PROF(20) UV starts at 73117 ms
+PROF(13) UV starts at 73117 ms
+PROF(19) UV starts at 73117 ms
+PROF(7) UV starts at 73118 ms
+PROF(16) UV starts at 73118 ms
+PROF(23) UV starts at 73120 ms
+PROF(24) UV starts at 73122 ms
+PROF(29) UV starts at 73122 ms
+PROF(28) UV starts at 73122 ms
+PROF(26) UV starts at 73122 ms
+PROF(31) UV starts at 73122 ms
+PROF(25) UV starts at 73124 ms
+PROF(22) UV starts at 73125 ms
+PROF(30) UV starts at 73124 ms
+PROF(27) UV starts at 73125 ms
+PROF(2) CNC starts at 73140 ms
+PROF(0) CNC starts at 73143 ms
+PROF(1) CNC starts at 73143 ms
+PROF(3) CNC starts at 73144 ms
+PROF(4) CNC starts at 73144 ms
+PROF(5) CNC starts at 73144 ms
+PROF(6) CNC starts at 73145 ms
+PROF(8) CNC starts at 73145 ms
+PROF(12) CNC starts at 73145 ms
+PROF(16) CNC starts at 73145 ms
+PROF(11) CNC starts at 73145 ms
+PROF(17) CNC starts at 73145 ms
+PROF(13) CNC starts at 73145 ms
+PROF(9) CNC starts at 73145 ms
+PROF(19) CNC starts at 73146 ms
+PROF(26) CNC starts at 73145 ms
+PROF(15) CNC starts at 73146 ms
+PROF(14) CNC starts at 73146 ms
+PROF(20) CNC starts at 73146 ms
+PROF(23) CNC starts at 73146 ms
+PROF(18) CNC starts at 73146 ms
+PROF(21) CNC starts at 73147 ms
+PROF(28) CNC starts at 73148 ms
+PROF(7) CNC starts at 73146 ms
+PROF(29) CNC starts at 73148 ms
+PROF(22) CNC starts at 73148 ms
+PROF(27) CNC starts at 73148 ms
+PROF(31) CNC starts at 73146 ms
+PROF(24) CNC starts at 73148 ms
+PROF(10) CNC starts at 73148 ms
+PROF(30) CNC starts at 73148 ms
+PROF(25) CNC starts at 73148 ms
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00010000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00020000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00030000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00040000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00050000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00060000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00070000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00080000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00090000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000f0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00100000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00110000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00120000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00130000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00140000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00150000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00160000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00170000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00180000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00190000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001f0000000002!
+PROF(2) DC starts at 73751 ms
+PROF(0) DC starts at 73753 ms
+PROF(3) DC starts at 73754 ms
+PROF(4) DC starts at 73755 ms
+PROF(1) DC starts at 73754 ms
+PROF(5) DC starts at 73755 ms
+PROF(12) DC starts at 73758 ms
+PROF(16) DC starts at 73757 ms
+PROF(14) DC starts at 73758 ms
+PROF(17) DC starts at 73758 ms
+PROF(13) DC starts at 73758 ms
+PROF(23) DC starts at 73758 ms
+PROF(20) DC starts at 73758 ms
+PROF(7) DC starts at 73758 ms
+PROF(8) DC starts at 73758 ms
+PROF(9) DC starts at 73757 ms
+PROF(18) DC starts at 73758 ms
+PROF(26) DC starts at 73758 ms
+PROF(19) DC starts at 73758 ms
+PROF(6) DC starts at 73758 ms
+PROF(21) DC starts at 73758 ms
+PROF(15) DC starts at 73758 ms
+PROF(28) DC starts at 73759 ms
+PROF(11) DC starts at 73759 ms
+PROF(29) DC starts at 73759 ms
+PROF(22) DC starts at 73759 ms
+PROF(31) DC starts at 73758 ms
+PROF(27) DC starts at 73759 ms
+PROF(30) DC starts at 73759 ms
+PROF(10) DC starts at 73759 ms
+PROF(24) DC starts at 73759 ms
+PROF(25) DC starts at 73759 ms
+PROF(5) UV starts at 75937 ms
+PROF(1) UV starts at 75937 ms
+PROF(4) UV starts at 75937 ms
+PROF(2) UV starts at 75937 ms
+PROF(6) UV starts at 75937 ms
+PROF(3) UV starts at 75938 ms
+PROF(7) UV starts at 75940 ms
+PROF(0) UV starts at 75941 ms
+PROF(8) UV starts at 75940 ms
+PROF(11) UV starts at 75944 ms
+PROF(9) UV starts at 75944 ms
+PROF(10) UV starts at 75944 ms
+PROF(13) UV starts at 75946 ms
+PROF(21) UV starts at 75946 ms
+PROF(29) UV starts at 75946 ms
+PROF(14) UV starts at 75946 ms
+PROF(25) UV starts at 75946 ms
+PROF(22) UV starts at 75946 ms
+PROF(16) UV starts at 75946 ms
+PROF(24) UV starts at 75946 ms
+PROF(12) UV starts at 75946 ms
+PROF(17) UV starts at 75946 ms
+PROF(27) UV starts at 75946 ms
+PROF(23) UV starts at 75946 ms
+PROF(20) UV starts at 75946 ms
+PROF(28) UV starts at 75947 ms
+PROF(19) UV starts at 75947 ms
+PROF(26) UV starts at 75946 ms
+PROF(15) UV starts at 75947 ms
+PROF(30) UV starts at 75947 ms
+PROF(31) UV starts at 75947 ms
+PROF(18) UV starts at 75947 ms
+PROF(1) CNC starts at 75959 ms
+PROF(0) CNC starts at 75964 ms
+PROF(2) CNC starts at 75964 ms
+PROF(3) CNC starts at 75964 ms
+PROF(4) CNC starts at 75965 ms
+PROF(16) CNC starts at 75968 ms
+PROF(13) CNC starts at 75969 ms
+PROF(6) CNC starts at 75969 ms
+PROF(5) CNC starts at 75969 ms
+PROF(12) CNC starts at 75969 ms
+PROF(10) CNC starts at 75969 ms
+PROF(14) CNC starts at 75969 ms
+PROF(20) CNC starts at 75969 ms
+PROF(7) CNC starts at 75969 ms
+PROF(9) CNC starts at 75969 ms
+PROF(19) CNC starts at 75969 ms
+PROF(8) CNC starts at 75969 ms
+PROF(26) CNC starts at 75969 ms
+PROF(23) CNC starts at 75970 ms
+PROF(17) CNC starts at 75977 ms
+PROF(11) CNC starts at 75977 ms
+PROF(30) CNC starts at 75977 ms
+PROF(27) CNC starts at 75977 ms
+PROF(28) CNC starts at 75978 ms
+PROF(18) CNC starts at 75979 ms
+PROF(21) CNC starts at 75979 ms
+PROF(24) CNC starts at 75979 ms
+PROF(22) CNC starts at 75983 ms
+PROF(31) CNC starts at 75983 ms
+PROF(25) CNC starts at 75983 ms
+PROF(15) CNC starts at 75984 ms
+PROF(29) CNC starts at 75984 ms
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00010000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00020000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00030000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00040000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00050000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00060000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00070000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00080000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00090000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000f0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00100000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00110000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00120000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00130000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00140000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00150000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00160000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00170000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00180000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00190000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001f0000000002!
+PROF(1) DC starts at 76570 ms
+PROF(2) DC starts at 76575 ms
+PROF(3) DC starts at 76575 ms
+PROF(0) DC starts at 76576 ms
+PROF(4) DC starts at 76576 ms
+PROF(16) DC starts at 76579 ms
+PROF(14) DC starts at 76580 ms
+PROF(9) DC starts at 76580 ms
+PROF(8) DC starts at 76580 ms
+PROF(6) DC starts at 76580 ms
+PROF(12) DC starts at 76580 ms
+PROF(10) DC starts at 76580 ms
+PROF(20) DC starts at 76580 ms
+PROF(13) DC starts at 76580 ms
+PROF(7) DC starts at 76581 ms
+PROF(19) DC starts at 76580 ms
+PROF(5) DC starts at 76580 ms
+PROF(23) DC starts at 76582 ms
+PROF(26) DC starts at 76582 ms
+PROF(17) DC starts at 76588 ms
+PROF(27) DC starts at 76588 ms
+PROF(30) DC starts at 76588 ms
+PROF(11) DC starts at 76588 ms
+PROF(28) DC starts at 76589 ms
+PROF(24) DC starts at 76590 ms
+PROF(18) DC starts at 76590 ms
+PROF(21) DC starts at 76590 ms
+PROF(22) DC starts at 76595 ms
+PROF(15) DC starts at 76595 ms
+PROF(25) DC starts at 76595 ms
+PROF(29) DC starts at 76596 ms
+PROF(31) DC starts at 76596 ms
+PROF(1) UV starts at 77689 ms
+PROF(4) UV starts at 77689 ms
+PROF(8) UV starts at 77689 ms
+PROF(6) UV starts at 77689 ms
+PROF(3) UV starts at 77689 ms
+PROF(11) UV starts at 77690 ms
+PROF(10) UV starts at 77690 ms
+PROF(9) UV starts at 77689 ms
+PROF(2) UV starts at 77690 ms
+PROF(5) UV starts at 77690 ms
+PROF(7) UV starts at 77689 ms
+PROF(21) UV starts at 77691 ms
+PROF(27) UV starts at 77693 ms
+PROF(14) UV starts at 77693 ms
+PROF(28) UV starts at 77694 ms
+PROF(0) UV starts at 77696 ms
+PROF(17) UV starts at 77696 ms
+PROF(25) UV starts at 77696 ms
+PROF(20) UV starts at 77696 ms
+PROF(23) UV starts at 77696 ms
+PROF(19) UV starts at 77696 ms
+PROF(18) UV starts at 77696 ms
+PROF(26) UV starts at 77696 ms
+PROF(15) UV starts at 77696 ms
+PROF(22) UV starts at 77696 ms
+PROF(16) UV starts at 77696 ms
+PROF(12) UV starts at 77696 ms
+PROF(24) UV starts at 77696 ms
+PROF(13) UV starts at 77697 ms
+PROF(30) UV starts at 77698 ms
+PROF(31) UV starts at 77698 ms
+PROF(29) UV starts at 77698 ms
+PROF(2) CNC starts at 77715 ms
+PROF(3) CNC starts at 77716 ms
+PROF(7) CNC starts at 77716 ms
+PROF(9) CNC starts at 77716 ms
+PROF(4) CNC starts at 77715 ms
+PROF(8) CNC starts at 77716 ms
+PROF(6) CNC starts at 77716 ms
+PROF(5) CNC starts at 77716 ms
+PROF(1) CNC starts at 77715 ms
+PROF(12) CNC starts at 77718 ms
+PROF(11) CNC starts at 77718 ms
+PROF(0) CNC starts at 77723 ms
+PROF(10) CNC starts at 77724 ms
+PROF(13) CNC starts at 77726 ms
+PROF(15) CNC starts at 77726 ms
+PROF(14) CNC starts at 77726 ms
+PROF(26) CNC starts at 77728 ms
+PROF(21) CNC starts at 77728 ms
+PROF(22) CNC starts at 77728 ms
+PROF(16) CNC starts at 77728 ms
+PROF(17) CNC starts at 77728 ms
+PROF(25) CNC starts at 77728 ms
+PROF(24) CNC starts at 77728 ms
+PROF(23) CNC starts at 77728 ms
+PROF(29) CNC starts at 77730 ms
+PROF(27) CNC starts at 77730 ms
+PROF(31) CNC starts at 77730 ms
+PROF(30) CNC starts at 77730 ms
+PROF(28) CNC starts at 77731 ms
+PROF(20) CNC starts at 77730 ms
+PROF(19) CNC starts at 77730 ms
+PROF(18) CNC starts at 77730 ms
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00010000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00020000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00030000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00040000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00050000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00060000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00070000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00080000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00090000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000f0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00100000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00110000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00120000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00130000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00140000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00150000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00160000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00170000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00180000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00190000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001a0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001b0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001c0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001d0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001e0000000002!
+[0 - 2ba45d016700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001f0000000002!
+PROF(3) DC starts at 78326 ms
+PROF(7) DC starts at 78327 ms
+PROF(4) DC starts at 78327 ms
+PROF(9) DC starts at 78327 ms
+PROF(8) DC starts at 78327 ms
+PROF(6) DC starts at 78327 ms
+PROF(1) DC starts at 78327 ms
+PROF(5) DC starts at 78327 ms
+PROF(2) DC starts at 78328 ms
+PROF(11) DC starts at 78329 ms
+PROF(12) DC starts at 78331 ms
+PROF(0) DC starts at 78334 ms
+PROF(10) DC starts at 78334 ms
+PROF(14) DC starts at 78337 ms
+PROF(13) DC starts at 78337 ms
+PROF(15) DC starts at 78336 ms
+PROF(16) DC starts at 78340 ms
+PROF(24) DC starts at 78340 ms
+PROF(20) DC starts at 78342 ms
+PROF(31) DC starts at 78342 ms
+PROF(23) DC starts at 78340 ms
+PROF(27) DC starts at 78342 ms
+PROF(17) DC starts at 78341 ms
+PROF(30) DC starts at 78342 ms
+PROF(22) DC starts at 78340 ms
+PROF(21) DC starts at 78340 ms
+PROF(26) DC starts at 78340 ms
+PROF(25) DC starts at 78340 ms
+PROF(28) DC starts at 78343 ms
+PROF(19) DC starts at 78342 ms
+PROF(18) DC starts at 78343 ms
+PROF(29) DC starts at 78343 ms
+PROF(1) UV starts at 79438 ms
+PROF(6) UV starts at 79438 ms
+PROF(2) UV starts at 79438 ms
+PROF(3) UV starts at 79439 ms
+PROF(7) UV starts at 79439 ms
+PROF(4) UV starts at 79438 ms
+PROF(9) UV starts at 79439 ms
+PROF(8) UV starts at 79439 ms
+PROF(5) UV starts at 79438 ms
+PROF(14) UV starts at 79441 ms
+PROF(0) UV starts at 79443 ms
+PROF(21) UV starts at 79443 ms
+PROF(22) UV starts at 79443 ms
+PROF(16) UV starts at 79443 ms
+PROF(12) UV starts at 79443 ms
+PROF(11) UV starts at 79443 ms
+PROF(17) UV starts at 79443 ms
+PROF(13) UV starts at 79443 ms
+PROF(19) UV starts at 79443 ms
+PROF(18) UV starts at 79443 ms
+PROF(20) UV starts at 79444 ms
+PROF(15) UV starts at 79444 ms
+PROF(10) UV starts at 79444 ms
+PROF(23) UV starts at 79457 ms
+PROF(25) UV starts at 79457 ms
+PROF(29) UV starts at 79457 ms
+PROF(26) UV starts at 79457 ms
+PROF(24) UV starts at 79457 ms
+PROF(28) UV starts at 79457 ms
+PROF(31) UV starts at 79457 ms
+PROF(27) UV starts at 79457 ms
+PROF(30) UV starts at 79457 ms
+PROF(1) CNC starts at 79471 ms
+PROF(0) CNC starts at 79477 ms
+PROF(9) CNC starts at 79479 ms
+PROF(8) CNC starts at 79479 ms
+PROF(5) CNC starts at 79479 ms
+PROF(22) CNC starts at 79479 ms
+PROF(30) CNC starts at 79479 ms
+PROF(2) CNC starts at 79483 ms
+PROF(3) CNC starts at 79483 ms
+PROF(20) CNC starts at 79484 ms
+PROF(29) CNC starts at 79485 ms
+PROF(6) CNC starts at 79486 ms
+PROF(31) CNC starts at 79486 ms
+PROF(12) CNC starts at 79486 ms
+PROF(10) CNC starts at 79486 ms
+PROF(13) CNC starts at 79486 ms
+PROF(23) CNC starts at 79486 ms
+PROF(28) CNC starts at 79487 ms
+PROF(4) CNC starts at 79488 ms
+PROF(18) CNC starts at 79488 ms
+PROF(21) CNC starts at 79488 ms
+PROF(16) CNC starts at 79488 ms
+PROF(27) CNC starts at 79488 ms
+PROF(11) CNC starts at 79488 ms
+PROF(17) CNC starts at 79488 ms
+PROF(25) CNC starts at 79490 ms
+PROF(7) CNC starts at 79490 ms
+PROF(19) CNC starts at 79490 ms
+PROF(26) CNC starts at 79490 ms
+PROF(15) CNC starts at 79490 ms
+PROF(14) CNC starts at 79490 ms
+PROF(24) CNC starts at 79490 ms
+PROF(1) DC starts at 80082 ms
+PROF(0) DC starts at 80087 ms
+PROF(8) DC starts at 80090 ms
+PROF(5) DC starts at 80090 ms
+PROF(22) DC starts at 80090 ms
+PROF(30) DC starts at 80090 ms
+PROF(9) DC starts at 80091 ms
+PROF(3) DC starts at 80094 ms
+PROF(2) DC starts at 80094 ms
+PROF(20) DC starts at 80095 ms
+PROF(6) DC starts at 80097 ms
+PROF(29) DC starts at 80097 ms
+PROF(31) DC starts at 80097 ms
+PROF(12) DC starts at 80097 ms
+PROF(10) DC starts at 80097 ms
+PROF(23) DC starts at 80097 ms
+PROF(28) DC starts at 80098 ms
+PROF(13) DC starts at 80097 ms
+PROF(11) DC starts at 80100 ms
+PROF(17) DC starts at 80100 ms
+PROF(18) DC starts at 80101 ms
+PROF(21) DC starts at 80100 ms
+PROF(16) DC starts at 80101 ms
+PROF(27) DC starts at 80102 ms
+PROF(26) DC starts at 80107 ms
+PROF(24) DC starts at 80107 ms
+PROF(19) DC starts at 80107 ms
+PROF(14) DC starts at 80107 ms
+PROF(25) DC starts at 80107 ms
+PROF(4) DC starts at 80106 ms
+PROF(7) DC starts at 80107 ms
+PROF(15) DC starts at 80107 ms
+PROF(1) UV starts at 81200 ms
+PROF(2) UV starts at 81200 ms
+PROF(3) UV starts at 81200 ms
+PROF(4) UV starts at 81200 ms
+PROF(0) UV starts at 81203 ms
+PROF(5) UV starts at 81206 ms
+PROF(12) UV starts at 81207 ms
+PROF(10) UV starts at 81206 ms
+PROF(7) UV starts at 81206 ms
+PROF(17) UV starts at 81209 ms
+PROF(20) UV starts at 81209 ms
+PROF(26) UV starts at 81209 ms
+PROF(29) UV starts at 81209 ms
+PROF(15) UV starts at 81209 ms
+PROF(14) UV starts at 81209 ms
+PROF(30) UV starts at 81209 ms
+PROF(21) UV starts at 81209 ms
+PROF(22) UV starts at 81213 ms
+PROF(27) UV starts at 81213 ms
+PROF(31) UV starts at 81213 ms
+PROF(24) UV starts at 81213 ms
+PROF(23) UV starts at 81213 ms
+PROF(28) UV starts at 81214 ms
+PROF(13) UV starts at 81213 ms
+PROF(18) UV starts at 81213 ms
+PROF(19) UV starts at 81214 ms
+PROF(8) UV starts at 81214 ms
+PROF(25) UV starts at 81214 ms
+PROF(6) UV starts at 81221 ms
+PROF(11) UV starts at 81220 ms
+PROF(16) UV starts at 81220 ms
+PROF(9) UV starts at 81220 ms
+PROF(1) CNC starts at 81236 ms
+PROF(0) CNC starts at 81237 ms
+PROF(3) CNC starts at 81240 ms
+PROF(23) CNC starts at 81241 ms
+PROF(2) CNC starts at 81240 ms
+PROF(21) CNC starts at 81241 ms
+PROF(26) CNC starts at 81244 ms
+PROF(15) CNC starts at 81244 ms
+PROF(16) CNC starts at 81244 ms
+PROF(12) CNC starts at 81244 ms
+PROF(27) CNC starts at 81244 ms
+PROF(30) CNC starts at 81244 ms
+PROF(24) CNC starts at 81244 ms
+PROF(25) CNC starts at 81244 ms
+PROF(28) CNC starts at 81244 ms
+PROF(20) CNC starts at 81244 ms
+PROF(13) CNC starts at 81245 ms
+PROF(6) CNC starts at 81245 ms
+PROF(29) CNC starts at 81245 ms
+PROF(31) CNC starts at 81245 ms
+PROF(10) CNC starts at 81245 ms
+PROF(17) CNC starts at 81245 ms
+PROF(4) CNC starts at 81245 ms
+PROF(7) CNC starts at 81247 ms
+PROF(9) CNC starts at 81248 ms
+PROF(19) CNC starts at 81248 ms
+PROF(8) CNC starts at 81248 ms
+PROF(18) CNC starts at 81248 ms
+PROF(5) CNC starts at 81247 ms
+PROF(14) CNC starts at 81248 ms
+PROF(11) CNC starts at 81248 ms
+PROF(22) CNC starts at 81256 ms
+PROF(0) DC starts at 81848 ms
+PROF(1) DC starts at 81847 ms
+PROF(3) DC starts at 81851 ms
+PROF(2) DC starts at 81851 ms
+PROF(23) DC starts at 81852 ms
+PROF(21) DC starts at 81852 ms
+PROF(26) DC starts at 81855 ms
+PROF(15) DC starts at 81855 ms
+PROF(27) DC starts at 81855 ms
+PROF(12) DC starts at 81856 ms
+PROF(24) DC starts at 81856 ms
+PROF(25) DC starts at 81855 ms
+PROF(30) DC starts at 81855 ms
+PROF(28) DC starts at 81856 ms
+PROF(20) DC starts at 81855 ms
+PROF(29) DC starts at 81856 ms
+PROF(31) DC starts at 81856 ms
+PROF(16) DC starts at 81856 ms
+PROF(10) DC starts at 81857 ms
+PROF(17) DC starts at 81856 ms
+PROF(4) DC starts at 81856 ms
+PROF(6) DC starts at 81856 ms
+PROF(13) DC starts at 81858 ms
+PROF(5) DC starts at 81858 ms
+PROF(7) DC starts at 81858 ms
+PROF(19) DC starts at 81858 ms
+PROF(18) DC starts at 81859 ms
+PROF(14) DC starts at 81859 ms
+PROF(9) DC starts at 81862 ms
+PROF(8) DC starts at 81862 ms
+PROF(11) DC starts at 81862 ms
+PROF(22) DC starts at 81867 ms
+PROF(5) UV starts at 82962 ms
+PROF(2) UV starts at 82962 ms
+PROF(4) UV starts at 82962 ms
+PROF(3) UV starts at 82964 ms
+PROF(1) UV starts at 82964 ms
+PROF(6) UV starts at 82964 ms
+PROF(0) UV starts at 82968 ms
+PROF(9) UV starts at 82968 ms
+PROF(8) UV starts at 82969 ms
+PROF(18) UV starts at 82970 ms
+PROF(12) UV starts at 82970 ms
+PROF(10) UV starts at 82970 ms
+PROF(13) UV starts at 82970 ms
+PROF(7) UV starts at 82971 ms
+PROF(11) UV starts at 82972 ms
+PROF(15) UV starts at 82972 ms
+PROF(14) UV starts at 82972 ms
+PROF(17) UV starts at 82972 ms
+PROF(16) UV starts at 82973 ms
+PROF(31) UV starts at 82974 ms
+PROF(19) UV starts at 82974 ms
+PROF(25) UV starts at 82977 ms
+PROF(24) UV starts at 82976 ms
+PROF(28) UV starts at 82977 ms
+PROF(23) UV starts at 82977 ms
+PROF(20) UV starts at 82976 ms
+PROF(21) UV starts at 82976 ms
+PROF(26) UV starts at 82976 ms
+PROF(29) UV starts at 82977 ms
+PROF(22) UV starts at 82977 ms
+PROF(30) UV starts at 82977 ms
+PROF(27) UV starts at 82977 ms
+PROF(2) CNC starts at 82989 ms
+PROF(3) CNC starts at 82991 ms
+PROF(0) CNC starts at 82992 ms
+PROF(1) CNC starts at 82991 ms
+PROF(4) CNC starts at 82994 ms
+PROF(5) CNC starts at 82996 ms
+PROF(16) CNC starts at 82998 ms
+PROF(13) CNC starts at 83000 ms
+PROF(6) CNC starts at 83000 ms
+PROF(12) CNC starts at 83000 ms
+PROF(14) CNC starts at 83000 ms
+PROF(25) CNC starts at 83003 ms
+PROF(17) CNC starts at 83005 ms
+PROF(8) CNC starts at 83005 ms
+PROF(7) CNC starts at 83007 ms
+PROF(21) CNC starts at 83007 ms
+PROF(18) CNC starts at 83007 ms
+PROF(31) CNC starts at 83007 ms
+PROF(27) CNC starts at 83007 ms
+PROF(22) CNC starts at 83007 ms
+PROF(9) CNC starts at 83007 ms
+PROF(19) CNC starts at 83008 ms
+PROF(30) CNC starts at 83007 ms
+PROF(24) CNC starts at 83007 ms
+PROF(11) CNC starts at 83007 ms
+PROF(28) CNC starts at 83008 ms
+PROF(10) CNC starts at 83007 ms
+PROF(23) CNC starts at 83007 ms
+PROF(26) CNC starts at 83008 ms
+PROF(15) CNC starts at 83008 ms
+PROF(29) CNC starts at 83008 ms
+PROF(20) CNC starts at 83008 ms
+PROF(2) DC starts at 83600 ms
+PROF(0) DC starts at 83603 ms
+PROF(3) DC starts at 83602 ms
+PROF(1) DC starts at 83602 ms
+PROF(4) DC starts at 83605 ms
+PROF(5) DC starts at 83607 ms
+PROF(16) DC starts at 83609 ms
+PROF(12) DC starts at 83611 ms
+PROF(13) DC starts at 83611 ms
+PROF(6) DC starts at 83612 ms
+PROF(14) DC starts at 83613 ms
+PROF(25) DC starts at 83613 ms
+PROF(17) DC starts at 83616 ms
+PROF(8) DC starts at 83616 ms
+PROF(10) DC starts at 83618 ms
+PROF(7) DC starts at 83618 ms
+PROF(9) DC starts at 83618 ms
+PROF(18) DC starts at 83618 ms
+PROF(21) DC starts at 83618 ms
+PROF(31) DC starts at 83618 ms
+PROF(27) DC starts at 83618 ms
+PROF(30) DC starts at 83618 ms
+PROF(24) DC starts at 83618 ms
+PROF(23) DC starts at 83619 ms
+PROF(28) DC starts at 83619 ms
+PROF(26) DC starts at 83619 ms
+PROF(29) DC starts at 83619 ms
+PROF(11) DC starts at 83619 ms
+PROF(19) DC starts at 83621 ms
+PROF(22) DC starts at 83621 ms
+PROF(15) DC starts at 83623 ms
+PROF(20) DC starts at 83623 ms
+PROF(1) UV starts at 84724 ms
+PROF(0) UV starts at 84726 ms
+PROF(2) UV starts at 84726 ms
+PROF(4) UV starts at 84728 ms
+PROF(3) UV starts at 84728 ms
+PROF(13) UV starts at 84728 ms
+PROF(14) UV starts at 84730 ms
+PROF(11) UV starts at 84731 ms
+PROF(8) UV starts at 84731 ms
+PROF(5) UV starts at 84730 ms
+PROF(9) UV starts at 84733 ms
+PROF(7) UV starts at 84733 ms
+PROF(6) UV starts at 84733 ms
+PROF(21) UV starts at 84733 ms
+PROF(18) UV starts at 84733 ms
+PROF(26) UV starts at 84733 ms
+PROF(22) UV starts at 84733 ms
+PROF(12) UV starts at 84733 ms
+PROF(19) UV starts at 84735 ms
+PROF(15) UV starts at 84735 ms
+PROF(29) UV starts at 84735 ms
+PROF(16) UV starts at 84735 ms
+PROF(27) UV starts at 84735 ms
+PROF(24) UV starts at 84735 ms
+PROF(10) UV starts at 84735 ms
+PROF(25) UV starts at 84735 ms
+PROF(30) UV starts at 84735 ms
+PROF(23) UV starts at 84735 ms
+PROF(28) UV starts at 84735 ms
+PROF(20) UV starts at 84735 ms
+PROF(31) UV starts at 84737 ms
+PROF(17) UV starts at 84737 ms
+PROF(2) CNC starts at 84756 ms
+PROF(0) CNC starts at 84758 ms
+PROF(1) CNC starts at 84768 ms
+PROF(3) CNC starts at 84768 ms
+PROF(16) CNC starts at 84769 ms
+PROF(25) CNC starts at 84769 ms
+PROF(28) CNC starts at 84769 ms
+PROF(4) CNC starts at 84769 ms
+PROF(6) CNC starts at 84769 ms
+PROF(26) CNC starts at 84769 ms
+PROF(5) CNC starts at 84769 ms
+PROF(27) CNC starts at 84772 ms
+PROF(12) CNC starts at 84772 ms
+PROF(20) CNC starts at 84772 ms
+PROF(18) CNC starts at 84772 ms
+PROF(11) CNC starts at 84773 ms
+PROF(13) CNC starts at 84776 ms
+PROF(23) CNC starts at 84776 ms
+PROF(7) CNC starts at 84776 ms
+PROF(9) CNC starts at 84776 ms
+PROF(8) CNC starts at 84776 ms
+PROF(19) CNC starts at 84776 ms
+PROF(21) CNC starts at 84776 ms
+PROF(29) CNC starts at 84776 ms
+PROF(15) CNC starts at 84776 ms
+PROF(22) CNC starts at 84776 ms
+PROF(24) CNC starts at 84776 ms
+PROF(14) CNC starts at 84776 ms
+PROF(30) CNC starts at 84776 ms
+PROF(10) CNC starts at 84776 ms
+PROF(17) CNC starts at 84776 ms
+PROF(31) CNC starts at 84776 ms
+PROF(0) DC starts at 85368 ms
+PROF(2) DC starts at 85367 ms
+PROF(1) DC starts at 85379 ms
+PROF(3) DC starts at 85379 ms
+PROF(16) DC starts at 85380 ms
+PROF(25) DC starts at 85380 ms
+PROF(28) DC starts at 85380 ms
+PROF(6) DC starts at 85380 ms
+PROF(26) DC starts at 85381 ms
+PROF(5) DC starts at 85381 ms
+PROF(4) DC starts at 85382 ms
+PROF(27) DC starts at 85383 ms
+PROF(12) DC starts at 85385 ms
+PROF(11) DC starts at 85385 ms
+PROF(20) DC starts at 85386 ms
+PROF(10) DC starts at 85386 ms
+PROF(17) DC starts at 85387 ms
+PROF(23) DC starts at 85387 ms
+PROF(13) DC starts at 85387 ms
+PROF(9) DC starts at 85387 ms
+PROF(19) DC starts at 85387 ms
+PROF(21) DC starts at 85387 ms
+PROF(15) DC starts at 85387 ms
+PROF(29) DC starts at 85387 ms
+PROF(22) DC starts at 85386 ms
+PROF(31) DC starts at 85387 ms
+PROF(18) DC starts at 85387 ms
+PROF(7) DC starts at 85389 ms
+PROF(8) DC starts at 85389 ms
+PROF(14) DC starts at 85389 ms
+PROF(24) DC starts at 85389 ms
+PROF(30) DC starts at 85390 ms
+PROF(1) UV starts at 87562 ms
+PROF(0) UV starts at 87565 ms
+PROF(12) UV starts at 87567 ms
+PROF(16) UV starts at 87567 ms
+PROF(14) UV starts at 87567 ms
+PROF(10) UV starts at 87567 ms
+PROF(17) UV starts at 87567 ms
+PROF(15) UV starts at 87567 ms
+PROF(2) UV starts at 87567 ms
+PROF(8) UV starts at 87571 ms
+PROF(4) UV starts at 87571 ms
+PROF(6) UV starts at 87571 ms
+PROF(9) UV starts at 87571 ms
+PROF(18) UV starts at 87571 ms
+PROF(30) UV starts at 87571 ms
+PROF(25) UV starts at 87571 ms
+PROF(11) UV starts at 87571 ms
+PROF(24) UV starts at 87571 ms
+PROF(28) UV starts at 87571 ms
+PROF(20) UV starts at 87571 ms
+PROF(7) UV starts at 87571 ms
+PROF(21) UV starts at 87571 ms
+PROF(5) UV starts at 87572 ms
+PROF(13) UV starts at 87572 ms
+PROF(3) UV starts at 87572 ms
+PROF(22) UV starts at 87573 ms
+PROF(27) UV starts at 87573 ms
+PROF(19) UV starts at 87573 ms
+PROF(29) UV starts at 87573 ms
+PROF(26) UV starts at 87574 ms
+PROF(23) UV starts at 87581 ms
+PROF(31) UV starts at 87585 ms
+PROF(1) CNC starts at 87608 ms
+PROF(0) CNC starts at 87609 ms
+PROF(11) CNC starts at 87612 ms
+PROF(10) CNC starts at 87612 ms
+PROF(2) CNC starts at 87611 ms
+PROF(17) CNC starts at 87612 ms
+PROF(3) CNC starts at 87612 ms
+PROF(7) CNC starts at 87612 ms
+PROF(18) CNC starts at 87612 ms
+PROF(20) CNC starts at 87612 ms
+PROF(4) CNC starts at 87612 ms
+PROF(19) CNC starts at 87612 ms
+PROF(9) CNC starts at 87612 ms
+PROF(8) CNC starts at 87611 ms
+PROF(23) CNC starts at 87612 ms
+PROF(13) CNC starts at 87612 ms
+PROF(21) CNC starts at 87612 ms
+PROF(5) CNC starts at 87612 ms
+PROF(26) CNC starts at 87612 ms
+PROF(6) CNC starts at 87612 ms
+PROF(15) CNC starts at 87612 ms
+PROF(16) CNC starts at 87612 ms
+PROF(12) CNC starts at 87612 ms
+PROF(27) CNC starts at 87612 ms
+PROF(29) CNC starts at 87612 ms
+PROF(22) CNC starts at 87612 ms
+PROF(14) CNC starts at 87612 ms
+PROF(25) CNC starts at 87612 ms
+PROF(30) CNC starts at 87612 ms
+PROF(24) CNC starts at 87612 ms
+PROF(28) CNC starts at 87612 ms
+PROF(31) CNC starts at 87612 ms
+PROF(1) DC starts at 88220 ms
+PROF(0) DC starts at 88222 ms
+PROF(10) DC starts at 88222 ms
+PROF(8) DC starts at 88222 ms
+PROF(19) DC starts at 88225 ms
+PROF(21) DC starts at 88225 ms
+PROF(22) DC starts at 88225 ms
+PROF(27) DC starts at 88225 ms
+PROF(30) DC starts at 88225 ms
+PROF(2) DC starts at 88225 ms
+PROF(13) DC starts at 88225 ms
+PROF(11) DC starts at 88226 ms
+PROF(3) DC starts at 88227 ms
+PROF(25) DC starts at 88227 ms
+PROF(23) DC starts at 88227 ms
+PROF(20) DC starts at 88227 ms
+PROF(9) DC starts at 88227 ms
+PROF(7) DC starts at 88227 ms
+PROF(4) DC starts at 88227 ms
+PROF(26) DC starts at 88227 ms
+PROF(18) DC starts at 88227 ms
+PROF(6) DC starts at 88227 ms
+PROF(15) DC starts at 88227 ms
+PROF(5) DC starts at 88227 ms
+PROF(29) DC starts at 88227 ms
+PROF(31) DC starts at 88227 ms
+PROF(24) DC starts at 88227 ms
+PROF(12) DC starts at 88228 ms
+PROF(16) DC starts at 88227 ms
+PROF(17) DC starts at 88228 ms
+PROF(28) DC starts at 88228 ms
+PROF(14) DC starts at 88229 ms
+PROF(3) UV starts at 90406 ms
+PROF(1) UV starts at 90406 ms
+PROF(2) UV starts at 90408 ms
+PROF(0) UV starts at 90410 ms
+PROF(5) UV starts at 90410 ms
+PROF(25) UV starts at 90412 ms
+PROF(6) UV starts at 90411 ms
+PROF(22) UV starts at 90412 ms
+PROF(4) UV starts at 90412 ms
+PROF(28) UV starts at 90414 ms
+PROF(27) UV starts at 90414 ms
+PROF(17) UV starts at 90414 ms
+PROF(19) UV starts at 90416 ms
+PROF(18) UV starts at 90416 ms
+PROF(12) UV starts at 90416 ms
+PROF(30) UV starts at 90416 ms
+PROF(23) UV starts at 90416 ms
+PROF(13) UV starts at 90416 ms
+PROF(8) UV starts at 90421 ms
+PROF(31) UV starts at 90422 ms
+PROF(16) UV starts at 90425 ms
+PROF(11) UV starts at 90425 ms
+PROF(7) UV starts at 90425 ms
+PROF(21) UV starts at 90425 ms
+PROF(26) UV starts at 90425 ms
+PROF(24) UV starts at 90425 ms
+PROF(20) UV starts at 90425 ms
+PROF(10) UV starts at 90428 ms
+PROF(9) UV starts at 90428 ms
+PROF(29) UV starts at 90427 ms
+PROF(15) UV starts at 90427 ms
+PROF(14) UV starts at 90432 ms
+PROF(1) CNC starts at 90444 ms
+PROF(3) CNC starts at 90446 ms
+PROF(6) CNC starts at 90446 ms
+PROF(5) CNC starts at 90446 ms
+PROF(2) CNC starts at 90446 ms
+PROF(13) CNC starts at 90449 ms
+PROF(7) CNC starts at 90449 ms
+PROF(4) CNC starts at 90449 ms
+PROF(12) CNC starts at 90451 ms
+PROF(8) CNC starts at 90453 ms
+PROF(0) CNC starts at 90453 ms
+PROF(14) CNC starts at 90453 ms
+PROF(15) CNC starts at 90455 ms
+PROF(11) CNC starts at 90455 ms
+PROF(10) CNC starts at 90455 ms
+PROF(20) CNC starts at 90455 ms
+PROF(9) CNC starts at 90455 ms
+PROF(18) CNC starts at 90455 ms
+PROF(19) CNC starts at 90455 ms
+PROF(16) CNC starts at 90459 ms
+PROF(24) CNC starts at 90460 ms
+PROF(17) CNC starts at 90460 ms
+PROF(23) CNC starts at 90460 ms
+PROF(26) CNC starts at 90460 ms
+PROF(22) CNC starts at 90460 ms
+PROF(31) CNC starts at 90459 ms
+PROF(27) CNC starts at 90462 ms
+PROF(30) CNC starts at 90462 ms
+PROF(25) CNC starts at 90462 ms
+PROF(28) CNC starts at 90463 ms
+PROF(29) CNC starts at 90462 ms
+PROF(21) CNC starts at 90464 ms
+PROF(1) DC starts at 91054 ms
+PROF(2) DC starts at 91056 ms
+PROF(3) DC starts at 91057 ms
+PROF(5) DC starts at 91057 ms
+PROF(6) DC starts at 91057 ms
+PROF(7) DC starts at 91060 ms
+PROF(4) DC starts at 91060 ms
+PROF(13) DC starts at 91060 ms
+PROF(12) DC starts at 91063 ms
+PROF(0) DC starts at 91064 ms
+PROF(14) DC starts at 91064 ms
+PROF(8) DC starts at 91064 ms
+PROF(15) DC starts at 91066 ms
+PROF(10) DC starts at 91066 ms
+PROF(11) DC starts at 91066 ms
+PROF(9) DC starts at 91066 ms
+PROF(18) DC starts at 91069 ms
+PROF(20) DC starts at 91071 ms
+PROF(17) DC starts at 91071 ms
+PROF(23) DC starts at 91071 ms
+PROF(19) DC starts at 91072 ms
+PROF(26) DC starts at 91073 ms
+PROF(22) DC starts at 91073 ms
+PROF(31) DC starts at 91073 ms
+PROF(24) DC starts at 91073 ms
+PROF(27) DC starts at 91075 ms
+PROF(28) DC starts at 91076 ms
+PROF(16) DC starts at 91076 ms
+PROF(30) DC starts at 91078 ms
+PROF(25) DC starts at 91081 ms
+PROF(21) DC starts at 91080 ms
+PROF(29) DC starts at 91080 ms
+PROF(1) UV starts at 92184 ms
+PROF(2) UV starts at 92184 ms
+PROF(3) UV starts at 92186 ms
+PROF(0) UV starts at 92192 ms
+PROF(6) UV starts at 92196 ms
+PROF(7) UV starts at 92197 ms
+PROF(4) UV starts at 92197 ms
+PROF(5) UV starts at 92197 ms
+PROF(12) UV starts at 92197 ms
+PROF(20) UV starts at 92199 ms
+PROF(8) UV starts at 92199 ms
+PROF(19) UV starts at 92199 ms
+PROF(18) UV starts at 92199 ms
+PROF(16) UV starts at 92199 ms
+PROF(30) UV starts at 92199 ms
+PROF(24) UV starts at 92199 ms
+PROF(17) UV starts at 92199 ms
+PROF(14) UV starts at 92201 ms
+PROF(21) UV starts at 92202 ms
+PROF(22) UV starts at 92202 ms
+PROF(23) UV starts at 92206 ms
+PROF(13) UV starts at 92206 ms
+PROF(28) UV starts at 92206 ms
+PROF(10) UV starts at 92206 ms
+PROF(9) UV starts at 92206 ms
+PROF(29) UV starts at 92206 ms
+PROF(31) UV starts at 92206 ms
+PROF(26) UV starts at 92208 ms
+PROF(27) UV starts at 92208 ms
+PROF(11) UV starts at 92208 ms
+PROF(25) UV starts at 92208 ms
+PROF(15) UV starts at 92217 ms
+PROF(2) CNC starts at 92237 ms
+PROF(3) CNC starts at 92240 ms
+PROF(1) CNC starts at 92240 ms
+PROF(5) CNC starts at 92240 ms
+PROF(12) CNC starts at 92240 ms
+PROF(11) CNC starts at 92240 ms
+PROF(10) CNC starts at 92240 ms
+PROF(9) CNC starts at 92240 ms
+PROF(8) CNC starts at 92240 ms
+PROF(4) CNC starts at 92240 ms
+PROF(7) CNC starts at 92243 ms
+PROF(0) CNC starts at 92243 ms
+PROF(6) CNC starts at 92243 ms
+PROF(18) CNC starts at 92245 ms
+PROF(15) CNC starts at 92245 ms
+PROF(16) CNC starts at 92245 ms
+PROF(14) CNC starts at 92245 ms
+PROF(17) CNC starts at 92245 ms
+PROF(13) CNC starts at 92248 ms
+PROF(30) CNC starts at 92250 ms
+PROF(24) CNC starts at 92250 ms
+PROF(23) CNC starts at 92253 ms
+PROF(28) CNC starts at 92253 ms
+PROF(22) CNC starts at 92253 ms
+PROF(29) CNC starts at 92253 ms
+PROF(31) CNC starts at 92253 ms
+PROF(27) CNC starts at 92256 ms
+PROF(25) CNC starts at 92256 ms
+PROF(20) CNC starts at 92256 ms
+PROF(21) CNC starts at 92256 ms
+PROF(19) CNC starts at 92256 ms
+PROF(26) CNC starts at 92256 ms
+PROF(2) DC starts at 92849 ms
+PROF(9) DC starts at 92852 ms
+PROF(1) DC starts at 92852 ms
+PROF(5) DC starts at 92852 ms
+PROF(12) DC starts at 92852 ms
+PROF(3) DC starts at 92852 ms
+PROF(11) DC starts at 92852 ms
+PROF(10) DC starts at 92852 ms
+PROF(0) DC starts at 92853 ms
+PROF(4) DC starts at 92853 ms
+PROF(8) DC starts at 92852 ms
+PROF(14) DC starts at 92859 ms
+PROF(17) DC starts at 92859 ms
+PROF(13) DC starts at 92860 ms
+PROF(18) DC starts at 92860 ms
+PROF(6) DC starts at 92860 ms
+PROF(15) DC starts at 92860 ms
+PROF(7) DC starts at 92861 ms
+PROF(16) DC starts at 92861 ms
+PROF(30) DC starts at 92869 ms
+PROF(22) DC starts at 92873 ms
+PROF(31) DC starts at 92873 ms
+PROF(23) DC starts at 92874 ms
+PROF(28) DC starts at 92874 ms
+PROF(29) DC starts at 92874 ms
+PROF(20) DC starts at 92876 ms
+PROF(19) DC starts at 92876 ms
+PROF(21) DC starts at 92876 ms
+PROF(26) DC starts at 92876 ms
+PROF(24) DC starts at 92876 ms
+PROF(25) DC starts at 92876 ms
+PROF(27) DC starts at 92877 ms
+PROF(1) UV starts at 93960 ms
+PROF(3) UV starts at 93967 ms
+PROF(2) UV starts at 93969 ms
+PROF(4) UV starts at 93969 ms
+PROF(0) UV starts at 93970 ms
+PROF(7) UV starts at 93973 ms
+PROF(6) UV starts at 93973 ms
+PROF(5) UV starts at 93973 ms
+PROF(13) UV starts at 93975 ms
+PROF(24) UV starts at 93975 ms
+PROF(30) UV starts at 93975 ms
+PROF(31) UV starts at 93975 ms
+PROF(9) UV starts at 93977 ms
+PROF(26) UV starts at 93977 ms
+PROF(22) UV starts at 93977 ms
+PROF(29) UV starts at 93979 ms
+PROF(25) UV starts at 93979 ms
+PROF(28) UV starts at 93979 ms
+PROF(27) UV starts at 93982 ms
+PROF(12) UV starts at 93981 ms
+PROF(16) UV starts at 93982 ms
+PROF(21) UV starts at 93981 ms
+PROF(15) UV starts at 93988 ms
+PROF(23) UV starts at 93988 ms
+PROF(19) UV starts at 93988 ms
+PROF(20) UV starts at 93988 ms
+PROF(8) UV starts at 93988 ms
+PROF(17) UV starts at 93988 ms
+PROF(10) UV starts at 93988 ms
+PROF(14) UV starts at 93988 ms
+PROF(18) UV starts at 93988 ms
+PROF(11) UV starts at 93989 ms
+PROF(1) CNC starts at 94012 ms
+PROF(2) CNC starts at 94012 ms
+PROF(0) CNC starts at 94015 ms
+PROF(3) CNC starts at 94016 ms
+PROF(4) CNC starts at 94023 ms
+PROF(5) CNC starts at 94024 ms
+PROF(7) CNC starts at 94029 ms
+PROF(15) CNC starts at 94031 ms
+PROF(10) CNC starts at 94031 ms
+PROF(31) CNC starts at 94033 ms
+PROF(23) CNC starts at 94034 ms
+PROF(27) CNC starts at 94033 ms
+PROF(30) CNC starts at 94033 ms
+PROF(22) CNC starts at 94033 ms
+PROF(28) CNC starts at 94034 ms
+PROF(25) CNC starts at 94033 ms
+PROF(13) CNC starts at 94033 ms
+PROF(20) CNC starts at 94033 ms
+PROF(29) CNC starts at 94033 ms
+PROF(11) CNC starts at 94034 ms
+PROF(8) CNC starts at 94034 ms
+PROF(21) CNC starts at 94034 ms
+PROF(14) CNC starts at 94034 ms
+PROF(16) CNC starts at 94034 ms
+PROF(12) CNC starts at 94035 ms
+PROF(24) CNC starts at 94035 ms
+PROF(9) CNC starts at 94034 ms
+PROF(19) CNC starts at 94035 ms
+PROF(18) CNC starts at 94034 ms
+PROF(6) CNC starts at 94034 ms
+PROF(26) CNC starts at 94034 ms
+PROF(17) CNC starts at 94036 ms
+PROF(2) DC starts at 94623 ms
+PROF(1) DC starts at 94623 ms
+PROF(0) DC starts at 94626 ms
+PROF(3) DC starts at 94627 ms
+PROF(4) DC starts at 94638 ms
+PROF(5) DC starts at 94638 ms
+PROF(15) DC starts at 94642 ms
+PROF(10) DC starts at 94642 ms
+PROF(7) DC starts at 94644 ms
+PROF(22) DC starts at 94644 ms
+PROF(27) DC starts at 94644 ms
+PROF(31) DC starts at 94644 ms
+PROF(25) DC starts at 94644 ms
+PROF(11) DC starts at 94645 ms
+PROF(14) DC starts at 94644 ms
+PROF(23) DC starts at 94644 ms
+PROF(20) DC starts at 94644 ms
+PROF(13) DC starts at 94644 ms
+PROF(8) DC starts at 94645 ms
+PROF(21) DC starts at 94645 ms
+PROF(29) DC starts at 94644 ms
+PROF(28) DC starts at 94645 ms
+PROF(16) DC starts at 94645 ms
+PROF(30) DC starts at 94647 ms
+PROF(18) DC starts at 94648 ms
+PROF(6) DC starts at 94648 ms
+PROF(19) DC starts at 94652 ms
+PROF(26) DC starts at 94652 ms
+PROF(24) DC starts at 94652 ms
+PROF(12) DC starts at 94654 ms
+PROF(17) DC starts at 94654 ms
+PROF(9) DC starts at 94654 ms
+PROF(1) UV starts at 95753 ms
+PROF(0) UV starts at 95755 ms
+PROF(2) UV starts at 95755 ms
+PROF(4) UV starts at 95755 ms
+PROF(6) UV starts at 95759 ms
+PROF(5) UV starts at 95759 ms
+PROF(12) UV starts at 95759 ms
+PROF(3) UV starts at 95760 ms
+PROF(14) UV starts at 95761 ms
+PROF(28) UV starts at 95762 ms
+PROF(13) UV starts at 95761 ms
+PROF(21) UV starts at 95761 ms
+PROF(22) UV starts at 95761 ms
+PROF(29) UV starts at 95762 ms
+PROF(17) UV starts at 95764 ms
+PROF(23) UV starts at 95764 ms
+PROF(20) UV starts at 95764 ms
+PROF(19) UV starts at 95764 ms
+PROF(26) UV starts at 95764 ms
+PROF(15) UV starts at 95764 ms
+PROF(31) UV starts at 95764 ms
+PROF(16) UV starts at 95764 ms
+PROF(30) UV starts at 95764 ms
+PROF(10) UV starts at 95765 ms
+PROF(7) UV starts at 95768 ms
+PROF(24) UV starts at 95768 ms
+PROF(25) UV starts at 95768 ms
+PROF(11) UV starts at 95768 ms
+PROF(27) UV starts at 95768 ms
+PROF(9) UV starts at 95768 ms
+PROF(18) UV starts at 95769 ms
+PROF(8) UV starts at 95768 ms
+PROF(2) CNC starts at 95796 ms
+PROF(1) CNC starts at 95799 ms
+PROF(3) CNC starts at 95800 ms
+PROF(0) CNC starts at 95802 ms
+PROF(10) CNC starts at 95803 ms
+PROF(13) CNC starts at 95804 ms
+PROF(9) CNC starts at 95804 ms
+PROF(8) CNC starts at 95804 ms
+PROF(16) CNC starts at 95804 ms
+PROF(7) CNC starts at 95804 ms
+PROF(6) CNC starts at 95806 ms
+PROF(5) CNC starts at 95806 ms
+PROF(15) CNC starts at 95806 ms
+PROF(12) CNC starts at 95806 ms
+PROF(14) CNC starts at 95806 ms
+PROF(17) CNC starts at 95806 ms
+PROF(25) CNC starts at 95807 ms
+PROF(30) CNC starts at 95806 ms
+PROF(11) CNC starts at 95806 ms
+PROF(28) CNC starts at 95807 ms
+PROF(23) CNC starts at 95807 ms
+PROF(20) CNC starts at 95807 ms
+PROF(19) CNC starts at 95807 ms
+PROF(18) CNC starts at 95807 ms
+PROF(4) CNC starts at 95806 ms
+PROF(26) CNC starts at 95807 ms
+PROF(22) CNC starts at 95807 ms
+PROF(29) CNC starts at 95807 ms
+PROF(27) CNC starts at 95807 ms
+PROF(24) CNC starts at 95807 ms
+PROF(31) CNC starts at 95806 ms
+PROF(21) CNC starts at 95809 ms
+PROF(2) DC starts at 96407 ms
+PROF(1) DC starts at 96410 ms
+PROF(0) DC starts at 96412 ms
+PROF(3) DC starts at 96411 ms
+PROF(10) DC starts at 96414 ms
+PROF(13) DC starts at 96415 ms
+PROF(16) DC starts at 96415 ms
+PROF(7) DC starts at 96415 ms
+PROF(9) DC starts at 96417 ms
+PROF(8) DC starts at 96417 ms
+PROF(4) DC starts at 96419 ms
+PROF(19) DC starts at 96419 ms
+PROF(5) DC starts at 96421 ms
+PROF(15) DC starts at 96421 ms
+PROF(12) DC starts at 96421 ms
+PROF(24) DC starts at 96421 ms
+PROF(17) DC starts at 96421 ms
+PROF(11) DC starts at 96422 ms
+PROF(28) DC starts at 96422 ms
+PROF(20) DC starts at 96421 ms
+PROF(6) DC starts at 96421 ms
+PROF(29) DC starts at 96421 ms
+PROF(31) DC starts at 96423 ms
+PROF(26) DC starts at 96426 ms
+PROF(22) DC starts at 96426 ms
+PROF(27) DC starts at 96426 ms
+PROF(14) DC starts at 96426 ms
+PROF(25) DC starts at 96426 ms
+PROF(30) DC starts at 96426 ms
+PROF(18) DC starts at 96426 ms
+PROF(23) DC starts at 96427 ms
+PROF(21) DC starts at 96428 ms
+PROF(3) UV starts at 97535 ms
+PROF(1) UV starts at 97535 ms
+PROF(4) UV starts at 97537 ms
+PROF(2) UV starts at 97538 ms
+PROF(5) UV starts at 97540 ms
+PROF(12) UV starts at 97542 ms
+PROF(11) UV starts at 97542 ms
+PROF(0) UV starts at 97543 ms
+PROF(8) UV starts at 97544 ms
+PROF(6) UV starts at 97544 ms
+PROF(9) UV starts at 97544 ms
+PROF(7) UV starts at 97544 ms
+PROF(10) UV starts at 97544 ms
+PROF(13) UV starts at 97545 ms
+PROF(28) UV starts at 97548 ms
+PROF(30) UV starts at 97549 ms
+PROF(21) UV starts at 97550 ms
+PROF(29) UV starts at 97550 ms
+PROF(25) UV starts at 97552 ms
+PROF(26) UV starts at 97555 ms
+PROF(22) UV starts at 97556 ms
+PROF(14) UV starts at 97556 ms
+PROF(16) UV starts at 97558 ms
+PROF(24) UV starts at 97559 ms
+PROF(23) UV starts at 97559 ms
+PROF(19) UV starts at 97558 ms
+PROF(18) UV starts at 97558 ms
+PROF(15) UV starts at 97561 ms
+PROF(17) UV starts at 97561 ms
+PROF(27) UV starts at 97561 ms
+PROF(20) UV starts at 97561 ms
+PROF(31) UV starts at 97561 ms
+PROF(0) CNC starts at 97581 ms
+PROF(11) CNC starts at 97589 ms
+PROF(30) CNC starts at 97594 ms
+PROF(9) CNC starts at 97597 ms
+PROF(16) CNC starts at 97597 ms
+PROF(29) CNC starts at 97597 ms
+PROF(10) CNC starts at 97597 ms
+PROF(7) CNC starts at 97597 ms
+PROF(13) CNC starts at 97598 ms
+PROF(19) CNC starts at 97598 ms
+PROF(1) CNC starts at 97598 ms
+PROF(8) CNC starts at 97598 ms
+PROF(6) CNC starts at 97598 ms
+PROF(15) CNC starts at 97598 ms
+PROF(27) CNC starts at 97598 ms
+PROF(12) CNC starts at 97598 ms
+PROF(24) CNC starts at 97598 ms
+PROF(2) CNC starts at 97598 ms
+PROF(25) CNC starts at 97598 ms
+PROF(20) CNC starts at 97598 ms
+PROF(17) CNC starts at 97601 ms
+PROF(21) CNC starts at 97603 ms
+PROF(5) CNC starts at 97603 ms
+PROF(14) CNC starts at 97603 ms
+PROF(3) CNC starts at 97603 ms
+PROF(23) CNC starts at 97603 ms
+PROF(18) CNC starts at 97603 ms
+PROF(4) CNC starts at 97608 ms
+PROF(26) CNC starts at 97608 ms
+PROF(22) CNC starts at 97608 ms
+PROF(31) CNC starts at 97608 ms
+PROF(28) CNC starts at 97608 ms
+PROF(0) DC starts at 98194 ms
+PROF(11) DC starts at 98200 ms
+PROF(30) DC starts at 98206 ms
+PROF(10) DC starts at 98208 ms
+PROF(9) DC starts at 98208 ms
+PROF(15) DC starts at 98208 ms
+PROF(7) DC starts at 98209 ms
+PROF(6) DC starts at 98209 ms
+PROF(27) DC starts at 98209 ms
+PROF(29) DC starts at 98211 ms
+PROF(20) DC starts at 98213 ms
+PROF(8) DC starts at 98213 ms
+PROF(19) DC starts at 98213 ms
+PROF(16) DC starts at 98213 ms
+PROF(25) DC starts at 98213 ms
+PROF(24) DC starts at 98215 ms
+PROF(2) DC starts at 98215 ms
+PROF(1) DC starts at 98216 ms
+PROF(12) DC starts at 98217 ms
+PROF(13) DC starts at 98218 ms
+PROF(18) DC starts at 98222 ms
+PROF(21) DC starts at 98222 ms
+PROF(5) DC starts at 98222 ms
+PROF(14) DC starts at 98222 ms
+PROF(3) DC starts at 98222 ms
+PROF(23) DC starts at 98222 ms
+PROF(17) DC starts at 98223 ms
+PROF(22) DC starts at 98224 ms
+PROF(4) DC starts at 98225 ms
+PROF(28) DC starts at 98226 ms
+PROF(26) DC starts at 98225 ms
+PROF(31) DC starts at 98224 ms
+PROF(1) UV starts at 99321 ms
+PROF(0) UV starts at 99323 ms
+PROF(2) UV starts at 99324 ms
+PROF(4) UV starts at 99325 ms
+PROF(6) UV starts at 99325 ms
+PROF(5) UV starts at 99325 ms
+PROF(3) UV starts at 99325 ms
+PROF(19) UV starts at 99327 ms
+PROF(8) UV starts at 99330 ms
+PROF(29) UV starts at 99330 ms
+PROF(25) UV starts at 99330 ms
+PROF(18) UV starts at 99332 ms
+PROF(21) UV starts at 99332 ms
+PROF(22) UV starts at 99332 ms
+PROF(16) UV starts at 99332 ms
+PROF(31) UV starts at 99332 ms
+PROF(12) UV starts at 99332 ms
+PROF(27) UV starts at 99332 ms
+PROF(11) UV starts at 99332 ms
+PROF(30) UV starts at 99332 ms
+PROF(17) UV starts at 99332 ms
+PROF(28) UV starts at 99333 ms
+PROF(23) UV starts at 99332 ms
+PROF(13) UV starts at 99332 ms
+PROF(7) UV starts at 99332 ms
+PROF(9) UV starts at 99332 ms
+PROF(26) UV starts at 99332 ms
+PROF(15) UV starts at 99333 ms
+PROF(20) UV starts at 99333 ms
+PROF(14) UV starts at 99333 ms
+PROF(10) UV starts at 99333 ms
+PROF(24) UV starts at 99333 ms
+SUCCESS!
+ELAPSED TIME =  42.529 s
+GFLOPS = 7223.426 GFLOPS
+[0 - 2ba45d01e700] {3}{circuit}: simulation complete - destroying regions
