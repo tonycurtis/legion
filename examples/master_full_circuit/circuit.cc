@@ -115,14 +115,8 @@ void top_level_task(const Task *task,
   Partitions parts = load_circuit(circuit, pieces, ctx, runtime, num_pieces, nodes_per_piece,
                                   wires_per_piece, pct_wire_in_piece, random_seed, steps);
 
-  // Arguments for each point
-  ArgumentMap local_args;
-  for (int idx = 0; idx < num_pieces; idx++)
-  {
-    DomainPoint point = DomainPoint::from_point<1>(Point<1>(idx));
-    local_args.set_point(point, TaskArgument(&(pieces[idx]),sizeof(CircuitPiece)));
-  }
-
+  
+  printf("[PROF] before init = %lld ms\n", Realm::Clock::current_time_in_microseconds() / 1000);
   // <NEW_COPY_TASK>
   RegionRequirement wires_req(circuit.all_wires, READ_WRITE, EXCLUSIVE, circuit.all_wires);
   wires_req.add_field(FID_IN_PTR);
@@ -142,18 +136,7 @@ void top_level_task(const Task *task,
   Future future = runtime->execute_task(ctx, copy_task_launcher);
   future.get_void_result();
   // </NEW_COPY_TASK>>
-
-  // Make the launchers
-  Rect<1> launch_rect(Point<1>(0), Point<1>(num_pieces-1)); 
-  Domain launch_domain = Domain::from_rect<1>(launch_rect);
-  CalcNewCurrentsTask cnc_launcher(parts.pvt_wires, parts.pvt_nodes, parts.shr_nodes, parts.ghost_nodes,
-                                   circuit.all_wires, circuit.all_nodes, launch_domain, local_args);
-
-  DistributeChargeTask dsc_launcher(parts.pvt_wires, parts.pvt_nodes, parts.shr_nodes, parts.ghost_nodes,
-                                    circuit.all_wires, circuit.all_nodes, launch_domain, local_args);
-
-  UpdateVoltagesTask upv_launcher(parts.pvt_nodes, parts.shr_nodes, parts.node_locations,
-                                 circuit.all_nodes, circuit.node_locator, launch_domain, local_args);
+  printf("[PROF][%d][%d] after init = %lld ms\n", (unsigned int) gasnet_nodes(), (unsigned int) gasnet_mynode(), Realm::Clock::current_time_in_microseconds() / 1000);
 
   printf("Starting main simulation loop\n");
   //struct timespec ts_start, ts_end;
@@ -164,8 +147,33 @@ void top_level_task(const Task *task,
   bool simulation_success = true;
   for (int i = 0; i < num_loops; i++)
   {
+    // Arguments for each point
+    ArgumentMap local_args;
+    for (int idx = 0; idx < num_pieces; idx++)
+    {
+      DomainPoint point = DomainPoint::from_point<1>(Point<1>(idx));
+      pieces[idx].current_iteration = i;
+      local_args.set_point(point, TaskArgument(&(pieces[idx]),sizeof(CircuitPiece)));
+    }
+
+    // Make the launchers
+    Rect<1> launch_rect(Point<1>(0), Point<1>(num_pieces-1)); 
+    Domain launch_domain = Domain::from_rect<1>(launch_rect);
+    CalcNewCurrentsTask cnc_launcher(parts.pvt_wires, parts.pvt_nodes, parts.shr_nodes, parts.ghost_nodes,
+                                     circuit.all_wires, circuit.all_nodes, launch_domain, local_args);
+
+    DummyTask dummy_launcher(parts.pvt_wires, circuit.all_wires, launch_domain, local_args);
+
+    DistributeChargeTask dsc_launcher(parts.pvt_wires, parts.pvt_nodes, parts.shr_nodes, parts.ghost_nodes,
+                                      circuit.all_wires, circuit.all_nodes, launch_domain, local_args);
+
+    UpdateVoltagesTask upv_launcher(parts.pvt_nodes, parts.shr_nodes, parts.node_locations,
+                                   circuit.all_nodes, circuit.node_locator, launch_domain, local_args);
+
     TaskHelper::dispatch_task<CalcNewCurrentsTask>(cnc_launcher, ctx, runtime, 
                                                    perform_checks, simulation_success);
+    TaskHelper::dispatch_task<DummyTask>(dummy_launcher, ctx, runtime,
+                                         perform_checks, simulation_success);
     TaskHelper::dispatch_task<DistributeChargeTask>(dsc_launcher, ctx, runtime, 
                                                     perform_checks, simulation_success);
     TaskHelper::dispatch_task<UpdateVoltagesTask>(upv_launcher, ctx, runtime, 
@@ -265,10 +273,12 @@ int main(int argc, char **argv)
   // If we're running on the shared low-level then only register cpu tasks
 #ifdef SHARED_LOWLEVEL
   TaskHelper::register_cpu_variants<CalcNewCurrentsTask>();
+  TaskHelper::register_cpu_variants<DummyTask>();
   TaskHelper::register_cpu_variants<DistributeChargeTask>();
   TaskHelper::register_cpu_variants<UpdateVoltagesTask>();
 #else
   TaskHelper::register_hybrid_variants<CalcNewCurrentsTask>();
+  TaskHelper::register_hybrid_variants<DummyTask>();
   TaskHelper::register_hybrid_variants<DistributeChargeTask>();
   TaskHelper::register_hybrid_variants<UpdateVoltagesTask>();
 #endif

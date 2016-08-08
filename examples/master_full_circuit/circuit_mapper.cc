@@ -94,6 +94,7 @@ bool CircuitMapper::map_task(Task *task)
     assert(zc_mem.exists());
     switch (task->task_id)
     {
+      case DUMMY_TASK_ID:
       case COPY_TASK_ID:
         {
           assert(task->regions.size() == 1);
