@@ -1,0 +1,313 @@
+Currently Loaded Modulefiles:
+  1) gcc/4.8.2         3) java/1.8.0_45
+  2) openmpi/1.6.5     4) cudatoolkit/7.5
+cputime      unlimited
+filesize     unlimited
+datasize     unlimited
+stacksize    unlimited
+coredumpsize unlimited
+memoryuse    unlimited
+vmemoryuse   unlimited
+descriptors  65536 
+memorylocked unlimited
+maxproc      8192 
+Wed Aug 10 03:24:07 MDT 2016
+375392
+./ckt_sim_timing -npp 250000 -wpp 500000 -p 2 -l 4  -ll:cpu 5 -ll:zsize 4192 -ll:fsize 4192 -ll:gpu 1 -ll:dma 5 -ll:ahandlers 5 -ll:rsize 1920 -ll:gsize 0
+iterations is 2x node count (except for 1 node run where it is 4x)
+running 32 nodes dma_circuit branch
+Reported: 64 (out of 64) daemons - 64 (out of 64) procs
+[0 - 2b493bd6c700] {3}{circuit}: circuit settings: loops=64 pieces=64 nodes/piece=250000 wires/piece=500000 pct_in_piece=95 seed=12345
+[0 - 2b493bd6c700] {3}{circuit}: Initializing circuit simulation...
+#privates = 225972, #shared = 24028, #ghose = 24866
+#privates = 226548, #shared = 23452, #ghose = 25094
+#privates = 226059, #shared = 23941, #ghose = 25073
+#privates = 226136, #shared = 23864, #ghose = 25083
+#privates = 226048, #shared = 23952, #ghose = 25138
+#privates = 226186, #shared = 23814, #ghose = 24970
+#privates = 226189, #shared = 23811, #ghose = 25037
+#privates = 226039, #shared = 23961, #ghose = 24973
+#privates = 226457, #shared = 23543, #ghose = 24811
+#privates = 226360, #shared = 23640, #ghose = 24975
+#privates = 226000, #shared = 24000, #ghose = 24970
+#privates = 226410, #shared = 23590, #ghose = 24927
+#privates = 226173, #shared = 23827, #ghose = 25076
+#privates = 226255, #shared = 23745, #ghose = 25111
+#privates = 226001, #shared = 23999, #ghose = 24629
+#privates = 225889, #shared = 24111, #ghose = 24989
+#privates = 226120, #shared = 23880, #ghose = 25293
+#privates = 225963, #shared = 24037, #ghose = 24925
+#privates = 226312, #shared = 23688, #ghose = 24930
+#privates = 226283, #shared = 23717, #ghose = 25000
+#privates = 226113, #shared = 23887, #ghose = 25051
+#privates = 226091, #shared = 23909, #ghose = 25144
+#privates = 225944, #shared = 24056, #ghose = 25063
+#privates = 226075, #shared = 23925, #ghose = 25035
+#privates = 226260, #shared = 23740, #ghose = 25245
+#privates = 226425, #shared = 23575, #ghose = 25183
+#privates = 226371, #shared = 23629, #ghose = 25002
+#privates = 226240, #shared = 23760, #ghose = 24876
+#privates = 226151, #shared = 23849, #ghose = 24961
+#privates = 226441, #shared = 23559, #ghose = 24823
+#privates = 226385, #shared = 23615, #ghose = 24806
+#privates = 226085, #shared = 23915, #ghose = 25011
+#privates = 226317, #shared = 23683, #ghose = 24978
+#privates = 225968, #shared = 24032, #ghose = 24752
+#privates = 226145, #shared = 23855, #ghose = 25196
+#privates = 226239, #shared = 23761, #ghose = 24893
+#privates = 226260, #shared = 23740, #ghose = 25105
+#privates = 226244, #shared = 23756, #ghose = 24803
+#privates = 226196, #shared = 23804, #ghose = 24941
+#privates = 226415, #shared = 23585, #ghose = 24872
+#privates = 226316, #shared = 23684, #ghose = 24966
+#privates = 226166, #shared = 23834, #ghose = 25030
+#privates = 226245, #shared = 23755, #ghose = 24976
+#privates = 225963, #shared = 24037, #ghose = 25091
+#privates = 226200, #shared = 23800, #ghose = 25036
+#privates = 225967, #shared = 24033, #ghose = 25071
+#privates = 226350, #shared = 23650, #ghose = 25299
+#privates = 226412, #shared = 23588, #ghose = 25350
+#privates = 226000, #shared = 24000, #ghose = 24957
+#privates = 226170, #shared = 23830, #ghose = 24704
+#privates = 226386, #shared = 23614, #ghose = 24737
+#privates = 226054, #shared = 23946, #ghose = 24918
+#privates = 226213, #shared = 23787, #ghose = 24972
+#privates = 226131, #shared = 23869, #ghose = 24848
+#privates = 226152, #shared = 23848, #ghose = 25204
+#privates = 226235, #shared = 23765, #ghose = 24819
+#privates = 226083, #shared = 23917, #ghose = 25042
+#privates = 226331, #shared = 23669, #ghose = 25137
+#privates = 226165, #shared = 23835, #ghose = 24820
+#privates = 226068, #shared = 23932, #ghose = 25246
+#privates = 226018, #shared = 23982, #ghose = 24927
+#privates = 226363, #shared = 23637, #ghose = 24888
+#privates = 226394, #shared = 23606, #ghose = 25421
+#privates = 226404, #shared = 23596, #ghose = 24789
+[0 - 2b493bd6c700] {3}{circuit}: Finished initializing simulation...
+[PROF] before init = 119274 ms
+[PROF][64][0] after init = 121234 ms
+Starting main simulation loop
+[0]PROF_CNC(0)(0) starts at 122292 ms
+ckt_sim_timing: /users/gshipman/local/src/legion-asplos/legion-asplos/runtime/lowlevel_dma.cc:736: void LegionRuntime::LowLevel::CopyRequest::alloc_intermediate_buffer(LegionRuntime::LowLevel::InstPair, LegionRuntime::LowLevel::Memory, int): Assertion `ib_offset >= 0' failed.
+ckt_sim_timing: /users/gshipman/local/src/legion-asplos/legion-asplos/runtime/lowlevel_dma.cc:736: void LegionRuntime::LowLevel::CopyRequest::alloc_intermediate_buffer(LegionRuntime::LowLevel::InstPair, LegionRuntime::LowLevel::Memory, int): Assertion `ib_offset >= 0' failed.
+*** Caught a fatal signal: SIGABRT(6) on node 0/64
+*** Caught a fatal signal: SIGABRT(6) on node 0/64
+*** Caught a signal: SIGTERM(15) on node 25/64
+*** Caught a signal: SIGTERM(15) on node 26/64
+*** Caught a signal: SIGTERM(15) on node 18/64
+*** Caught a signal: SIGTERM(15) on node 12/64
+*** Caught a signal: SIGTERM(15) on node 55/64
+*** Caught a signal: SIGTERM(15) on node 58/64
+*** Caught a signal: SIGTERM(15) on node 51/64
+*** Caught a signal: SIGTERM(15) on node 59/64
+*** Caught a signal: SIGTERM(15) on node 5/64
+*** Caught a signal: SIGTERM(15) on node 62/64
+*** Caught a signal: SIGTERM(15) on node 34/64
+*** Caught a signal: SIGTERM(15) on node 45/64
+*** Caught a signal: SIGTERM(15) on node 52/64
+*** Caught a signal: SIGTERM(15) on node 23/64
+*** Caught a signal: SIGTERM(15) on node 22/64
+*** Caught a signal: SIGTERM(15) on node 7/64
+*** Caught a signal: SIGTERM(15) on node 6/64
+*** Caught a signal: SIGTERM(15) on node 14/64
+*** Caught a signal: SIGTERM(15) on node 47/64
+*** Caught a signal: SIGTERM(15) on node 21/64
+*** Caught a signal: SIGTERM(15) on node 8/64
+*** Caught a signal: SIGTERM(15) on node 32/64
+*** Caught a signal: SIGTERM(15) on node 4/64
+*** Caught a signal: SIGTERM(15) on node 57/64
+*** Caught a signal: SIGTERM(15) on node 39/64
+*** Caught a signal: SIGTERM(15) on node 42/64
+*** Caught a signal: SIGTERM(15) on node 61/64
+*** Caught a signal: SIGTERM(15) on node 30/64
+*** Caught a signal: SIGTERM(15) on node 36/64
+*** Caught a signal: SIGTERM(15) on node 60/64
+*** Caught a signal: SIGTERM(15) on node 49/64
+*** Caught a signal: SIGTERM(15) on node 35/64
+*** Caught a signal: SIGTERM(15) on node 56/64
+*** Caught a signal: SIGTERM(15) on node 50/64
+*** Caught a signal: SIGTERM(15) on node 44/64
+*** Caught a signal: SIGTERM(15) on node 31/64
+*** Caught a signal: SIGTERM(15) on node 43/64
+*** Caught a signal: SIGTERM(15) on node 48/64
+*** Caught a signal: SIGTERM(15) on node 10/64
+*** Caught a signal: SIGTERM(15) on node 1/64
+*** Caught a signal: SIGTERM(15) on node 28/64
+*** Caught a signal: SIGTERM(15) on node 33/64
+*** Caught a signal: SIGTERM(15) on node 37/64
+*** Caught a signal: SIGTERM(15) on node 3/64
+*** Caught a signal: SIGTERM(15) on node 63/64
+*** Caught a signal: SIGTERM(15) on node 20/64
+*** Caught a signal: SIGTERM(15) on node 11/64
+*** Caught a signal: SIGTERM(15) on node 38/64
+*** Caught a signal: SIGTERM(15) on node 53/64
+*** Caught a signal: SIGTERM(15) on node 2/64
+*** Caught a signal: SIGTERM(15) on node 40/64
+*** Caught a signal: SIGTERM(15) on node 9/64
+*** Caught a signal: SIGTERM(15) on node 27/64
+*** Caught a signal: SIGTERM(15) on node 19/64
+*** Caught a signal: SIGTERM(15) on node 46/64
+*** Caught a signal: SIGTERM(15) on node 24/64
+*** Caught a signal: SIGTERM(15) on node 54/64
+*** Caught a signal: SIGTERM(15) on node 13/64
+*** Caught a signal: SIGTERM(15) on node 41/64
+*** Caught a signal: SIGTERM(15) on node 17/64
+*** Caught a signal: SIGTERM(15) on node 29/64
+*** Caught a signal: SIGTERM(15) on node 15/64
+--------------------------------------------------------------------------
+mpirun noticed that process rank 0 with PID 55224 on node ml003.localdomain exited on signal 6 (Aborted).
+--------------------------------------------------------------------------
+*** Caught a signal: SIGTERM(15) on node 16/64
+running 32 nodes master multi-hop branch
+Reported: 64 (out of 64) daemons - 64 (out of 64) procs
+[0 - 2b2cda1c0700] {3}{circuit}: circuit settings: loops=64 pieces=64 nodes/piece=250000 wires/piece=500000 pct_in_piece=95 seed=12345
+[0 - 2b2cda1c0700] {3}{circuit}: Initializing circuit simulation...
+#privates = 225972, #shared = 24028, #ghose = 24866
+#privates = 226548, #shared = 23452, #ghose = 25094
+#privates = 226059, #shared = 23941, #ghose = 25073
+#privates = 226136, #shared = 23864, #ghose = 25083
+#privates = 226048, #shared = 23952, #ghose = 25138
+#privates = 226186, #shared = 23814, #ghose = 24970
+#privates = 226189, #shared = 23811, #ghose = 25037
+#privates = 226039, #shared = 23961, #ghose = 24973
+#privates = 226457, #shared = 23543, #ghose = 24811
+#privates = 226360, #shared = 23640, #ghose = 24975
+#privates = 226000, #shared = 24000, #ghose = 24970
+#privates = 226410, #shared = 23590, #ghose = 24927
+#privates = 226173, #shared = 23827, #ghose = 25076
+#privates = 226255, #shared = 23745, #ghose = 25111
+#privates = 226001, #shared = 23999, #ghose = 24629
+#privates = 225889, #shared = 24111, #ghose = 24989
+#privates = 226120, #shared = 23880, #ghose = 25293
+#privates = 225963, #shared = 24037, #ghose = 24925
+#privates = 226312, #shared = 23688, #ghose = 24930
+#privates = 226283, #shared = 23717, #ghose = 25000
+#privates = 226113, #shared = 23887, #ghose = 25051
+#privates = 226091, #shared = 23909, #ghose = 25144
+#privates = 225944, #shared = 24056, #ghose = 25063
+#privates = 226075, #shared = 23925, #ghose = 25035
+#privates = 226260, #shared = 23740, #ghose = 25245
+#privates = 226425, #shared = 23575, #ghose = 25183
+#privates = 226371, #shared = 23629, #ghose = 25002
+#privates = 226240, #shared = 23760, #ghose = 24876
+#privates = 226151, #shared = 23849, #ghose = 24961
+#privates = 226441, #shared = 23559, #ghose = 24823
+#privates = 226385, #shared = 23615, #ghose = 24806
+#privates = 226085, #shared = 23915, #ghose = 25011
+#privates = 226317, #shared = 23683, #ghose = 24978
+#privates = 225968, #shared = 24032, #ghose = 24752
+#privates = 226145, #shared = 23855, #ghose = 25196
+#privates = 226239, #shared = 23761, #ghose = 24893
+#privates = 226260, #shared = 23740, #ghose = 25105
+#privates = 226244, #shared = 23756, #ghose = 24803
+#privates = 226196, #shared = 23804, #ghose = 24941
+#privates = 226415, #shared = 23585, #ghose = 24872
+#privates = 226316, #shared = 23684, #ghose = 24966
+#privates = 226166, #shared = 23834, #ghose = 25030
+#privates = 226245, #shared = 23755, #ghose = 24976
+#privates = 225963, #shared = 24037, #ghose = 25091
+#privates = 226200, #shared = 23800, #ghose = 25036
+#privates = 225967, #shared = 24033, #ghose = 25071
+#privates = 226350, #shared = 23650, #ghose = 25299
+#privates = 226412, #shared = 23588, #ghose = 25350
+#privates = 226000, #shared = 24000, #ghose = 24957
+#privates = 226170, #shared = 23830, #ghose = 24704
+#privates = 226386, #shared = 23614, #ghose = 24737
+#privates = 226054, #shared = 23946, #ghose = 24918
+#privates = 226213, #shared = 23787, #ghose = 24972
+#privates = 226131, #shared = 23869, #ghose = 24848
+#privates = 226152, #shared = 23848, #ghose = 25204
+#privates = 226235, #shared = 23765, #ghose = 24819
+#privates = 226083, #shared = 23917, #ghose = 25042
+#privates = 226331, #shared = 23669, #ghose = 25137
+#privates = 226165, #shared = 23835, #ghose = 24820
+#privates = 226068, #shared = 23932, #ghose = 25246
+#privates = 226018, #shared = 23982, #ghose = 24927
+#privates = 226363, #shared = 23637, #ghose = 24888
+#privates = 226394, #shared = 23606, #ghose = 25421
+#privates = 226404, #shared = 23596, #ghose = 24789
+[0 - 2b2cda1c0700] {3}{circuit}: Finished initializing simulation...
+[PROF] before init = 112744 ms
+[PROF][64][0] after init = 114690 ms
+Starting main simulation loop
+[0]PROF_CNC(0)(0) starts at 115748 ms
+[0]PROF_CNC(1)(1) starts at 116184 ms
+[0]PROF_CNC(2)(2) starts at 116421 ms
+[0]PROF_CNC(3)(3) starts at 116616 ms
+[0]PROF_CNC(4)(4) starts at 116745 ms
+[0]PROF_CNC(5)(5) starts at 116879 ms
+[0]PROF_DUMMY(1)(1) starts at 123123 ms
+[0]PROF_DUMMY(2)(2) starts at 123125 ms
+[0]PROF_DUMMY(3)(3) starts at 123128 ms
+[0]PROF_DUMMY(4)(4) starts at 123135 ms
+[0]PROF_DUMMY(5)(5) starts at 123141 ms
+[0 - 2b2cda1b8700] {5}{mapper}: Failed task mapping for region 0 of task distribute_charge (0x2b2f0114c780)
+
+ckt_sim_timing_master: circuit_mapper.cc:226: virtual void CircuitMapper::notify_mapping_failed(const Legion::Mapping::ShimMapper::Mappable*): Assertion `false' failed.
+*** Caught a fatal signal: SIGABRT(6) on node 0/64
+*** Caught a signal: SIGTERM(15) on node 28/64
+*** Caught a signal: SIGTERM(15) on node 46/64
+*** Caught a signal: SIGTERM(15) on node 5/64
+*** Caught a signal: SIGTERM(15) on node 43/64
+*** Caught a signal: SIGTERM(15) on node 25/64
+*** Caught a signal: SIGTERM(15) on node 4/64
+*** Caught a signal: SIGTERM(15) on node 12/64
+*** Caught a signal: SIGTERM(15) on node 17/64
+*** Caught a signal: SIGTERM(15) on node 7/64
+*** Caught a signal: SIGTERM(15) on node 36/64
+*** Caught a signal: SIGTERM(15) on node 56/64
+*** Caught a signal: SIGTERM(15) on node 9/64
+*** Caught a signal: SIGTERM(15) on node 42/64
+*** Caught a signal: SIGTERM(15) on node 31/64
+*** Caught a signal: SIGTERM(15) on node 49/64
+*** Caught a signal: SIGTERM(15) on node 47/64
+*** Caught a signal: SIGTERM(15) on node 59/64
+*** Caught a signal: SIGTERM(15) on node 23/64
+*** Caught a signal: SIGTERM(15) on node 10/64
+*** Caught a signal: SIGTERM(15) on node 45/64
+*** Caught a signal: SIGTERM(15) on node 55/64
+*** Caught a signal: SIGTERM(15) on node 62/64
+*** Caught a signal: SIGTERM(15) on node 22/64
+*** Caught a signal: SIGTERM(15) on node 40/64
+*** Caught a signal: SIGTERM(15) on node 48/64
+*** Caught a signal: SIGTERM(15) on node 8/64
+*** Caught a signal: SIGTERM(15) on node 6/64
+*** Caught a signal: SIGTERM(15) on node 29/64
+*** Caught a signal: SIGTERM(15) on node 3/64
+*** Caught a signal: SIGTERM(15) on node 33/64
+*** Caught a signal: SIGTERM(15) on node 41/64
+*** Caught a signal: SIGTERM(15) on node 60/64
+*** Caught a signal: SIGTERM(15) on node 18/64
+*** Caught a signal: SIGTERM(15) on node 30/64
+*** Caught a signal: SIGTERM(15) on node 1/64
+*** Caught a signal: SIGTERM(15) on node 39/64
+*** Caught a signal: SIGTERM(15) on node 34/64
+*** Caught a signal: SIGTERM(15) on node 14/64
+*** Caught a signal: SIGTERM(15) on node 16/64
+*** Caught a signal: SIGTERM(15) on node 24/64
+*** Caught a signal: SIGTERM(15) on node 11/64
+*** Caught a signal: SIGTERM(15) on node 53/64
+*** Caught a signal: SIGTERM(15) on node 58/64
+*** Caught a signal: SIGTERM(15) on node 32/64
+*** Caught a signal: SIGTERM(15) on node 54/64
+*** Caught a signal: SIGTERM(15) on node 63/64
+*** Caught a signal: SIGTERM(15) on node 26/64
+*** Caught a signal: SIGTERM(15) on node 51/64
+*** Caught a signal: SIGTERM(15) on node 37/64
+*** Caught a signal: SIGTERM(15) on node 61/64
+*** Caught a signal: SIGTERM(15) on node 13/64
+*** Caught a signal: SIGTERM(15) on node 19/64
+*** Caught a signal: SIGTERM(15) on node 52/64
+*** Caught a signal: SIGTERM(15) on node 44/64
+*** Caught a signal: SIGTERM(15) on node 38/64
+*** Caught a signal: SIGTERM(15) on node 2/64
+*** Caught a signal: SIGTERM(15) on node 57/64
+*** Caught a signal: SIGTERM(15) on node 20/64
+*** Caught a signal: SIGTERM(15) on node 21/64
+*** Caught a signal: SIGTERM(15) on node 35/64
+*** Caught a signal: SIGTERM(15) on node 27/64
+*** Caught a signal: SIGTERM(15) on node 15/64
+--------------------------------------------------------------------------
+mpirun noticed that process rank 0 with PID 55319 on node ml003.localdomain exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------
+*** Caught a signal: SIGTERM(15) on node 50/64

@@ -1,0 +1,575 @@
+Currently Loaded Modulefiles:
+  1) gcc/4.8.2         3) java/1.8.0_45
+  2) openmpi/1.6.5     4) cudatoolkit/7.5
+cputime      unlimited
+filesize     unlimited
+datasize     unlimited
+stacksize    unlimited
+coredumpsize unlimited
+memoryuse    unlimited
+vmemoryuse   unlimited
+descriptors  65536 
+memorylocked unlimited
+maxproc      8192 
+Wed Aug 10 03:20:21 MDT 2016
+374096
+running 64 nodes dma_circuit branch
+Reported: 64 (out of 64) daemons - 64 (out of 64) procs
+[0 - 2b4ba3d9a700] {3}{circuit}: circuit settings: loops=100 pieces=64 nodes/piece=250000 wires/piece=500000 pct_in_piece=95 seed=12345
+[0 - 2b4ba3d9a700] {3}{circuit}: Initializing circuit simulation...
+#privates = 225972, #shared = 24028, #ghose = 24866
+#privates = 226548, #shared = 23452, #ghose = 25094
+#privates = 226059, #shared = 23941, #ghose = 25073
+#privates = 226136, #shared = 23864, #ghose = 25083
+#privates = 226048, #shared = 23952, #ghose = 25138
+#privates = 226186, #shared = 23814, #ghose = 24970
+#privates = 226189, #shared = 23811, #ghose = 25037
+#privates = 226039, #shared = 23961, #ghose = 24973
+#privates = 226457, #shared = 23543, #ghose = 24811
+#privates = 226360, #shared = 23640, #ghose = 24975
+#privates = 226000, #shared = 24000, #ghose = 24970
+#privates = 226410, #shared = 23590, #ghose = 24927
+#privates = 226173, #shared = 23827, #ghose = 25076
+#privates = 226255, #shared = 23745, #ghose = 25111
+#privates = 226001, #shared = 23999, #ghose = 24629
+#privates = 225889, #shared = 24111, #ghose = 24989
+#privates = 226120, #shared = 23880, #ghose = 25293
+#privates = 225963, #shared = 24037, #ghose = 24925
+#privates = 226312, #shared = 23688, #ghose = 24930
+#privates = 226283, #shared = 23717, #ghose = 25000
+#privates = 226113, #shared = 23887, #ghose = 25051
+#privates = 226091, #shared = 23909, #ghose = 25144
+#privates = 225944, #shared = 24056, #ghose = 25063
+#privates = 226075, #shared = 23925, #ghose = 25035
+#privates = 226260, #shared = 23740, #ghose = 25245
+#privates = 226425, #shared = 23575, #ghose = 25183
+#privates = 226371, #shared = 23629, #ghose = 25002
+#privates = 226240, #shared = 23760, #ghose = 24876
+#privates = 226151, #shared = 23849, #ghose = 24961
+#privates = 226441, #shared = 23559, #ghose = 24823
+#privates = 226385, #shared = 23615, #ghose = 24806
+#privates = 226085, #shared = 23915, #ghose = 25011
+#privates = 226317, #shared = 23683, #ghose = 24978
+#privates = 225968, #shared = 24032, #ghose = 24752
+#privates = 226145, #shared = 23855, #ghose = 25196
+#privates = 226239, #shared = 23761, #ghose = 24893
+#privates = 226260, #shared = 23740, #ghose = 25105
+#privates = 226244, #shared = 23756, #ghose = 24803
+#privates = 226196, #shared = 23804, #ghose = 24941
+#privates = 226415, #shared = 23585, #ghose = 24872
+#privates = 226316, #shared = 23684, #ghose = 24966
+#privates = 226166, #shared = 23834, #ghose = 25030
+#privates = 226245, #shared = 23755, #ghose = 24976
+#privates = 225963, #shared = 24037, #ghose = 25091
+#privates = 226200, #shared = 23800, #ghose = 25036
+#privates = 225967, #shared = 24033, #ghose = 25071
+#privates = 226350, #shared = 23650, #ghose = 25299
+#privates = 226412, #shared = 23588, #ghose = 25350
+#privates = 226000, #shared = 24000, #ghose = 24957
+#privates = 226170, #shared = 23830, #ghose = 24704
+#privates = 226386, #shared = 23614, #ghose = 24737
+#privates = 226054, #shared = 23946, #ghose = 24918
+#privates = 226213, #shared = 23787, #ghose = 24972
+#privates = 226131, #shared = 23869, #ghose = 24848
+#privates = 226152, #shared = 23848, #ghose = 25204
+#privates = 226235, #shared = 23765, #ghose = 24819
+#privates = 226083, #shared = 23917, #ghose = 25042
+#privates = 226331, #shared = 23669, #ghose = 25137
+#privates = 226165, #shared = 23835, #ghose = 24820
+#privates = 226068, #shared = 23932, #ghose = 25246
+#privates = 226018, #shared = 23982, #ghose = 24927
+#privates = 226363, #shared = 23637, #ghose = 24888
+#privates = 226394, #shared = 23606, #ghose = 25421
+#privates = 226404, #shared = 23596, #ghose = 24789
+[0 - 2b4ba3d9a700] {3}{circuit}: Finished initializing simulation...
+[PROF] before init = 112407 ms
+[PROF] after init = 114363 ms
+Starting main simulation loop
+[0]PROF_CNC(0) starts at 115436 ms
+ckt_sim_nb: /users/gshipman/local/src/legion-asplos/legion-asplos/runtime/lowlevel_dma.cc:736: void LegionRuntime::LowLevel::CopyRequest::alloc_intermediate_buffer(LegionRuntime::LowLevel::InstPair, LegionRuntime::LowLevel::Memory, int): Assertion `ib_offset >= 0' failed.
+*** Caught a fatal signal: SIGABRT(6) on node 0/64
+*** Caught a fatal signal: SIGSEGV(11) on node 40/64
+*** Caught a fatal signal: SIGSEGV(11) on node 39/64
+[39] /usr/bin/gstack 118577
+[39] Thread 28 (Thread 0x2b4ccc08a700 (LWP 118578)):
+[39] #0  0x00002b4cc62ed113 in poll () from /lib64/libc.so.6
+[39] #1  0x00002b4cc56ac6dd in ?? () from /usr/lib64/libpsm_infinipath.so.1
+[39] #2  0x00002b4cc2cb7aa1 in start_thread () from /lib64/libpthread.so.0
+[39] #3  0x00002b4cc62f693d in clone () from /lib64/libc.so.6
+[39] Thread 27 (Thread 0x2b4ccd7f5700 (LWP 118579)):
+[39] #0  0x00002b4cc62ed113 in poll () from /lib64/libc.so.6
+[39] #1  0x00002b4cc394a93b in ?? () from /usr/lib64/nvidia/libcuda.so.1
+[39] #2  0x00002b4cc3310651 in ?? () from /usr/lib64/nvidia/libcuda.so.1
+[39] #3  0x00002b4cc394b288 in ?? () from /usr/lib64/nvidia/libcuda.so.1
+[39] #4  0x00002b4cc2cb7aa1 in start_thread () from /lib64/libpthread.so.0
+[39] #5  0x00002b4cc62f693d in clone () from /lib64/libc.so.6
+[39] Thread 26 (Thread 0x2b4cee978700 (LWP 118580)):
+[39] #0  0x00002b4cc62dd2c7 in sched_yield () from /lib64/libc.so.6
+[39] #1  0x000000000088ce30 in gasneti_system_redirected_coprocess ()
+[39] #2  0x000000000088e78c in gasneti_print_backtrace ()
+[39] #3  0x00000000008f6d7d in gasneti_defaultSignalHandler ()
+[39] #4  <signal handler called>
+[39] #5  0x0000000000872fb2 in gasnetc_processPacket ()
+[39] #6  0x0000000000877923 in gasnetc_rcv_reap.constprop.1 ()
+[39] #7  0x000000000087e032 in gasnetc_AMPoll ()
+[39] #8  0x00000000008561be in EndpointManager::polling_worker_loop() ()
+[39] #9  0x00000000007c1d66 in Realm::KernelThread::pthread_entry(void*) ()
+[39] #10 0x00002b4cc2cb7aa1 in start_thread () from /lib64/libpthread.so.0
+[39] #11 0x00002b4cc62f693d in clone () from /lib64/libc.so.6
+[39] Thread 25 (Thread 0x2b4ceeb79700 (LWP 118581)):
+[39] #0  0x00002b4cc2cbb68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[39] #1  0x00000000008553ee in IncomingMessageManager::get_messages(int&, bool) ()
+[39] #2  0x00000000008554da in IncomingMessageManager::handler_thread_loop() ()
+[39] #3  0x00000000007c1d66 in Realm::KernelThread::pthread_entry(void*) ()
+[39] #4  0x00002b4cc2cb7aa1 in start_thread () from /lib64/libpthread.so.0
+[39] #5  0x00002b4cc62f693d in clone () from /lib64/libc.so.6
+[39] Thread 24 (Thread 0x2b4ceed7a700 (LWP 118582)):
+[39] #0  0x00002b4cc2cbb68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[39] #1  0x00000000008553ee in IncomingMessageManager::get_messages(int&, bool) ()
+[39] #2  0x00000000008554da in IncomingMessageManager::handler_thread_loop() ()
+[39] #3  0x00000000007c1d66 in Realm::KernelThread::pthread_entry(void*) ()
+[39] #4  0x00002b4cc2cb7aa1 in start_thread () from /lib64/libpthread.so.0
+[39] #5  0x00002b4cc62f693d in clone () from /lib64/libc.so.6
+[39] Thread 23 (Thread 0x2b4ceef7b700 (LWP 118583)):
+[39] #0  0x00002b4cc2cbb68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[39] #1  0x00000000008553ee in IncomingMessageManager::get_messages(int&, bool) ()
+[39] #2  0x00000000008554da in IncomingMessageManager::handler_thread_loop() ()
+[39] #3  0x00000000007c1d66 in Realm::KernelThread::pthread_entry(void*) ()
+[39] #4  0x00002b4cc2cb7aa1 in start_thread () from /lib64/libpthread.so.0
+[39] #5  0x00002b4cc62f693d in clone () from /lib64/libc.so.6
+[39] Thread 22 (Thread 0x2b4cef17c700 (LWP 118584)):
+[39] #0  0x00002b4cc2cbb68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[39] #1  0x00000000008553ee in IncomingMessageManager::get_messages(int&, bool) ()
+[39] #2  0x00000000008554da in IncomingMessageManager::handler_thread_loop() ()
+[39] #3  0x00000000007c1d66 in Realm::KernelThread::pthread_entry(void*) ()
+[39] #4  0x00002b4cc2cb7aa1 in start_thread () from /lib64/libpthread.so.0
+[39] #5  0x00002b4cc62f693d in clone () from /lib64/libc.so.6
+[39] Thread 21 (Thread 0x2b4cef37d700 (LWP 118585)):
+[39] #0  0x00002b4cc2cbb68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[39] #1  0x00000000008553ee in IncomingMessageManager::get_messages(int&, bool) ()
+[39] #2  0x00000000008554da in IncomingMessageManager::handler_thread_loop() ()
+[39] #3  0x00000000007c1d66 in Realm::KernelThread::pthread_entry(void*) ()
+[39] #4  0x00002b4cc2cb7aa1 in start_thread () from /lib64/libpthread.so.0
+[39] #5  0x00002b4cc62f693d in clone () from /lib64/libc.so.6
+[39] Thread 20 (Thread 0x2b4cef57e700 (LWP 118586)):
+[39] #0  0x00002b4cc2cbb68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[39] #1  0x000000000079103c in LegionRuntime::LowLevel::DmaRequestQueue::dequeue_request(bool) ()
+[39] #2  0x0000000000798a40 in LegionRuntime::LowLevel::DmaRequestQueue::worker_thread_loop() ()
+[39] #3  0x00000000007c1d66 in Realm::KernelThread::pthread_entry(void*) ()
+[39] #4  0x00002b4cc2cb7aa1 in start_thread () from /lib64/libpthread.so.0
+[39] #5  0x00002b4cc62f693d in clone () from /lib64/libc.so.6
+[39] Thread 19 (Thread 0x2b4cef77f700 (LWP 118587)):
+[39] #0  0x00002b4cc2cbb68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[39] #1  0x000000000079103c in LegionRuntime::LowLevel::DmaRequestQueue::dequeue_request(bool) ()
+[39] #2  0x0000000000798a40 in LegionRuntime::LowLevel::DmaRequestQueue::worker_thread_loop() ()
+[39] #3  0x00000000007c1d66 in Realm::KernelThread::pthread_entry(void*) ()
+[39] #4  0x00002b4cc2cb7aa1 in start_thread () from /lib64/libpthread.so.0
+[39] #5  0x00002b4cc62f693d in clone () from /lib64/libc.so.6
+[39] Thread 18 (Thread 0x2b4cef980700 (LWP 118588)):
+[39] #0  0x00002b4cc2cbb68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[39] #1  0x000000000079103c in LegionRuntime::LowLevel::DmaRequestQueue::dequeue_request(bool) ()
+[39] #2  0x0000000000798a40 in LegionRuntime::LowLevel::DmaRequestQueue::worker_thread_loop() ()
+[39] #3  0x00000000007c1d66 in Realm::KernelThread::pthread_entry(void*) ()
+[39] #4  0x00002b4cc2cb7aa1 in start_thread () from /lib64/libpthread.so.0
+[39] #5  0x00002b4cc62f693d in clone () from /lib64/libc.so.6
+[39] Thread 17 (Thread 0x2b4cefb81700 (LWP 118589)):
+[39] #0  0x00002b4cc2cbb68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[39] #1  0x000000000079103c in LegionRuntime::LowLevel::DmaRequestQueue::dequeue_request(bool) ()
+[39] #2  0x0000000000798a40 in LegionRuntime::LowLevel::DmaRequestQueue::worker_thread_loop() ()
+[39] #3  0x00000000007c1d66 in Realm::KernelThread::pthread_entry(void*) ()
+[39] #4  0x00002b4cc2cb7aa1 in start_thread () from /lib64/libpthread.so.0
+[39] #5  0x00002b4cc62f693d in clone () from /lib64/libc.so.6
+[39] Thread 16 (Thread 0x2b4cefd82700 (LWP 118590)):
+[39] #0  0x00002b4cc2cbb68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[39] #1  0x000000000079103c in LegionRuntime::LowLevel::DmaRequestQueue::dequeue_request(bool) ()
+[39] #2  0x0000000000798a40 in LegionRuntime::LowLevel::DmaRequestQueue::worker_thread_loop() ()
+[39] #3  0x00000000007c1d66 in Realm::KernelThread::pthread_entry(void*) ()
+[39] #4  0x00002b4cc2cb7aa1 in start_thread () from /lib64/libpthread.so.0
+[39] #5  0x00002b4cc62f693d in clone () from /lib64/libc.so.6
+[39] Thread 15 (Thread 0x2b4ceff83700 (LWP 118591)):
+[39] #0  0x00002b4cc2cbb68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[39] #1  0x0000000000841161 in Realm::Cuda::GPUWorker::process_streams(bool) ()
+[39] #2  0x000000000084136d in Realm::Cuda::GPUWorker::thread_main() ()
+[39] #3  0x00000000007c1d66 in Realm::KernelThread::pthread_entry(void*) ()
+[39] #4  0x00002b4cc2cb7aa1 in start_thread () from /lib64/libpthread.so.0
+[39] #5  0x00002b4cc62f693d in clone () from /lib64/libc.so.6
+[39] Thread 14 (Thread 0x2b4ceff8b700 (LWP 118592)):
+[39] #0  0x00002b4cc2cbb68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[39] #1  0x00000000007d1ad1 in Realm::ThreadedTaskScheduler::WorkCounter::wait_for_work(long long) ()
+[39] #2  0x00000000007d1b95 in Realm::ThreadedTaskScheduler::wait_for_work ()
+[39] #3  0x00000000007d948d in Realm::ThreadedTaskScheduler::scheduler_loop() ()
+[39] #4  0x00000000007c1307 in Realm::UserThread::uthread_entry() ()
+[39] #5  0x00002b4cc62518f0 in ?? () from /lib64/libc.so.6
+[39] #6  0x0000000000000000 in ?? ()
+[39] Thread 13 (Thread 0x2b4ceff93700 (LWP 118593)):
+[39] #0  0x00002b4cc2cbb68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[39] #1  0x00000000007d1ad1 in Realm::ThreadedTaskScheduler::WorkCounter::wait_for_work(long long) ()
+[39] #2  0x00000000007d1b95 in Realm::ThreadedTaskScheduler::wait_for_work ()
+[39] #3  0x00000000007d948d in Realm::ThreadedTaskScheduler::scheduler_loop() ()
+[39] #4  0x00000000007c1307 in Realm::UserThread::uthread_entry() ()
+[39] #5  0x00002b4cc62518f0 in ?? () from /lib64/libc.so.6
+[39] #6  0x0000000000000000 in ?? ()
+[39] Thread 12 (Thread 0x2b4ceff9b700 (LWP 118594)):
+[39] #0  0x00002b4cc2cbb68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[39] #1  0x00000000007d1ad1 in Realm::ThreadedTaskScheduler::WorkCounter::wait_for_work(long long) ()
+[39] #2  0x00000000007d1b95 in Realm::ThreadedTaskScheduler::wait_for_work ()
+[39] #3  0x00000000007d948d in Realm::ThreadedTaskScheduler::scheduler_loop() ()
+[39] #4  0x00000000007c1307 in Realm::UserThread::uthread_entry() ()
+[39] #5  0x00002b4cc62518f0 in ?? () from /lib64/libc.so.6
+[39] #6  0x0000000000000000 in ?? ()
+[39] Thread 11 (Thread 0x2b4ceffa3700 (LWP 118595)):
+[39] #0  0x00002b4cc2cbb68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[39] #1  0x00000000007d1ad1 in Realm::ThreadedTaskScheduler::WorkCounter::wait_for_work(long long) ()
+[39] #2  0x00000000007d1b95 in Realm::ThreadedTaskScheduler::wait_for_work ()
+[39] #3  0x00000000007d948d in Realm::ThreadedTaskScheduler::scheduler_loop() ()
+[39] #4  0x00000000007c1307 in Realm::UserThread::uthread_entry() ()
+[39] #5  0x00002b4cc62518f0 in ?? () from /lib64/libc.so.6
+[39] #6  0x0000000000000000 in ?? ()
+[39] Thread 10 (Thread 0x2b4ceffab700 (LWP 118596)):
+[39] #0  0x00002b4cc2cbb68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[39] #1  0x00000000007d1ad1 in Realm::ThreadedTaskScheduler::WorkCounter::wait_for_work(long long) ()
+[39] #2  0x00000000007d1b95 in Realm::ThreadedTaskScheduler::wait_for_work ()
+[39] #3  0x00000000007d948d in Realm::ThreadedTaskScheduler::scheduler_loop() ()
+[39] #4  0x00000000007c1307 in Realm::UserThread::uthread_entry() ()
+[39] #5  0x00002b4cc62518f0 in ?? () from /lib64/libc.so.6
+[39] #6  0x0000000000000000 in ?? ()
+[39] Thread 9 (Thread 0x2b4ceffb3700 (LWP 118597)):
+[39] #0  0x00002b4cc2cbb68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[39] #1  0x00000000007d1ad1 in Realm::ThreadedTaskScheduler::WorkCounter::wait_for_work(long long) ()
+[39] #2  0x00000000007d1b95 in Realm::ThreadedTaskScheduler::wait_for_work ()
+[39] #3  0x00000000007d948d in Realm::ThreadedTaskScheduler::scheduler_loop() ()
+[39] #4  0x00000000007c1307 in Realm::UserThread::uthread_entry() ()
+[39] #5  0x00002b4cc62518f0 in ?? () from /lib64/libc.so.6
+[39] #6  0x0000000000000000 in ?? ()
+[39] Thread 8 (Thread 0x2b4cf0300700 (LWP 118598)):
+[39] #0  0x00002b4cc2cbb68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[39] #1  0x00000000007d1ad1 in Realm::ThreadedTaskScheduler::WorkCounter::wait_for_work(long long) ()
+[39] #2  0x00000000007d1b95 in Realm::ThreadedTaskScheduler::wait_for_work ()
+[39] #3  0x00000000007d948d in Realm::ThreadedTaskScheduler::scheduler_loop() ()
+[39] #4  0x00000000007d96ad in Realm::ThreadedTaskScheduler::scheduler_loop_wlock() ()
+[39] #5  0x00000000007c1d66 in Realm::KernelThread::pthread_entry(void*) ()
+[39] #6  0x00002b4cc2cb7aa1 in start_thread () from /lib64/libpthread.so.0
+[39] #7  0x00002b4cc62f693d in clone () from /lib64/libc.so.6
+[39] Thread 7 (Thread 0x2b4cf0501700 (LWP 118599)):
+[39] #0  0x00000000008255e8 in bool LegionRuntime::LowLevel::XferDes::simple_get_request<1u>(long&, long&, unsigned long&, LegionRuntime::Layouts::GenericLayoutIterator<1u>*, long long&, long long) ()
+[39] #1  0x0000000000825bae in LegionRuntime::LowLevel::MemcpyXferDes<1u>::get_requests(LegionRuntime::LowLevel::Request**, long) ()
+[39] #2  0x000000000081ddae in LegionRuntime::LowLevel::DMAThread::dma_thread_loop() ()
+[39] #3  0x00000000007c1d66 in Realm::KernelThread::pthread_entry(void*) ()
+[39] #4  0x00002b4cc2cb7aa1 in start_thread () from /lib64/libpthread.so.0
+[39] #5  0x00002b4cc62f693d in clone () from /lib64/libc.so.6
+[39] Thread 6 (Thread 0x2b4cf0702700 (LWP 118600)):
+[39] #0  0x00002b4cc2cbb68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[39] #1  0x0000000000830cd3 in LegionRuntime::LowLevel::XferDesQueue::dequeue_xferDes(LegionRuntime::LowLevel::DMAThread*, bool) ()
+[39] #2  0x000000000081dcf3 in LegionRuntime::LowLevel::DMAThread::dma_thread_loop() ()
+[39] #3  0x00000000007c1d66 in Realm::KernelThread::pthread_entry(void*) ()
+[39] #4  0x00002b4cc2cb7aa1 in start_thread () from /lib64/libpthread.so.0
+[39] #5  0x00002b4cc62f693d in clone () from /lib64/libc.so.6
+[39] Thread 5 (Thread 0x2b4cf2304700 (LWP 118601)):
+[39] #0  0x00002b4cc2cbb68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[39] #1  0x0000000000830cd3 in LegionRuntime::LowLevel::XferDesQueue::dequeue_xferDes(LegionRuntime::LowLevel::DMAThread*, bool) ()
+[39] #2  0x000000000081dcf3 in LegionRuntime::LowLevel::DMAThread::dma_thread_loop() ()
+[39] #3  0x00000000007c1d66 in Realm::KernelThread::pthread_entry(void*) ()
+[39] #4  0x00002b4cc2cb7aa1 in start_thread () from /lib64/libpthread.so.0
+[39] #5  0x00002b4cc62f693d in clone () from /lib64/libc.so.6
+[39] Thread 4 (Thread 0x2b4cf2505700 (LWP 118602)):
+[39] #0  0x00002b4cc2cbb68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[39] #1  0x0000000000830cd3 in LegionRuntime::LowLevel::XferDesQueue::dequeue_xferDes(LegionRuntime::LowLevel::DMAThread*, bool) ()
+[39] #2  0x000000000081dcf3 in LegionRuntime::LowLevel::DMAThread::dma_thread_loop() ()
+[39] #3  0x00000000007c1d66 in Realm::KernelThread::pthread_entry(void*) ()
+[39] #4  0x00002b4cc2cb7aa1 in start_thread () from /lib64/libpthread.so.0
+[39] #5  0x00002b4cc62f693d in clone () from /lib64/libc.so.6
+[39] Thread 3 (Thread 0x2b4cf2706700 (LWP 118603)):
+[39] #0  0x00002b4cc2cbe334 in __lll_lock_wait () from /lib64/libpthread.so.0
+[39] #1  0x00002b4cc2cc10fd in _L_cond_lock_886 () from /lib64/libpthread.so.0
+[39] #2  0x00002b4cc2cc0fd7 in __pthread_mutex_cond_lock () from /lib64/libpthread.so.0
+[39] #3  0x00002b4cc2cbb722 in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[39] #4  0x000000000081d862 in LegionRuntime::LowLevel::MemcpyChannel::get_request(std::deque<LegionRuntime::LowLevel::MemcpyRequest*, std::allocator<LegionRuntime::LowLevel::MemcpyRequest*> >&) ()
+[39] #5  0x000000000081fba9 in LegionRuntime::LowLevel::MemcpyThread::thread_loop() ()
+[39] #6  0x00000000007c1d66 in Realm::KernelThread::pthread_entry(void*) ()
+[39] #7  0x00002b4cc2cb7aa1 in start_thread () from /lib64/libpthread.so.0
+[39] #8  0x00002b4cc62f693d in clone () from /lib64/libc.so.6
+[39] Thread 2 (Thread 0x2b4cf2907700 (LWP 118604)):
+[39] #0  0x00002b4cc2cbb68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[39] #1  0x000000000081d862 in LegionRuntime::LowLevel::MemcpyChannel::get_request(std::deque<LegionRuntime::LowLevel::MemcpyRequest*, std::allocator<LegionRuntime::LowLevel::MemcpyRequest*> >&) ()
+[39] #2  0x000000000081fba9 in LegionRuntime::LowLevel::MemcpyThread::thread_loop() ()
+[39] #3  0x00000000007c1d66 in Realm::KernelThread::pthread_entry(void*) ()
+[39] #4  0x00002b4cc2cb7aa1 in start_thread () from /lib64/libpthread.so.0
+[39] #5  0x00002b4cc62f693d in clone () from /lib64/libc.so.6
+[39] Thread 1 (Thread 0x2b4ccaac6c20 (LWP 118577)):
+[39] #0  0x00002b4cc2cbb68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[39] #1  0x000000000077edd7 in Realm::RuntimeImpl::wait_for_shutdown() ()
+[39] #2  0x000000000077f201 in Realm::Runtime::wait_for_shutdown() ()
+[39] #3  0x000000000071dd0e in Legion::Internal::Runtime::start(int, char**, bool) ()
+[39] #4  0x0000000000575b5c in main ()
+[40] /usr/bin/gstack 59234
+[40] Thread 28 (Thread 0x2b3c996de700 (LWP 59235)):
+[40] #0  0x00002b3c93941113 in poll () from /lib64/libc.so.6
+[40] #1  0x00002b3c92d006dd in ?? () from /usr/lib64/libpsm_infinipath.so.1
+[40] #2  0x00002b3c9030baa1 in start_thread () from /lib64/libpthread.so.0
+[40] #3  0x00002b3c9394a93d in clone () from /lib64/libc.so.6
+[40] Thread 27 (Thread 0x2b3c9ae49700 (LWP 59236)):
+[40] #0  0x00002b3c93941113 in poll () from /lib64/libc.so.6
+[40] #1  0x00002b3c90f9e93b in ?? () from /usr/lib64/nvidia/libcuda.so.1
+[40] #2  0x00002b3c90964651 in ?? () from /usr/lib64/nvidia/libcuda.so.1
+[40] #3  0x00002b3c90f9f288 in ?? () from /usr/lib64/nvidia/libcuda.so.1
+[40] #4  0x00002b3c9030baa1 in start_thread () from /lib64/libpthread.so.0
+[40] #5  0x00002b3c9394a93d in clone () from /lib64/libc.so.6
+[40] Thread 26 (Thread 0x2b3cbbfcc700 (LWP 59237)):
+[40] #0  0x00002b3c939312c7 in sched_yield () from /lib64/libc.so.6
+[40] #1  0x000000000088ce30 in gasneti_system_redirected_coprocess ()
+[40] #2  0x000000000088e78c in gasneti_print_backtrace ()
+[40] #3  0x00000000008f6d7d in gasneti_defaultSignalHandler ()
+[40] #4  <signal handler called>
+[40] #5  0x0000000000872fb2 in gasnetc_processPacket ()
+[40] #6  0x0000000000877923 in gasnetc_rcv_reap.constprop.1 ()
+[40] #7  0x000000000087e032 in gasnetc_AMPoll ()
+[40] #8  0x00000000008561be in EndpointManager::polling_worker_loop() ()
+[40] #9  0x00000000007c1d66 in Realm::KernelThread::pthread_entry(void*) ()
+[40] #10 0x00002b3c9030baa1 in start_thread () from /lib64/libpthread.so.0
+[40] #11 0x00002b3c9394a93d in clone () from /lib64/libc.so.6
+[40] Thread 25 (Thread 0x2b3cbc1cd700 (LWP 59238)):
+[40] #0  0x00002b3c9030f68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[40] #1  0x00000000008553ee in IncomingMessageManager::get_messages(int&, bool) ()
+[40] #2  0x00000000008554da in IncomingMessageManager::handler_thread_loop() ()
+[40] #3  0x00000000007c1d66 in Realm::KernelThread::pthread_entry(void*) ()
+[40] #4  0x00002b3c9030baa1 in start_thread () from /lib64/libpthread.so.0
+[40] #5  0x00002b3c9394a93d in clone () from /lib64/libc.so.6
+[40] Thread 24 (Thread 0x2b3cbc3ce700 (LWP 59239)):
+[40] #0  0x00002b3c9030f68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[40] #1  0x00000000008553ee in IncomingMessageManager::get_messages(int&, bool) ()
+[40] #2  0x00000000008554da in IncomingMessageManager::handler_thread_loop() ()
+[40] #3  0x00000000007c1d66 in Realm::KernelThread::pthread_entry(void*) ()
+[40] #4  0x00002b3c9030baa1 in start_thread () from /lib64/libpthread.so.0
+[40] #5  0x00002b3c9394a93d in clone () from /lib64/libc.so.6
+[40] Thread 23 (Thread 0x2b3cbc5cf700 (LWP 59240)):
+[40] #0  0x00002b3c9030f68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[40] #1  0x00000000008553ee in IncomingMessageManager::get_messages(int&, bool) ()
+[40] #2  0x00000000008554da in IncomingMessageManager::handler_thread_loop() ()
+[40] #3  0x00000000007c1d66 in Realm::KernelThread::pthread_entry(void*) ()
+[40] #4  0x00002b3c9030baa1 in start_thread () from /lib64/libpthread.so.0
+[40] #5  0x00002b3c9394a93d in clone () from /lib64/libc.so.6
+[40] Thread 22 (Thread 0x2b3cbc7d0700 (LWP 59241)):
+[40] #0  0x00002b3c9030f68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[40] #1  0x00000000008553ee in IncomingMessageManager::get_messages(int&, bool) ()
+[40] #2  0x00000000008554da in IncomingMessageManager::handler_thread_loop() ()
+[40] #3  0x00000000007c1d66 in Realm::KernelThread::pthread_entry(void*) ()
+[40] #4  0x00002b3c9030baa1 in start_thread () from /lib64/libpthread.so.0
+[40] #5  0x00002b3c9394a93d in clone () from /lib64/libc.so.6
+[40] Thread 21 (Thread 0x2b3cbc9d1700 (LWP 59242)):
+[40] #0  0x00002b3c9030f68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[40] #1  0x00000000008553ee in IncomingMessageManager::get_messages(int&, bool) ()
+[40] #2  0x00000000008554da in IncomingMessageManager::handler_thread_loop() ()
+[40] #3  0x00000000007c1d66 in Realm::KernelThread::pthread_entry(void*) ()
+[40] #4  0x00002b3c9030baa1 in start_thread () from /lib64/libpthread.so.0
+[40] #5  0x00002b3c9394a93d in clone () from /lib64/libc.so.6
+[40] Thread 20 (Thread 0x2b3cbcbd2700 (LWP 59243)):
+[40] #0  0x00002b3c9030f68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[40] #1  0x000000000079103c in LegionRuntime::LowLevel::DmaRequestQueue::dequeue_request(bool) ()
+[40] #2  0x0000000000798a40 in LegionRuntime::LowLevel::DmaRequestQueue::worker_thread_loop() ()
+[40] #3  0x00000000007c1d66 in Realm::KernelThread::pthread_entry(void*) ()
+[40] #4  0x00002b3c9030baa1 in start_thread () from /lib64/libpthread.so.0
+[40] #5  0x00002b3c9394a93d in clone () from /lib64/libc.so.6
+[40] Thread 19 (Thread 0x2b3cbcdd3700 (LWP 59244)):
+[40] #0  0x00002b3c9030f68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[40] #1  0x000000000079103c in LegionRuntime::LowLevel::DmaRequestQueue::dequeue_request(bool) ()
+[40] #2  0x0000000000798a40 in LegionRuntime::LowLevel::DmaRequestQueue::worker_thread_loop() ()
+[40] #3  0x00000000007c1d66 in Realm::KernelThread::pthread_entry(void*) ()
+[40] #4  0x00002b3c9030baa1 in start_thread () from /lib64/libpthread.so.0
+[40] #5  0x00002b3c9394a93d in clone () from /lib64/libc.so.6
+[40] Thread 18 (Thread 0x2b3cbcfd4700 (LWP 59245)):
+[40] #0  0x00002b3c9030f68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[40] #1  0x000000000079103c in LegionRuntime::LowLevel::DmaRequestQueue::dequeue_request(bool) ()
+[40] #2  0x0000000000798a40 in LegionRuntime::LowLevel::DmaRequestQueue::worker_thread_loop() ()
+[40] #3  0x00000000007c1d66 in Realm::KernelThread::pthread_entry(void*) ()
+[40] #4  0x00002b3c9030baa1 in start_thread () from /lib64/libpthread.so.0
+[40] #5  0x00002b3c9394a93d in clone () from /lib64/libc.so.6
+[40] Thread 17 (Thread 0x2b3cbd1d5700 (LWP 59246)):
+[40] #0  0x00002b3c9030f68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[40] #1  0x000000000079103c in LegionRuntime::LowLevel::DmaRequestQueue::dequeue_request(bool) ()
+[40] #2  0x0000000000798a40 in LegionRuntime::LowLevel::DmaRequestQueue::worker_thread_loop() ()
+[40] #3  0x00000000007c1d66 in Realm::KernelThread::pthread_entry(void*) ()
+[40] #4  0x00002b3c9030baa1 in start_thread () from /lib64/libpthread.so.0
+[40] #5  0x00002b3c9394a93d in clone () from /lib64/libc.so.6
+[40] Thread 16 (Thread 0x2b3cbd3d6700 (LWP 59247)):
+[40] #0  0x00002b3c9030f68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[40] #1  0x000000000079103c in LegionRuntime::LowLevel::DmaRequestQueue::dequeue_request(bool) ()
+[40] #2  0x0000000000798a40 in LegionRuntime::LowLevel::DmaRequestQueue::worker_thread_loop() ()
+[40] #3  0x00000000007c1d66 in Realm::KernelThread::pthread_entry(void*) ()
+[40] #4  0x00002b3c9030baa1 in start_thread () from /lib64/libpthread.so.0
+[40] #5  0x00002b3c9394a93d in clone () from /lib64/libc.so.6
+[40] Thread 15 (Thread 0x2b3cbd5d7700 (LWP 59248)):
+[40] #0  0x00002b3c9030f68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[40] #1  0x0000000000841161 in Realm::Cuda::GPUWorker::process_streams(bool) ()
+[40] #2  0x000000000084136d in Realm::Cuda::GPUWorker::thread_main() ()
+[40] #3  0x00000000007c1d66 in Realm::KernelThread::pthread_entry(void*) ()
+[40] #4  0x00002b3c9030baa1 in start_thread () from /lib64/libpthread.so.0
+[40] #5  0x00002b3c9394a93d in clone () from /lib64/libc.so.6
+[40] Thread 14 (Thread 0x2b3cbd5df700 (LWP 59249)):
+[40] #0  0x00002b3c9030f68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[40] #1  0x00000000007d1ad1 in Realm::ThreadedTaskScheduler::WorkCounter::wait_for_work(long long) ()
+[40] #2  0x00000000007d1b95 in Realm::ThreadedTaskScheduler::wait_for_work ()
+[40] #3  0x00000000007d948d in Realm::ThreadedTaskScheduler::scheduler_loop() ()
+[40] #4  0x00000000007c1307 in Realm::UserThread::uthread_entry() ()
+[40] #5  0x00002b3c938a58f0 in ?? () from /lib64/libc.so.6
+[40] #6  0x0000000000000000 in ?? ()
+[40] Thread 13 (Thread 0x2b3cbd5e7700 (LWP 59250)):
+[40] #0  0x00002b3c9030f68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[40] #1  0x00000000007d1ad1 in Realm::ThreadedTaskScheduler::WorkCounter::wait_for_work(long long) ()
+[40] #2  0x00000000007d1b95 in Realm::ThreadedTaskScheduler::wait_for_work ()
+[40] #3  0x00000000007d948d in Realm::ThreadedTaskScheduler::scheduler_loop() ()
+[40] #4  0x00000000007c1307 in Realm::UserThread::uthread_entry() ()
+[40] #5  0x00002b3c938a58f0 in ?? () from /lib64/libc.so.6
+[40] #6  0x0000000000000000 in ?? ()
+[40] Thread 12 (Thread 0x2b3cbd5ef700 (LWP 59251)):
+[40] #0  0x00002b3c9030f68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[40] #1  0x00000000007d1ad1 in Realm::ThreadedTaskScheduler::WorkCounter::wait_for_work(long long) ()
+[40] #2  0x00000000007d1b95 in Realm::ThreadedTaskScheduler::wait_for_work ()
+[40] #3  0x00000000007d948d in Realm::ThreadedTaskScheduler::scheduler_loop() ()
+[40] #4  0x00000000007c1307 in Realm::UserThread::uthread_entry() ()
+[40] #5  0x00002b3c938a58f0 in ?? () from /lib64/libc.so.6
+[40] #6  0x0000000000000000 in ?? ()
+[40] Thread 11 (Thread 0x2b3cbd5f7700 (LWP 59252)):
+[40] #0  0x00002b3c9030f68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[40] #1  0x00000000007d1ad1 in Realm::ThreadedTaskScheduler::WorkCounter::wait_for_work(long long) ()
+[40] #2  0x00000000007d1b95 in Realm::ThreadedTaskScheduler::wait_for_work ()
+[40] #3  0x00000000007d948d in Realm::ThreadedTaskScheduler::scheduler_loop() ()
+[40] #4  0x00000000007c1307 in Realm::UserThread::uthread_entry() ()
+[40] #5  0x00002b3c938a58f0 in ?? () from /lib64/libc.so.6
+[40] #6  0x0000000000000000 in ?? ()
+[40] Thread 10 (Thread 0x2b3cbd5ff700 (LWP 59253)):
+[40] #0  0x00002b3c9030f68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[40] #1  0x00000000007d1ad1 in Realm::ThreadedTaskScheduler::WorkCounter::wait_for_work(long long) ()
+[40] #2  0x00000000007d1b95 in Realm::ThreadedTaskScheduler::wait_for_work ()
+[40] #3  0x00000000007d948d in Realm::ThreadedTaskScheduler::scheduler_loop() ()
+[40] #4  0x00000000007c1307 in Realm::UserThread::uthread_entry() ()
+[40] #5  0x00002b3c938a58f0 in ?? () from /lib64/libc.so.6
+[40] #6  0x0000000000000000 in ?? ()
+[40] Thread 9 (Thread 0x2b3cbd607700 (LWP 59254)):
+[40] #0  0x00002b3c9030f68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[40] #1  0x00000000007d1ad1 in Realm::ThreadedTaskScheduler::WorkCounter::wait_for_work(long long) ()
+[40] #2  0x00000000007d1b95 in Realm::ThreadedTaskScheduler::wait_for_work ()
+[40] #3  0x00000000007d948d in Realm::ThreadedTaskScheduler::scheduler_loop() ()
+[40] #4  0x00000000007c1307 in Realm::UserThread::uthread_entry() ()
+[40] #5  0x00002b3c938a58f0 in ?? () from /lib64/libc.so.6
+[40] #6  0x0000000000000000 in ?? ()
+[40] Thread 8 (Thread 0x2b3cbd808700 (LWP 59255)):
+[40] #0  0x00002b3c9030f68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[40] #1  0x00000000007d1ad1 in Realm::ThreadedTaskScheduler::WorkCounter::wait_for_work(long long) ()
+[40] #2  0x00000000007d1b95 in Realm::ThreadedTaskScheduler::wait_for_work ()
+[40] #3  0x00000000007d948d in Realm::ThreadedTaskScheduler::scheduler_loop() ()
+[40] #4  0x00000000007d96ad in Realm::ThreadedTaskScheduler::scheduler_loop_wlock() ()
+[40] #5  0x00000000007c1d66 in Realm::KernelThread::pthread_entry(void*) ()
+[40] #6  0x00002b3c9030baa1 in start_thread () from /lib64/libpthread.so.0
+[40] #7  0x00002b3c9394a93d in clone () from /lib64/libc.so.6
+[40] Thread 7 (Thread 0x2b3cbda09700 (LWP 59256)):
+[40] #0  0x00002b3c9030f68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[40] #1  0x0000000000830cd3 in LegionRuntime::LowLevel::XferDesQueue::dequeue_xferDes(LegionRuntime::LowLevel::DMAThread*, bool) ()
+[40] #2  0x000000000081dcf3 in LegionRuntime::LowLevel::DMAThread::dma_thread_loop() ()
+[40] #3  0x00000000007c1d66 in Realm::KernelThread::pthread_entry(void*) ()
+[40] #4  0x00002b3c9030baa1 in start_thread () from /lib64/libpthread.so.0
+[40] #5  0x00002b3c9394a93d in clone () from /lib64/libc.so.6
+[40] Thread 6 (Thread 0x2b3cbdc0a700 (LWP 59257)):
+[40] #0  0x00002b3c9030f68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[40] #1  0x0000000000830cd3 in LegionRuntime::LowLevel::XferDesQueue::dequeue_xferDes(LegionRuntime::LowLevel::DMAThread*, bool) ()
+[40] #2  0x000000000081dcf3 in LegionRuntime::LowLevel::DMAThread::dma_thread_loop() ()
+[40] #3  0x00000000007c1d66 in Realm::KernelThread::pthread_entry(void*) ()
+[40] #4  0x00002b3c9030baa1 in start_thread () from /lib64/libpthread.so.0
+[40] #5  0x00002b3c9394a93d in clone () from /lib64/libc.so.6
+[40] Thread 5 (Thread 0x2b3cbe000700 (LWP 59258)):
+[40] #0  0x00002b3c9030f68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[40] #1  0x0000000000830cd3 in LegionRuntime::LowLevel::XferDesQueue::dequeue_xferDes(LegionRuntime::LowLevel::DMAThread*, bool) ()
+[40] #2  0x000000000081dcf3 in LegionRuntime::LowLevel::DMAThread::dma_thread_loop() ()
+[40] #3  0x00000000007c1d66 in Realm::KernelThread::pthread_entry(void*) ()
+[40] #4  0x00002b3c9030baa1 in start_thread () from /lib64/libpthread.so.0
+[40] #5  0x00002b3c9394a93d in clone () from /lib64/libc.so.6
+[40] Thread 4 (Thread 0x2b3cbe201700 (LWP 59259)):
+[40] #0  0x00002b3c9030f68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[40] #1  0x0000000000830cd3 in LegionRuntime::LowLevel::XferDesQueue::dequeue_xferDes(LegionRuntime::LowLevel::DMAThread*, bool) ()
+[40] #2  0x000000000081dcf3 in LegionRuntime::LowLevel::DMAThread::dma_thread_loop() ()
+[40] #3  0x00000000007c1d66 in Realm::KernelThread::pthread_entry(void*) ()
+[40] #4  0x00002b3c9030baa1 in start_thread () from /lib64/libpthread.so.0
+[40] #5  0x00002b3c9394a93d in clone () from /lib64/libc.so.6
+[40] Thread 3 (Thread 0x2b3cbe402700 (LWP 59260)):
+[40] #0  0x00002b3c9030f68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[40] #1  0x000000000081d862 in LegionRuntime::LowLevel::MemcpyChannel::get_request(std::deque<LegionRuntime::LowLevel::MemcpyRequest*, std::allocator<LegionRuntime::LowLevel::MemcpyRequest*> >&) ()
+[40] #2  0x000000000081fba9 in LegionRuntime::LowLevel::MemcpyThread::thread_loop() ()
+[40] #3  0x00000000007c1d66 in Realm::KernelThread::pthread_entry(void*) ()
+[40] #4  0x00002b3c9030baa1 in start_thread () from /lib64/libpthread.so.0
+[40] #5  0x00002b3c9394a93d in clone () from /lib64/libc.so.6
+[40] Thread 2 (Thread 0x2b3cbe603700 (LWP 59261)):
+[40] #0  0x00002b3c9030f68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[40] #1  0x000000000081d862 in LegionRuntime::LowLevel::MemcpyChannel::get_request(std::deque<LegionRuntime::LowLevel::MemcpyRequest*, std::allocator<LegionRuntime::LowLevel::MemcpyRequest*> >&) ()
+[40] #2  0x000000000081fba9 in LegionRuntime::LowLevel::MemcpyThread::thread_loop() ()
+[40] #3  0x00000000007c1d66 in Realm::KernelThread::pthread_entry(void*) ()
+[40] #4  0x00002b3c9030baa1 in start_thread () from /lib64/libpthread.so.0
+[40] #5  0x00002b3c9394a93d in clone () from /lib64/libc.so.6
+[40] Thread 1 (Thread 0x2b3c9811ac20 (LWP 59234)):
+[40] #0  0x00002b3c9030f68c in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+[40] #1  0x000000000077edd7 in Realm::RuntimeImpl::wait_for_shutdown() ()
+[40] #2  0x000000000077f201 in Realm::Runtime::wait_for_shutdown() ()
+[40] #3  0x000000000071dd0e in Legion::Internal::Runtime::start(int, char**, bool) ()
+[40] #4  0x0000000000575b5c in main ()
+--------------------------------------------------------------------------
+mpirun noticed that process rank 40 with PID 59234 on node ml236 exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------
+*** Caught a signal: SIGTERM(15) on node 30/64
+*** Caught a signal: SIGTERM(15) on node 49/64
+*** Caught a signal: SIGTERM(15) on node 58/64
+*** Caught a signal: SIGTERM(15) on node 60/64
+*** Caught a signal: SIGTERM(15) on node 50/64
+*** Caught a signal: SIGTERM(15) on node 47/64
+*** Caught a signal: SIGTERM(15) on node 32/64
+*** Caught a signal: SIGTERM(15) on node 41/64
+*** Caught a signal: SIGTERM(15) on node 48/64
+*** Caught a signal: SIGTERM(15) on node 38/64
+*** Caught a signal: SIGTERM(15) on node 44/64
+*** Caught a signal: SIGTERM(15) on node 43/64
+*** Caught a signal: SIGTERM(15) on node 37/64
+*** Caught a signal: SIGTERM(15) on node 45/64
+*** Caught a signal: SIGTERM(15) on node 59/64
+*** Caught a signal: SIGTERM(15) on node 42/64
+*** Caught a signal: SIGTERM(15) on node 36/64
+*** Caught a signal: SIGTERM(15) on node 33/64
+*** Caught a signal: SIGTERM(15) on node 35/64
+*** Caught a signal: SIGTERM(15) on node 31/64
+*** Caught a signal: SIGTERM(15) on node 2/64
+*** Caught a signal: SIGTERM(15) on node 9/64
+*** Caught a signal: SIGTERM(15) on node 25/64
+*** Caught a signal: SIGTERM(15) on node 20/64
+*** Caught a signal: SIGTERM(15) on node 26/64
+*** Caught a signal: SIGTERM(15) on node 27/64
+*** Caught a signal: SIGTERM(15) on node 24/64
+*** Caught a signal: SIGTERM(15) on node 22/64
+*** Caught a signal: SIGTERM(15) on node 13/64
+*** Caught a signal: SIGTERM(15) on node 63/64
+*** Caught a signal: SIGTERM(15) on node 51/64
+*** Caught a signal: SIGTERM(15) on node 46/64
+*** Caught a signal: SIGTERM(15) on node 6/64
+*** Caught a signal: SIGTERM(15) on node 18/64
+*** Caught a signal: SIGTERM(15) on node 61/64
+*** Caught a signal: SIGTERM(15) on node 29/64
+*** Caught a signal: SIGTERM(15) on node 14/64
+*** Caught a signal: SIGTERM(15) on node 62/64
+*** Caught a signal: SIGTERM(15) on node 52/64
+*** Caught a signal: SIGTERM(15) on node 57/64
+*** Caught a signal: SIGTERM(15) on node 56/64
+*** Caught a signal: SIGTERM(15) on node 53/64
+*** Caught a signal: SIGTERM(15) on node 54/64
+*** Caught a signal: SIGTERM(15) on node 55/64
+*** Caught a signal: SIGTERM(15) on node 28/64
+*** Caught a signal: SIGTERM(15) on node 23/64
+*** Caught a signal: SIGTERM(15) on node 19/64
+*** Caught a signal: SIGTERM(15) on node 21/64
+*** Caught a signal: SIGTERM(15) on node 34/64
+*** Caught a signal: SIGTERM(15) on node 3/64
+*** Caught a signal: SIGTERM(15) on node 8/64
+*** Caught a signal: SIGTERM(15) on node 4/64
+*** Caught a signal: SIGTERM(15) on node 12/64
+*** Caught a signal: SIGTERM(15) on node 17/64
+*** Caught a signal: SIGTERM(15) on node 1/64
+*** Caught a signal: SIGTERM(15) on node 7/64
+*** Caught a signal: SIGTERM(15) on node 16/64
+*** Caught a signal: SIGTERM(15) on node 11/64
+*** Caught a signal: SIGTERM(15) on node 5/64
+*** Caught a signal: SIGTERM(15) on node 15/64
+*** Caught a signal: SIGTERM(15) on node 10/64
