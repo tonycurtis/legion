@@ -696,7 +696,7 @@ namespace LegionRuntime {
       Message::request(target, args);
     }
 
-#define IB_MAX_SIZE (32 * 1024 * 1024)
+#define IB_MAX_SIZE (16 * 1024 * 1024)
 
     void CopyRequest::alloc_intermediate_buffer(InstPair inst_pair, Memory tgt_mem, int idx)
     {
