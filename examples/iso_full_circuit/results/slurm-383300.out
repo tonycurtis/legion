@@ -1,0 +1,1089 @@
+Currently Loaded Modulefiles:
+  1) gcc/4.8.2         3) java/1.8.0_45
+  2) openmpi/1.6.5     4) cudatoolkit/7.5
+cputime      unlimited
+filesize     unlimited
+datasize     unlimited
+stacksize    unlimited
+coredumpsize unlimited
+memoryuse    unlimited
+vmemoryuse   unlimited
+descriptors  65536 
+memorylocked unlimited
+maxproc      8192 
+Sat Aug 13 16:29:20 MDT 2016
+383300
+/users/gshipman/local/bin/gasnetrun_ibv -n 128  ./ckt_sim_timing -npp 125000 -wpp 250000 -p 128 -l 64  -ll:cpu 5 -ll:zsize 12288 -ll:fsize 4192 -ll:gpu 1 -ll:dma 5 -ll:ahandlers 5 -ll:rsize 1920 -ll:gsize 0
+running 128 nodes dma_circuit branch
+Reported: 100 (out of 128) daemons - 100 (out of 128) procs
+Reported: 128 (out of 128) daemons - 128 (out of 128) procs
+[0 - 2b4d98f68700] {3}{circuit}: circuit settings: loops=64 pieces=128 nodes/piece=125000 wires/piece=250000 pct_in_piece=95 seed=12345
+[0 - 2b4d98f68700] {3}{circuit}: Initializing circuit simulation...
+#privates = 113028, #shared = 11972, #ghose = 12517
+#privates = 113001, #shared = 11999, #ghose = 12363
+#privates = 113054, #shared = 11946, #ghose = 12549
+#privates = 113426, #shared = 11574, #ghose = 12560
+#privates = 113078, #shared = 11922, #ghose = 12495
+#privates = 113007, #shared = 11993, #ghose = 12587
+#privates = 113016, #shared = 11984, #ghose = 12647
+#privates = 113131, #shared = 11869, #ghose = 12453
+#privates = 113001, #shared = 11999, #ghose = 12558
+#privates = 113086, #shared = 11914, #ghose = 12591
+#privates = 112926, #shared = 12074, #ghose = 12490
+#privates = 113236, #shared = 11764, #ghose = 12487
+#privates = 113092, #shared = 11908, #ghose = 12431
+#privates = 113014, #shared = 11986, #ghose = 12614
+#privates = 113090, #shared = 11910, #ghose = 12461
+#privates = 113001, #shared = 11999, #ghose = 12518
+#privates = 113253, #shared = 11747, #ghose = 12395
+#privates = 113269, #shared = 11731, #ghose = 12421
+#privates = 113158, #shared = 11842, #ghose = 12479
+#privates = 113137, #shared = 11863, #ghose = 12502
+#privates = 112957, #shared = 12043, #ghose = 12325
+#privates = 113003, #shared = 11997, #ghose = 12650
+#privates = 113159, #shared = 11841, #ghose = 12579
+#privates = 113174, #shared = 11826, #ghose = 12359
+#privates = 113199, #shared = 11801, #ghose = 12658
+#privates = 113113, #shared = 11887, #ghose = 12428
+#privates = 113060, #shared = 11940, #ghose = 12550
+#privates = 113059, #shared = 11941, #ghose = 12573
+#privates = 113191, #shared = 11809, #ghose = 12452
+#privates = 112808, #shared = 12192, #ghose = 12194
+#privates = 112990, #shared = 12010, #ghose = 12510
+#privates = 113014, #shared = 11986, #ghose = 12489
+#privates = 113105, #shared = 11895, #ghose = 12661
+#privates = 113006, #shared = 11994, #ghose = 12645
+#privates = 113032, #shared = 11968, #ghose = 12387
+#privates = 112915, #shared = 12085, #ghose = 12549
+#privates = 113153, #shared = 11847, #ghose = 12566
+#privates = 113154, #shared = 11846, #ghose = 12387
+#privates = 113200, #shared = 11800, #ghose = 12501
+#privates = 113188, #shared = 11812, #ghose = 12505
+#privates = 113057, #shared = 11943, #ghose = 12525
+#privates = 112990, #shared = 12010, #ghose = 12534
+#privates = 113106, #shared = 11894, #ghose = 12472
+#privates = 113010, #shared = 11990, #ghose = 12690
+#privates = 112934, #shared = 12066, #ghose = 12557
+#privates = 112940, #shared = 12060, #ghose = 12516
+#privates = 113105, #shared = 11895, #ghose = 12638
+#privates = 113008, #shared = 11992, #ghose = 12401
+#privates = 113204, #shared = 11796, #ghose = 12591
+#privates = 113022, #shared = 11978, #ghose = 12666
+#privates = 113240, #shared = 11760, #ghose = 12698
+#privates = 113269, #shared = 11731, #ghose = 12489
+#privates = 113241, #shared = 11759, #ghose = 12526
+#privates = 113131, #shared = 11869, #ghose = 12485
+#privates = 112918, #shared = 12082, #ghose = 12551
+#privates = 113208, #shared = 11792, #ghose = 12332
+#privates = 112926, #shared = 12074, #ghose = 12399
+#privates = 113224, #shared = 11776, #ghose = 12565
+#privates = 113270, #shared = 11730, #ghose = 12380
+#privates = 113217, #shared = 11783, #ghose = 12452
+#privates = 113255, #shared = 11745, #ghose = 12364
+#privates = 113137, #shared = 11863, #ghose = 12446
+#privates = 113093, #shared = 11907, #ghose = 12468
+#privates = 113049, #shared = 11951, #ghose = 12552
+#privates = 113119, #shared = 11881, #ghose = 12397
+#privates = 113109, #shared = 11891, #ghose = 12590
+#privates = 112980, #shared = 12020, #ghose = 12391
+#privates = 112999, #shared = 12001, #ghose = 12370
+#privates = 113164, #shared = 11836, #ghose = 12568
+#privates = 112970, #shared = 12030, #ghose = 12640
+#privates = 113207, #shared = 11793, #ghose = 12503
+#privates = 113113, #shared = 11887, #ghose = 12391
+#privates = 113140, #shared = 11860, #ghose = 12555
+#privates = 113175, #shared = 11825, #ghose = 12566
+#privates = 113060, #shared = 11940, #ghose = 12342
+#privates = 113146, #shared = 11854, #ghose = 12466
+#privates = 112967, #shared = 12033, #ghose = 12411
+#privates = 113183, #shared = 11817, #ghose = 12537
+#privates = 113262, #shared = 11738, #ghose = 12588
+#privates = 113037, #shared = 11963, #ghose = 12294
+#privates = 113242, #shared = 11758, #ghose = 12479
+#privates = 113152, #shared = 11848, #ghose = 12501
+#privates = 112948, #shared = 12052, #ghose = 12533
+#privates = 113287, #shared = 11713, #ghose = 12509
+#privates = 113136, #shared = 11864, #ghose = 12443
+#privates = 112983, #shared = 12017, #ghose = 12545
+#privates = 113050, #shared = 11950, #ghose = 12501
+#privates = 113105, #shared = 11895, #ghose = 12602
+#privates = 113038, #shared = 11962, #ghose = 12519
+#privates = 113011, #shared = 11989, #ghose = 12524
+#privates = 113080, #shared = 11920, #ghose = 12601
+#privates = 113042, #shared = 11958, #ghose = 12479
+#privates = 112974, #shared = 12026, #ghose = 12579
+#privates = 113214, #shared = 11786, #ghose = 12725
+#privates = 113378, #shared = 11622, #ghose = 12746
+#privates = 112985, #shared = 12015, #ghose = 12617
+#privates = 113009, #shared = 11991, #ghose = 12510
+#privates = 113169, #shared = 11831, #ghose = 12460
+#privates = 113134, #shared = 11866, #ghose = 12293
+#privates = 112972, #shared = 12028, #ghose = 12420
+#privates = 113229, #shared = 11771, #ghose = 12502
+#privates = 113149, #shared = 11851, #ghose = 12244
+#privates = 113124, #shared = 11876, #ghose = 12537
+#privates = 112873, #shared = 12127, #ghose = 12387
+#privates = 113095, #shared = 11905, #ghose = 12481
+#privates = 113133, #shared = 11867, #ghose = 12497
+#privates = 113174, #shared = 11826, #ghose = 12447
+#privates = 113082, #shared = 11918, #ghose = 12409
+#privates = 113095, #shared = 11905, #ghose = 12601
+#privates = 113086, #shared = 11914, #ghose = 12607
+#privates = 112906, #shared = 12094, #ghose = 12439
+#privates = 113160, #shared = 11840, #ghose = 12390
+#privates = 112941, #shared = 12059, #ghose = 12663
+#privates = 113198, #shared = 11802, #ghose = 12394
+#privates = 113180, #shared = 11820, #ghose = 12586
+#privates = 113106, #shared = 11894, #ghose = 12564
+#privates = 113106, #shared = 11894, #ghose = 12369
+#privates = 113098, #shared = 11902, #ghose = 12457
+#privates = 113167, #shared = 11833, #ghose = 12592
+#privates = 112935, #shared = 12065, #ghose = 12671
+#privates = 113019, #shared = 11981, #ghose = 12395
+#privates = 112984, #shared = 12016, #ghose = 12542
+#privates = 113069, #shared = 11931, #ghose = 12444
+#privates = 113262, #shared = 11738, #ghose = 12451
+#privates = 113200, #shared = 11800, #ghose = 12764
+#privates = 113245, #shared = 11755, #ghose = 12666
+#privates = 113225, #shared = 11775, #ghose = 12424
+#privates = 113154, #shared = 11846, #ghose = 12372
+[0 - 2b4d98f68700] {3}{circuit}: Finished initializing simulation...
+[PROF] before init = 113758 ms
+[PROF][128][0] after init = 115709 ms
+Starting main simulation loop
+[0]PROF_CNC(0)(0) starts at 119813 ms
+ckt_sim_timing_ibbuf_8: /users/gshipman/local/src/legion-asplos/legion-asplos/runtime/lowlevel_dma.cc:736: void LegionRuntime::LowLevel::CopyRequest::alloc_intermediate_buffer(LegionRuntime::LowLevel::InstPair, LegionRuntime::LowLevel::Memory, int): Assertion `ib_offset >= 0' failed.
+*** Caught a fatal signal: SIGABRT(6) on node 0/128
+--------------------------------------------------------------------------
+WARNING: A process refused to die!
+
+Host: ml124
+PID:  106072
+
+This process may still be running and/or consuming resources.
+
+--------------------------------------------------------------------------
+*** Caught a signal: SIGTERM(15) on node 111/128
+*** Caught a signal: SIGTERM(15) on node 113/128
+*** Caught a signal: SIGTERM(15) on node 102/128
+*** Caught a signal: SIGTERM(15) on node 118/128
+*** Caught a signal: SIGTERM(15) on node 13/128
+*** Caught a signal: SIGTERM(15) on node 14/128
+*** Caught a signal: SIGTERM(15) on node 98/128
+*** Caught a signal: SIGTERM(15) on node 29/128
+*** Caught a signal: SIGTERM(15) on node 27/128
+*** Caught a signal: SIGTERM(15) on node 112/128
+*** Caught a signal: SIGTERM(15) on node 18/128
+*** Caught a signal: SIGTERM(15) on node 120/128
+*** Caught a signal: SIGTERM(15) on node 103/128
+*** Caught a signal: SIGTERM(15) on node 81/128
+*** Caught a signal: SIGTERM(15) on node 19/128
+*** Caught a signal: SIGTERM(15) on node 20/128
+*** Caught a signal: SIGTERM(15) on node 117/128
+*** Caught a signal: SIGTERM(15) on node 95/128
+*** Caught a signal: SIGTERM(15) on node 115/128
+*** Caught a signal: SIGTERM(15) on node 21/128
+*** Caught a signal: SIGTERM(15) on node 105/128
+*** Caught a signal: SIGTERM(15) on node 12/128
+*** Caught a signal: SIGTERM(15) on node 25/128
+*** Caught a signal: SIGTERM(15) on node 114/128
+*** Caught a signal: SIGTERM(15) on node 97/128
+*** Caught a signal: SIGTERM(15) on node 80/128
+*** Caught a signal: SIGTERM(15) on node 126/128
+*** Caught a signal: SIGTERM(15) on node 15/128
+*** Caught a signal: SIGTERM(15) on node 86/128
+*** Caught a signal: SIGTERM(15) on node 110/128
+*** Caught a signal: SIGTERM(15) on node 106/128
+*** Caught a signal: SIGTERM(15) on node 44/128
+*** Caught a signal: SIGTERM(15) on node 17/128
+*** Caught a signal: SIGTERM(15) on node 119/128
+*** Caught a signal: SIGTERM(15) on node 72/128
+*** Caught a signal: SIGTERM(15) on node 52/128
+*** Caught a signal: SIGTERM(15) on node 93/128
+*** Caught a signal: SIGTERM(15) on node 108/128
+*** Caught a signal: SIGTERM(15) on node 127/128
+*** Caught a signal: SIGTERM(15) on node 26/128
+*** Caught a signal: SIGTERM(15) on node 124/128
+*** Caught a signal: SIGTERM(15) on node 6/128
+*** Caught a signal: SIGTERM(15) on node 2/128
+*** Caught a signal: SIGTERM(15) on node 125/128
+*** Caught a signal: SIGTERM(15) on node 9/128
+*** Caught a signal: SIGTERM(15) on node 33/128
+*** Caught a signal: SIGTERM(15) on node 104/128
+*** Caught a signal: SIGTERM(15) on node 123/128
+*** Caught a signal: SIGTERM(15) on node 5/128
+*** Caught a signal: SIGTERM(15) on node 122/128
+*** Caught a signal: SIGTERM(15) on node 11/128
+*** Caught a signal: SIGTERM(15) on node 8/128
+*** Caught a signal: SIGTERM(15) on node 10/128
+*** Caught a signal: SIGTERM(15) on node 28/128
+*** Caught a signal: SIGTERM(15) on node 101/128
+*** Caught a signal: SIGTERM(15) on node 45/128
+*** Caught a signal: SIGTERM(15) on node 89/128
+*** Caught a signal: SIGTERM(15) on node 68/128
+*** Caught a signal: SIGTERM(15) on node 1/128
+*** Caught a signal: SIGTERM(15) on node 107/128
+*** Caught a signal: SIGTERM(15) on node 63/128
+*** Caught a signal: SIGTERM(15) on node 7/128
+*** Caught a signal: SIGTERM(15) on node 53/128
+*** Caught a signal: SIGTERM(15) on node 79/128
+*** Caught a signal: SIGTERM(15) on node 35/128
+*** Caught a signal: SIGTERM(15) on node 90/128
+*** Caught a signal: SIGTERM(15) on node 84/128
+*** Caught a signal: SIGTERM(15) on node 30/128
+*** Caught a signal: SIGTERM(15) on node 121/128
+*** Caught a signal: SIGTERM(15) on node 85/128
+*** Caught a signal: SIGTERM(15) on node 46/128
+*** Caught a signal: SIGTERM(15) on node 71/128
+*** Caught a signal: SIGTERM(15) on node 82/128
+*** Caught a signal: SIGTERM(15) on node 64/128
+*** Caught a signal: SIGTERM(15) on node 36/128
+*** Caught a signal: SIGTERM(15) on node 22/128
+*** Caught a signal: SIGTERM(15) on node 67/128
+*** Caught a signal: SIGTERM(15) on node 43/128
+*** Caught a signal: SIGTERM(15) on node 54/128
+*** Caught a signal: SIGTERM(15) on node 58/128
+*** Caught a signal: SIGTERM(15) on node 40/128
+*** Caught a signal: SIGTERM(15) on node 37/128
+*** Caught a signal: SIGTERM(15) on node 74/128
+*** Caught a signal: SIGTERM(15) on node 88/128
+*** Caught a signal: SIGTERM(15) on node 62/128
+*** Caught a signal: SIGTERM(15) on node 3/128
+*** Caught a signal: SIGTERM(15) on node 24/128
+*** Caught a signal: SIGTERM(15) on node 61/128
+*** Caught a signal: SIGTERM(15) on node 94/128
+*** Caught a signal: SIGTERM(15) on node 38/128
+*** Caught a signal: SIGTERM(15) on node 4/128
+*** Caught a signal: SIGTERM(15) on node 83/128
+*** Caught a signal: SIGTERM(15) on node 51/128
+*** Caught a signal: SIGTERM(15) on node 47/128
+*** Caught a signal: SIGTERM(15) on node 56/128
+*** Caught a signal: SIGTERM(15) on node 48/128
+*** Caught a signal: SIGTERM(15) on node 77/128
+*** Caught a signal: SIGTERM(15) on node 23/128
+*** Caught a signal: SIGTERM(15) on node 57/128
+*** Caught a signal: SIGTERM(15) on node 65/128
+*** Caught a signal: SIGTERM(15) on node 91/128
+*** Caught a signal: SIGTERM(15) on node 41/128
+*** Caught a signal: SIGTERM(15) on node 34/128
+*** Caught a signal: SIGTERM(15) on node 50/128
+*** Caught a signal: SIGTERM(15) on node 76/128
+*** Caught a signal: SIGTERM(15) on node 75/128
+*** Caught a signal: SIGTERM(15) on node 70/128
+*** Caught a signal: SIGTERM(15) on node 116/128
+*** Caught a signal: SIGTERM(15) on node 69/128
+*** Caught a signal: SIGTERM(15) on node 66/128
+*** Caught a signal: SIGTERM(15) on node 109/128
+*** Caught a signal: SIGTERM(15) on node 31/128
+*** Caught a signal: SIGTERM(15) on node 73/128
+*** Caught a signal: SIGTERM(15) on node 92/128
+*** Caught a signal: SIGTERM(15) on node 32/128
+*** Caught a signal: SIGTERM(15) on node 39/128
+*** Caught a signal: SIGTERM(15) on node 60/128
+*** Caught a signal: SIGTERM(15) on node 42/128
+*** Caught a signal: SIGTERM(15) on node 87/128
+*** Caught a signal: SIGTERM(15) on node 99/128
+*** Caught a signal: SIGTERM(15) on node 78/128
+*** Caught a signal: SIGTERM(15) on node 59/128
+*** Caught a signal: SIGTERM(15) on node 49/128
+*** Caught a signal: SIGTERM(15) on node 55/128
+*** Caught a signal: SIGTERM(15) on node 100/128
+*** Caught a signal: SIGTERM(15) on node 16/128
+--------------------------------------------------------------------------
+mpirun noticed that process rank 0 with PID 85217 on node ml039.localdomain exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------
+*** Caught a signal: SIGTERM(15) on node 96/128
+[ml039.localdomain:85138] 126 more processes have sent help message help-odls-default.txt / odls-default:could-not-kill
+[ml039.localdomain:85138] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+running 128 nodes master multi-hop branch
+Reported: 100 (out of 128) daemons - 100 (out of 128) procs
+Reported: 128 (out of 128) daemons - 128 (out of 128) procs
+[0 - 2b0728018700] {3}{circuit}: circuit settings: loops=64 pieces=128 nodes/piece=125000 wires/piece=250000 pct_in_piece=95 seed=12345
+[0 - 2b0728018700] {3}{circuit}: Initializing circuit simulation...
+#privates = 113028, #shared = 11972, #ghose = 12517
+#privates = 113001, #shared = 11999, #ghose = 12363
+#privates = 113054, #shared = 11946, #ghose = 12549
+#privates = 113426, #shared = 11574, #ghose = 12560
+#privates = 113078, #shared = 11922, #ghose = 12495
+#privates = 113007, #shared = 11993, #ghose = 12587
+#privates = 113016, #shared = 11984, #ghose = 12647
+#privates = 113131, #shared = 11869, #ghose = 12453
+#privates = 113001, #shared = 11999, #ghose = 12558
+#privates = 113086, #shared = 11914, #ghose = 12591
+#privates = 112926, #shared = 12074, #ghose = 12490
+#privates = 113236, #shared = 11764, #ghose = 12487
+#privates = 113092, #shared = 11908, #ghose = 12431
+#privates = 113014, #shared = 11986, #ghose = 12614
+#privates = 113090, #shared = 11910, #ghose = 12461
+#privates = 113001, #shared = 11999, #ghose = 12518
+#privates = 113253, #shared = 11747, #ghose = 12395
+#privates = 113269, #shared = 11731, #ghose = 12421
+#privates = 113158, #shared = 11842, #ghose = 12479
+#privates = 113137, #shared = 11863, #ghose = 12502
+#privates = 112957, #shared = 12043, #ghose = 12325
+#privates = 113003, #shared = 11997, #ghose = 12650
+#privates = 113159, #shared = 11841, #ghose = 12579
+#privates = 113174, #shared = 11826, #ghose = 12359
+#privates = 113199, #shared = 11801, #ghose = 12658
+#privates = 113113, #shared = 11887, #ghose = 12428
+#privates = 113060, #shared = 11940, #ghose = 12550
+#privates = 113059, #shared = 11941, #ghose = 12573
+#privates = 113191, #shared = 11809, #ghose = 12452
+#privates = 112808, #shared = 12192, #ghose = 12194
+#privates = 112990, #shared = 12010, #ghose = 12510
+#privates = 113014, #shared = 11986, #ghose = 12489
+#privates = 113105, #shared = 11895, #ghose = 12661
+#privates = 113006, #shared = 11994, #ghose = 12645
+#privates = 113032, #shared = 11968, #ghose = 12387
+#privates = 112915, #shared = 12085, #ghose = 12549
+#privates = 113153, #shared = 11847, #ghose = 12566
+#privates = 113154, #shared = 11846, #ghose = 12387
+#privates = 113200, #shared = 11800, #ghose = 12501
+#privates = 113188, #shared = 11812, #ghose = 12505
+#privates = 113057, #shared = 11943, #ghose = 12525
+#privates = 112990, #shared = 12010, #ghose = 12534
+#privates = 113106, #shared = 11894, #ghose = 12472
+#privates = 113010, #shared = 11990, #ghose = 12690
+#privates = 112934, #shared = 12066, #ghose = 12557
+#privates = 112940, #shared = 12060, #ghose = 12516
+#privates = 113105, #shared = 11895, #ghose = 12638
+#privates = 113008, #shared = 11992, #ghose = 12401
+#privates = 113204, #shared = 11796, #ghose = 12591
+#privates = 113022, #shared = 11978, #ghose = 12666
+#privates = 113240, #shared = 11760, #ghose = 12698
+#privates = 113269, #shared = 11731, #ghose = 12489
+#privates = 113241, #shared = 11759, #ghose = 12526
+#privates = 113131, #shared = 11869, #ghose = 12485
+#privates = 112918, #shared = 12082, #ghose = 12551
+#privates = 113208, #shared = 11792, #ghose = 12332
+#privates = 112926, #shared = 12074, #ghose = 12399
+#privates = 113224, #shared = 11776, #ghose = 12565
+#privates = 113270, #shared = 11730, #ghose = 12380
+#privates = 113217, #shared = 11783, #ghose = 12452
+#privates = 113255, #shared = 11745, #ghose = 12364
+#privates = 113137, #shared = 11863, #ghose = 12446
+#privates = 113093, #shared = 11907, #ghose = 12468
+#privates = 113049, #shared = 11951, #ghose = 12552
+#privates = 113119, #shared = 11881, #ghose = 12397
+#privates = 113109, #shared = 11891, #ghose = 12590
+#privates = 112980, #shared = 12020, #ghose = 12391
+#privates = 112999, #shared = 12001, #ghose = 12370
+#privates = 113164, #shared = 11836, #ghose = 12568
+#privates = 112970, #shared = 12030, #ghose = 12640
+#privates = 113207, #shared = 11793, #ghose = 12503
+#privates = 113113, #shared = 11887, #ghose = 12391
+#privates = 113140, #shared = 11860, #ghose = 12555
+#privates = 113175, #shared = 11825, #ghose = 12566
+#privates = 113060, #shared = 11940, #ghose = 12342
+#privates = 113146, #shared = 11854, #ghose = 12466
+#privates = 112967, #shared = 12033, #ghose = 12411
+#privates = 113183, #shared = 11817, #ghose = 12537
+#privates = 113262, #shared = 11738, #ghose = 12588
+#privates = 113037, #shared = 11963, #ghose = 12294
+#privates = 113242, #shared = 11758, #ghose = 12479
+#privates = 113152, #shared = 11848, #ghose = 12501
+#privates = 112948, #shared = 12052, #ghose = 12533
+#privates = 113287, #shared = 11713, #ghose = 12509
+#privates = 113136, #shared = 11864, #ghose = 12443
+#privates = 112983, #shared = 12017, #ghose = 12545
+#privates = 113050, #shared = 11950, #ghose = 12501
+#privates = 113105, #shared = 11895, #ghose = 12602
+#privates = 113038, #shared = 11962, #ghose = 12519
+#privates = 113011, #shared = 11989, #ghose = 12524
+#privates = 113080, #shared = 11920, #ghose = 12601
+#privates = 113042, #shared = 11958, #ghose = 12479
+#privates = 112974, #shared = 12026, #ghose = 12579
+#privates = 113214, #shared = 11786, #ghose = 12725
+#privates = 113378, #shared = 11622, #ghose = 12746
+#privates = 112985, #shared = 12015, #ghose = 12617
+#privates = 113009, #shared = 11991, #ghose = 12510
+#privates = 113169, #shared = 11831, #ghose = 12460
+#privates = 113134, #shared = 11866, #ghose = 12293
+#privates = 112972, #shared = 12028, #ghose = 12420
+#privates = 113229, #shared = 11771, #ghose = 12502
+#privates = 113149, #shared = 11851, #ghose = 12244
+#privates = 113124, #shared = 11876, #ghose = 12537
+#privates = 112873, #shared = 12127, #ghose = 12387
+#privates = 113095, #shared = 11905, #ghose = 12481
+#privates = 113133, #shared = 11867, #ghose = 12497
+#privates = 113174, #shared = 11826, #ghose = 12447
+#privates = 113082, #shared = 11918, #ghose = 12409
+#privates = 113095, #shared = 11905, #ghose = 12601
+#privates = 113086, #shared = 11914, #ghose = 12607
+#privates = 112906, #shared = 12094, #ghose = 12439
+#privates = 113160, #shared = 11840, #ghose = 12390
+#privates = 112941, #shared = 12059, #ghose = 12663
+#privates = 113198, #shared = 11802, #ghose = 12394
+#privates = 113180, #shared = 11820, #ghose = 12586
+#privates = 113106, #shared = 11894, #ghose = 12564
+#privates = 113106, #shared = 11894, #ghose = 12369
+#privates = 113098, #shared = 11902, #ghose = 12457
+#privates = 113167, #shared = 11833, #ghose = 12592
+#privates = 112935, #shared = 12065, #ghose = 12671
+#privates = 113019, #shared = 11981, #ghose = 12395
+#privates = 112984, #shared = 12016, #ghose = 12542
+#privates = 113069, #shared = 11931, #ghose = 12444
+#privates = 113262, #shared = 11738, #ghose = 12451
+#privates = 113200, #shared = 11800, #ghose = 12764
+#privates = 113245, #shared = 11755, #ghose = 12666
+#privates = 113225, #shared = 11775, #ghose = 12424
+#privates = 113154, #shared = 11846, #ghose = 12372
+[0 - 2b0728018700] {3}{circuit}: Finished initializing simulation...
+[PROF] before init = 112664 ms
+[PROF][128][0] after init = 114590 ms
+Starting main simulation loop
+[0]PROF_CNC(0)(0) starts at 117922 ms
+[0]PROF_CNC(1)(1) starts at 118153 ms
+[0]PROF_CNC(2)(2) starts at 118252 ms
+[0]PROF_CNC(3)(3) starts at 118379 ms
+[0]PROF_CNC(4)(4) starts at 118508 ms
+[0]PROF_CNC(5)(5) starts at 118628 ms
+[0]PROF_CNC(6)(6) starts at 118751 ms
+[0]PROF_CNC(7)(7) starts at 118852 ms
+[0]PROF_CNC(8)(8) starts at 118980 ms
+[0]PROF_CNC(9)(9) starts at 119104 ms
+[0]PROF_CNC(10)(10) starts at 119227 ms
+[0]PROF_CNC(11)(11) starts at 119326 ms
+[0]PROF_CNC(12)(12) starts at 119448 ms
+[0]PROF_CNC(13)(13) starts at 119568 ms
+[0]PROF_CNC(14)(14) starts at 119685 ms
+[0]PROF_CNC(15)(15) starts at 119804 ms
+[0]PROF_CNC(16)(16) starts at 119932 ms
+[0]PROF_CNC(17)(17) starts at 120031 ms
+[0]PROF_CNC(18)(18) starts at 120168 ms
+[0]PROF_CNC(19)(19) starts at 120273 ms
+[0]PROF_CNC(20)(20) starts at 120393 ms
+[0]PROF_CNC(21)(21) starts at 120515 ms
+[0]PROF_CNC(22)(22) starts at 120637 ms
+[0]PROF_CNC(23)(23) starts at 120769 ms
+[0]PROF_CNC(24)(24) starts at 120904 ms
+[0]PROF_CNC(25)(25) starts at 121027 ms
+[0]PROF_CNC(26)(26) starts at 121152 ms
+[0]PROF_CNC(27)(27) starts at 121268 ms
+[0]PROF_CNC(28)(28) starts at 121401 ms
+[0]PROF_CNC(29)(29) starts at 121520 ms
+[0]PROF_CNC(30)(30) starts at 121645 ms
+[0]PROF_CNC(31)(31) starts at 121758 ms
+[0]PROF_CNC(32)(32) starts at 121879 ms
+[0]PROF_CNC(33)(33) starts at 122022 ms
+[0]PROF_CNC(34)(34) starts at 122115 ms
+[0]PROF_CNC(35)(35) starts at 122241 ms
+[0]PROF_CNC(36)(36) starts at 122347 ms
+[0]PROF_CNC(37)(37) starts at 122459 ms
+[0]PROF_CNC(38)(38) starts at 122570 ms
+[0]PROF_CNC(39)(39) starts at 122688 ms
+[0]PROF_CNC(40)(40) starts at 122799 ms
+[0]PROF_CNC(41)(41) starts at 122940 ms
+[0]PROF_CNC(42)(42) starts at 123031 ms
+[0]PROF_CNC(43)(43) starts at 123170 ms
+[0]PROF_CNC(44)(44) starts at 123261 ms
+[0]PROF_CNC(45)(45) starts at 123362 ms
+[0]PROF_CNC(46)(46) starts at 123498 ms
+[0]PROF_CNC(47)(47) starts at 123598 ms
+[0]PROF_CNC(48)(48) starts at 123698 ms
+[0]PROF_CNC(49)(49) starts at 123824 ms
+[0]PROF_CNC(50)(50) starts at 123953 ms
+[0]PROF_CNC(51)(51) starts at 124053 ms
+[0]PROF_CNC(52)(52) starts at 124163 ms
+[0]PROF_CNC(53)(53) starts at 124276 ms
+[0]PROF_CNC(54)(54) starts at 124394 ms
+[0]PROF_CNC(55)(55) starts at 124535 ms
+[0]PROF_CNC(56)(56) starts at 124684 ms
+[0]PROF_CNC(57)(57) starts at 124801 ms
+[0]PROF_CNC(58)(58) starts at 124921 ms
+[0]PROF_CNC(59)(59) starts at 125031 ms
+[0]PROF_CNC(60)(60) starts at 125166 ms
+[0]PROF_CNC(61)(61) starts at 125278 ms
+[0]PROF_CNC(62)(62) starts at 125394 ms
+[0]PROF_CNC(63)(63) starts at 125506 ms
+[0]PROF_CNC(64)(64) starts at 125620 ms
+[0]PROF_CNC(65)(65) starts at 125748 ms
+[0]PROF_CNC(66)(66) starts at 125881 ms
+[0]PROF_CNC(67)(67) starts at 125997 ms
+[0]PROF_CNC(68)(68) starts at 126116 ms
+[0]PROF_CNC(69)(69) starts at 126235 ms
+[0]PROF_CNC(70)(70) starts at 126378 ms
+[0]PROF_CNC(71)(71) starts at 126489 ms
+[0]PROF_CNC(72)(72) starts at 126598 ms
+[0]PROF_CNC(73)(73) starts at 126711 ms
+[0]PROF_CNC(74)(74) starts at 126833 ms
+[0]PROF_CNC(75)(75) starts at 126945 ms
+[0]PROF_CNC(76)(76) starts at 127058 ms
+[0]PROF_CNC(77)(77) starts at 127181 ms
+[0]PROF_CNC(78)(78) starts at 127296 ms
+[0]PROF_CNC(79)(79) starts at 127423 ms
+[0]PROF_CNC(80)(80) starts at 127537 ms
+[0]PROF_CNC(81)(81) starts at 127646 ms
+[0]PROF_CNC(82)(82) starts at 127774 ms
+[0]PROF_CNC(83)(83) starts at 127893 ms
+[0]PROF_CNC(84)(84) starts at 128002 ms
+[0]PROF_CNC(85)(85) starts at 128135 ms
+[0]PROF_CNC(86)(86) starts at 128262 ms
+[0]PROF_CNC(87)(87) starts at 128390 ms
+[0]PROF_CNC(88)(88) starts at 128505 ms
+[0]PROF_CNC(89)(89) starts at 128631 ms
+[0]PROF_CNC(90)(90) starts at 128757 ms
+[0]PROF_CNC(91)(91) starts at 128883 ms
+[0]PROF_CNC(92)(92) starts at 129001 ms
+[0]PROF_CNC(93)(93) starts at 129114 ms
+[0]PROF_CNC(94)(94) starts at 129256 ms
+[0]PROF_CNC(95)(95) starts at 129392 ms
+[0]PROF_CNC(96)(96) starts at 129516 ms
+[0]PROF_CNC(97)(97) starts at 129631 ms
+[0]PROF_CNC(98)(98) starts at 129755 ms
+[0]PROF_CNC(99)(99) starts at 129875 ms
+[0]PROF_CNC(100)(100) starts at 130011 ms
+[0]PROF_CNC(101)(101) starts at 130136 ms
+[0]PROF_CNC(102)(102) starts at 130279 ms
+[0]PROF_CNC(103)(103) starts at 130407 ms
+[0]PROF_CNC(104)(104) starts at 130547 ms
+[0]PROF_CNC(105)(105) starts at 130667 ms
+[0]PROF_CNC(106)(106) starts at 130780 ms
+[0]PROF_CNC(107)(107) starts at 130906 ms
+[0]PROF_CNC(108)(108) starts at 131012 ms
+[0]PROF_CNC(109)(109) starts at 131135 ms
+[0]PROF_CNC(110)(110) starts at 131251 ms
+[0]PROF_CNC(111)(111) starts at 131376 ms
+[0]PROF_CNC(112)(112) starts at 131485 ms
+[0]PROF_CNC(113)(113) starts at 131608 ms
+[0]PROF_CNC(114)(114) starts at 131741 ms
+[0]PROF_CNC(115)(115) starts at 131874 ms
+[0]PROF_CNC(116)(116) starts at 132010 ms
+[0]PROF_CNC(117)(117) starts at 132130 ms
+[0]PROF_CNC(118)(118) starts at 132271 ms
+[0]PROF_CNC(119)(119) starts at 132407 ms
+[0]PROF_CNC(120)(120) starts at 132535 ms
+[0]PROF_CNC(121)(121) starts at 132667 ms
+[0]PROF_CNC(122)(122) starts at 132787 ms
+[0]PROF_CNC(123)(123) starts at 132908 ms
+[0]PROF_CNC(124)(124) starts at 133025 ms
+[0]PROF_CNC(125)(125) starts at 133146 ms
+[0]PROF_CNC(126)(126) starts at 133287 ms
+[0]PROF_DUMMY(0)(0) starts at 133351 ms
+[0]PROF_DUMMY(1)(1) starts at 133357 ms
+[0]PROF_DUMMY(2)(2) starts at 133361 ms
+[0]PROF_DUMMY(3)(3) starts at 133366 ms
+[0]PROF_DUMMY(4)(4) starts at 133373 ms
+[0]PROF_DUMMY(5)(5) starts at 133378 ms
+[0]PROF_DUMMY(6)(6) starts at 133383 ms
+[0]PROF_DUMMY(7)(7) starts at 133390 ms
+[0]PROF_DUMMY(8)(8) starts at 133397 ms
+[0]PROF_DUMMY(9)(9) starts at 133404 ms
+[0]PROF_DUMMY(10)(10) starts at 133411 ms
+[0]PROF_DUMMY(11)(11) starts at 133416 ms
+[0]PROF_DUMMY(12)(12) starts at 133421 ms
+[0]PROF_DUMMY(13)(13) starts at 133428 ms
+[0]PROF_CNC(127)(127) starts at 133430 ms
+[0]PROF_DUMMY(14)(14) starts at 133435 ms
+[0]PROF_DUMMY(15)(15) starts at 133448 ms
+[0]PROF_DUMMY(16)(16) starts at 133452 ms
+[0]PROF_DUMMY(17)(17) starts at 133457 ms
+[0]PROF_DUMMY(18)(18) starts at 133462 ms
+[0]PROF_DUMMY(19)(19) starts at 133467 ms
+[0]PROF_DUMMY(20)(20) starts at 133472 ms
+[0]PROF_DUMMY(21)(21) starts at 133477 ms
+[0]PROF_DUMMY(22)(22) starts at 133483 ms
+[0]PROF_DUMMY(23)(23) starts at 133488 ms
+[0]PROF_DUMMY(24)(24) starts at 133495 ms
+[0]PROF_DUMMY(25)(25) starts at 133499 ms
+[0]PROF_DUMMY(26)(26) starts at 133504 ms
+[0]PROF_DUMMY(27)(27) starts at 133509 ms
+[0]PROF_DUMMY(28)(28) starts at 133515 ms
+[0]PROF_DUMMY(29)(29) starts at 133520 ms
+[0]PROF_DUMMY(30)(30) starts at 133525 ms
+[0]PROF_DUMMY(31)(31) starts at 133532 ms
+[0]PROF_DUMMY(32)(32) starts at 133537 ms
+[0]PROF_DUMMY(33)(33) starts at 133542 ms
+[0]PROF_DUMMY(34)(34) starts at 133547 ms
+[0]PROF_DUMMY(35)(35) starts at 133552 ms
+[0]PROF_DUMMY(36)(36) starts at 133558 ms
+[0]PROF_DUMMY(37)(37) starts at 133563 ms
+[0]PROF_DUMMY(38)(38) starts at 133569 ms
+[0]PROF_DUMMY(39)(39) starts at 133573 ms
+[0]PROF_DUMMY(40)(40) starts at 133578 ms
+[0]PROF_DUMMY(41)(41) starts at 133583 ms
+[0]PROF_DUMMY(42)(42) starts at 133590 ms
+[0]PROF_DUMMY(43)(43) starts at 133595 ms
+[0]PROF_DUMMY(44)(44) starts at 133601 ms
+[0]PROF_DUMMY(45)(45) starts at 133606 ms
+[0]PROF_DUMMY(46)(46) starts at 133611 ms
+[0]PROF_DUMMY(47)(47) starts at 133615 ms
+[0]PROF_DUMMY(48)(48) starts at 133620 ms
+[0]PROF_DUMMY(49)(49) starts at 133627 ms
+[0]PROF_DUMMY(50)(50) starts at 133634 ms
+[0]PROF_DUMMY(51)(51) starts at 133639 ms
+[0]PROF_DUMMY(52)(52) starts at 133644 ms
+[0]PROF_DUMMY(53)(53) starts at 133649 ms
+[0]PROF_DUMMY(54)(54) starts at 133654 ms
+[0]PROF_DUMMY(55)(55) starts at 133659 ms
+[0]PROF_DUMMY(56)(56) starts at 133664 ms
+[0]PROF_DUMMY(57)(57) starts at 133669 ms
+[0]PROF_DUMMY(58)(58) starts at 133677 ms
+[0]PROF_DUMMY(59)(59) starts at 133686 ms
+[0]PROF_DUMMY(60)(60) starts at 133689 ms
+[0]PROF_DUMMY(61)(61) starts at 133695 ms
+[0]PROF_DUMMY(62)(62) starts at 133697 ms
+[0]PROF_DUMMY(63)(63) starts at 133703 ms
+[0]PROF_DUMMY(64)(64) starts at 133708 ms
+[0]PROF_DUMMY(65)(65) starts at 133715 ms
+[0]PROF_DUMMY(66)(66) starts at 133717 ms
+[0]PROF_DUMMY(67)(67) starts at 133723 ms
+[0]PROF_DUMMY(68)(68) starts at 133728 ms
+[0]PROF_DUMMY(69)(69) starts at 133733 ms
+[0]PROF_DUMMY(70)(70) starts at 133735 ms
+[0]PROF_DUMMY(71)(71) starts at 133742 ms
+[0]PROF_DUMMY(72)(72) starts at 133749 ms
+[0]PROF_DUMMY(73)(73) starts at 133754 ms
+[0]PROF_DUMMY(74)(74) starts at 133760 ms
+[0]PROF_DUMMY(75)(75) starts at 133764 ms
+[0]PROF_DUMMY(76)(76) starts at 133768 ms
+[0]PROF_DUMMY(77)(77) starts at 133771 ms
+[0]PROF_DUMMY(78)(78) starts at 133774 ms
+[0]PROF_DUMMY(79)(79) starts at 133777 ms
+[0]PROF_DUMMY(80)(80) starts at 133785 ms
+[0]PROF_DUMMY(81)(81) starts at 133790 ms
+[0]PROF_DUMMY(82)(82) starts at 133797 ms
+[0]PROF_DUMMY(83)(83) starts at 133801 ms
+[0]PROF_DUMMY(84)(84) starts at 133804 ms
+[0]PROF_DUMMY(85)(85) starts at 133809 ms
+[0]PROF_DUMMY(86)(86) starts at 133814 ms
+[0]PROF_DUMMY(87)(87) starts at 133817 ms
+[0]PROF_DUMMY(88)(88) starts at 133820 ms
+[0]PROF_DUMMY(89)(89) starts at 133826 ms
+[0]PROF_DUMMY(90)(90) starts at 133832 ms
+[0]PROF_DUMMY(91)(91) starts at 133834 ms
+[0]PROF_DUMMY(92)(92) starts at 133840 ms
+[0]PROF_DUMMY(93)(93) starts at 133846 ms
+[0]PROF_DUMMY(95)(95) starts at 133854 ms
+[0]PROF_DUMMY(94)(94) starts at 133853 ms
+[0]PROF_DUMMY(96)(96) starts at 133860 ms
+[0]PROF_DUMMY(97)(97) starts at 133862 ms
+[0]PROF_DUMMY(98)(98) starts at 133868 ms
+[0]PROF_DUMMY(99)(99) starts at 133873 ms
+[0]PROF_DUMMY(100)(100) starts at 133875 ms
+[0]PROF_DUMMY(101)(101) starts at 133882 ms
+[0]PROF_DUMMY(102)(102) starts at 133884 ms
+[0]PROF_DUMMY(103)(103) starts at 133886 ms
+[0]PROF_DUMMY(104)(104) starts at 133894 ms
+[0]PROF_DUMMY(105)(105) starts at 133900 ms
+[0]PROF_DUMMY(106)(106) starts at 133902 ms
+[0]PROF_DUMMY(107)(107) starts at 133905 ms
+[0]PROF_DUMMY(108)(108) starts at 133908 ms
+[0]PROF_DUMMY(109)(109) starts at 133916 ms
+[0]PROF_DUMMY(110)(110) starts at 133918 ms
+[0]PROF_DUMMY(111)(111) starts at 133921 ms
+[0]PROF_DUMMY(112)(112) starts at 133928 ms
+[0]PROF_DUMMY(113)(113) starts at 133932 ms
+[0]PROF_DUMMY(114)(114) starts at 133938 ms
+[0]PROF_DUMMY(115)(115) starts at 133944 ms
+[0]PROF_DUMMY(116)(116) starts at 133947 ms
+[0]PROF_DUMMY(117)(117) starts at 133949 ms
+[0]PROF_DUMMY(118)(118) starts at 133954 ms
+[0]PROF_DUMMY(119)(119) starts at 133956 ms
+[0]PROF_DUMMY(120)(120) starts at 133960 ms
+[0]PROF_DUMMY(121)(121) starts at 133967 ms
+[0]PROF_DUMMY(122)(122) starts at 133970 ms
+[0]PROF_DUMMY(123)(123) starts at 133973 ms
+[0]PROF_DUMMY(124)(124) starts at 133980 ms
+[0]PROF_DUMMY(125)(125) starts at 133983 ms
+[0]PROF_DUMMY(126)(126) starts at 133988 ms
+[0]PROF_DC(0) starts at 134007 ms
+[0]PROF_DUMMY(127)(127) starts at 134008 ms
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00010000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00010000000001 and 1e00010000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00020000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00020000000001 and 1e00020000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00030000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00030000000001 and 1e00030000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00040000000001 and 1e00040000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00040000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00050000000001 and 1e00050000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00050000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00060000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00060000000001 and 1e00060000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00070000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00070000000001 and 1e00070000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00080000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00080000000001 and 1e00080000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00090000000001 and 1e00090000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00090000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e000a0000000001 and 1e000a0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000a0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e000b0000000001 and 1e000b0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000b0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000c0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e000c0000000001 and 1e000c0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e000d0000000001 and 1e000d0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000d0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000e0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e000e0000000001 and 1e000e0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e000f0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e000f0000000001 and 1e000f0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00100000000001 and 1e00100000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00100000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00110000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00110000000001 and 1e00110000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00120000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00120000000001 and 1e00120000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00130000000001 and 1e00130000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00130000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00140000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00140000000001 and 1e00140000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00150000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00150000000001 and 1e00150000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00160000000001 and 1e00160000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00160000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00170000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00170000000001 and 1e00170000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00180000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00180000000001 and 1e00180000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00190000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00190000000001 and 1e00190000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001a0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e001a0000000001 and 1e001a0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001b0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e001b0000000001 and 1e001b0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001c0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e001c0000000001 and 1e001c0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001d0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e001d0000000001 and 1e001d0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001e0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e001e0000000001 and 1e001e0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e001f0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e001f0000000001 and 1e001f0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00200000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00200000000001 and 1e00200000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00210000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00210000000001 and 1e00210000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00220000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00220000000001 and 1e00220000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00230000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00230000000001 and 1e00230000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00240000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00240000000001 and 1e00240000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00250000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00250000000001 and 1e00250000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00260000000001 and 1e00260000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00260000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00270000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00270000000001 and 1e00270000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00280000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00280000000001 and 1e00280000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00290000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00290000000001 and 1e00290000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e002a0000000001 and 1e002a0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e002a0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e002b0000000001 and 1e002b0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e002b0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e002c0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e002c0000000001 and 1e002c0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e002d0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e002d0000000001 and 1e002d0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e002e0000000001 and 1e002e0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e002e0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e002f0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e002f0000000001 and 1e002f0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00300000000001 and 1e00300000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00300000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00310000000001 and 1e00310000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00310000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00320000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00320000000001 and 1e00320000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00330000000001 and 1e00330000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00330000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00340000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00340000000001 and 1e00340000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00350000000001 and 1e00350000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00350000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00360000000001 and 1e00360000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00360000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00370000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00370000000001 and 1e00370000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00380000000001 and 1e00380000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00380000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00390000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00390000000001 and 1e00390000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e003a0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e003a0000000001 and 1e003a0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e003b0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e003b0000000001 and 1e003b0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e003c0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e003c0000000001 and 1e003c0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e003d0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e003d0000000001 and 1e003d0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e003e0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e003e0000000001 and 1e003e0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e003f0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e003f0000000001 and 1e003f0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00400000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00400000000001 and 1e00400000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00410000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00410000000001 and 1e00410000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00420000000001 and 1e00420000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00420000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00430000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00430000000001 and 1e00430000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00440000000001 and 1e00440000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00440000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00450000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00450000000001 and 1e00450000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00460000000001 and 1e00460000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00460000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00470000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00470000000001 and 1e00470000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00480000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00480000000001 and 1e00480000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00490000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00490000000001 and 1e00490000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e004a0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e004a0000000001 and 1e004a0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e004b0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e004b0000000001 and 1e004b0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e004c0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e004c0000000001 and 1e004c0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e004d0000000001 and 1e004d0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e004d0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e004e0000000001 and 1e004e0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e004e0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e004f0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e004f0000000001 and 1e004f0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00500000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00500000000001 and 1e00500000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00510000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00510000000001 and 1e00510000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00520000000001 and 1e00520000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00520000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00530000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00530000000001 and 1e00530000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00540000000001 and 1e00540000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00540000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00550000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00550000000001 and 1e00550000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00560000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00560000000001 and 1e00560000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00570000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00570000000001 and 1e00570000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00580000000001 and 1e00580000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00580000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00590000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00590000000001 and 1e00590000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e005a0000000001 and 1e005a0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e005a0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e005b0000000001 and 1e005b0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e005b0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e005c0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e005c0000000001 and 1e005c0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e005d0000000001 and 1e005d0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e005d0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e005e0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e005e0000000001 and 1e005e0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e005f0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e005f0000000001 and 1e005f0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00600000000001 and 1e00600000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00600000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00610000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00610000000001 and 1e00610000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00620000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00620000000001 and 1e00620000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00630000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00630000000001 and 1e00630000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00640000000001 and 1e00640000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00640000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00650000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00650000000001 and 1e00650000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00660000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00660000000001 and 1e00660000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00670000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00670000000001 and 1e00670000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00680000000001 and 1e00680000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00680000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00690000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00690000000001 and 1e00690000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e006a0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e006a0000000001 and 1e006a0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e006b0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e006b0000000001 and 1e006b0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e006c0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e006c0000000001 and 1e006c0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e006d0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e006d0000000001 and 1e006d0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e006e0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e006e0000000001 and 1e006e0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e006f0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e006f0000000001 and 1e006f0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00700000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00700000000001 and 1e00700000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00710000000001 and 1e00710000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00710000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00720000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00720000000001 and 1e00720000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00730000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00730000000001 and 1e00730000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00740000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00740000000001 and 1e00740000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00750000000001 and 1e00750000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00750000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00760000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00760000000001 and 1e00760000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00770000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00770000000001 and 1e00770000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00780000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00780000000001 and 1e00780000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e00790000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00790000000001 and 1e00790000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e007a0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e007a0000000001 and 1e007a0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e007b0000000001 and 1e007b0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e007b0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e007c0000000001 and 1e007c0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e007c0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e007d0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e007d0000000001 and 1e007d0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e007e0000000001 and 1e007e0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e007e0000000002!
+[0 - 2b0728010700] {4}{default_mapper}: WARNING: Default mapper is potentially requesting a multi-hop copy between memories 1e00000000000001 and 1e007f0000000002!
+[0]PROF_DC(2) starts at 135401 ms
+[0]PROF_DC(1) starts at 135402 ms
+ckt_sim_timing_master: /users/gshipman/local/src/legion-asplos/legion-asplos/runtime/realm/threads.cc:913: void Realm::UserThread::start_thread(const Realm::ThreadLaunchParameters&): Assertion `stack_base != 0' failed.
+*** Caught a fatal signal: SIGABRT(6) on node 0/128
+--------------------------------------------------------------------------
+WARNING: A process refused to die!
+
+Host: ml126
+PID:  19526
+
+This process may still be running and/or consuming resources.
+
+--------------------------------------------------------------------------
+*** Caught a signal: SIGTERM(15) on node 113/128
+*** Caught a signal: SIGTERM(15) on node 111/128
+*** Caught a signal: SIGTERM(15) on node 118/128
+*** Caught a signal: SIGTERM(15) on node 102/128
+*** Caught a signal: SIGTERM(15) on node 13/128
+*** Caught a signal: SIGTERM(15) on node 98/128
+*** Caught a signal: SIGTERM(15) on node 14/128
+*** Caught a signal: SIGTERM(15) on node 29/128
+*** Caught a signal: SIGTERM(15) on node 27/128
+*** Caught a signal: SIGTERM(15) on node 112/128
+*** Caught a signal: SIGTERM(15) on node 18/128
+*** Caught a signal: SIGTERM(15) on node 19/128
+*** Caught a signal: SIGTERM(15) on node 120/128
+*** Caught a signal: SIGTERM(15) on node 103/128
+*** Caught a signal: SIGTERM(15) on node 81/128
+*** Caught a signal: SIGTERM(15) on node 117/128
+*** Caught a signal: SIGTERM(15) on node 20/128
+*** Caught a signal: SIGTERM(15) on node 95/128
+*** Caught a signal: SIGTERM(15) on node 115/128
+*** Caught a signal: SIGTERM(15) on node 21/128
+*** Caught a signal: SIGTERM(15) on node 105/128
+*** Caught a signal: SIGTERM(15) on node 12/128
+*** Caught a signal: SIGTERM(15) on node 25/128
+*** Caught a signal: SIGTERM(15) on node 114/128
+*** Caught a signal: SIGTERM(15) on node 15/128
+*** Caught a signal: SIGTERM(15) on node 86/128
+*** Caught a signal: SIGTERM(15) on node 110/128
+*** Caught a signal: SIGTERM(15) on node 80/128
+*** Caught a signal: SIGTERM(15) on node 126/128
+*** Caught a signal: SIGTERM(15) on node 17/128
+*** Caught a signal: SIGTERM(15) on node 97/128
+*** Caught a signal: SIGTERM(15) on node 106/128
+*** Caught a signal: SIGTERM(15) on node 72/128
+*** Caught a signal: SIGTERM(15) on node 127/128
+*** Caught a signal: SIGTERM(15) on node 44/128
+*** Caught a signal: SIGTERM(15) on node 119/128
+*** Caught a signal: SIGTERM(15) on node 2/128
+*** Caught a signal: SIGTERM(15) on node 52/128
+*** Caught a signal: SIGTERM(15) on node 108/128
+*** Caught a signal: SIGTERM(15) on node 124/128
+*** Caught a signal: SIGTERM(15) on node 8/128
+*** Caught a signal: SIGTERM(15) on node 6/128
+*** Caught a signal: SIGTERM(15) on node 33/128
+*** Caught a signal: SIGTERM(15) on node 45/128
+*** Caught a signal: SIGTERM(15) on node 122/128
+*** Caught a signal: SIGTERM(15) on node 104/128
+*** Caught a signal: SIGTERM(15) on node 93/128
+*** Caught a signal: SIGTERM(15) on node 5/128
+*** Caught a signal: SIGTERM(15) on node 101/128
+*** Caught a signal: SIGTERM(15) on node 125/128
+*** Caught a signal: SIGTERM(15) on node 123/128
+*** Caught a signal: SIGTERM(15) on node 28/128
+*** Caught a signal: SIGTERM(15) on node 7/128
+*** Caught a signal: SIGTERM(15) on node 26/128
+*** Caught a signal: SIGTERM(15) on node 84/128
+*** Caught a signal: SIGTERM(15) on node 10/128
+*** Caught a signal: SIGTERM(15) on node 107/128
+*** Caught a signal: SIGTERM(15) on node 68/128
+*** Caught a signal: SIGTERM(15) on node 9/128
+*** Caught a signal: SIGTERM(15) on node 11/128
+*** Caught a signal: SIGTERM(15) on node 89/128
+*** Caught a signal: SIGTERM(15) on node 121/128
+*** Caught a signal: SIGTERM(15) on node 63/128
+*** Caught a signal: SIGTERM(15) on node 37/128
+*** Caught a signal: SIGTERM(15) on node 58/128
+*** Caught a signal: SIGTERM(15) on node 40/128
+*** Caught a signal: SIGTERM(15) on node 43/128
+*** Caught a signal: SIGTERM(15) on node 85/128
+*** Caught a signal: SIGTERM(15) on node 67/128
+*** Caught a signal: SIGTERM(15) on node 64/128
+*** Caught a signal: SIGTERM(15) on node 53/128
+*** Caught a signal: SIGTERM(15) on node 22/128
+*** Caught a signal: SIGTERM(15) on node 71/128
+*** Caught a signal: SIGTERM(15) on node 38/128
+*** Caught a signal: SIGTERM(15) on node 1/128
+*** Caught a signal: SIGTERM(15) on node 79/128
+*** Caught a signal: SIGTERM(15) on node 4/128
+*** Caught a signal: SIGTERM(15) on node 88/128
+*** Caught a signal: SIGTERM(15) on node 3/128
+*** Caught a signal: SIGTERM(15) on node 62/128
+*** Caught a signal: SIGTERM(15) on node 54/128
+*** Caught a signal: SIGTERM(15) on node 82/128
+*** Caught a signal: SIGTERM(15) on node 30/128
+*** Caught a signal: SIGTERM(15) on node 46/128
+*** Caught a signal: SIGTERM(15) on node 36/128
+*** Caught a signal: SIGTERM(15) on node 57/128
+*** Caught a signal: SIGTERM(15) on node 35/128
+*** Caught a signal: SIGTERM(15) on node 51/128
+*** Caught a signal: SIGTERM(15) on node 94/128
+*** Caught a signal: SIGTERM(15) on node 90/128
+*** Caught a signal: SIGTERM(15) on node 69/128
+*** Caught a signal: SIGTERM(15) on node 74/128
+*** Caught a signal: SIGTERM(15) on node 50/128
+*** Caught a signal: SIGTERM(15) on node 61/128
+*** Caught a signal: SIGTERM(15) on node 83/128
+*** Caught a signal: SIGTERM(15) on node 48/128
+*** Caught a signal: SIGTERM(15) on node 23/128
+*** Caught a signal: SIGTERM(15) on node 116/128
+*** Caught a signal: SIGTERM(15) on node 47/128
+*** Caught a signal: SIGTERM(15) on node 59/128
+*** Caught a signal: SIGTERM(15) on node 92/128
+*** Caught a signal: SIGTERM(15) on node 76/128
+*** Caught a signal: SIGTERM(15) on node 91/128
+*** Caught a signal: SIGTERM(15) on node 77/128
+*** Caught a signal: SIGTERM(15) on node 73/128
+*** Caught a signal: SIGTERM(15) on node 70/128
+*** Caught a signal: SIGTERM(15) on node 109/128
+*** Caught a signal: SIGTERM(15) on node 75/128
+*** Caught a signal: SIGTERM(15) on node 34/128
+*** Caught a signal: SIGTERM(15) on node 41/128
+*** Caught a signal: SIGTERM(15) on node 65/128
+*** Caught a signal: SIGTERM(15) on node 24/128
+*** Caught a signal: SIGTERM(15) on node 66/128
+*** Caught a signal: SIGTERM(15) on node 60/128
+*** Caught a signal: SIGTERM(15) on node 56/128
+*** Caught a signal: SIGTERM(15) on node 39/128
+*** Caught a signal: SIGTERM(15) on node 31/128
+*** Caught a signal: SIGTERM(15) on node 87/128
+*** Caught a signal: SIGTERM(15) on node 32/128
+*** Caught a signal: SIGTERM(15) on node 78/128
+*** Caught a signal: SIGTERM(15) on node 42/128
+*** Caught a signal: SIGTERM(15) on node 49/128
+*** Caught a signal: SIGTERM(15) on node 99/128
+*** Caught a signal: SIGTERM(15) on node 55/128
+*** Caught a signal: SIGTERM(15) on node 100/128
+*** Caught a signal: SIGTERM(15) on node 16/128
+--------------------------------------------------------------------------
+mpirun noticed that process rank 0 with PID 85350 on node ml039.localdomain exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------
+*** Caught a signal: SIGTERM(15) on node 96/128
+[ml039.localdomain:85271] 126 more processes have sent help message help-odls-default.txt / odls-default:could-not-kill
+[ml039.localdomain:85271] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
