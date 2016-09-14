@@ -80,6 +80,7 @@ set(realm_SOURCES
   ../lowlevel.cc
   ../lowlevel_disk.cc
   ../lowlevel_dma.cc
+  ../activemsg.cc
   module.cc
   operation.cc
   proc_impl.cc
