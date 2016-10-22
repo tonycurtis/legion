@@ -2819,18 +2819,13 @@ namespace Legion {
       {
         // Try to find an instance first and then make one
         std::set<PhysicalManager*> candidates;
-        unsigned long ts_1 = Realm::Clock::current_time_in_microseconds();
         success = find_satisfying_instance(constraints, regions, 
                    result, candidates, acquire, tight_region_bounds, remote);
-        unsigned long ts_2 = Realm::Clock::current_time_in_microseconds();
-        printf("find_satisfying_instance took %.3f\n", (ts_2 - ts_1) * 1e-3);
         if (!success)
         {
           // If we couldn't find it, we have to make it
           PhysicalManager *manager = allocate_physical_instance(constraints, 
                                                        regions, creator_id);
-          unsigned long ts_3 = Realm::Clock::current_time_in_microseconds();
-          printf("allocate_physical_instance took %.3f\n", (ts_3 - ts_2) * 1e-3);
           if (manager != NULL)
           {
             if (Runtime::legion_spy_enabled)
@@ -2844,8 +2839,6 @@ namespace Legion {
               find_and_record(manager, constraints, regions, candidates,
                               acquire, mapper_id, processor, priority, 
                               tight_region_bounds, remote);
-            unsigned long ts_4 = Realm::Clock::current_time_in_microseconds();
-            printf("find_and_record took %.3f\n", (ts_4 - ts_2) * 1e-3);
             // If they are still the same then we succeeded
             if (actual_manager == manager)
               created = true;
@@ -3900,7 +3893,6 @@ namespace Legion {
                                 bool tight_region_bounds, bool remote)
     //--------------------------------------------------------------------------
     {
-      unsigned long ts_1 = Realm::Clock::current_time_in_microseconds();
       // Hold the lock while iterating here
       std::deque<PhysicalManager*> candidates;
       {
@@ -3937,16 +3929,10 @@ namespace Legion {
             }
             // If we make it here, we succeeded
             result = MappingInstance(*it);
-            unsigned long ts_2 = Realm::Clock::current_time_in_microseconds();
-            printf("[find_satisfying_instance, true] took %.3f, #current_instances: %lu, #candidates: %lu\n",
-                (ts_2 - ts_1) * 1e-3, current_instances.size(), candidates.size());
             return true;
           }
         }
       }
-      unsigned long ts_2 = Realm::Clock::current_time_in_microseconds();
-      printf("[find_satisfying_instance, false] took %.3f, #current_instances: %lu, #candidates: %lu\n",
-          (ts_2 - ts_1) * 1e-3, current_instances.size(), candidates.size());
       return false;
     }
 
@@ -3957,7 +3943,6 @@ namespace Legion {
                                       bool tight_region_bounds, bool remote)
     //--------------------------------------------------------------------------
     {
-      unsigned long ts_1 = Realm::Clock::current_time_in_microseconds();
       // Hold the lock while iterating here
       std::deque<PhysicalManager*> candidates;
       {
@@ -3994,16 +3979,10 @@ namespace Legion {
             }
             // If we make it here, we succeeded
             result = MappingInstance(*it);
-            unsigned long ts_2 = Realm::Clock::current_time_in_microseconds();
-            printf("[find_satisfying_instance, true] took %.3f, #current_instances: %lu, #candidates: %lu\n",
-                (ts_2 - ts_1) * 1e-3, current_instances.size(), candidates.size());
             return true;
           }
         }
       }
-      unsigned long ts_2 = Realm::Clock::current_time_in_microseconds();
-      printf("[find_satisfying_instance, false] took %.3f, #current_instances: %lu, #candidates: %lu\n",
-          (ts_2 - ts_1) * 1e-3, current_instances.size(), candidates.size());
       return false;
     }
 
@@ -4016,7 +3995,6 @@ namespace Legion {
                                 bool acquire, bool tight_bounds, bool remote)
     //--------------------------------------------------------------------------
     {
-      unsigned long ts_1 = Realm::Clock::current_time_in_microseconds();
       // Hold the lock while iterating here
       {
         AutoLock m_lock(manager_lock, 1, false/*exclusive*/);
@@ -4052,16 +4030,10 @@ namespace Legion {
             }
             // If we make it here, we succeeded
             result = MappingInstance(*it);
-            unsigned long ts_2 = Realm::Clock::current_time_in_microseconds();
-            printf("[find_satisfying_instance, true] took %.3f, #current_instances: %lu, #candidates: %lu\n",
-                (ts_2 - ts_1) * 1e-3, current_instances.size(), candidates.size());
             return true;
           }
         }
       }
-      unsigned long ts_2 = Realm::Clock::current_time_in_microseconds();
-      printf("[find_satisfying_instance, false] took %.3f, #current_instances: %lu, #candidates: %lu\n",
-          (ts_2 - ts_1) * 1e-3, current_instances.size(), candidates.size());
       return false;
     }
 
@@ -4073,7 +4045,6 @@ namespace Legion {
                                   bool acquire, bool tight_bounds, bool remote)
     //--------------------------------------------------------------------------
     {
-      unsigned long ts_1 = Realm::Clock::current_time_in_microseconds();
       // Hold the lock while iterating here
       {
         AutoLock m_lock(manager_lock, 1, false/*exclusive*/);
@@ -4109,16 +4080,10 @@ namespace Legion {
             }
             // If we make it here, we succeeded
             result = MappingInstance(*it);
-            unsigned long ts_2 = Realm::Clock::current_time_in_microseconds();
-            printf("[find_satisfying_instance, true] took %.3f, #current_instances: %lu, #candidates: %lu\n",
-                (ts_2 - ts_1) * 1e-3, current_instances.size(), candidates.size());
             return true;
           }
         }
       }
-      unsigned long ts_2 = Realm::Clock::current_time_in_microseconds();
-      printf("[find_satisfying_instance, false] took %.3f, #current_instances: %lu, #candidates: %lu\n",
-          (ts_2 - ts_1) * 1e-3, current_instances.size(), candidates.size());
       return false;
     }
 
@@ -4131,7 +4096,6 @@ namespace Legion {
                                      bool tight_region_bounds, bool remote)
     //--------------------------------------------------------------------------
     {
-      unsigned long ts_1 = Realm::Clock::current_time_in_microseconds();
       // Hold the lock while iterating here
       std::deque<PhysicalManager*> candidates;
       {
@@ -4166,9 +4130,6 @@ namespace Legion {
             }
             // If we make it here, we succeeded
             result = MappingInstance(*it);
-            unsigned long ts_2 = Realm::Clock::current_time_in_microseconds();
-            printf("[find_satisfying_instance, true] took %.3f, #current_instances: %lu, #candidates: %lu\n",
-                (ts_2 - ts_1) * 1e-3, current_instances.size(), candidates.size());
             return true;
           }
         }

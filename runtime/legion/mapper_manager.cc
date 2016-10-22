@@ -1695,23 +1695,15 @@ namespace Legion {
                         get_mapper_call_name(ctx->kind), get_mapper_name());
         acquire = false;
       }
-      unsigned long ts_1 = Realm::Clock::current_time_in_microseconds();
       pause_mapper_call(ctx);
-      unsigned long ts_2 = Realm::Clock::current_time_in_microseconds();
       bool success = runtime->find_or_create_physical_instance(target_memory,
                   constraints, regions, result, created, mapper_id, processor, 
                   acquire, priority, tight_region_bounds,
                   (ctx->operation == NULL) ? 0 :
                    ctx->operation->get_unique_op_id());
-      unsigned long ts_3 = Realm::Clock::current_time_in_microseconds();
       if (success && acquire)
         record_acquired_instance(ctx, result.impl, created);
-      unsigned long ts_4 = Realm::Clock::current_time_in_microseconds();
       resume_mapper_call(ctx);
-      unsigned long ts_5 = Realm::Clock::current_time_in_microseconds();
-      printf("find_or_create_physical_instance took %.3f, %.3f, %.3f, %.3f\n",
-             (ts_2 - ts_1) * 1e-3, (ts_3 - ts_2) * 1e-3,
-             (ts_4 - ts_3) * 1e-3, (ts_5 - ts_4) * 1e-3);
       return success;
     }
 
@@ -1739,23 +1731,15 @@ namespace Legion {
                         get_mapper_call_name(ctx->kind), get_mapper_name());
         acquire = false;
       }
-      unsigned long ts_1 = Realm::Clock::current_time_in_microseconds();
       pause_mapper_call(ctx);
-      unsigned long ts_2 = Realm::Clock::current_time_in_microseconds();
       bool success = runtime->find_or_create_physical_instance(target_memory,
                    layout_id, regions, result, created, mapper_id, processor, 
                    acquire, priority, tight_region_bounds,
                    (ctx->operation == NULL) ? 0 : 
                     ctx->operation->get_unique_op_id());
-      unsigned long ts_3 = Realm::Clock::current_time_in_microseconds();
       if (success && acquire)
         record_acquired_instance(ctx, result.impl, created);
-      unsigned long ts_4 = Realm::Clock::current_time_in_microseconds();
       resume_mapper_call(ctx);
-      unsigned long ts_5 = Realm::Clock::current_time_in_microseconds();
-      printf("find_or_create_physical_instance took %.3f, %.3f, %.3f, %.3f\n",
-             (ts_2 - ts_1) * 1e-3, (ts_3 - ts_2) * 1e-3,
-             (ts_4 - ts_3) * 1e-3, (ts_5 - ts_4) * 1e-3);
       return success;
     }
 
