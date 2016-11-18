@@ -266,6 +266,12 @@ ifeq ($(strip $(USE_GASNET)),1)
     CC_FLAGS	+= -DGASNET_CONDUIT_UDP
     LEGION_LD_FLAGS	+= -lgasnet-udp-par -lamudp
   endif
+  ifeq ($(strip $(CONDUIT)),smp)
+    # why not just do this for all conduits?
+    INC_FLAGS	+= -I$(GASNET)/include/smp-conduit
+    CC_FLAGS	+= -DGASNET_CONDUIT_SMP
+    LEGION_LD_FLAGS	+= -lgasnet-smp-par
+  endif
 
 endif
 
