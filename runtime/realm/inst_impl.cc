@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+#include <cinttypes>
+
 #include "inst_impl.h"
 
 #include "event_impl.h"
@@ -44,7 +46,7 @@ namespace Realm {
 	} else {
 	  log_inst.info("instance destroyed: space=" IDFMT " id=" IDFMT "",
 			impl->metadata.is.id, impl->me.id);
-	  get_runtime()->get_memory_impl(impl->memory)->destroy_instance(impl->me, true); 
+	  get_runtime()->get_memory_impl(impl->memory)->destroy_instance(impl->me, true);
 	}
         return true;
       }
@@ -63,7 +65,7 @@ namespace Realm {
       RegionInstanceImpl *impl;
     };
 
-  
+
   ////////////////////////////////////////////////////////////////////////
   //
   // class RegionInstance
@@ -105,7 +107,7 @@ namespace Realm {
 
     /*static*/ const RegionInstance RegionInstance::NO_INST = { 0 };
 
-    // a generic accessor just holds a pointer to the impl and passes all 
+    // a generic accessor just holds a pointer to the impl and passes all
     //  requests through
     LegionRuntime::Accessor::RegionAccessor<LegionRuntime::Accessor::AccessorType::Generic> RegionInstance::get_accessor(void) const
     {
@@ -114,7 +116,7 @@ namespace Realm {
       Event e = i_impl->metadata.request_data(ID(id).instance.owner_node, id);
       if(!e.has_triggered())
 	log_inst.info("requested metadata in accessor creation: " IDFMT, id);
-	
+
       return LegionRuntime::Accessor::RegionAccessor<LegionRuntime::Accessor::AccessorType::Generic>(LegionRuntime::Accessor::AccessorType::Generic::Untyped((void *)i_impl));
     }
 
@@ -125,13 +127,13 @@ namespace Realm {
       assert(0);
     }
 
-  
+
   ////////////////////////////////////////////////////////////////////////
   //
   // class RegionInstanceImpl
   //
 
-    RegionInstanceImpl::RegionInstanceImpl(RegionInstance _me, IndexSpace _is, Memory _memory, 
+    RegionInstanceImpl::RegionInstanceImpl(RegionInstance _me, IndexSpace _is, Memory _memory,
 					   off_t _offset, size_t _size, ReductionOpID _redopid,
 					   const DomainLinearization& _linear, size_t _block_size,
 					   size_t _elmt_size, const std::vector<size_t>& _field_sizes,
@@ -151,7 +153,7 @@ namespace Realm {
       metadata.alloc_offset = _offset;
       //metadata.access_offset = _offset + _adjust;
       metadata.size = _size;
-      
+
       //StaticAccess<IndexSpaceImpl> rdata(_is.impl());
       //locked_data.first_elmt = rdata->first_elmt;
       //locked_data.last_elmt = rdata->last_elmt;
@@ -232,7 +234,7 @@ namespace Realm {
 
       off_t offset = metadata.alloc_offset;
       size_t elmt_stride;
-      
+
       if (metadata.block_size == 1) {
         offset += field_offset;
         elmt_stride = metadata.elmt_size;
@@ -257,7 +259,7 @@ namespace Realm {
         stride = elmt_stride;
       }
 
-      // if there's a per-element offset, apply it after we've agreed with the caller on 
+      // if there's a per-element offset, apply it after we've agreed with the caller on
       //  what we're pretending the stride is
       const DomainLinearization& dl = metadata.linearization;
       if(dl.get_dim() > 0) {

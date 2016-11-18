@@ -15,6 +15,8 @@
 
 // Realm object metadata base implementation
 
+#include <cinttypes>
+
 #include "metadata.h"
 
 #include "event_impl.h"
@@ -83,7 +85,7 @@ namespace Realm {
     Event MetadataBase::request_data(int owner, ID::IDType id)
     {
       // early out - valid data need not be re-requested
-      if(state == STATE_VALID) 
+      if(state == STATE_VALID)
 	return Event::NO_EVENT;
 
       // sanity-check - should never be requesting data from ourselves
@@ -102,7 +104,7 @@ namespace Realm {
 	    break;
 	  }
 
-	case STATE_INVALID: 
+	case STATE_INVALID:
 	  {
 	    // if the current state is invalid, we'll need to issue a request
 	    state = STATE_REQUESTED;
@@ -184,7 +186,7 @@ namespace Realm {
       AutoHSLLock a(mutex);
 
       switch(state) {
-      case STATE_VALID: 
+      case STATE_VALID:
 	{
 	  // was valid, now invalid (up to app to make sure no races exist)
 	  state = STATE_INVALID;
@@ -217,7 +219,7 @@ namespace Realm {
       return last_copy;
     }
 
-  
+
   ////////////////////////////////////////////////////////////////////////
   //
   // class MetadataRequestMessage
@@ -227,7 +229,7 @@ namespace Realm {
   {
     void *data = 0;
     size_t datalen = 0;
-    
+
     // switch on different types of objects that can have metadata
     ID id(args.id);
     if(id.is_instance()) {
@@ -252,7 +254,7 @@ namespace Realm {
     Message::request(target, args);
   }
 
-  
+
   ////////////////////////////////////////////////////////////////////////
   //
   // class MetadataResponseMessage
@@ -277,7 +279,7 @@ namespace Realm {
   }
 
   /*static*/ void MetadataResponseMessage::send_request(gasnet_node_t target,
-							ID::IDType id, 
+							ID::IDType id,
 							const void *data,
 							size_t datalen,
 							int payload_mode)
@@ -287,8 +289,8 @@ namespace Realm {
     args.id = id;
     Message::request(target, args, data, datalen, payload_mode);
   }
-  
-  
+
+
   ////////////////////////////////////////////////////////////////////////
   //
   // class MetadataInvalidateMessage
@@ -334,7 +336,7 @@ namespace Realm {
       targets.map(*this);
     }
   };
-  
+
   /*static*/ void MetadataInvalidateMessage::broadcast_request(const NodeSet& targets,
 							       ID::IDType id)
   {
@@ -345,7 +347,7 @@ namespace Realm {
     args.broadcast(targets);
   }
 
-  
+
   ////////////////////////////////////////////////////////////////////////
   //
   // class MetadataInvalidateAckMessage
@@ -369,7 +371,7 @@ namespace Realm {
       log_metadata.info("last inval ack received for " IDFMT, args.id);
     }
   }
-   
+
   /*static*/ void MetadataInvalidateAckMessage::send_request(gasnet_node_t target, ID::IDType id)
   {
     RequestArgs args;
@@ -378,6 +380,6 @@ namespace Realm {
     args.id = id;
     Message::request(target, args);
   }
-  
+
 
 }; // namespace Realm

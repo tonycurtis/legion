@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+#include <cinttypes>
+
 #include "operation.h"
 
 #include "faults.h"
@@ -106,7 +108,7 @@ namespace Realm {
     int remaining = __sync_sub_and_fetch(&pending_work_items, 1);
 
     if(remaining == 0)
-      mark_completed();    
+      mark_completed();
   }
 
   void Operation::mark_terminated(int error_code, const ByteArray& details)
@@ -146,7 +148,7 @@ namespace Realm {
     int remaining = __sync_sub_and_fetch(&pending_work_items, 1);
 
     if(remaining == 0)
-      mark_completed();    
+      mark_completed();
   }
 
   void Operation::mark_completed(void)
@@ -178,14 +180,14 @@ namespace Realm {
 				       const void *reason_data, size_t reason_size)
   {
     // all we know how to do here is convert from WAITING or READY to CANCELLED
-    // there's no mutex, so we'll attempt to update the status with a sequence of 
+    // there's no mutex, so we'll attempt to update the status with a sequence of
     //  compare_and_swap's, making sure to follow the normal progression of status updates
     if(__sync_bool_compare_and_swap(&status.result, Status::WAITING, Status::CANCELLED) ||
        __sync_bool_compare_and_swap(&status.result, Status::READY, Status::CANCELLED)) {
       status.error_code = error_code;
       status.error_details.set(reason_data, reason_size);
 
-      // we can't call mark_finished here, because we don't know if the caller owns the 
+      // we can't call mark_finished here, because we don't know if the caller owns the
       //  reference that will be released by that call, so let the caller do that (or
       //  the owner can do it when they call mark_ready/started and get a failure code)
 
@@ -421,7 +423,7 @@ namespace Realm {
     if(local_op)
       local_op->remove_reference();
   }
-    
+
   void OperationTable::request_cancellation(Event finish_event,
 					    const void *reason_data, size_t reason_size)
   {
@@ -478,7 +480,7 @@ namespace Realm {
       local_op->remove_reference();
     }
   }
-    
+
   /*static*/ int OperationTable::register_handlers(gasnet_handlerentry_t *handlers)
   {
     return 0;

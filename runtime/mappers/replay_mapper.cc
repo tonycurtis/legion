@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+#include <cinttypes>
+
 #include "replay_mapper.h"
 #include "legion_utilities.h"
 
@@ -35,7 +37,7 @@ namespace Legion {
     //--------------------------------------------------------------------------
     ReplayMapper::ReplayMapper(MapperRuntime *rt, Machine m, Processor local,
                                const char *replay_file, const char *name)
-      : Mapper(rt), machine(m), local_proc(local), 
+      : Mapper(rt), machine(m), local_proc(local),
         mapper_name((name == NULL) ? create_replay_name(local) : name)
     //--------------------------------------------------------------------------
     {
@@ -62,7 +64,7 @@ namespace Legion {
         for (Machine::ProcessorQuery::iterator it = all_procs.begin();
               it != all_procs.end(); it++)
         {
-          std::map<Processor,Processor::Kind>::const_iterator finder = 
+          std::map<Processor,Processor::Kind>::const_iterator finder =
             orig_processors.find(*it);
           if (finder == orig_processors.end())
           {
@@ -99,7 +101,7 @@ namespace Legion {
         for (Machine::MemoryQuery::iterator it = all_mems.begin();
               it != all_mems.end(); it++)
         {
-          std::map<Memory,Memory::Kind>::const_iterator finder = 
+          std::map<Memory,Memory::Kind>::const_iterator finder =
             orig_memories.find(*it);
           if (finder == orig_memories.end())
           {
@@ -131,9 +133,9 @@ namespace Legion {
         ignore_result(fread(&key.first, sizeof(key.first), 1, f));
         ignore_result(fread(&key.second.dim, sizeof(key.second.dim), 1, f));
         for (int i = 0; i < key.second.dim; i++)
-          ignore_result(fread(key.second.point_data+i, 
+          ignore_result(fread(key.second.point_data+i,
                       sizeof(key.second.point_data[i]), 1, f));
-        task_mappings[key] = unpack_task_mapping(f);     
+        task_mappings[key] = unpack_task_mapping(f);
       }
       unsigned num_inlines;
       ignore_result(fread(&num_inlines, sizeof(num_inlines), 1, f));
@@ -172,7 +174,7 @@ namespace Legion {
 
     //--------------------------------------------------------------------------
     ReplayMapper::ReplayMapper(const ReplayMapper &rhs)
-      : Mapper(rhs.runtime), machine(rhs.machine), 
+      : Mapper(rhs.runtime), machine(rhs.machine),
         local_proc(rhs.local_proc), mapper_name(rhs.mapper_name)
     //--------------------------------------------------------------------------
     {
@@ -197,7 +199,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    const char* ReplayMapper::get_mapper_name(void) const    
+    const char* ReplayMapper::get_mapper_name(void) const
     //--------------------------------------------------------------------------
     {
       return mapper_name;
@@ -225,15 +227,15 @@ namespace Legion {
 
     //--------------------------------------------------------------------------
     void ReplayMapper::premap_task(const MapperContext      ctx,
-                                   const Task&              task, 
+                                   const Task&              task,
                                    const PremapTaskInput&   input,
                                          PremapTaskOutput&  output)
     //--------------------------------------------------------------------------
     {
       TaskMappingInfo *mapping = find_task_mapping(ctx, task, task.index_point);
       output.new_target_proc = mapping->target_proc;
-      for (std::map<unsigned,RequirementMapping*>::const_iterator it = 
-            mapping->premappings.begin(); it != 
+      for (std::map<unsigned,RequirementMapping*>::const_iterator it =
+            mapping->premappings.begin(); it !=
             mapping->premappings.end(); it++)
         it->second->map_requirement(runtime, ctx,task.regions[it->first].parent,
                                     output.premapped_instances[it->first]);
@@ -241,7 +243,7 @@ namespace Legion {
 
     //--------------------------------------------------------------------------
     void ReplayMapper::slice_task(const MapperContext      ctx,
-                                  const Task&              task, 
+                                  const Task&              task,
                                   const SliceTaskInput&    input,
                                         SliceTaskOutput&   output)
     //--------------------------------------------------------------------------
@@ -253,7 +255,7 @@ namespace Legion {
       for (Domain::DomainPointIterator itr(task.index_domain); itr; itr++,idx++)
       {
         TaskMappingInfo *mapping = find_task_mapping(ctx, task, itr.p);
-        TaskSlice &slice = output.slices[idx]; 
+        TaskSlice &slice = output.slices[idx];
         switch (task.index_domain.get_dim())
         {
           case 1:
@@ -287,10 +289,10 @@ namespace Legion {
                                       MapTaskOutput&     output)
     //--------------------------------------------------------------------------
     {
-      TaskMappingInfo *mapping = find_task_mapping(ctx, task, task.index_point);  
+      TaskMappingInfo *mapping = find_task_mapping(ctx, task, task.index_point);
       assert(mapping->mappings.size() == task.regions.size());
       for (unsigned idx = 0; idx < task.regions.size(); idx++)
-        mapping->mappings[idx]->map_requirement(runtime, ctx, 
+        mapping->mappings[idx]->map_requirement(runtime, ctx,
             task.regions[idx].parent, output.chosen_instances[idx]);
       output.target_procs.push_back(mapping->target_proc);
       output.chosen_variant = mapping->variant;
@@ -318,8 +320,8 @@ namespace Legion {
     {
       TaskMappingInfo *mapping = find_task_mapping(ctx, task, task.index_point);
       assert(output.chosen_instances.size() == task.regions.size());
-      for (std::map<unsigned,RequirementMapping*>::const_iterator it = 
-            mapping->postmappings.begin(); it != 
+      for (std::map<unsigned,RequirementMapping*>::const_iterator it =
+            mapping->postmappings.begin(); it !=
             mapping->postmappings.end(); it++)
         it->second->map_requirement(runtime, ctx,task.regions[it->first].parent,
                                     output.chosen_instances[it->first]);
@@ -349,7 +351,7 @@ namespace Legion {
       unsigned long original_dst = find_original_instance_id(ctx,
                                  input.destination_instance.get_instance_id());
       mapping->temporaries[input.region_requirement_index]->map_temporary(
-            runtime, ctx, task.regions[input.region_requirement_index].parent, 
+            runtime, ctx, task.regions[input.region_requirement_index].parent,
             original_dst, output.temporary_instance);
     }
 
@@ -379,7 +381,7 @@ namespace Legion {
     //--------------------------------------------------------------------------
     {
       InlineMappingInfo *mapping = find_inline_mapping(ctx, inline_op);
-      mapping->mapping->map_requirement(runtime, ctx, 
+      mapping->mapping->map_requirement(runtime, ctx,
           inline_op.requirement.parent, output.chosen_instances);
     }
 
@@ -404,7 +406,7 @@ namespace Legion {
       InlineMappingInfo *mapping = find_inline_mapping(ctx, inline_op);
       unsigned long original_dst = find_original_instance_id(ctx,
                                  input.destination_instance.get_instance_id());
-      mapping->temporary->map_temporary(runtime, ctx, 
+      mapping->temporary->map_temporary(runtime, ctx,
          inline_op.requirement.parent, original_dst, output.temporary_instance);
     }
 
@@ -427,7 +429,7 @@ namespace Legion {
       CopyMappingInfo *mapping = find_copy_mapping(ctx, copy);
       for (unsigned idx = 0; idx < copy.src_requirements.size(); idx++)
       {
-        mapping->src_mappings[idx]->map_requirement(runtime, ctx, 
+        mapping->src_mappings[idx]->map_requirement(runtime, ctx,
             copy.src_requirements[idx].parent, output.src_instances[idx]);
       }
       for (unsigned idx = 0; idx < copy.dst_requirements.size(); idx++)
@@ -463,8 +465,8 @@ namespace Legion {
         unsigned long original_dst = find_original_instance_id(ctx,
                                  input.destination_instance.get_instance_id());
         mapping->src_temporaries[input.region_requirement_index]->map_temporary(
-            runtime, ctx, 
-            copy.src_requirements[input.region_requirement_index].parent, 
+            runtime, ctx,
+            copy.src_requirements[input.region_requirement_index].parent,
             original_dst, output.temporary_instance);
       }
       else
@@ -474,7 +476,7 @@ namespace Legion {
         unsigned long original_dst = find_original_instance_id(ctx,
                                  input.destination_instance.get_instance_id());
         mapping->dst_temporaries[input.region_requirement_index]->map_temporary(
-            runtime, ctx, 
+            runtime, ctx,
             copy.dst_requirements[input.region_requirement_index].parent,
             original_dst, output.temporary_instance);
       }
@@ -497,7 +499,7 @@ namespace Legion {
     {
       // Nothing to do
     }
-    
+
     //--------------------------------------------------------------------------
     void ReplayMapper::map_close(const MapperContext       ctx,
                                  const Close&              close,
@@ -505,7 +507,7 @@ namespace Legion {
                                        MapCloseOutput&     output)
     //--------------------------------------------------------------------------
     {
-      CloseMappingInfo *mapping = find_close_mapping(ctx, close); 
+      CloseMappingInfo *mapping = find_close_mapping(ctx, close);
       mapping->mapping->map_requirement(runtime, ctx, close.requirement.parent,
                                         output.chosen_instances);
     }
@@ -531,7 +533,7 @@ namespace Legion {
       CloseMappingInfo *mapping = find_close_mapping(ctx, close);
       unsigned long original_dst = find_original_instance_id(ctx,
                                  input.destination_instance.get_instance_id());
-      mapping->temporary->map_temporary(runtime, ctx, 
+      mapping->temporary->map_temporary(runtime, ctx,
           close.requirement.parent, original_dst, output.temporary_instance);
     }
 
@@ -612,7 +614,7 @@ namespace Legion {
       ReleaseMappingInfo *mapping = find_release_mapping(ctx, release);
       unsigned long original_dst = find_original_instance_id(ctx,
                                  input.destination_instance.get_instance_id());
-      mapping->temporary->map_temporary(runtime, ctx, 
+      mapping->temporary->map_temporary(runtime, ctx,
           release.parent_region, original_dst, output.temporary_instance);
     }
 
@@ -636,7 +638,7 @@ namespace Legion {
       Legion::Serializer rez;
       rez.serialize(task.get_unique_id());
       rez.serialize(mapping->original_unique_id);
-      runtime->broadcast(ctx, rez.get_buffer(), 
+      runtime->broadcast(ctx, rez.get_buffer(),
                          rez.get_buffer_size(), ID_MAPPING_MESSAGE);
     }
 
@@ -663,7 +665,7 @@ namespace Legion {
       {
         const MappingConstraint &constraint = input.constraints[idx];
         const Task *task = constraint.constrained_tasks[0];
-        TaskMappingInfo *mapping = find_task_mapping(ctx, *task, 
+        TaskMappingInfo *mapping = find_task_mapping(ctx, *task,
                                                      task->index_point);
         assert(constraint.requirement_indexes[0] < mapping->mappings.size());
         mapping->mappings[constraint.requirement_indexes[0]]->map_requirement(
@@ -673,7 +675,7 @@ namespace Legion {
       for (unsigned idx = 0; idx < input.tasks.size(); idx++)
       {
         const Task *task = input.tasks[idx];
-        TaskMappingInfo *mapping = find_task_mapping(ctx, *task, 
+        TaskMappingInfo *mapping = find_task_mapping(ctx, *task,
                                                      task->index_point);
         output.task_processors[idx] = mapping->target_proc;
       }
@@ -695,7 +697,7 @@ namespace Legion {
     //--------------------------------------------------------------------------
     {
       // Just map all the ready tasks
-      for (std::list<const Task*>::const_iterator it = 
+      for (std::list<const Task*>::const_iterator it =
             input.ready_tasks.begin(); it != input.ready_tasks.end(); it++)
         output.map_tasks.insert(*it);
     }
@@ -736,7 +738,7 @@ namespace Legion {
             // Update the ID map
             original_mappings[current_id] = original_id;
             // Trigger any pending events
-            std::map<UniqueID,MapperEvent>::iterator finder = 
+            std::map<UniqueID,MapperEvent>::iterator finder =
               pending_task_ids.find(current_id);
             if (finder != pending_task_ids.end())
             {
@@ -753,7 +755,7 @@ namespace Legion {
             derez.deserialize(original_id);
             original_instances[current_id] = original_id;
             // Trigger any pending events
-            std::map<unsigned long,MapperEvent>::iterator finder = 
+            std::map<unsigned long,MapperEvent>::iterator finder =
               pending_instance_ids.find(current_id);
             if (finder != pending_instance_ids.end())
             {
@@ -769,7 +771,7 @@ namespace Legion {
             derez.deserialize(original_id);
             LogicalRegion handle;
             derez.deserialize(handle);
-            std::map<unsigned long,InstanceInfo*>::const_iterator finder = 
+            std::map<unsigned long,InstanceInfo*>::const_iterator finder =
               instance_infos.find(original_id);
             assert(finder != instance_infos.end());
             finder->second->create_instance(runtime, ctx, handle);
@@ -781,11 +783,11 @@ namespace Legion {
             derez.deserialize(original_id);
             PhysicalInstance instance;
             runtime->unpack_physical_instance(ctx, derez, instance);
-            std::map<unsigned long,InstanceInfo*>::const_iterator finder = 
+            std::map<unsigned long,InstanceInfo*>::const_iterator finder =
               instance_infos.find(original_id);
             assert(finder != instance_infos.end());
-            finder->second->record_created_instance(runtime, ctx, instance); 
-            update_original_instance_id(ctx, 
+            finder->second->record_created_instance(runtime, ctx, instance);
+            update_original_instance_id(ctx,
                 instance.get_instance_id(), original_id);
             break;
           }
@@ -793,7 +795,7 @@ namespace Legion {
           {
             unsigned long original_id;
             derez.deserialize(original_id);
-            std::map<unsigned long,InstanceInfo*>::const_iterator finder = 
+            std::map<unsigned long,InstanceInfo*>::const_iterator finder =
               instance_infos.find(original_id);
             assert(finder != instance_infos.end());
             finder->second->decrement_use_count(runtime, ctx);
@@ -818,12 +820,12 @@ namespace Legion {
                                                        unsigned long current_id)
     //--------------------------------------------------------------------------
     {
-      std::map<unsigned long,unsigned long>::const_iterator finder = 
+      std::map<unsigned long,unsigned long>::const_iterator finder =
         original_instances.find(current_id);
       if (finder != original_instances.end())
         return finder->second;
       // Otherwise wait, see if someone else is already waiting
-      std::map<unsigned long,MapperEvent>::const_iterator wait_finder = 
+      std::map<unsigned long,MapperEvent>::const_iterator wait_finder =
         pending_instance_ids.find(current_id);
       if (wait_finder == pending_instance_ids.end())
       {
@@ -845,7 +847,7 @@ namespace Legion {
     //--------------------------------------------------------------------------
     {
       original_instances[current_id] = original_id;
-      std::map<unsigned long,MapperEvent>::iterator finder = 
+      std::map<unsigned long,MapperEvent>::iterator finder =
         pending_instance_ids.find(current_id);
       if (finder != pending_instance_ids.end())
       {
@@ -864,10 +866,10 @@ namespace Legion {
       ignore_result(fread(&info->num_uses, sizeof(info->num_uses), 1, f));
       ignore_result(fread(&info->creator.id, sizeof(info->creator.id), 1, f));
       info->is_owner = (info->creator == local_proc);
-      ignore_result(fread(&info->target_memory.id, 
-                    sizeof(info->target_memory.id), 1, f)); 
-      // Unpack the layout constraints 
-      LayoutConstraintSet &layout = info->layout_constraints;  
+      ignore_result(fread(&info->target_memory.id,
+                    sizeof(info->target_memory.id), 1, f));
+      // Unpack the layout constraints
+      LayoutConstraintSet &layout = info->layout_constraints;
       {
         SpecializedConstraint &spec = layout.specialized_constraint;
         ignore_result(fread(&spec.kind, sizeof(spec.kind), 1, f));
@@ -884,7 +886,7 @@ namespace Legion {
         ignore_result(fread(&num_fields, sizeof(num_fields), 1, f));
         fields.field_set.resize(num_fields);
         for (unsigned idx = 0; idx < num_fields; idx++)
-          ignore_result(fread(&fields.field_set[idx], 
+          ignore_result(fread(&fields.field_set[idx],
                         sizeof(fields.field_set[idx]), 1, f));
         unsigned contiguous;
         ignore_result(fread(&contiguous, sizeof(contiguous), 1, f));
@@ -899,7 +901,7 @@ namespace Legion {
         ignore_result(fread(&num_dims, sizeof(num_dims), 1, f));
         order.ordering.resize(num_dims);
         for (unsigned idx = 0; idx < num_dims; idx++)
-          ignore_result(fread(&order.ordering[idx], 
+          ignore_result(fread(&order.ordering[idx],
                         sizeof(order.ordering[idx]), 1, f));
         unsigned contiguous;
         ignore_result(fread(&contiguous, sizeof(contiguous), 1, f));
@@ -907,7 +909,7 @@ namespace Legion {
       }
       {
         unsigned num_constraints;
-        ignore_result(fread(&num_constraints, 
+        ignore_result(fread(&num_constraints,
                             sizeof(num_constraints), 1, f));
         layout.splitting_constraints.resize(num_constraints);
         for (unsigned idx = 0; idx < num_constraints; idx++)
@@ -922,7 +924,7 @@ namespace Legion {
       }
       {
         unsigned num_constraints;
-        ignore_result(fread(&num_constraints, 
+        ignore_result(fread(&num_constraints,
                             sizeof(num_constraints), 1, f));
         layout.dimension_constraints.resize(num_constraints);
         for (unsigned idx = 0; idx < num_constraints; idx++)
@@ -935,7 +937,7 @@ namespace Legion {
       }
       {
         unsigned num_constraints;
-        ignore_result(fread(&num_constraints, 
+        ignore_result(fread(&num_constraints,
                             sizeof(num_constraints), 1, f));
         layout.alignment_constraints.resize(num_constraints);
         for (unsigned idx = 0; idx < num_constraints; idx++)
@@ -943,7 +945,7 @@ namespace Legion {
           AlignmentConstraint &align = layout.alignment_constraints[idx];
           ignore_result(fread(&align.fid, sizeof(align.fid), 1, f));
           ignore_result(fread(&align.eqk, sizeof(align.eqk), 1, f));
-          ignore_result(fread(&align.alignment, 
+          ignore_result(fread(&align.alignment,
                               sizeof(align.alignment), 1, f));
         }
       }
@@ -953,7 +955,7 @@ namespace Legion {
         layout.offset_constraints.resize(num_constraints);
         for (unsigned idx = 0; idx < num_constraints; idx++)
         {
-          OffsetConstraint &offset = layout.offset_constraints[idx]; 
+          OffsetConstraint &offset = layout.offset_constraints[idx];
           ignore_result(fread(&offset.fid, sizeof(offset.fid), 1, f));
           ignore_result(fread(&offset.offset, sizeof(offset.offset), 1, f));
         }
@@ -970,10 +972,10 @@ namespace Legion {
         path.resize(num_points);
         for (unsigned pidx = 0; pidx < num_points; pidx++)
         {
-          DomainPoint &point = path[pidx]; 
+          DomainPoint &point = path[pidx];
           ignore_result(fread(&point.dim, sizeof(point.dim), 1, f));
           for (int i = 0; i < point.dim; i++)
-            ignore_result(fread(point.point_data+i, 
+            ignore_result(fread(point.point_data+i,
                           sizeof(point.point_data[i]), 1, f));
         }
       }
@@ -981,12 +983,12 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    ReplayMapper::TaskMappingInfo* 
+    ReplayMapper::TaskMappingInfo*
                                 ReplayMapper::unpack_task_mapping(FILE *f) const
     //--------------------------------------------------------------------------
     {
       TaskMappingInfo *info = new TaskMappingInfo();
-      ignore_result(fread(&info->original_unique_id, 
+      ignore_result(fread(&info->original_unique_id,
                     sizeof(info->original_unique_id), 1, f));
       ignore_result(fread(&info->target_proc, sizeof(info->target_proc), 1, f));
       ignore_result(fread(&info->priority, sizeof(info->priority), 1, f));
@@ -1028,19 +1030,19 @@ namespace Legion {
       ignore_result(fread(&num_operations, sizeof(num_operations), 1, f));
       info->operation_ids.resize(num_operations);
       for (unsigned idx = 0; idx < num_operations; idx++)
-        ignore_result(fread(&info->operation_ids[idx], 
+        ignore_result(fread(&info->operation_ids[idx],
                             sizeof(info->operation_ids[idx]), 1, f));
       unsigned num_closes;
       ignore_result(fread(&num_closes, sizeof(num_closes), 1, f));
       info->close_ids.resize(num_closes);
       for (unsigned idx = 0; idx < num_closes; idx++)
-        ignore_result(fread(&info->close_ids[idx], 
+        ignore_result(fread(&info->close_ids[idx],
                             sizeof(info->close_ids[idx]), 1, f));
       return info;
     }
 
     //--------------------------------------------------------------------------
-    ReplayMapper::InlineMappingInfo* 
+    ReplayMapper::InlineMappingInfo*
                               ReplayMapper::unpack_inline_mapping(FILE *f) const
     //--------------------------------------------------------------------------
     {
@@ -1063,7 +1065,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    ReplayMapper::CopyMappingInfo* 
+    ReplayMapper::CopyMappingInfo*
                                 ReplayMapper::unpack_copy_mapping(FILE *f) const
     //--------------------------------------------------------------------------
     {
@@ -1078,7 +1080,7 @@ namespace Legion {
       for (unsigned idx = 0; idx < num_dst_mappings; idx++)
         info->dst_mappings[idx] = unpack_requirement(f);
       unsigned num_src_temporaries;
-      ignore_result(fread(&num_src_temporaries, 
+      ignore_result(fread(&num_src_temporaries,
                           sizeof(num_src_temporaries), 1, f));
       for (unsigned idx = 0; idx < num_src_temporaries; idx++)
       {
@@ -1087,7 +1089,7 @@ namespace Legion {
         info->src_temporaries[index] = unpack_temporary(f);
       }
       unsigned num_dst_temporaries;
-      ignore_result(fread(&num_dst_temporaries, 
+      ignore_result(fread(&num_dst_temporaries,
                           sizeof(num_dst_temporaries), 1, f));
       for (unsigned idx = 0; idx < num_dst_temporaries; idx++)
       {
@@ -1099,7 +1101,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    ReplayMapper::CloseMappingInfo* 
+    ReplayMapper::CloseMappingInfo*
                                ReplayMapper::unpack_close_mapping(FILE *f) const
     //--------------------------------------------------------------------------
     {
@@ -1122,7 +1124,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    ReplayMapper::ReleaseMappingInfo* 
+    ReplayMapper::ReleaseMappingInfo*
                              ReplayMapper::unpack_release_mapping(FILE *f) const
     //--------------------------------------------------------------------------
     {
@@ -1138,11 +1140,11 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    ReplayMapper::RequirementMapping* 
+    ReplayMapper::RequirementMapping*
                                  ReplayMapper::unpack_requirement(FILE *f) const
     //--------------------------------------------------------------------------
     {
-      RequirementMapping *req = new RequirementMapping(); 
+      RequirementMapping *req = new RequirementMapping();
       unsigned num_instances;
       ignore_result(fread(&num_instances, sizeof(num_instances), 1, f));
       req->instances.resize(num_instances);
@@ -1150,7 +1152,7 @@ namespace Legion {
       {
         unsigned long original_id;
         ignore_result(fread(&original_id, sizeof(original_id), 1, f));
-        std::map<unsigned long,InstanceInfo*>::const_iterator finder = 
+        std::map<unsigned long,InstanceInfo*>::const_iterator finder =
           instance_infos.find(original_id);
         assert(finder != instance_infos.end());
         req->instances[idx] = finder->second;
@@ -1172,7 +1174,7 @@ namespace Legion {
         ignore_result(fread(&original_dst, sizeof(original_dst), 1, f));
         unsigned long original_id;
         ignore_result(fread(&original_id, sizeof(original_id), 1, f));
-        std::map<unsigned long,InstanceInfo*>::const_iterator finder = 
+        std::map<unsigned long,InstanceInfo*>::const_iterator finder =
           instance_infos.find(original_id);
         assert(finder != instance_infos.end());
         temp->instances[original_dst] = finder->second;
@@ -1185,7 +1187,7 @@ namespace Legion {
     //--------------------------------------------------------------------------
     {
       TunableMapping *tunable = new TunableMapping();
-      ignore_result(fread(&tunable->tunable_size, 
+      ignore_result(fread(&tunable->tunable_size,
                           sizeof(tunable->tunable_size), 1, f));
       tunable->tunable_value = malloc(tunable->tunable_size);
       unsigned string_length;
@@ -1195,7 +1197,7 @@ namespace Legion {
       // Now convert the hex string back into the value
       unsigned byte_index = 0;
       unsigned *target = (unsigned*)tunable->tunable_value;
-      for (unsigned word_idx = 0; 
+      for (unsigned word_idx = 0;
             word_idx < (tunable->tunable_size/4); word_idx++)
       {
         unsigned next_word = 0;
@@ -1222,7 +1224,7 @@ namespace Legion {
     {
       UniqueID unique_id = task.get_unique_id();
       // First check to see if we've already got it
-      std::map<UniqueID,UniqueID>::const_iterator finder = 
+      std::map<UniqueID,UniqueID>::const_iterator finder =
         original_mappings.find(unique_id);
       if (finder != original_mappings.end())
       {
@@ -1236,7 +1238,7 @@ namespace Legion {
         // We're doing the lookup for a parent task mapping
         // These come from broadcasts, so wait for it
         // See if someone else is already waiting
-        std::map<UniqueID,MapperEvent>::const_iterator wait_finder = 
+        std::map<UniqueID,MapperEvent>::const_iterator wait_finder =
           pending_task_ids.find(unique_id);
         if (wait_finder == pending_task_ids.end())
         {
@@ -1256,8 +1258,8 @@ namespace Legion {
       {
         // We're doing the lookup for a child task mapping
         // Find the parent task ID mapping
-        TaskMappingInfo *parent_info = 
-          find_task_mapping(ctx, *task.parent_task, 
+        TaskMappingInfo *parent_info =
+          find_task_mapping(ctx, *task.parent_task,
                             task.parent_task->index_point, true/*parent*/);
         // Now that we've got the parent, look up our original operation id
         unsigned operation_index = task.get_context_index();
@@ -1278,15 +1280,15 @@ namespace Legion {
     {
       UniqueID unique_id = inline_op.get_unique_id();
       // Check to see if we've already got it
-      std::map<UniqueID,UniqueID>::const_iterator finder = 
+      std::map<UniqueID,UniqueID>::const_iterator finder =
         original_mappings.find(unique_id);
       if (finder != original_mappings.end())
       {
         assert(inline_mappings.find(finder->second) != inline_mappings.end());
         return inline_mappings[finder->second];
       }
-      TaskMappingInfo *parent_info = 
-        find_task_mapping(ctx, *inline_op.parent_task, 
+      TaskMappingInfo *parent_info =
+        find_task_mapping(ctx, *inline_op.parent_task,
                           inline_op.parent_task->index_point, true/*parent*/);
       // Now that we've got the parent, look up our original operation id
       unsigned operation_index = inline_op.get_context_index();
@@ -1305,15 +1307,15 @@ namespace Legion {
     {
       UniqueID unique_id = copy.get_unique_id();
       // Check to see if we've already got it
-      std::map<UniqueID,UniqueID>::const_iterator finder = 
+      std::map<UniqueID,UniqueID>::const_iterator finder =
         original_mappings.find(unique_id);
       if (finder != original_mappings.end())
       {
         assert(copy_mappings.find(finder->second) != copy_mappings.end());
         return copy_mappings[finder->second];
       }
-      TaskMappingInfo *parent_info = 
-        find_task_mapping(ctx, *copy.parent_task, 
+      TaskMappingInfo *parent_info =
+        find_task_mapping(ctx, *copy.parent_task,
                           copy.parent_task->index_point, true/*parent*/);
       // Now that we've got the parent, look up our original operation id
       unsigned operation_index = copy.get_context_index();
@@ -1332,15 +1334,15 @@ namespace Legion {
     {
       UniqueID unique_id = close.get_unique_id();
       // Check to see if we've already got it
-      std::map<UniqueID,UniqueID>::const_iterator finder = 
+      std::map<UniqueID,UniqueID>::const_iterator finder =
         original_mappings.find(unique_id);
       if (finder != original_mappings.end())
       {
         assert(close_mappings.find(finder->second) != close_mappings.end());
         return close_mappings[finder->second];
       }
-      TaskMappingInfo *parent_info = 
-        find_task_mapping(ctx, *close.parent_task, 
+      TaskMappingInfo *parent_info =
+        find_task_mapping(ctx, *close.parent_task,
                           close.parent_task->index_point, true/*parent*/);
       // Now that we've got the parent, look up our original operation id
       unsigned operation_index = close.get_context_index();
@@ -1359,14 +1361,14 @@ namespace Legion {
     {
       UniqueID unique_id = release.get_unique_id();
       // Check to see if we've already got it
-      std::map<UniqueID,UniqueID>::const_iterator finder = 
+      std::map<UniqueID,UniqueID>::const_iterator finder =
         original_mappings.find(unique_id);
       if (finder != original_mappings.end())
       {
         assert(release_mappings.find(finder->second) != release_mappings.end());
         return release_mappings[finder->second];
       }
-      TaskMappingInfo *parent_info = 
+      TaskMappingInfo *parent_info =
         find_task_mapping(ctx, *release.parent_task,
                           release.parent_task->index_point, true/*parent*/);
       // Now that we've got the parent, look up our original operation id
@@ -1417,7 +1419,7 @@ namespace Legion {
         LogicalRegion root = handle;
         while (runtime->has_parent_logical_partition(ctx, root))
         {
-          LogicalPartition part = 
+          LogicalPartition part =
             runtime->get_parent_logical_partition(ctx, root);
           root = runtime->get_parent_logical_region(ctx, part);
         }
@@ -1427,19 +1429,19 @@ namespace Legion {
         for (unsigned idx = 0; idx < regions.size(); idx++)
         {
           LogicalRegion next = root;
-          const std::vector<DomainPoint> &path = region_paths[idx]; 
+          const std::vector<DomainPoint> &path = region_paths[idx];
           assert((path.size() % 2) == 0);
           for (unsigned i = 0; i < path.size(); i+=2)
           {
-            LogicalPartition part = 
+            LogicalPartition part =
               runtime->get_logical_partition_by_color(ctx, next, path[i]);
             next = runtime->get_logical_subregion_by_color(ctx, part,path[i+1]);
           }
           regions[idx] = next;
         }
         // Make the instance
-        if (!runtime->create_physical_instance(ctx, target_memory, 
-              layout_constraints, regions, instance, 
+        if (!runtime->create_physical_instance(ctx, target_memory,
+              layout_constraints, regions, instance,
               false/*acquire*/, GC_NEVER_PRIORITY))
         {
           log_replay.error("Failed to create instance");
@@ -1451,8 +1453,8 @@ namespace Legion {
         Legion::Serializer rez;
         rez.serialize(original_id);
         runtime->pack_physical_instance(ctx, rez, instance);
-        runtime->broadcast(ctx, rez.get_buffer(), 
-                           rez.get_buffer_size(), INSTANCE_CREATION_MESSAGE); 
+        runtime->broadcast(ctx, rez.get_buffer(),
+                           rez.get_buffer_size(), INSTANCE_CREATION_MESSAGE);
       }
       else
       {
@@ -1462,7 +1464,7 @@ namespace Legion {
           Legion::Serializer rez;
           rez.serialize(original_id);
           rez.serialize(handle);
-          runtime->send_message(ctx, creator, rez.get_buffer(), 
+          runtime->send_message(ctx, creator, rez.get_buffer(),
                                 rez.get_buffer_size(), CREATE_INSTANCE_MESSAGE);
           request_event = runtime->create_mapper_event(ctx);
         }
@@ -1496,20 +1498,20 @@ namespace Legion {
         num_uses--;
         // If we're done using it, we can set a high GC priority
         if (num_uses == 0)
-          runtime->set_garbage_collection_priority(ctx, instance, 
+          runtime->set_garbage_collection_priority(ctx, instance,
                                                    GC_MAX_PRIORITY);
       }
       else
       {
         // Send a user decrement message
-        runtime->broadcast(ctx, &original_id, 
+        runtime->broadcast(ctx, &original_id,
                            sizeof(original_id), DECREMENT_USE_MESSAGE);
       }
     }
 
     //--------------------------------------------------------------------------
     void ReplayMapper::RequirementMapping::map_requirement(
-                   MapperRuntime *runtime, MapperContext ctx, 
+                   MapperRuntime *runtime, MapperContext ctx,
                    LogicalRegion handle, std::vector<PhysicalInstance> &targets)
     //--------------------------------------------------------------------------
     {
@@ -1522,11 +1524,11 @@ namespace Legion {
 
     //--------------------------------------------------------------------------
     void ReplayMapper::TemporaryMapping::map_temporary(MapperRuntime *runtime,
-                           MapperContext ctx, LogicalRegion handle, 
+                           MapperContext ctx, LogicalRegion handle,
                            unsigned long original_dst, PhysicalInstance &result)
     //--------------------------------------------------------------------------
     {
-      std::map<unsigned long,InstanceInfo*>::const_iterator finder = 
+      std::map<unsigned long,InstanceInfo*>::const_iterator finder =
         instances.find(original_dst);
       assert(finder != instances.end());
       result = finder->second->get_instance(runtime, ctx, handle);
@@ -1541,8 +1543,7 @@ namespace Legion {
       memcpy(value, tunable_value, tunable_size);
     }
 
-  }; // namespace Mapping 
+  }; // namespace Mapping
 }; // namespace Legion
 
 // EOF
-

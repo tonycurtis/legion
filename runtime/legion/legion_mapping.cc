@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+#include <cinttypes>
+
 #include "legion.h"
 #include "region_tree.h"
 #include "legion_mapping.h"
@@ -23,7 +25,7 @@ namespace Legion {
   namespace Mapping {
 
     /////////////////////////////////////////////////////////////
-    // PhysicalInstance 
+    // PhysicalInstance
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -39,7 +41,7 @@ namespace Legion {
     //--------------------------------------------------------------------------
     {
       // By holding resource references, we prevent the data
-      // structure from being collected, it doesn't change if 
+      // structure from being collected, it doesn't change if
       // the actual instance itself can be collected or not
       if (impl != NULL)
         impl->add_base_resource_ref(Internal::INSTANCE_MAPPER_REF);
@@ -58,7 +60,7 @@ namespace Legion {
     PhysicalInstance::~PhysicalInstance(void)
     //--------------------------------------------------------------------------
     {
-      if ((impl != NULL) && 
+      if ((impl != NULL) &&
           impl->remove_base_resource_ref(Internal::INSTANCE_MAPPER_REF))
         legion_delete(impl);
     }
@@ -67,7 +69,7 @@ namespace Legion {
     PhysicalInstance& PhysicalInstance::operator=(const PhysicalInstance &rhs)
     //--------------------------------------------------------------------------
     {
-      if ((impl != NULL) && 
+      if ((impl != NULL) &&
           impl->remove_base_resource_ref(Internal::INSTANCE_MAPPER_REF))
         legion_delete(impl);
       impl = rhs.impl;
@@ -222,7 +224,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // Mapper 
+    // Mapper
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -301,7 +303,7 @@ namespace Legion {
           const void *message, size_t message_size, unsigned message_kind) const
     //--------------------------------------------------------------------------
     {
-      ctx->manager->send_message(ctx, target, 
+      ctx->manager->send_message(ctx, target,
                                  message, message_size, message_kind);
     }
 
@@ -314,8 +316,8 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    void MapperRuntime::pack_physical_instance(MapperContext ctx, 
-                               Serializer &rez, PhysicalInstance instance) const 
+    void MapperRuntime::pack_physical_instance(MapperContext ctx,
+                               Serializer &rez, PhysicalInstance instance) const
     //--------------------------------------------------------------------------
     {
       ctx->manager->pack_physical_instance(ctx, rez, instance);
@@ -345,7 +347,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    void MapperRuntime::trigger_mapper_event(MapperContext ctx, 
+    void MapperRuntime::trigger_mapper_event(MapperContext ctx,
                                                 MapperEvent event) const
     //--------------------------------------------------------------------------
     {
@@ -369,8 +371,8 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    const TaskLayoutConstraintSet& 
-      MapperRuntime::find_task_layout_constraints(MapperContext ctx, 
+    const TaskLayoutConstraintSet&
+      MapperRuntime::find_task_layout_constraints(MapperContext ctx,
                                             TaskID task_id, VariantID vid) const
     //--------------------------------------------------------------------------
     {
@@ -379,11 +381,11 @@ namespace Legion {
 
     //--------------------------------------------------------------------------
     const LayoutConstraintSet&
-      MapperRuntime::find_layout_constraints(MapperContext ctx, 
+      MapperRuntime::find_layout_constraints(MapperContext ctx,
                                                 LayoutConstraintID id) const
     //--------------------------------------------------------------------------
     {
-      return ctx->manager->find_layout_constraints(ctx, id); 
+      return ctx->manager->find_layout_constraints(ctx, id);
     }
 
     //--------------------------------------------------------------------------
@@ -445,7 +447,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    bool MapperRuntime::is_idempotent_variant(MapperContext ctx, 
+    bool MapperRuntime::is_idempotent_variant(MapperContext ctx,
                                      TaskID task_id, VariantID variant_id) const
     //--------------------------------------------------------------------------
     {
@@ -463,12 +465,12 @@ namespace Legion {
 
     //--------------------------------------------------------------------------
     void MapperRuntime::filter_instances(MapperContext ctx, const Task &task,
-                                      VariantID chosen_variant, 
+                                      VariantID chosen_variant,
                         std::vector<std::vector<PhysicalInstance> > &instances,
                                std::vector<std::set<FieldID> > &missing_fields)
     //--------------------------------------------------------------------------
     {
-      ctx->manager->filter_instances(ctx, task, chosen_variant, 
+      ctx->manager->filter_instances(ctx, task, chosen_variant,
                                      instances, missing_fields);
     }
 
@@ -486,13 +488,13 @@ namespace Legion {
     //--------------------------------------------------------------------------
     bool MapperRuntime::create_physical_instance(
                                     MapperContext ctx, Memory target_memory,
-                                    const LayoutConstraintSet &constraints, 
+                                    const LayoutConstraintSet &constraints,
                                     const std::vector<LogicalRegion> &regions,
-                                    PhysicalInstance &result, 
+                                    PhysicalInstance &result,
                                     bool acquire, GCPriority priority) const
     //--------------------------------------------------------------------------
     {
-      return ctx->manager->create_physical_instance(ctx, target_memory, 
+      return ctx->manager->create_physical_instance(ctx, target_memory,
                       constraints, regions, result, acquire, priority);
     }
 
@@ -505,21 +507,21 @@ namespace Legion {
                                     bool acquire, GCPriority priority) const
     //--------------------------------------------------------------------------
     {
-      return ctx->manager->create_physical_instance(ctx, target_memory, 
+      return ctx->manager->create_physical_instance(ctx, target_memory,
                         layout_id, regions, result, acquire, priority);
     }
 
     //--------------------------------------------------------------------------
     bool MapperRuntime::find_or_create_physical_instance(
                                     MapperContext ctx, Memory target_memory,
-                                    const LayoutConstraintSet &constraints, 
-                                    const std::vector<LogicalRegion> &regions, 
-                                    PhysicalInstance &result, bool &created, 
+                                    const LayoutConstraintSet &constraints,
+                                    const std::vector<LogicalRegion> &regions,
+                                    PhysicalInstance &result, bool &created,
                                     bool acquire, GCPriority priority,
                                     bool tight_bounds) const
     //--------------------------------------------------------------------------
     {
-      return ctx->manager->find_or_create_physical_instance(ctx, target_memory, 
+      return ctx->manager->find_or_create_physical_instance(ctx, target_memory,
        constraints, regions, result, created, acquire, priority, tight_bounds);
     }
 
@@ -528,7 +530,7 @@ namespace Legion {
                                     MapperContext ctx, Memory target_memory,
                                     LayoutConstraintID layout_id,
                                     const std::vector<LogicalRegion> &regions,
-                                    PhysicalInstance &result, bool &created, 
+                                    PhysicalInstance &result, bool &created,
                                     bool acquire, GCPriority priority,
                                     bool tight_bounds) const
     //--------------------------------------------------------------------------
@@ -546,7 +548,7 @@ namespace Legion {
                                     bool acquire, bool tight_bounds) const
     //--------------------------------------------------------------------------
     {
-      return ctx->manager->find_physical_instance(ctx, target_memory, 
+      return ctx->manager->find_physical_instance(ctx, target_memory,
                   constraints, regions, result, acquire, tight_bounds);
     }
 
@@ -554,7 +556,7 @@ namespace Legion {
     bool MapperRuntime::find_physical_instance(
                                     MapperContext ctx, Memory target_memory,
                                     LayoutConstraintID layout_id,
-                                    const std::vector<LogicalRegion> &regions, 
+                                    const std::vector<LogicalRegion> &regions,
                                     PhysicalInstance &result,
                                     bool acquire, bool tight_bounds) const
     //--------------------------------------------------------------------------
@@ -572,7 +574,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    bool MapperRuntime::acquire_instance(MapperContext ctx, 
+    bool MapperRuntime::acquire_instance(MapperContext ctx,
                                          const PhysicalInstance &instance) const
     //--------------------------------------------------------------------------
     {
@@ -612,7 +614,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    void MapperRuntime::release_instance(MapperContext ctx, 
+    void MapperRuntime::release_instance(MapperContext ctx,
                                          const PhysicalInstance &instance) const
     //--------------------------------------------------------------------------
     {
@@ -644,7 +646,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    IndexSpace MapperRuntime::get_index_subspace(MapperContext ctx, 
+    IndexSpace MapperRuntime::get_index_subspace(MapperContext ctx,
                                           IndexPartition p, Color c) const
     //--------------------------------------------------------------------------
     {
@@ -652,7 +654,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    IndexSpace MapperRuntime::get_index_subspace(MapperContext ctx, 
+    IndexSpace MapperRuntime::get_index_subspace(MapperContext ctx,
                                IndexPartition p, const DomainPoint &color) const
     //--------------------------------------------------------------------------
     {
@@ -668,7 +670,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    Domain MapperRuntime::get_index_space_domain(MapperContext ctx, 
+    Domain MapperRuntime::get_index_space_domain(MapperContext ctx,
                                                     IndexSpace handle) const
     //--------------------------------------------------------------------------
     {
@@ -676,7 +678,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    void MapperRuntime::get_index_space_domains(MapperContext ctx, 
+    void MapperRuntime::get_index_space_domains(MapperContext ctx,
                           IndexSpace handle, std::vector<Domain> &domains) const
     //--------------------------------------------------------------------------
     {
@@ -708,7 +710,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    Color MapperRuntime::get_index_space_color(MapperContext ctx, 
+    Color MapperRuntime::get_index_space_color(MapperContext ctx,
                                                   IndexSpace handle) const
     //--------------------------------------------------------------------------
     {
@@ -772,7 +774,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    void MapperRuntime::get_field_space_fields(MapperContext ctx, 
+    void MapperRuntime::get_field_space_fields(MapperContext ctx,
                           FieldSpace handle, std::vector<FieldID> &fields) const
     //--------------------------------------------------------------------------
     {
@@ -780,7 +782,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    void MapperRuntime::get_field_space_fields(MapperContext ctx, 
+    void MapperRuntime::get_field_space_fields(MapperContext ctx,
                           FieldSpace handle, std::set<FieldID> &fields) const
     //--------------------------------------------------------------------------
     {
@@ -848,7 +850,7 @@ namespace Legion {
 
     //--------------------------------------------------------------------------
     LogicalRegion MapperRuntime::get_logical_subregion_by_tree(
-                                      MapperContext ctx, IndexSpace handle, 
+                                      MapperContext ctx, IndexSpace handle,
                                       FieldSpace fspace, RegionTreeID tid) const
     //--------------------------------------------------------------------------
     {
@@ -878,7 +880,7 @@ namespace Legion {
     {
       return ctx->manager->get_parent_logical_region(ctx, part);
     }
-    
+
     //--------------------------------------------------------------------------
     bool MapperRuntime::has_parent_logical_partition(MapperContext ctx,
                                                      LogicalRegion handle) const
@@ -907,7 +909,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    bool MapperRuntime::retrieve_semantic_information(MapperContext ctx, 
+    bool MapperRuntime::retrieve_semantic_information(MapperContext ctx,
           IndexSpace handle, SemanticTag tag, const void *&result, size_t &size,
           bool can_fail, bool wait_until_ready)
     //--------------------------------------------------------------------------
@@ -919,7 +921,7 @@ namespace Legion {
 
     //--------------------------------------------------------------------------
     bool MapperRuntime::retrieve_semantic_information(MapperContext ctx,
-          IndexPartition handle, SemanticTag tag, const void *&result, 
+          IndexPartition handle, SemanticTag tag, const void *&result,
           size_t &size, bool can_fail, bool wait_until_ready)
     //--------------------------------------------------------------------------
     {
@@ -940,8 +942,8 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    bool MapperRuntime::retrieve_semantic_information(MapperContext ctx, 
-          FieldSpace handle, FieldID fid, SemanticTag tag, const void *&result, 
+    bool MapperRuntime::retrieve_semantic_information(MapperContext ctx,
+          FieldSpace handle, FieldID fid, SemanticTag tag, const void *&result,
           size_t &size, bool can_fail, bool wait_until_ready)
     //--------------------------------------------------------------------------
     {
@@ -952,7 +954,7 @@ namespace Legion {
 
     //--------------------------------------------------------------------------
     bool MapperRuntime::retrieve_semantic_information(MapperContext ctx,
-          LogicalRegion handle, SemanticTag tag, const void *&result, 
+          LogicalRegion handle, SemanticTag tag, const void *&result,
           size_t &size, bool can_fail, bool wait_until_ready)
     //--------------------------------------------------------------------------
     {
@@ -963,7 +965,7 @@ namespace Legion {
 
     //--------------------------------------------------------------------------
    bool MapperRuntime::retrieve_semantic_information(MapperContext ctx,
-          LogicalPartition handle, SemanticTag tag, const void *&result, 
+          LogicalPartition handle, SemanticTag tag, const void *&result,
           size_t &size, bool can_fail, bool wait_until_ready)
     //--------------------------------------------------------------------------
     {
@@ -989,7 +991,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    void MapperRuntime::retrieve_name(MapperContext ctx, 
+    void MapperRuntime::retrieve_name(MapperContext ctx,
                                      IndexPartition handle, const char *&result)
     //--------------------------------------------------------------------------
     {
@@ -1013,7 +1015,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    void MapperRuntime::retrieve_name(MapperContext ctx, 
+    void MapperRuntime::retrieve_name(MapperContext ctx,
                                       LogicalRegion handle, const char *&result)
     //--------------------------------------------------------------------------
     {
@@ -1030,4 +1032,3 @@ namespace Legion {
 
   }; // namespace Mapping
 }; // namespace Legion
-

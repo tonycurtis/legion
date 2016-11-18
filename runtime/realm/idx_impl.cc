@@ -1,5 +1,5 @@
 /* Copyright 2016 Stanford University, NVIDIA Corporation
- * Copyright 2016 Los Alamos National Laboratory 
+ * Copyright 2016 Los Alamos National Laboratory
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,6 +15,8 @@
  */
 
 // IndexSpace implementation for Realm
+
+#include <cinttypes>
 
 #include "idx_impl.h"
 
@@ -46,9 +48,9 @@ namespace Realm {
       DetailedTimer::ScopedPush sp(TIME_LOW_LEVEL);
 
       IndexSpaceImpl *impl = get_runtime()->local_index_space_free_list->alloc_entry();
-      
+
       impl->init(impl->me, NO_SPACE, num_elmts);
-      
+
       log_meta.info("index space created: id=" IDFMT " num_elmts=%zd",
 	       impl->me.id, num_elmts);
       return impl->me;
@@ -59,10 +61,10 @@ namespace Realm {
       DetailedTimer::ScopedPush sp(TIME_LOW_LEVEL);
 
       IndexSpaceImpl *impl = get_runtime()->local_index_space_free_list->alloc_entry();
-      
+
       // TODO: actually decide when to safely consider a subregion frozen
       impl->init(impl->me, NO_SPACE, mask.get_num_elmts(), &mask, true);
-      
+
       log_meta.info("index space created: id=" IDFMT " num_elmts=%zd",
 	       impl->me.id, mask.get_num_elmts());
       return impl->me;
@@ -79,10 +81,10 @@ namespace Realm {
       StaticAccess<IndexSpaceImpl> p_data(get_runtime()->get_index_space_impl(parent));
 
       impl->init(impl->me, parent,
-		 p_data->num_elmts, 
+		 p_data->num_elmts,
 		 &mask,
 		 !allocable);  // TODO: actually decide when to safely consider a subregion frozen
-      
+
       log_meta.info("index space created: id=" IDFMT " parent=" IDFMT " (num_elmts=%zd)",
 	       impl->me.id, parent.id, p_data->num_elmts);
       return impl->me;
@@ -101,7 +103,7 @@ namespace Realm {
       //assert(0);
     }
 
-    void IndexSpaceAllocator::destroy(void) 
+    void IndexSpaceAllocator::destroy(void)
     {
       DetailedTimer::ScopedPush sp(TIME_LOW_LEVEL);
       if (impl != NULL)
@@ -124,7 +126,7 @@ namespace Realm {
 #else
       if(!r_impl->valid_mask_complete) {
 	Event wait_on = r_impl->request_valid_mask();
-	
+
 	log_copy.info() << "missing valid mask (" << *this << ") - waiting for " << wait_on;
 
 	wait_on.wait();
@@ -294,7 +296,7 @@ namespace Realm {
       return Event::NO_EVENT;
     }
 
-  
+
   ////////////////////////////////////////////////////////////////////////
   //
   // class Domain
@@ -304,7 +306,7 @@ namespace Realm {
 					   size_t elem_size,
 					   ReductionOpID redop_id) const
     {
-      DetailedTimer::ScopedPush sp(TIME_LOW_LEVEL);      
+      DetailedTimer::ScopedPush sp(TIME_LOW_LEVEL);
       std::vector<size_t> field_sizes(1);
       field_sizes[0] = elem_size;
 
@@ -316,7 +318,7 @@ namespace Realm {
                                            const ProfilingRequestSet &reqs,
 					   ReductionOpID redop_id) const
     {
-      DetailedTimer::ScopedPush sp(TIME_LOW_LEVEL);      
+      DetailedTimer::ScopedPush sp(TIME_LOW_LEVEL);
       std::vector<size_t> field_sizes(1);
       field_sizes[0] = elem_size;
 
@@ -338,7 +340,7 @@ namespace Realm {
                                            const ProfilingRequestSet &reqs,
 					   ReductionOpID redop_id) const
     {
-      DetailedTimer::ScopedPush sp(TIME_LOW_LEVEL);      
+      DetailedTimer::ScopedPush sp(TIME_LOW_LEVEL);
       ID id(memory);
 
       MemoryImpl *m_impl = get_runtime()->get_memory_impl(memory);
@@ -488,7 +490,7 @@ namespace Realm {
           memory = *it;
           HDFMemory* hdf_mem = (HDFMemory*) get_runtime()->get_memory_impl(memory);
           if(hdf_mem->kind == MemoryImpl::MKIND_HDF)
-            break; /* this is usable, take it */ 
+            break; /* this is usable, take it */
         }
       }
       assert(memory.kind() == Memory::HDF_MEM);
@@ -499,7 +501,7 @@ namespace Realm {
 	  it != field_sizes.end();
 	  it++)
 	elem_size += *it;
-      
+
       size_t num_elements;
       int linearization_bits[RegionInstanceImpl::MAX_LINEARIZATION_LEN];
       assert(get_dim() > 0);
@@ -540,7 +542,7 @@ namespace Realm {
       }
 
       size_t inst_bytes = elem_size * num_elements;
-      RegionInstance i = hdf_mem->create_instance(get_index_space(), linearization_bits, inst_bytes, 
+      RegionInstance i = hdf_mem->create_instance(get_index_space(), linearization_bits, inst_bytes,
                                                   1/*block_size*/, elem_size, field_sizes,
                                                   0 /*redop_id*/, -1/*list_size*/, requests, RegionInstance::NO_INST,
                                                   file_name, field_files, *this, read_only);
@@ -739,7 +741,7 @@ namespace Realm {
       assert((num_elements & 63) == 0);
     }
 
-    ElementMask::ElementMask(const ElementMask &copy_from, 
+    ElementMask::ElementMask(const ElementMask &copy_from,
 			     size_t _num_elements, coord_t _first_element /*= -1*/)
     {
       first_element = (_first_element >= 0) ? _first_element : copy_from.first_element;
@@ -769,7 +771,7 @@ namespace Realm {
       raw_data = (char *)calloc(1, bytes_needed);  // sets initial values to 0
 
       // how much to copy?
-      size_t bytes_avail = (ElementMaskImpl::bytes_needed(copy_from.first_element, 
+      size_t bytes_avail = (ElementMaskImpl::bytes_needed(copy_from.first_element,
 							  copy_from.num_elements) -
 			    copy_byte_offset);
       size_t bytes_to_copy = (bytes_needed <= bytes_avail) ? bytes_needed : bytes_avail;
@@ -828,7 +830,7 @@ namespace Realm {
 	}
       }
       assert(num_elements >= 0);
-	
+
       size_t bytes_needed = ElementMaskImpl::bytes_needed(first_element, num_elements);
       raw_data = (char *)calloc(1, bytes_needed);
 
@@ -1466,7 +1468,7 @@ namespace Realm {
 
       if(first > last)
 	return ElementMask::OVERLAP_NO;
-	
+
       if (raw_data != 0) {
         ElementMaskImpl *i1 = (ElementMaskImpl *)raw_data;
         if (other.raw_data != 0) {
@@ -1560,7 +1562,7 @@ namespace Realm {
 	coord_t extra = __builtin_ctzll(bits);
 	assert(extra < 64);
 	position = mask.first_element + (idx << 6) + extra;
-	
+
 	// now we're going to turn it around and scan ones
 	if(extra)
 	  bits |= ((1ULL << extra) - 1);
@@ -1612,7 +1614,7 @@ namespace Realm {
 	    if(bit != polarity) break;
 	    pos++;
 	  }
-	  // we get here either because we found the end of the run or we 
+	  // we get here either because we found the end of the run or we
 	  //  hit the end of the mask
 	  length = pos - position;
 	  return true;
@@ -1715,17 +1717,17 @@ namespace Realm {
     {
       size_t num_elmts = StaticAccess<IndexSpaceImpl>(this)->num_elmts;
       int valid_mask_owner = -1;
-      
+
       Event e;
       {
 	AutoHSLLock a(valid_mask_mutex);
-	
+
 	if(valid_mask != 0) {
 	  // if the mask exists, we've already requested it, so just provide
 	  //  the event that we have
           return valid_mask_event;
 	}
-	
+
 	valid_mask = new ElementMask(num_elmts);
 	valid_mask_owner = ID(me).idxspace.owner_node; // a good guess?
 	valid_mask_count = (valid_mask->raw_size() + 2047) >> 11;
@@ -1738,7 +1740,7 @@ namespace Realm {
 
       return e;
     }
-  
+
   ////////////////////////////////////////////////////////////////////////
   //
   // class IndexSpaceAllocatorImpl
@@ -1793,7 +1795,7 @@ namespace Realm {
       }
     }
 
-  
+
   ////////////////////////////////////////////////////////////////////////
   //
   // class ValidMaskRequestMessage
@@ -1847,7 +1849,7 @@ namespace Realm {
     args.is = is;
     Message::request(target, args);
   }
-  
+
 
   ////////////////////////////////////////////////////////////////////////
   //
@@ -1927,5 +1929,5 @@ namespace Realm {
     args.last_enabled_elmt = last_enabled_elmt;
     Message::request(target, args, data, datalen, payload_mode);
   }
-  
+
 }; // namespace Realm

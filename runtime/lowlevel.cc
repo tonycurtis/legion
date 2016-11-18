@@ -24,6 +24,8 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 
+#include <cinttypes>
+
 #include "lowlevel.h"
 #include "lowlevel_impl.h"
 #include "accessor.h"
@@ -128,7 +130,7 @@ namespace LegionRuntime {
         for (unsigned long j = 0; j < n->barriers.max_entries(); j++) {
           if (!n->barriers.has_entry(j))
             continue;
-          BarrierImpl *b = n->barriers.lookup_entry(j, i/*node*/); 
+          BarrierImpl *b = n->barriers.lookup_entry(j, i/*node*/);
           AutoHSLLock a2(b->mutex);
           // skip any barriers with no waiters
           if (b->generations.empty())
@@ -136,13 +138,13 @@ namespace LegionRuntime {
 
 	  os << "Barrier " << b->me << ": gen=" << b->generation
 	     << " subscr=" << b->gen_subscribed << "\n";
-          for (std::map<EventImpl::gen_t, BarrierImpl::Generation*>::const_iterator git = 
+          for (std::map<EventImpl::gen_t, BarrierImpl::Generation*>::const_iterator git =
                 b->generations.begin(); git != b->generations.end(); git++)
           {
             const std::vector<EventWaiter*> &waiters = git->second->local_waiters;
-            for (std::vector<EventWaiter*>::const_iterator it = 
+            for (std::vector<EventWaiter*>::const_iterator it =
                   waiters.begin(); it != waiters.end(); it++)
-            { 
+            {
 	      os << "  [" << (git->first) << "] L:" << (*it) << " - ";
 	      (*it)->print(os);
 	      os << "\n";
@@ -169,7 +171,7 @@ namespace LegionRuntime {
       // 	    continue;
 
       //     fprintf(f,"Event " IDFMT ": gen=%d subscr=%d local=%zd remote=%zd\n",
-      // 		  e->me.id, e->generation, e->gen_subscribed, 
+      // 		  e->me.id, e->generation, e->gen_subscribed,
       // 		  e->local_waiters.size(), e->remote_waiters.size());
       // 	  for(std::map<Event::gen_t, std::vector<EventWaiter *> >::iterator it = e->local_waiters.begin();
       // 	      it != e->local_waiters.end();
@@ -300,7 +302,7 @@ namespace LegionRuntime {
     }
 #endif
 
-    
+
 
 
     ///////////////////////////////////////////////////
@@ -325,7 +327,7 @@ namespace LegionRuntime {
 
 
     ///////////////////////////////////////////////////
-    // Reservations 
+    // Reservations
 
     //    /*static*/ ReservationImpl *ReservationImpl::first_free = 0;
     //    /*static*/ GASNetHSL ReservationImpl::freelist_mutex;
@@ -403,7 +405,7 @@ namespace Realm {
     RegionInstance IndexSpace::create_instance_untyped(Memory memory,
 									 ReductionOpID redopid) const
     {
-      DetailedTimer::ScopedPush sp(TIME_LOW_LEVEL);      
+      DetailedTimer::ScopedPush sp(TIME_LOW_LEVEL);
       ID id(memory);
 
       const ReductionOpUntyped *redop = get_runtime()->reduce_op_table[redopid];
@@ -413,7 +415,7 @@ namespace Realm {
       size_t inst_bytes = impl()->instance_size(redop);
       off_t inst_adjust = impl()->instance_adjust(redop);
 
-      RegionInstance i = m_impl->create_instance(get_index_space(), inst_bytes, 
+      RegionInstance i = m_impl->create_instance(get_index_space(), inst_bytes,
 							inst_adjust, redopid);
       log_meta.info("instance created: region=" IDFMT " memory=" IDFMT " id=" IDFMT " bytes=%zd adjust=%zd redop=%d",
 	       this->id, memory.id, i.id, inst_bytes, inst_adjust, redopid);
@@ -425,7 +427,7 @@ namespace Realm {
 									 off_t list_size,
 									 RegionInstance parent_inst) const
     {
-      DetailedTimer::ScopedPush sp(TIME_LOW_LEVEL);      
+      DetailedTimer::ScopedPush sp(TIME_LOW_LEVEL);
       ID id(memory);
 
       const ReductionOpUntyped *redop = get_runtime()->reduce_op_table[redopid];
@@ -435,7 +437,7 @@ namespace Realm {
       size_t inst_bytes = impl()->instance_size(redop, list_size);
       off_t inst_adjust = impl()->instance_adjust(redop);
 
-      RegionInstance i = m_impl->create_instance(*this, inst_bytes, 
+      RegionInstance i = m_impl->create_instance(*this, inst_bytes,
 							inst_adjust, redopid,
 							list_size, parent_inst);
       log_meta.info("instance created: region=" IDFMT " memory=" IDFMT " id=" IDFMT " bytes=%zd adjust=%zd redop=%d list_size=%zd parent_inst=" IDFMT "",
@@ -467,12 +469,12 @@ namespace LegionRuntime {
 		   IndexSpace _region,
 		   size_t _elmt_size, size_t _bytes_to_copy, Event _after_copy)
 	: src(_src), target(_target), region(_region),
-	  elmt_size(_elmt_size), bytes_to_copy(_bytes_to_copy), 
+	  elmt_size(_elmt_size), bytes_to_copy(_bytes_to_copy),
 	  after_copy(_after_copy) {}
 
       virtual void event_triggered(void)
       {
-	RegionInstanceImpl::copy(src, target, region, 
+	RegionInstanceImpl::copy(src, target, region,
 					  elmt_size, bytes_to_copy, after_copy);
       }
 
@@ -531,7 +533,7 @@ namespace LegionRuntime {
 	{
 	  off_t byte_offset = offset * elmt_size;
 	  size_t byte_count = count * elmt_size;
-	
+
 	  tgt_mem->put_bytes(tgt_offset + byte_offset,
 			     src_ptr + byte_offset,
 			     byte_count);
@@ -568,7 +570,7 @@ namespace LegionRuntime {
 			       redop->sizeof_lhs);
 
 	    redop->apply(buffer, src_ptr + src_byte_offset, 1, true);
-	      
+
 	    tgt_mem->put_bytes(tgt_offset + tgt_byte_offset,
 			       buffer,
 			       redop->sizeof_lhs);
@@ -592,7 +594,7 @@ namespace LegionRuntime {
 	{
 	  off_t byte_offset = offset * elmt_size;
 	  size_t byte_count = count * elmt_size;
-	
+
 	  src_mem->get_bytes(src_offset + byte_offset,
 			     tgt_ptr + byte_offset,
 			     byte_count);
@@ -688,7 +690,7 @@ namespace LegionRuntime {
 	    args.event = event;
 	  else
 	    args.event = Event::NO_EVENT;
-	
+
 	  RemoteWriteMessage::request(ID(tgt_mem).node(), args,
 				      src_ptr + byte_offset,
 				      byte_count,
@@ -708,7 +710,7 @@ namespace LegionRuntime {
 #endif
 
 #if 0
-    /*static*/ Event RegionInstanceImpl::copy(RegionInstance src, 
+    /*static*/ Event RegionInstanceImpl::copy(RegionInstance src,
 						RegionInstance target,
 						IndexSpace is,
 						size_t elmt_size,
@@ -721,7 +723,7 @@ namespace LegionRuntime {
 #endif
 
 #ifdef OLD_COPIES
-    Event RegionInstance::copy_to_untyped(RegionInstance target, 
+    Event RegionInstance::copy_to_untyped(RegionInstance target,
 						 Event wait_on /*= Event::NO_EVENT*/) const
     {
       DetailedTimer::ScopedPush sp(TIME_LOW_LEVEL);
@@ -773,7 +775,7 @@ namespace LegionRuntime {
 
       log_copy.info("copy_to_untyped(" IDFMT "(" IDFMT "), " IDFMT "(" IDFMT "), " IDFMT ", " IDFMT "/%d)",
 		    id, src_region.id,
-		    target.id, dst_region.id, 
+		    target.id, dst_region.id,
 		    region.id, wait_on.id, wait_on.gen);
 
       assert(src_region.impl()->is_parent_of(region));
@@ -814,7 +816,7 @@ namespace LegionRuntime {
 	args.before_copy = wait_on;
 	args.after_copy = after_copy;
 	RemoteCopyMessage::request(delegate, args);
-	
+
 	return after_copy;
       }
 
@@ -837,7 +839,7 @@ namespace LegionRuntime {
 	args.before_copy = wait_on;
 	args.after_copy = after_copy;
 	RemoteCopyMessage::request(delegate, args);
-	
+
 	return after_copy;
       }
 
@@ -848,7 +850,7 @@ namespace LegionRuntime {
 				   new DeferredCopy(*this, target,
 						    region,
 						    elmt_size,
-						    bytes_to_copy, 
+						    bytes_to_copy,
 						    after_copy));
 	return after_copy;
       }
@@ -863,7 +865,7 @@ namespace LegionRuntime {
 #ifdef POINTER_CHECKS
     void RegionAccessor<AccessorGeneric>::verify_access(unsigned ptr) const
     {
-      ((RegionInstanceImpl *)internal_data)->verify_access(ptr); 
+      ((RegionInstanceImpl *)internal_data)->verify_access(ptr);
     }
 
     void RegionAccessor<AccessorArray>::verify_access(unsigned ptr) const
@@ -891,14 +893,14 @@ namespace LegionRuntime {
 
     RegionAccessor<AccessorGeneric> RegionAccessor<AccessorGeneric>::get_field_accessor(off_t offset, size_t size) const
     {
-      return RegionAccessor<AccessorGeneric>(internal_data, 
+      return RegionAccessor<AccessorGeneric>(internal_data,
 					     field_offset + offset);
     }
 
     template <>
     bool RegionAccessor<AccessorGeneric>::can_convert<AccessorGeneric>(void) const
     { return true; }
-    
+
     template <>
     RegionAccessor<AccessorGeneric> RegionAccessor<AccessorGeneric>::convert<AccessorGeneric>(void) const
     { return *this; }
@@ -948,14 +950,14 @@ namespace LegionRuntime {
 	char *inst_base = zcm->cpu_base + i_data->access_offset;
 	RegionAccessor<AccessorArray> ria(inst_base);
 #ifdef POINTER_CHECKS
-        ria.set_impl(i_impl); 
+        ria.set_impl(i_impl);
 #endif
 	return ria;
       }
 
       assert(0);
     }
-    
+
     template<>
     bool RegionAccessor<AccessorGeneric>::can_convert<AccessorArrayReductionFold>(void) const
     {
@@ -1108,12 +1110,12 @@ namespace LegionRuntime {
         sprintf(file_name,"%s/backtrace_%d_thread_%ld.txt",
                           RuntimeImpl::prefix, gasnet_mynode(), pthread_self());
         FILE *fbt = fopen(file_name,"w");
-        fprintf(fbt,"BACKTRACE (%d, %lx)\n----------\n%s\n----------\n", 
+        fprintf(fbt,"BACKTRACE (%d, %lx)\n----------\n%s\n----------\n",
                 gasnet_mynode(), pthread_self(), buffer);
         fflush(fbt);
         fclose(fbt);
 #else
-        fprintf(stderr,"BACKTRACE (%d, %lx)\n----------\n%s\n----------\n", 
+        fprintf(stderr,"BACKTRACE (%d, %lx)\n----------\n%s\n----------\n",
                 gasnet_mynode(), pthread_self(), buffer);
         fflush(stderr);
 #endif
@@ -1198,7 +1200,7 @@ namespace LegionRuntime {
       // must have valid data by now - block if we have to
       impl->metadata.await_data();
 
-#ifdef PRIVILEGE_CHECKS 
+#ifdef PRIVILEGE_CHECKS
       check_privileges<ACCESSOR_READ>(priv, region);
 #endif
 #ifdef BOUNDS_CHECKS
@@ -1206,7 +1208,7 @@ namespace LegionRuntime {
 	(DebugHooks::check_bounds_ptr)(region, ptr);
 #endif
 #ifdef USE_HDF
-      // HDF memory doesn't support 
+      // HDF memory doesn't support
       assert(impl->memory.kind() != Memory::HDF_MEM);
 #endif
       Arrays::Mapping<1, 1> *mapping = impl->metadata.linearization.get_mapping<1>();
@@ -1225,7 +1227,7 @@ namespace LegionRuntime {
       // must have valid data by now - block if we have to
       impl->metadata.await_data();
 
-#ifdef PRIVILEGE_CHECKS 
+#ifdef PRIVILEGE_CHECKS
       check_privileges<ACCESSOR_READ>(priv, region);
 #endif
 #ifdef BOUNDS_CHECKS
@@ -1354,7 +1356,7 @@ namespace LegionRuntime {
 
       off_t offset = idata->alloc_offset;
       off_t elmt_stride;
-      
+
       if (idata->block_size == 1) {
         offset += field_offset;
         elmt_stride = idata->elmt_size;
@@ -1379,7 +1381,7 @@ namespace LegionRuntime {
         stride = elmt_stride;
       }
 
-      // if there's a per-element offset, apply it after we've agreed with the caller on 
+      // if there's a per-element offset, apply it after we've agreed with the caller on
       //  what we're pretending the stride is
       const DomainLinearization& dl = impl->linearization;
       if(dl.get_dim() > 0) {
@@ -1401,7 +1403,7 @@ namespace LegionRuntime {
 #endif
     }
 
-    bool AccessorType::Generic::Untyped::get_hybrid_soa_parameters(void *&base, size_t &stride, 
+    bool AccessorType::Generic::Untyped::get_hybrid_soa_parameters(void *&base, size_t &stride,
                                                                    size_t &block_size, size_t &block_stride) const
     {
       // TODO: implement this
@@ -1512,7 +1514,7 @@ namespace LegionRuntime {
 	size_t block_num = index / impl->metadata.block_size;
 	size_t block_ofs = index % impl->metadata.block_size;
 
-	offset += (((impl->metadata.elmt_size * block_num + field_start) * impl->metadata.block_size) + 
+	offset += (((impl->metadata.elmt_size * block_num + field_start) * impl->metadata.block_size) +
 		   (field_size * block_ofs) +
 		   (field_offset - field_start));
 	elmt_stride = field_size;
@@ -1586,7 +1588,7 @@ namespace LegionRuntime {
 	int block_num = index / impl->metadata.block_size;
 	int block_ofs = index % impl->metadata.block_size;
 
-	offset += (((impl->metadata.elmt_size * block_num + field_start) * impl->metadata.block_size) + 
+	offset += (((impl->metadata.elmt_size * block_num + field_start) * impl->metadata.block_size) +
 		   (field_size * block_ofs) +
 		   (field_offset - field_start));
 	elmt_stride = field_size;
@@ -1601,13 +1603,13 @@ namespace LegionRuntime {
 	  // field sizes much match or element stride isn't consistent
 	  if(field_size2 != field_size)
 	    return 0;
-	  
-	  fld_stride = (((field_start2 - field_start) * impl->metadata.block_size) + 
+
+	  fld_stride = (((field_start2 - field_start) * impl->metadata.block_size) +
 			(field_offsets[1] - field_start2) - (field_offsets[0] - field_start));
 
 	  for(size_t i = 2; i < field_offsets.size(); i++) {
 	    Realm::find_field_start(impl->metadata.field_sizes, field_offset + field_offsets[i], 1, field_start2, field_size2);
-	    off_t fld_stride2 = (((field_start2 - field_start) * impl->metadata.block_size) + 
+	    off_t fld_stride2 = (((field_start2 - field_start) * impl->metadata.block_size) +
 			(field_offsets[i] - field_start2) - (field_offsets[0] - field_start));
 	    if(fld_stride2 != fld_stride * i) {
 	      // fields aren't evenly spaced - abort
@@ -1656,7 +1658,7 @@ namespace LegionRuntime {
 	int block_num = index / impl->metadata.block_size;
 	int block_ofs = index % impl->metadata.block_size;
 
-	offset += (((impl->metadata.elmt_size * block_num + field_start) * impl->metadata.block_size) + 
+	offset += (((impl->metadata.elmt_size * block_num + field_start) * impl->metadata.block_size) +
 		   (field_size * block_ofs) +
 		   (field_offset - field_start));
 	elmt_stride = field_size;
@@ -1664,7 +1666,7 @@ namespace LegionRuntime {
 
       char *dst = (char *)(mem->get_direct_ptr(offset, subrect.volume() * elmt_stride));
       if(!dst) return 0;
-      
+
       elem_stride.offset = elmt_stride;
 
       return dst;
@@ -1713,7 +1715,7 @@ namespace LegionRuntime {
 	int block_num = index / impl->metadata.block_size;
 	int block_ofs = index % impl->metadata.block_size;
 
-	offset += (((impl->metadata.elmt_size * block_num + field_start) * impl->metadata.block_size) + 
+	offset += (((impl->metadata.elmt_size * block_num + field_start) * impl->metadata.block_size) +
 		   (field_size * block_ofs) +
 		   (field_offset + field_offsets[0] - field_start));
 	elmt_stride = field_size;
@@ -1728,13 +1730,13 @@ namespace LegionRuntime {
 	  // field sizes much match or element stride isn't consistent
 	  if(field_size2 != field_size)
 	    return 0;
-	  
-	  fld_stride = (((field_start2 - field_start) * impl->metadata.block_size) + 
+
+	  fld_stride = (((field_start2 - field_start) * impl->metadata.block_size) +
 			(field_offsets[1] - field_start2) - (field_offsets[0] - field_start));
 
 	  for(size_t i = 2; i < field_offsets.size(); i++) {
 	    Realm::find_field_start(impl->metadata.field_sizes, field_offset + field_offsets[i], 1, field_start2, field_size2);
-	    off_t fld_stride2 = (((field_start2 - field_start) * impl->metadata.block_size) + 
+	    off_t fld_stride2 = (((field_start2 - field_start) * impl->metadata.block_size) +
 			(field_offsets[i] - field_start2) - (field_offsets[0] - field_start));
 	    if(fld_stride2 != fld_stride * i) {
 	      // fields aren't evenly spaced - abort
@@ -1746,7 +1748,7 @@ namespace LegionRuntime {
 
       char *dst = (char *)(mem->get_direct_ptr(offset, subrect.volume() * elmt_stride));
       if(!dst) return 0;
-      
+
       elem_stride.offset = elmt_stride;
       field_stride.offset = fld_stride;
 

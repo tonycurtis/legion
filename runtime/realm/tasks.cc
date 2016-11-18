@@ -15,6 +15,8 @@
 
 // tasks and task scheduling for Realm
 
+#include <cinttypes>
+
 #include "tasks.h"
 
 #include "runtime_impl.h"
@@ -111,7 +113,7 @@ namespace Realm {
     for(size_t i = 0; (i < arglen) && (i < 40); i++)
       sprintf(argstr+2*i, "%02x", ((unsigned char *)(args))[i]);
     if(arglen > 40) strcpy(argstr+80, "...");
-    log_util(((func_id == 3) ? LEVEL_SPEW : LEVEL_INFO), 
+    log_util(((func_id == 3) ? LEVEL_SPEW : LEVEL_INFO),
 	     "task start: %d (%p) (%s)", func_id, fptr, argstr);
 #endif
 #ifdef EVENT_GRAPH_TRACE
@@ -259,7 +261,7 @@ namespace Realm {
     return (counter > old_counter);
   }
 
-  // waits until new work arrives - this will possibly take the counter lock and 
+  // waits until new work arrives - this will possibly take the counter lock and
   // sleep, so should not be called while holding another lock
   void ThreadedTaskScheduler::WorkCounter::wait_for_work(long long old_counter)
   {
@@ -453,7 +455,7 @@ namespace Realm {
 	if(thread->get_state() != Thread::STATE_READY) continue;
 	break;
       }
-	
+
       // last choice - create a new worker to mind the store
       // TODO: consider not doing this until we know there's work for it?
       if(true) {
@@ -533,7 +535,7 @@ namespace Realm {
 	  assert(yield_to != Thread::self());
 
 	  // this should only happen if we're at the max active worker count (otherwise
-	  //  somebody should have just woken this guy up earlier), and reduces the 
+	  //  somebody should have just woken this guy up earlier), and reduces the
 	  // unassigned worker count by one
 	  update_worker_count(0, -1);
 
@@ -558,7 +560,7 @@ namespace Realm {
 	    // if we got something better, put back the old thing (if any)
 	    if(task)
 	      task_source->put(task, task_priority, false); // back on front of list
-	  
+
 	    task = new_task;
 	    task_source = *it;
 	    task_priority = new_priority;
@@ -758,7 +760,7 @@ namespace Realm {
 
 	while(active_workers.count(thread) == 0)
 	  my_cv.wait();
-    
+
 	sleeping_threads.erase(thread);
       }
     }
@@ -845,7 +847,7 @@ namespace Realm {
     // now sleep until we're active again
     while(active_workers.count(Thread::self()) == 0)
       my_cv.wait();
-    
+
     // awake again, unregister our (stack-allocated) CV
     sleeping_threads.erase(Thread::self());
   }
@@ -887,7 +889,7 @@ namespace Realm {
     if(switch_to)
       worker_wake(switch_to);
   }
-  
+
   void KernelThreadTaskScheduler::wait_for_work(long long old_work_counter)
   {
     // if we have a dedicated core and we don't care about power, we can spin-wait here
@@ -1077,7 +1079,7 @@ namespace Realm {
     //  active_workers.insert(t);
     return t;
   }
-    
+
   void UserThreadTaskScheduler::worker_sleep(Thread *switch_to)
   {
     // lock is held by caller

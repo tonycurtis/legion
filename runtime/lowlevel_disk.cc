@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+#include <cinttypes>
+
 #include "realm/realm_config.h"
 #include "lowlevel_impl.h"
 #include "lowlevel.h"

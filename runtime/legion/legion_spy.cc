@@ -14,6 +14,8 @@
  */
 
 
+#include <cinttypes>
+
 #include "legion.h"
 #include "region_tree.h"
 #include "legion_spy.h"
@@ -45,7 +47,7 @@ namespace Legion {
       log("Region Tree State Logger for Address Space %x",sid);
       log("");
     }
-    
+
     //--------------------------------------------------------------------------
     TreeStateLogger::~TreeStateLogger(void)
     //--------------------------------------------------------------------------
@@ -104,7 +106,7 @@ namespace Legion {
       log("/////////");
       log("");
     }
-    
+
     //--------------------------------------------------------------------------
     void TreeStateLogger::finish_block(void)
     //--------------------------------------------------------------------------
@@ -121,11 +123,11 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    /*static*/ void TreeStateLogger::capture_state(Runtime *rt, 
-                  const RegionRequirement *req, unsigned idx, 
-                  const char *task_name, long long uid, 
-                  RegionTreeNode *node, ContextID ctx, bool before, 
-                  bool pre_map, bool closing, bool logical, 
+    /*static*/ void TreeStateLogger::capture_state(Runtime *rt,
+                  const RegionRequirement *req, unsigned idx,
+                  const char *task_name, long long uid,
+                  RegionTreeNode *node, ContextID ctx, bool before,
+                  bool pre_map, bool closing, bool logical,
                   FieldMask capture_mask, FieldMask working_mask)
     //--------------------------------------------------------------------------
     {
@@ -146,7 +148,7 @@ namespace Legion {
             if (req->handle_type == SINGULAR)
               logger->start_block("BEFORE ANALYZING REGION (%x,%d,%d) index "
                               "%d of %s (UID %lld) in context %d mask %s",
-                    req->region.index_space.id, req->region.field_space.id, 
+                    req->region.index_space.id, req->region.field_space.id,
                     req->region.tree_id, idx, task_name, uid, ctx, mask_string);
             else
               logger->start_block("BEFORE ANALYZING PARTITION (%d,%d,%d) "
@@ -159,7 +161,7 @@ namespace Legion {
             if (req->handle_type == SINGULAR)
               logger->start_block("BEFORE PRE-MAPPING REGION (%x,%d,%d) index "
                               "%d of %s (UID %lld) in context %d mask %s",
-                  req->region.index_space.id, req->region.field_space.id, 
+                  req->region.index_space.id, req->region.field_space.id,
                   req->region.tree_id, idx, task_name, uid, ctx, mask_string);
             else
               logger->start_block("BEFORE PRE-MAPPING PARTITION (%d,%d,%d) "
@@ -173,12 +175,12 @@ namespace Legion {
             if (closing)
               logger->start_block("BEFORE CLOSING REGION (%x,%d,%d) index %d "
                                 "of %s (UID %lld) in context %d mask %s",
-                  req->region.index_space.id, req->region.field_space.id, 
+                  req->region.index_space.id, req->region.field_space.id,
                   req->region.tree_id, idx, task_name, uid, ctx, mask_string);
             else
               logger->start_block("BEFORE MAPPING REGION (%x,%d,%d) index %d "
                                 "of %s (UID %lld) in context %d mask %s",
-                  req->region.index_space.id, req->region.field_space.id, 
+                  req->region.index_space.id, req->region.field_space.id,
                   req->region.tree_id, idx, task_name, uid, ctx, mask_string);
           }
         }
@@ -189,7 +191,7 @@ namespace Legion {
             if (req->handle_type == SINGULAR)
               logger->start_block("AFTER ANALYZING REGION (%x,%d,%d) index "
                               "%d of %s (UID %lld) in context %d mask %s",
-                    req->region.index_space.id, req->region.field_space.id, 
+                    req->region.index_space.id, req->region.field_space.id,
                     req->region.tree_id, idx, task_name, uid, ctx, mask_string);
             else
               logger->start_block("AFTER ANALYZING PARTITION (%d,%d,%d) "
@@ -202,7 +204,7 @@ namespace Legion {
             if (req->handle_type == SINGULAR)
               logger->start_block("AFTER PRE-MAPPING REGION (%x,%d,%d) index "
                             "%d of %s (UID %lld) in context %d mask %s",
-                  req->region.index_space.id, req->region.field_space.id, 
+                  req->region.index_space.id, req->region.field_space.id,
                   req->region.tree_id, idx, task_name, uid, ctx, mask_string);
             else
               logger->start_block("AFTER PRE-MAPPING PARTITION (%d,%d,%d) "
@@ -216,12 +218,12 @@ namespace Legion {
             if (closing)
               logger->start_block("AFTER CLOSING REGION (%x,%d,%d) index %d "
                                 "of %s (UID %lld) in context %d mask %s",
-                  req->region.index_space.id, req->region.field_space.id, 
+                  req->region.index_space.id, req->region.field_space.id,
                   req->region.tree_id, idx, task_name, uid, ctx, mask_string);
             else
               logger->start_block("AFTER MAPPING REGION (%x,%d,%d) index %d "
                                 "of %s (UID %lld) in context %d mask %s",
-                  req->region.index_space.id, req->region.field_space.id, 
+                  req->region.index_space.id, req->region.field_space.id,
                   req->region.tree_id, idx, task_name, uid, ctx, mask_string);
           }
         }
@@ -259,8 +261,7 @@ namespace Legion {
       }
     }
 
-  }; // namespace Internal  
+  }; // namespace Internal
 }; // namespace Legion
 
 // EOF
-

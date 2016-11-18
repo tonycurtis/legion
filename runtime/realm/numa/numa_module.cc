@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+#include <cinttypes>
+
 #include "numa_module.h"
 
 #include "numasysif.h"
@@ -92,7 +94,7 @@ namespace Realm {
       , cfg_stack_size_in_mb(2)
     {
     }
-      
+
     NumaModule::~NumaModule(void)
     {}
 
@@ -110,7 +112,7 @@ namespace Realm {
 	cp.add_option_int("-ll:nsize", m->cfg_numa_mem_size_in_mb)
 	  .add_option_int("-ll:ncpu", m->cfg_num_numa_cpus)
 	  .add_option_bool("-numa:pin", m->cfg_pin_memory);
-	
+
 	bool ok = cp.parse_command_line(cmdline);
 	if(!ok) {
 	  log_numa.fatal() << "error reading NUMA command line parameters";
@@ -276,13 +278,13 @@ namespace Realm {
 		pma.latency = 5;
 	      }
 	    }
-	    
+
 	    runtime->add_proc_mem_affinity(pma);
 	  }
 	}
       }
     }
-    
+
     // create any DMA channels provided by the module (default == do nothing)
     void NumaModule::create_dma_channels(RuntimeImpl *runtime)
     {

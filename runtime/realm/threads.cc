@@ -15,6 +15,8 @@
 
 // generic Realm interface to threading libraries (e.g. pthreads)
 
+#include <cinttypes>
+
 #include "threads.h"
 
 #include "logging.h"
@@ -153,8 +155,8 @@ namespace Realm {
   {
     if(owns_coremap)
       delete const_cast<CoreMap *>(cm);
-    
-    // we don't own the CoreReservation *'s in the allocation map, but we do own the 
+
+    // we don't own the CoreReservation *'s in the allocation map, but we do own the
     //  allocations
     for(std::map<CoreReservation *, CoreReservation::Allocation *>::iterator it = allocations.begin();
 	it != allocations.end();
@@ -207,7 +209,7 @@ namespace Realm {
     // this ends up being a simple max
     if(reqd > current)
       current = reqd;
-  }		
+  }
 
   // versions of the above that understand shared cores
   static bool can_add_usage(const std::map<const CoreMap::Proc *,
@@ -467,7 +469,7 @@ namespace Realm {
 	rsrv->allocation = alloc;
 	allocations[rsrv] = alloc;
       }
-    }      
+    }
 
     // for all the reservations that were missing allocations, notify any registered listeners
     for(std::set<CoreReservation *>::iterator it = missing.begin();
@@ -535,7 +537,7 @@ namespace Realm {
       t->process_signals();
       return;
     }
-    
+
     Backtrace bt;
     bt.capture_backtrace();
     bt.lookup_symbols();
@@ -600,7 +602,7 @@ namespace Realm {
       }
 
       switch(sig) {
-      case Thread::TSIG_INTERRUPT: 
+      case Thread::TSIG_INTERRUPT:
 	{
 	  Operation *op = current_op;
 	  if(op && op->cancellation_requested()) {
@@ -617,7 +619,7 @@ namespace Realm {
 	    log_thread.warning() << "unwanted TSIG_INTERRUPT: thread=" << this << " op=" << op;
 	  break;
 	}
-      default: 
+      default:
 	{
 	  assert(0);
 	}
@@ -679,7 +681,7 @@ namespace Realm {
 
     if(thread->scheduler)
       thread->scheduler->thread_starting(thread);
-    
+
     // call the actual thread body
     (*thread->entry_wrapper)(thread->target);
 
@@ -690,7 +692,7 @@ namespace Realm {
     // this is last so that the scheduler can delete us if it wants to
     if(thread->scheduler)
       thread->scheduler->thread_terminating(thread);
-    
+
     return 0;
   }
 
@@ -709,7 +711,7 @@ namespace Realm {
 
 #ifndef __MACH__
     if(rsrv.allocation->restrict_cpus)
-      CHECK_PTHREAD( pthread_attr_setaffinity_np(&attr, 
+      CHECK_PTHREAD( pthread_attr_setaffinity_np(&attr,
 						 sizeof(rsrv.allocation->allowed_cpus),
 						 &(rsrv.allocation->allowed_cpus)) );
 #endif
@@ -887,13 +889,13 @@ namespace Realm {
 
     if(thread->scheduler)
       thread->scheduler->thread_starting(thread);
-    
+
     // call the actual thread body
     (*thread->entry_wrapper)(thread->target);
 
     if(thread->scheduler)
       thread->scheduler->thread_terminating(thread);
-    
+
     // on return, we update our status and terminate
     log_thread.info() << "thread " << thread << " finished";
     thread->update_state(STATE_FINISHED);
@@ -933,7 +935,7 @@ namespace Realm {
     // we'll just fish our UserThread * out of TLS
     makecontext(&ctx, uthread_entry, 0);
 
-    update_state(STATE_STARTUP);    
+    update_state(STATE_STARTUP);
   }
 
   void UserThread::join(void)
@@ -1230,7 +1232,7 @@ namespace Realm {
       char *pos;
       int node_id = strtol(ne->d_name + 4, &pos, 10);
       if(pos && *pos) continue;  // doesn't match node[0-9]+
-	  
+
       char per_node_path[1024];
       sprintf(per_node_path, "/sys/devices/system/node/%s", ne->d_name);
       DIR *cd = opendir(per_node_path);
@@ -1245,7 +1247,7 @@ namespace Realm {
 	char *pos;
 	int cpu_id = strtol(ce->d_name + 3, &pos, 10);
 	if(pos && *pos) continue;  // doesn't match cpu[0-9]+
-	    
+
 	// is this a cpu we're allowed to use?
 	if(!CPU_ISSET(cpu_id, &cset)) {
 	  log_thread.info() << "cpu " << cpu_id << " not available - skipping";
@@ -1466,7 +1468,7 @@ namespace Realm {
       return cm;
     }
   }
-  
+
   static void show_share_set(std::ostream& os, const char *name,
 			     const std::set<CoreMap::Proc *>& sset)
   {

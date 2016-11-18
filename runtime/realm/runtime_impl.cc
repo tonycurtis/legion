@@ -15,6 +15,8 @@
 
 // Runtime implementation for Realm
 
+#include <cinttypes>
+
 #include "runtime_impl.h"
 
 #include "proc_impl.h"
@@ -68,7 +70,7 @@ namespace Realm {
   Logger log_collective("collective");
   extern Logger log_task; // defined in proc_impl.cc
   extern Logger log_taskreg; // defined in proc_impl.cc
-  
+
   ////////////////////////////////////////////////////////////////////////
   //
   // signal handlers
@@ -84,7 +86,7 @@ namespace Realm {
       gethostname(hostname, 127);
       fprintf(stderr,"Legion process received signal %d: %s\n",
                       signal, strsignal(signal));
-      fprintf(stderr,"Process %d on node %s is frozen!\n", 
+      fprintf(stderr,"Process %d on node %s is frozen!\n",
                       process_id, hostname);
       fflush(stderr);
       while (true)
@@ -126,7 +128,7 @@ namespace Realm {
       runtime_singleton = ((RuntimeImpl *)impl);
       return ((RuntimeImpl *)impl)->init(argc, argv);
     }
-    
+
     // this is now just a wrapper around Processor::register_task - consider switching to
     //  that
     bool Runtime::register_task(Processor::TaskFuncID taskid, Processor::TaskFuncPtr taskptr)
@@ -179,7 +181,7 @@ namespace Realm {
       return true;
     }
 
-    Event Runtime::collective_spawn(Processor target_proc, Processor::TaskFuncID task_id, 
+    Event Runtime::collective_spawn(Processor target_proc, Processor::TaskFuncID task_id,
 				    const void *args, size_t arglen,
 				    Event wait_on /*= Event::NO_EVENT*/, int priority /*= 0*/)
     {
@@ -187,7 +189,7 @@ namespace Realm {
 						     wait_on, priority);
     }
 
-    Event Runtime::collective_spawn_by_kind(Processor::Kind target_kind, Processor::TaskFuncID task_id, 
+    Event Runtime::collective_spawn_by_kind(Processor::Kind target_kind, Processor::TaskFuncID task_id,
 					    const void *args, size_t arglen,
 					    bool one_per_node /*= false*/,
 					    Event wait_on /*= Event::NO_EVENT*/, int priority /*= 0*/)
@@ -381,9 +383,9 @@ namespace Realm {
 
   // these should probably be member variables of RuntimeImpl?
     static size_t stack_size_in_mb;
-  
+
     RuntimeImpl::RuntimeImpl(void)
-      : machine(0), 
+      : machine(0),
 #ifdef NODE_LOGGING
 	prefix("."),
 #endif
@@ -416,7 +418,7 @@ namespace Realm {
 
     Processor RuntimeImpl::next_local_processor_id(void)
     {
-      Processor p = ID::make_processor(gasnet_mynode(), 
+      Processor p = ID::make_processor(gasnet_mynode(),
 				       num_local_processors++).convert<Processor>();
       return p;
     }
@@ -485,7 +487,7 @@ namespace Realm {
     {
       for(std::set<Processor>::const_iterator it1 = procs.begin();
 	  it1 != procs.end();
-	  it1++) 
+	  it1++)
 	for(std::set<Memory>::const_iterator it2 = mems.begin();
 	    it2 != mems.end();
 	    it2++) {
@@ -506,7 +508,7 @@ namespace Realm {
     {
       for(std::set<Memory>::const_iterator it1 = mems1.begin();
 	  it1 != mems1.end();
-	  it1++) 
+	  it1++)
 	for(std::set<Memory>::const_iterator it2 = mems2.begin();
 	    it2 != mems2.end();
 	    it2++) {
@@ -636,8 +638,8 @@ namespace Realm {
 #endif
       size_t reg_mem_size_in_mb = 0;
       size_t disk_mem_size_in_mb = 0;
-      // Static variable for stack size since we need to 
-      // remember it when we launch threads in run 
+      // Static variable for stack size since we need to
+      // remember it when we launch threads in run
       stack_size_in_mb = 2;
       //unsigned cpu_worker_threads = 1;
       unsigned dma_worker_threads = 1;
@@ -793,7 +795,7 @@ namespace Realm {
       //hcount += TestMessage::add_handler_entries(&handlers[hcount], "Test AM");
       //hcount += TestMessage2::add_handler_entries(&handlers[hcount], "Test 2 AM");
 
-      init_endpoints(handlers, hcount, 
+      init_endpoints(handlers, hcount,
 		     gasnet_mem_size_in_mb, reg_mem_size_in_mb,
 		     *core_reservations,
 		     *argc, (const char **)*argv);
@@ -862,7 +864,7 @@ namespace Realm {
 	  alarm(delay);
 	}
       }
-      
+
       start_polling_threads(active_msg_worker_threads);
 
       start_handler_threads(active_msg_handler_threads,
@@ -886,7 +888,7 @@ namespace Realm {
       Tracer<LockTraceItem>::init_trace(lock_trace_block_size,
                                         lock_trace_exp_arrv_rate);
 #endif
-	
+
       for(std::vector<Module *>::const_iterator it = modules.begin();
 	  it != modules.end();
 	  it++)
@@ -1210,7 +1212,7 @@ namespace Realm {
 
 #if defined(USE_GASNET) && defined(DEBUG_COLLECTIVES)
   static const int GASNET_COLL_FLAGS = GASNET_COLL_IN_MYSYNC | GASNET_COLL_OUT_MYSYNC | GASNET_COLL_LOCAL;
-  
+
   template <typename T>
   static void broadcast_check(const T& val, const char *name)
   {
@@ -1223,7 +1225,7 @@ namespace Realm {
   }
 #endif
 
-    Event RuntimeImpl::collective_spawn(Processor target_proc, Processor::TaskFuncID task_id, 
+    Event RuntimeImpl::collective_spawn(Processor target_proc, Processor::TaskFuncID task_id,
 					const void *args, size_t arglen,
 					Event wait_on /*= Event::NO_EVENT*/, int priority /*= 0*/)
     {
@@ -1294,7 +1296,7 @@ namespace Realm {
 #endif
     }
 
-    Event RuntimeImpl::collective_spawn_by_kind(Processor::Kind target_kind, Processor::TaskFuncID task_id, 
+    Event RuntimeImpl::collective_spawn_by_kind(Processor::Kind target_kind, Processor::TaskFuncID task_id,
 						const void *args, size_t arglen,
 						bool one_per_node /*= false*/,
 						Event wait_on /*= Event::NO_EVENT*/, int priority /*= 0*/)
@@ -1429,7 +1431,7 @@ namespace Realm {
       Runtime::RunStyle style;
       const void *args;
       size_t arglen;
-    };  
+    };
 
     static bool running_as_background_thread = false;
 
@@ -1448,7 +1450,7 @@ namespace Realm {
 			  Runtime::RunStyle style /*= ONE_TASK_ONLY*/,
 			  const void *args /*= 0*/, size_t arglen /*= 0*/,
 			  bool background /*= false*/)
-    { 
+    {
       // trigger legacy behavior (e.g. calling shutdown task on all processors)
       run_method_called = true;
 #if 0
@@ -1461,7 +1463,7 @@ namespace Realm {
 	margs->style = style;
 	margs->args = args;
 	margs->arglen = arglen;
-	
+
         pthread_t *threadp = (pthread_t*)malloc(sizeof(pthread_t));
 	pthread_attr_t attr;
 	CHECK_PTHREAD( pthread_attr_init(&attr) );
@@ -1469,7 +1471,7 @@ namespace Realm {
 	CHECK_PTHREAD( pthread_attr_destroy(&attr) );
         background_pthread = threadp;
 #ifdef DEADLOCK_TRACE
-        this->add_thread(threadp); 
+        this->add_thread(threadp);
 #endif
 	return;
       }
@@ -1480,7 +1482,7 @@ namespace Realm {
 						  false /*run on all procs*/,
 						  Event::NO_EVENT,
 						  INT_MAX); // runs with max priority
-      
+
       Event main_event;
       if(task_id != 0) {
 	if(style == Runtime::ONE_TASK_ONLY) {
@@ -1640,7 +1642,7 @@ namespace Realm {
 	  delete_container_contents(n.memories);
 	  delete_container_contents(n.processors);
 	}
-	
+
 	delete[] nodes;
 	delete global_memory;
 	delete local_event_free_list;
@@ -1808,7 +1810,7 @@ namespace Realm {
     {
       assert(id.is_instance());
       MemoryImpl *mem = get_memory_impl(id);
-      
+
       AutoHSLLock al(mem->mutex);
 
       // TODO: factor creator_node into lookup!
@@ -1822,7 +1824,7 @@ namespace Realm {
 
 	  // don't have region/offset info - will have to pull that when
 	  //  needed
-	  for(unsigned i = old_size; i <= id.instance.inst_idx; i++) 
+	  for(unsigned i = old_size; i <= id.instance.inst_idx; i++)
 	    mem->instances[i] = 0;
 	}
       }
@@ -1833,14 +1835,14 @@ namespace Realm {
 	  mem->instances[id.instance.inst_idx] = new RegionInstanceImpl(id.convert<RegionInstance>(), mem->me);
 	}
       }
-	  
+
       return mem->instances[id.instance.inst_idx];
     }
 
     /*static*/
     void RuntimeImpl::realm_backtrace(int signal)
     {
-      assert((signal == SIGILL) || (signal == SIGFPE) || 
+      assert((signal == SIGILL) || (signal == SIGFPE) ||
              (signal == SIGABRT) || (signal == SIGSEGV) ||
              (signal == SIGBUS));
       void *bt[256];
@@ -1852,7 +1854,7 @@ namespace Realm {
       size_t funcnamesize = 256;
       char *funcname = (char*)malloc(funcnamesize);
       for (int i = 0; i < bt_size; i++) {
-        // Modified from https://panthema.net/2008/0901-stacktrace-demangled/ 
+        // Modified from https://panthema.net/2008/0901-stacktrace-demangled/
         // under WTFPL 2.0
         char *begin_name = 0, *begin_offset = 0, *end_offset = 0;
         // find parentheses and +address offset surrounding the mangled name:
@@ -1880,14 +1882,14 @@ namespace Realm {
           // mangled name is now in [begin_name, begin_offset) and caller
           // offset in [begin_offset, end_offset). now apply __cxa_demangle():
           int status;
-          char* demangled_name = 
+          char* demangled_name =
             abi::__cxa_demangle(begin_name, funcname, &funcnamesize, &status);
           if (status == 0) {
             funcname = demangled_name; // use possibly realloc()-ed string
             offset += snprintf(buffer+offset,buffer_size-offset,
                          "  %s : %s+%s\n", bt_syms[i], funcname, begin_offset);
           } else {
-            // demangling failed. Output function name as a C function 
+            // demangling failed. Output function name as a C function
             // with no arguments.
             offset += snprintf(buffer+offset,buffer_size-offset,
                      "  %s : %s()+%s\n", bt_syms[i], begin_name, begin_offset);
@@ -1898,7 +1900,7 @@ namespace Realm {
                              "%s\n",bt_syms[i]);
         }
       }
-      fprintf(stderr,"BACKTRACE (%d, %lx)\n----------\n%s\n----------\n", 
+      fprintf(stderr,"BACKTRACE (%d, %lx)\n----------\n%s\n----------\n",
               gasnet_mynode(), (unsigned long)pthread_self(), buffer);
       fflush(stderr);
       free(buffer);
@@ -1910,7 +1912,7 @@ namespace Realm {
       exit(1);
     }
 
-  
+
   ////////////////////////////////////////////////////////////////////////
   //
   // class Node
@@ -1942,5 +1944,5 @@ namespace Realm {
     Message::request(target, args);
   }
 
-  
+
 }; // namespace Realm

@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+#include <cinttypes>
+
 #include "event_impl.h"
 
 #include "proc_impl.h"
@@ -40,7 +42,7 @@ namespace Realm {
     DeferredEventTrigger(Event _after_event);
 
     virtual ~DeferredEventTrigger(void);
-    
+
     virtual bool event_triggered(Event e, bool poisoned);
 
     virtual void print(std::ostream& os) const;
@@ -50,7 +52,7 @@ namespace Realm {
   protected:
     Event after_event;
   };
-  
+
   DeferredEventTrigger::DeferredEventTrigger(Event _after_event)
     : after_event(_after_event)
   {}
@@ -64,7 +66,7 @@ namespace Realm {
       GenEventImpl::trigger(after_event, true /*poisoned*/);
       return true;
     }
-    
+
     log_event.info() << "deferred trigger occuring: " << after_event;
     GenEventImpl::trigger(after_event, false /*!poisoned*/);
     return true;
@@ -88,7 +90,7 @@ namespace Realm {
 
   /*static*/ const Event Event::NO_EVENT = { 0 };
   // Take this you POS c++ type system
-  /* static */ const UserEvent UserEvent::NO_USER_EVENT = 
+  /* static */ const UserEvent UserEvent::NO_USER_EVENT =
     *(static_cast<UserEvent*>(const_cast<Event*>(&Event::NO_EVENT)));
 
   bool Event::has_triggered(void) const
@@ -152,7 +154,7 @@ namespace Realm {
 
   class EventTriggeredCondition {
   public:
-    EventTriggeredCondition(EventImpl* _event, EventImpl::gen_t _gen, 
+    EventTriggeredCondition(EventImpl* _event, EventImpl::gen_t _gen,
 			    ProfilingMeasurements::OperationEventWaits::WaitInterval *_interval);
 
     class Callback : public EventWaiter {
@@ -176,7 +178,7 @@ namespace Realm {
     ProfilingMeasurements::OperationEventWaits::WaitInterval *interval;
   };
 
-  EventTriggeredCondition::EventTriggeredCondition(EventImpl* _event, EventImpl::gen_t _gen, 
+  EventTriggeredCondition::EventTriggeredCondition(EventImpl* _event, EventImpl::gen_t _gen,
 						   ProfilingMeasurements::OperationEventWaits::WaitInterval *_interval)
     : event(_event), gen(_gen), interval(_interval)
   {}
@@ -190,11 +192,11 @@ namespace Realm {
     : cond(_cond)
   {
   }
-  
+
   EventTriggeredCondition::Callback::~Callback(void)
   {
   }
-  
+
   bool EventTriggeredCondition::Callback::event_triggered(Event e, bool poisoned)
   {
     if(cond.interval)
@@ -207,7 +209,7 @@ namespace Realm {
   void EventTriggeredCondition::Callback::print(std::ostream& os) const
   {
     os << "EventTriggeredCondition (thread unknown)";
-  }  
+  }
 
   Event EventTriggeredCondition::Callback::get_finish_event(void) const
   {
@@ -295,10 +297,10 @@ namespace Realm {
 
     // early out case too
     if(e->has_triggered(gen, poisoned)) return;
-    
+
     // waiting on an event does not count against the low level's time
     DetailedTimer::ScopedPush sp2(TIME_NONE);
-    
+
     log_event.info() << "external thread blocked: event=" << *this;
     e->external_wait(gen, poisoned);
     log_event.info() << "external thread resumed: event=" << *this;
@@ -338,7 +340,7 @@ namespace Realm {
 
 #ifdef EVENT_GRAPH_TRACE
     Event enclosing = find_enclosing_termination_event();
-    log_event_graph.info("Event Trigger: (" IDFMT ",%d) (" IDFMT 
+    log_event_graph.info("Event Trigger: (" IDFMT ",%d) (" IDFMT
 			 ",%d) (" IDFMT ",%d)",
 			 id, gen, wait_on.id, wait_on.gen,
 			 enclosing.id, enclosing.gen);
@@ -349,7 +351,7 @@ namespace Realm {
       log_event.info() << "deferring user event trigger: event=" << *this << " wait_on=" << wait_on;
       if(Config::event_loop_detection_limit > 0) {
 	// before we add the deferred trigger as a waiter, see if this is causing a cycle in the event graph
-	if(EventImpl::detect_event_chain(*this, wait_on, 
+	if(EventImpl::detect_event_chain(*this, wait_on,
 					 Config::event_loop_detection_limit,
 					 true /*print chain*/)) {
 	  log_event.fatal() << "deferred trigger creates event loop!  event=" << *this << " wait_on=" << wait_on;
@@ -371,7 +373,7 @@ namespace Realm {
 #ifdef EVENT_GRAPH_TRACE
     // TODO: record cancellation?
     Event enclosing = find_enclosing_termination_event();
-    log_event_graph.info("Event Trigger: (" IDFMT ",%d) (" IDFMT 
+    log_event_graph.info("Event Trigger: (" IDFMT ",%d) (" IDFMT
 			 ",%d) (" IDFMT ",%d)",
 			 id, gen, wait_on.id, wait_on.gen,
 			 enclosing.id, enclosing.gen);
@@ -765,7 +767,7 @@ namespace Realm {
       EventMerger *m = new EventMerger(finish_event, ignore_faults);
 
 #ifdef EVENT_GRAPH_TRACE
-      log_event_graph.info("Event Merge: (" IDFMT ",%d) %ld", 
+      log_event_graph.info("Event Merge: (" IDFMT ",%d) %ld",
 			   finish_event.id, finish_event.gen, wait_for.size());
 #endif
 
@@ -797,10 +799,10 @@ namespace Realm {
       Event finish_event = GenEventImpl::create_genevent()->current_event();
       EventMerger *m = new EventMerger(finish_event, true/*ignore faults*/);
 #ifdef EVENT_GRAPH_TRACE
-      log_event_graph.info("Event Merge: (" IDFMT ",%d) 1", 
+      log_event_graph.info("Event Merge: (" IDFMT ",%d) 1",
 			   finish_event.id, finish_event.gen);
 #endif
-      log_event.info() << "event merging: event=" << finish_event 
+      log_event.info() << "event merging: event=" << finish_event
                        << " wait_on=" << wait_for;
       m->add_event(wait_for);
 #ifdef EVENT_GRAPH_TRACE
@@ -1028,7 +1030,7 @@ namespace Realm {
       // common case: no poisoned generations
       if(__builtin_expect((num_poisoned_generations == 0), 1))
 	return false;
-      
+
       for(int i = 0; i < num_poisoned_generations; i++)
 	if(poisoned_generations[i] == gen)
 	  return true;
@@ -1062,7 +1064,7 @@ namespace Realm {
     size_t payload_size;
     int payload_mode;
   };
-  
+
 
   /*static*/ void EventTriggerMessage::send_request(gasnet_node_t target, Event event,
 						    bool poisoned)
@@ -1122,7 +1124,7 @@ namespace Realm {
 #ifdef EVENT_TRACING
       {
         EventTraceItem &item = Tracer<EventTraceItem>::trace_item();
-        item.event_id = args.event.id; 
+        item.event_id = args.event.id;
         item.event_gen = args.event.gen;
         item.action = EventTraceItem::ACT_WAIT;
       }
@@ -1176,7 +1178,7 @@ namespace Realm {
 					 impl->num_poisoned_generations,
 					 impl->poisoned_generations);
       }
-    } 
+    }
 
     /*static*/ void EventTriggerMessage::handle_request(EventTriggerMessage::RequestArgs args)
     {
@@ -1232,7 +1234,7 @@ namespace Realm {
 	// should be an incremental update
 	assert(num_poisoned_generations <= new_poisoned_count);
 	if(num_poisoned_generations > 0)
-	  assert(memcmp(poisoned_generations, new_poisoned_generations, 
+	  assert(memcmp(poisoned_generations, new_poisoned_generations,
 			new_poisoned_count * sizeof(gen_t)) == 0);
       } else {
 	// we shouldn't have any local ones either
@@ -1380,7 +1382,7 @@ namespace Realm {
 	, poisoned(false)
       {
       }
-      virtual ~PthreadCondWaiter(void) 
+      virtual ~PthreadCondWaiter(void)
       {
       }
 
@@ -1481,7 +1483,7 @@ namespace Realm {
 
 	// any remote nodes to notify?
 	if(!to_update.empty())
-	  EventUpdateMessage::broadcast_request(to_update, 
+	  EventUpdateMessage::broadcast_request(to_update,
 						make_event(gen_triggered),
 						num_poisoned_generations,
 						poisoned_generations);
@@ -1493,7 +1495,7 @@ namespace Realm {
 	// we're triggering somebody else's event, so the first thing to do is tell them
 	assert(trigger_node == (int)gasnet_mynode());
 	// once we send this message, it's possible we get an update from the owner before
-	//  we take the lock a few lines below here (assuming somebody on this node had 
+	//  we take the lock a few lines below here (assuming somebody on this node had
 	//  already subscribed), so check here that we're triggering a new generation
 	// (the alternative is to not send the message until after we update local state, but
 	// that adds latency for everybody else)
@@ -1533,7 +1535,7 @@ namespace Realm {
 	    // list is valid to any observer of this update
 	    generation = gen_triggered;
 	    __sync_synchronize();
-	  } else 
+	  } else
 	    if(gen_triggered > (generation + 1)) {
 	      // we can't update the main state because there are generations that we know
 	      //  have triggered, but we do not know if they are poisoned, so look in the
@@ -1681,12 +1683,12 @@ namespace Realm {
 						       const void *data, size_t datalen)
     {
       RequestArgs args;
-      
+
       args.barrier = barrier;
       args.delta = delta;
       args.wait_on = wait_on;
       args.sender = forwarded ? (-1 - sender) : sender;
-      
+
       Message::request(target, args, data, datalen, PAYLOAD_COPY);
     }
 
@@ -1699,7 +1701,7 @@ namespace Realm {
       args.forwarded = forwarded;
       args.barrier_id = barrier_id;
       args.subscribe_gen = subscribe_gen;
-      
+
       Message::request(target, args);
     }
 
@@ -1841,7 +1843,7 @@ static void *bytedup(const void *data, size_t datalen)
     // used to adjust a barrier's arrival count either up or down
     // if delta > 0, timestamp is current time (on requesting node)
     // if delta < 0, timestamp says which positive adjustment this arrival must wait for
-    void BarrierImpl::adjust_arrival(gen_t barrier_gen, int delta, 
+    void BarrierImpl::adjust_arrival(gen_t barrier_gen, int delta,
 				     Barrier::timestamp_t timestamp, Event wait_on,
 				     gasnet_node_t sender, bool forwarded,
 				     const void *reduce_value, size_t reduce_value_size)
@@ -1871,7 +1873,7 @@ static void *bytedup(const void *data, size_t datalen)
 
 	log_barrier.info() << "deferring barrier arrival: delta=" << delta << " in=" << wait_on
 			   << " out=" << b << " (" << timestamp << ")";
-	EventImpl::add_waiter(wait_on, new DeferredBarrierArrival(b, delta, 
+	EventImpl::add_waiter(wait_on, new DeferredBarrierArrival(b, delta,
 								  sender, forwarded,
 								  reduce_value, reduce_value_size));
 	return;
@@ -1943,7 +1945,7 @@ static void *bytedup(const void *data, size_t datalen)
 		(it->first == (generation + 1)) &&
 		((base_arrival_count + it->second->unguarded_delta) == 0)) {
 	    // keep the list of local waiters to wake up once we release the lock
-	    local_notifications.insert(local_notifications.end(), 
+	    local_notifications.insert(local_notifications.end(),
 				       it->second->local_waiters.begin(), it->second->local_waiters.end());
 	    trigger_gen = generation = it->first;
 	    delete it->second;
@@ -2172,7 +2174,7 @@ static void *bytedup(const void *data, size_t datalen)
       size_t final_values_size = 0;
       gasnet_node_t forward_to_node = (gasnet_node_t) -1;
       gasnet_node_t inform_migration = (gasnet_node_t) -1;
-      
+
       do {
 	AutoHSLLock a(impl->mutex);
 
@@ -2209,7 +2211,7 @@ static void *bytedup(const void *data, size_t datalen)
 	    // new subscription - don't reset remote_trigger_gens because the node may have
 	    //  been subscribed in the past
 	    // NOTE: remote_subscribe_gens should only hold subscriptions for
-	    //  generations that haven't triggered, so if we're subscribing to 
+	    //  generations that haven't triggered, so if we're subscribing to
 	    //  an old generation, don't add it
 	    if(args.subscribe_gen > impl->generation)
 	      impl->remote_subscribe_gens[args.subscriber] = args.subscribe_gen;
@@ -2319,7 +2321,7 @@ static void *bytedup(const void *data, size_t datalen)
 	} else {
 	  // hold this trigger until we get messages for the earlier generation(s)
 	  log_barrier.info("holding future trigger: " IDFMT "/%d (%d -> %d)",
-			   args.barrier_id, impl->generation, 
+			   args.barrier_id, impl->generation,
 			   args.previous_gen, args.trigger_gen);
 	  impl->held_triggers[args.previous_gen] = args.trigger_gen;
 	}

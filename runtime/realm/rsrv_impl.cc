@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+#include <cinttypes>
+
 #include "rsrv_impl.h"
 
 #include "logging.h"
@@ -249,7 +251,7 @@ namespace Realm {
       //  being resized?
       AutoHSLLock a(get_runtime()->nodes[gasnet_mynode()].mutex);
 
-      std::vector<ReservationImpl>& locks = 
+      std::vector<ReservationImpl>& locks =
         get_runtime()->nodes[gasnet_mynode()].locks;
 
 #ifdef REUSE_LOCKS
@@ -325,7 +327,7 @@ namespace Realm {
       log_reservation.spew("count init " IDFMT "=[%p]=%d", me.id, &count, count);
       mode = 0;
       in_use = false;
-      remote_waiter_mask = NodeSet(); 
+      remote_waiter_mask = NodeSet();
       remote_sharer_mask = NodeSet();
       requested = false;
       if(_data_size) {
@@ -379,14 +381,14 @@ namespace Realm {
 	  break;
 	}
 
-	// it'd be bad if somebody tried to take a lock that had been 
+	// it'd be bad if somebody tried to take a lock that had been
 	//   deleted...  (info is only valid on a lock's home node)
 	assert((ID(impl->me).rsrv.creator_node != gasnet_mynode()) ||
 	       impl->in_use);
 
 	// case 2: we're the owner, and nobody is holding the lock, so grant
 	//  it to the (original) requestor
-	if((impl->count == ReservationImpl::ZERO_COUNT) && 
+	if((impl->count == ReservationImpl::ZERO_COUNT) &&
            (impl->remote_sharer_mask.empty())) {
           assert(impl->remote_waiter_mask.empty());
 
@@ -549,7 +551,7 @@ namespace Realm {
       {
 	AutoHSLLock a(mutex); // hold mutex on lock while we check things
 
-	// it'd be bad if somebody tried to take a lock that had been 
+	// it'd be bad if somebody tried to take a lock that had been
 	//   deleted...  (info is only valid on a lock's home node)
 	assert((ID(me).rsrv.creator_node != gasnet_mynode()) ||
 	       in_use);
@@ -607,7 +609,7 @@ namespace Realm {
 	  }
 	} else {
 	  // somebody else owns it
-	
+
 	  // are we sharing?
 	  if((count > ZERO_COUNT) && (mode == new_mode)) {
 	    // we're allowed to grant additional sharers with the same mode
@@ -618,7 +620,7 @@ namespace Realm {
 	      got_lock = true;
 	    }
 	  }
-	
+
 	  // if we didn't get the lock, we'll have to ask for it from the
 	  //  other node (even if we're currently sharing with the wrong mode)
 	  if(!got_lock && !requested) {
@@ -628,11 +630,11 @@ namespace Realm {
 	    // don't actually send message here because we're holding the
 	    //  lock's mutex, which'll be bad if we get a message related to
 	    //  this lock inside gasnet calls
-	  
+
 	    requested = true;
 	  }
 	}
-  
+
 	log_reservation.debug(            "local reservation result: reservation=" IDFMT " got=%d req=%d count=%d",
 		 me.id, got_lock ? 1 : 0, requested ? 1 : 0, count);
 
@@ -718,7 +720,7 @@ namespace Realm {
       }
 
       // if we got the lock, trigger an event if we were given one
-      if(got_lock && after_lock.exists()) 
+      if(got_lock && after_lock.exists())
 	GenEventImpl::trigger(after_lock, false /*!poisoned*/);
 
       // trigger any bonus grants too
@@ -749,11 +751,11 @@ namespace Realm {
 	WaiterList& excl_waiters = local_waiters[MODE_EXCL];
 	to_wake.push_back(excl_waiters.front());
 	excl_waiters.pop_front();
-	  
+
 	// if the set of exclusive waiters is empty, delete it
 	if(excl_waiters.size() == 0)
 	  local_waiters.erase(MODE_EXCL);
-	  
+
 	mode = MODE_EXCL;
 	count = ZERO_COUNT + 1;
 	log_reservation.spew("count <-1 [%p]=%d", &count, count);

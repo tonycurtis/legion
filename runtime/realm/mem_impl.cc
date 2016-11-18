@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+#include <cinttypes>
+
 #include "mem_impl.h"
 
 #include "proc_impl.h"
@@ -88,7 +90,7 @@ namespace Realm {
     {
 #ifdef REALM_PROFILE_MEMORY_USAGE
       printf("Memory " IDFMT " usage: peak=%zd (%.1f MB) footprint=%zd (%.1f MB)\n",
-	     me.id, 
+	     me.id,
 	     (size_t)peak_usage, peak_usage / 1048576.0,
 	     (size_t)peak_footprint, peak_footprint / 1048576.0);
 #endif
@@ -132,7 +134,7 @@ namespace Realm {
 	    if(footprint > peak_footprint) peak_footprint = footprint;
 	    return retval;
 	  }
-	
+
 	  if(it->second > (off_t)size) {
 	    // some left over
 	    off_t leftover = it->second - size;
@@ -286,11 +288,11 @@ namespace Realm {
       DomainLinearization linear;
       linear.deserialize(linearization_bits);
 
-      RegionInstanceImpl *i_impl = new RegionInstanceImpl(i, r, me, inst_offset, 
+      RegionInstanceImpl *i_impl = new RegionInstanceImpl(i, r, me, inst_offset,
                                                               bytes_needed, redopid,
-							      linear, block_size, 
+							      linear, block_size,
                                                               element_size, field_sizes, reqs,
-							      count_offset, list_size, 
+							      count_offset, list_size,
                                                               parent_inst);
 
       // find/make an available index to store this in
@@ -394,7 +396,7 @@ namespace Realm {
       return instances[index];
     }
 
-    void MemoryImpl::destroy_instance_local(RegionInstance i, 
+    void MemoryImpl::destroy_instance_local(RegionInstance i,
 					      bool local_destroy)
     {
       log_inst.info("destroying local instance: mem=" IDFMT " inst=" IDFMT "", me.id, i.id);
@@ -416,17 +418,17 @@ namespace Realm {
 	//log_metadata.info("no remote copies of metadata for " IDFMT, i.id);
 	// TODO
       }
-      
+
       // handle any profiling requests
       iimpl->finalize_instance();
-      
+
       return; // TODO: free up actual instance record?
       ID id(i);
 
       // TODO: actually free corresponding storage
     }
 
-    void MemoryImpl::destroy_instance_remote(RegionInstance i, 
+    void MemoryImpl::destroy_instance_remote(RegionInstance i,
 					       bool local_destroy)
     {
       // if we're the original destroyer of the instance, tell the owner
@@ -442,15 +444,15 @@ namespace Realm {
       return;
     }
 
-  
+
   ////////////////////////////////////////////////////////////////////////
   //
   // class LocalCPUMemory
   //
 
   LocalCPUMemory::LocalCPUMemory(Memory _me, size_t _size,
-				 void *prealloc_base /*= 0*/, bool _registered /*= false*/) 
-    : MemoryImpl(_me, _size, MKIND_SYSMEM, ALIGNMENT, 
+				 void *prealloc_base /*= 0*/, bool _registered /*= false*/)
+    : MemoryImpl(_me, _size, MKIND_SYSMEM, ALIGNMENT,
 		 (_registered ? Memory::REGDMA_MEM : Memory::SYSTEM_MEM))
   {
     if(prealloc_base) {
@@ -471,7 +473,7 @@ namespace Realm {
       assert(!_registered);
       registered = false;
     }
-    log_malloc.debug("CPU memory at %p, size = %zd%s%s", base, _size, 
+    log_malloc.debug("CPU memory at %p, size = %zd%s%s", base, _size,
 		     prealloced ? " (prealloced)" : "", registered ? " (registered)" : "");
     free_blocks[0] = _size;
   }
@@ -498,7 +500,7 @@ namespace Realm {
 				 list_size, reqs, parent_inst);
   }
 
-  void LocalCPUMemory::destroy_instance(RegionInstance i, 
+  void LocalCPUMemory::destroy_instance(RegionInstance i,
 					bool local_destroy)
   {
     destroy_instance_local(i, local_destroy);
@@ -508,7 +510,7 @@ namespace Realm {
   {
     return alloc_bytes_local(size);
   }
-  
+
   void LocalCPUMemory::free_bytes(off_t offset, size_t size)
   {
     free_bytes_local(offset, size);
@@ -538,7 +540,7 @@ namespace Realm {
   {
     return registered ? base : 0;
   };
-  
+
   ////////////////////////////////////////////////////////////////////////
   //
   // class RemoteMemory
@@ -552,7 +554,7 @@ namespace Realm {
     RemoteMemory::~RemoteMemory(void)
     {
     }
-    
+
     RegionInstance RemoteMemory::create_instance(IndexSpace r,
 						 const int *linearization_bits,
 						 size_t bytes_needed,
@@ -569,7 +571,7 @@ namespace Realm {
 				    list_size, reqs, parent_inst);
     }
 
-    void RemoteMemory::destroy_instance(RegionInstance i, 
+    void RemoteMemory::destroy_instance(RegionInstance i,
 					bool local_destroy)
     {
       destroy_instance_remote(i, local_destroy);
@@ -632,14 +634,14 @@ namespace Realm {
       num_nodes = gasnet_nodes();
       seginfos = new gasnet_seginfo_t[num_nodes];
       CHECK_GASNET( gasnet_getSegmentInfo(seginfos, num_nodes) );
-      
+
       for(int i = 0; i < num_nodes; i++) {
 	assert(seginfos[i].size >= size_per_node);
       }
 
       size = size_per_node * num_nodes;
       memory_stride = MEMORY_STRIDE;
-      
+
       free_blocks[0] = size;
     }
 
@@ -669,7 +671,7 @@ namespace Realm {
       }
     }
 
-    void GASNetMemory::destroy_instance(RegionInstance i, 
+    void GASNetMemory::destroy_instance(RegionInstance i,
 					bool local_destroy)
     {
       if(gasnet_mynode() == 0) {
@@ -765,7 +767,7 @@ namespace Realm {
     }
 
     void GASNetMemory::get_batch(size_t batch_size,
-				 const off_t *offsets, void * const *dsts, 
+				 const off_t *offsets, void * const *dsts,
 				 const size_t *sizes)
     {
 #define NO_USE_NBI_ACCESSREGION
@@ -820,7 +822,7 @@ namespace Realm {
 
     void GASNetMemory::put_batch(size_t batch_size,
 				 const off_t *offsets,
-				 const void * const *srcs, 
+				 const void * const *srcs,
 				 const size_t *sizes)
     {
       gasnet_begin_nbi_accessregion();
@@ -883,7 +885,7 @@ namespace Realm {
     r_args.offset = offset;
     Response::request(args.sender, r_args);
   }
-  
+
   /*static*/ void RemoteMemAllocRequest::handle_response(ResponseArgs args)
   {
     HandlerReplyFuture<off_t> *f = static_cast<HandlerReplyFuture<off_t> *>(args.resp_ptr);
@@ -908,7 +910,7 @@ namespace Realm {
     result.wait();
     return result.get();
   }
-  
+
 
   ////////////////////////////////////////////////////////////////////////
   //
@@ -932,7 +934,7 @@ namespace Realm {
     //requests.deserialize(((const char*)msgdata)+req_offset);
 
     MemoryImpl *m_impl = get_runtime()->get_memory_impl(args.m);
-    RegionInstance inst = m_impl->create_instance(args.r, 
+    RegionInstance inst = m_impl->create_instance(args.r,
 						  payload->linearization_bits,
 						  payload->bytes_needed,
 						  payload->block_size,
@@ -1045,7 +1047,7 @@ namespace Realm {
     args.i = inst;
     Message::request(target, args);
   }
-  
+
 
   ////////////////////////////////////////////////////////////////////////
   //
@@ -1108,7 +1110,7 @@ namespace Realm {
 	} else {
 	  impl->put_bytes(args.offset, data, datalen);
 	}
-	    
+
 	break;
       }
 
@@ -1116,7 +1118,7 @@ namespace Realm {
     case MemoryImpl::MKIND_GPUFB:
       {
 	impl->put_bytes(args.offset, data, datalen);
-	
+
 	break;
       }
 
@@ -1153,7 +1155,7 @@ namespace Realm {
 #endif
 	entry.remaining_count--;
 	if(entry.remaining_count == 0) {
-	  // we're the last write, and we've already got the fence, so 
+	  // we're the last write, and we've already got the fence, so
 	  //  respond
           RemoteWriteFenceAckMessage::send_request(args.sender,
                                                    entry.fence);
@@ -1270,7 +1272,7 @@ namespace Realm {
       redop->fold_strided(lhs, data,
 			  args.stride, redop->sizeof_rhs, count, false /*not exclusive*/);
     else
-      redop->apply_strided(lhs, data, 
+      redop->apply_strided(lhs, data,
 			   args.stride, redop->sizeof_rhs, count, false /*not exclusive*/);
 
     // track the sequence ID to know when the full RDMA is done
@@ -1302,7 +1304,7 @@ namespace Realm {
 #endif
 	entry.remaining_count--;
 	if(entry.remaining_count == 0) {
-	  // we're the last write, and we've already got the fence, so 
+	  // we're the last write, and we've already got the fence, so
 	  //  respond
           RemoteWriteFenceAckMessage::send_request(args.sender,
                                                    entry.fence);
@@ -1315,7 +1317,7 @@ namespace Realm {
     }
   }
 
-  
+
   ////////////////////////////////////////////////////////////////////////
   //
   // class RemoteReduceListMessage
@@ -1326,7 +1328,7 @@ namespace Realm {
 							  size_t datalen)
   {
     MemoryImpl *impl = get_runtime()->get_memory_impl(args.mem);
-    
+
     log_copy.debug("received remote reduction list request: mem=" IDFMT ", offset=%zd, size=%zd, redopid=%d",
 		   args.mem.id, (ssize_t)args.offset, datalen, args.redopid);
 
@@ -1364,7 +1366,7 @@ namespace Realm {
     args.redopid = redopid;
     Message::request(target, args, data, datalen, payload_mode);
   }
-  
+
 
   ////////////////////////////////////////////////////////////////////////
   //
@@ -1384,7 +1386,7 @@ namespace Realm {
   {
     os << "RemoteWriteFence";
   }
-  
+
 
   ////////////////////////////////////////////////////////////////////////
   //
@@ -1395,7 +1397,7 @@ namespace Realm {
   {
     log_copy.debug("remote write fence (mem = " IDFMT ", seq = %d/%d, count = %d, fence = %p",
 		   args.mem.id, args.sender, args.sequence_id, args.num_writes, args.fence);
-    
+
     assert(args.sequence_id != 0);
     // track the sequence ID to know when the full RDMA is done
     if(args.sequence_id > 0) {
@@ -1457,7 +1459,7 @@ namespace Realm {
     args.fence = fence;
     Message::request(target, args);
   }
-  
+
 
   ////////////////////////////////////////////////////////////////////////
   //
@@ -1480,7 +1482,7 @@ namespace Realm {
     args.fence = fence;
     Message::request(target, args);
   }
-  
+
 
   ////////////////////////////////////////////////////////////////////////
   //
@@ -1531,7 +1533,7 @@ namespace Realm {
 
 	  // last send includes whatever's left
 	  RemoteWriteMessage::Message::request(ID(mem).memory.owner_node, args,
-					       pos, datalen, 
+					       pos, datalen,
 					       make_copy ? PAYLOAD_COPY : PAYLOAD_KEEP);
 	  return count;
 	}
@@ -1722,7 +1724,7 @@ namespace Realm {
 					     spans, datalen,
 					     make_copy ? PAYLOAD_COPY : PAYLOAD_KEEP,
 					     dstptr);
-	
+
 	return 1;
       }
     }
@@ -1753,7 +1755,7 @@ namespace Realm {
             break;
           count--;
           cur_count++;
-          serdez_op->serialize(pos, buffer); 
+          serdez_op->serialize(pos, buffer);
           pos += field_size;
           new_offset += field_size;
           buffer += elemnt_size;
@@ -1870,5 +1872,5 @@ namespace Realm {
       RemoteWriteFenceMessage::send_request(ID(mem).memory.owner_node, mem, sequence_id,
 					    num_writes, fence);
     }
-  
+
 }; // namespace Realm

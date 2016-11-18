@@ -14,6 +14,8 @@
  */
 
 
+#include <cinttypes>
+
 #include "legion.h"
 #include "runtime.h"
 #include "legion_ops.h"
@@ -25,7 +27,7 @@ namespace Legion {
   namespace Internal {
 
     /////////////////////////////////////////////////////////////
-    // LocalReferenceMutator 
+    // LocalReferenceMutator
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -66,7 +68,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // WrapperReferenceMutator 
+    // WrapperReferenceMutator
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -97,7 +99,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // DistributedCollectable 
+    // DistributedCollectable
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -106,11 +108,11 @@ namespace Legion {
                                                    AddressSpaceID own_space,
                                                    AddressSpaceID loc_space,
                                                    bool do_registration)
-      : runtime(rt), did(id), owner_space(own_space), 
+      : runtime(rt), did(id), owner_space(own_space),
         local_space(loc_space), gc_lock(Reservation::create_reservation()),
         current_state(INACTIVE_STATE), has_gc_references(false),
-        has_valid_references(false), has_resource_references(false), 
-        gc_references(0), valid_references(0), resource_references(0), 
+        has_valid_references(false), has_resource_references(false),
+        gc_references(0), valid_references(0), resource_references(0),
         registered_with_runtime(do_registration)
     //--------------------------------------------------------------------------
     {
@@ -345,7 +347,7 @@ namespace Legion {
         if (must_be_valid && (current_state != VALID_STATE))
           return false;
         // If we are in any of the deleted states, it is no good
-        if ((current_state == DELETED_STATE) || 
+        if ((current_state == DELETED_STATE) ||
             (current_state == ACTIVE_DELETED_STATE) ||
             (current_state == PENDING_ACTIVE_DELETED_STATE) ||
             (current_state == PENDING_INVALID_DELETED_STATE) ||
@@ -404,7 +406,7 @@ namespace Legion {
         current_state = PENDING_INVALID_DELETED_STATE;
         return true;
       }
-      return false; 
+      return false;
     }
 
     //--------------------------------------------------------------------------
@@ -465,7 +467,7 @@ namespace Legion {
           std::pair<AddressSpaceID,AddressSpaceID> key(source, target);
           if (kind == VALID_REF_KIND)
           {
-            std::map<std::pair<AddressSpaceID,AddressSpaceID>,int>::iterator 
+            std::map<std::pair<AddressSpaceID,AddressSpaceID>,int>::iterator
               finder = create_valid_refs.find(key);
             if (finder != create_valid_refs.end())
             {
@@ -478,7 +480,7 @@ namespace Legion {
           }
           else
           {
-            std::map<std::pair<AddressSpaceID,AddressSpaceID>,int>::iterator 
+            std::map<std::pair<AddressSpaceID,AddressSpaceID>,int>::iterator
               finder = create_gc_refs.find(key);
             if (finder != create_gc_refs.end())
             {
@@ -530,7 +532,7 @@ namespace Legion {
           std::pair<AddressSpaceID,AddressSpaceID> key(source, target);
           if (kind == VALID_REF_KIND)
           {
-            std::map<std::pair<AddressSpaceID,AddressSpaceID>,int>::iterator 
+            std::map<std::pair<AddressSpaceID,AddressSpaceID>,int>::iterator
               finder = create_valid_refs.find(key);
             if (finder != create_valid_refs.end())
             {
@@ -543,7 +545,7 @@ namespace Legion {
           }
           else
           {
-            std::map<std::pair<AddressSpaceID,AddressSpaceID>,int>::iterator 
+            std::map<std::pair<AddressSpaceID,AddressSpaceID>,int>::iterator
               finder = create_gc_refs.find(key);
             if (finder != create_gc_refs.end())
             {
@@ -593,7 +595,7 @@ namespace Legion {
         if (first)
         {
           gc_references += cnt;
-          std::map<ReferenceSource,int>::iterator finder = 
+          std::map<ReferenceSource,int>::iterator finder =
             detailed_base_gc_references.find(source);
           if (finder == detailed_base_gc_references.end())
             detailed_base_gc_references[source] = cnt;
@@ -648,7 +650,7 @@ namespace Legion {
         if (first)
         {
           gc_references++;
-          std::map<DistributedID,int>::iterator finder = 
+          std::map<DistributedID,int>::iterator finder =
             detailed_nested_gc_references.find(did);
           if (finder == detailed_nested_gc_references.end())
             detailed_nested_gc_references[did] = cnt;
@@ -707,7 +709,7 @@ namespace Legion {
           assert(has_gc_references);
 #endif
           gc_references -= cnt;
-          std::map<ReferenceSource,int>::iterator finder = 
+          std::map<ReferenceSource,int>::iterator finder =
             detailed_base_gc_references.find(source);
           assert(finder != detailed_base_gc_references.end());
           assert(finder->second >= cnt);
@@ -758,7 +760,7 @@ namespace Legion {
           assert(has_gc_references);
 #endif
           gc_references--;
-          std::map<DistributedID,int>::iterator finder = 
+          std::map<DistributedID,int>::iterator finder =
             detailed_nested_gc_references.find(did);
           assert(finder != detailed_nested_gc_references.end());
           assert(finder->second >= cnt);
@@ -809,7 +811,7 @@ namespace Legion {
         if (first)
         {
           valid_references += cnt;
-          std::map<ReferenceSource,int>::iterator finder = 
+          std::map<ReferenceSource,int>::iterator finder =
             detailed_base_valid_references.find(source);
           if (finder == detailed_base_valid_references.end())
             detailed_base_valid_references[source] = cnt;
@@ -867,7 +869,7 @@ namespace Legion {
         if (first)
         {
           valid_references += cnt;
-          std::map<DistributedID,int>::iterator finder = 
+          std::map<DistributedID,int>::iterator finder =
             detailed_nested_valid_references.find(did);
           if (finder == detailed_nested_valid_references.end())
             detailed_nested_valid_references[did] = cnt;
@@ -929,7 +931,7 @@ namespace Legion {
           assert(has_valid_references);
 #endif
           valid_references -= cnt;
-          std::map<ReferenceSource,int>::iterator finder = 
+          std::map<ReferenceSource,int>::iterator finder =
             detailed_base_valid_references.find(source);
           assert(finder != detailed_base_valid_references.end());
           assert(finder->second >= cnt);
@@ -984,7 +986,7 @@ namespace Legion {
           assert(has_valid_references);
 #endif
           valid_references -= cnt;
-          std::map<DistributedID,int>::iterator finder = 
+          std::map<DistributedID,int>::iterator finder =
             detailed_nested_valid_references.find(did);
           assert(finder != detailed_nested_valid_references.end());
           assert(finder->second >= cnt);
@@ -1004,7 +1006,7 @@ namespace Legion {
 
     //--------------------------------------------------------------------------
     bool DistributedCollectable::try_add_valid_reference_internal(
-                            ReferenceSource source, ReferenceMutator *mutator, 
+                            ReferenceSource source, ReferenceMutator *mutator,
                             bool must_be_valid, int cnt)
     //--------------------------------------------------------------------------
     {
@@ -1030,7 +1032,7 @@ namespace Legion {
         if (must_be_valid && (current_state != VALID_STATE))
           return false;
         // If we are in any of the deleted states, it is no good
-        if ((current_state == DELETED_STATE) || 
+        if ((current_state == DELETED_STATE) ||
             (current_state == ACTIVE_DELETED_STATE) ||
             (current_state == PENDING_ACTIVE_DELETED_STATE) ||
             (current_state == PENDING_INVALID_DELETED_STATE) ||
@@ -1040,7 +1042,7 @@ namespace Legion {
         {
           unsigned previous = valid_references;
           valid_references += cnt;
-          std::map<ReferenceSource,int>::iterator finder = 
+          std::map<ReferenceSource,int>::iterator finder =
             detailed_base_valid_references.find(source);
           if (finder == detailed_base_valid_references.end())
             detailed_base_valid_references[source] = cnt;
@@ -1070,7 +1072,7 @@ namespace Legion {
     {
       AutoLock gc(gc_lock);
       resource_references++;
-      std::map<ReferenceSource,int>::iterator finder = 
+      std::map<ReferenceSource,int>::iterator finder =
         detailed_base_resource_references.find(source);
       if (finder == detailed_base_resource_references.end())
         detailed_base_resource_references[source] = cnt;
@@ -1091,7 +1093,7 @@ namespace Legion {
     {
       AutoLock gc(gc_lock);
       resource_references++;
-      std::map<DistributedID,int>::iterator finder = 
+      std::map<DistributedID,int>::iterator finder =
         detailed_nested_resource_references.find(did);
       if (finder == detailed_nested_resource_references.end())
         detailed_nested_resource_references[did] = cnt;
@@ -1116,7 +1118,7 @@ namespace Legion {
       assert(has_resource_references);
 #endif
       resource_references--;
-      std::map<ReferenceSource,int>::iterator finder = 
+      std::map<ReferenceSource,int>::iterator finder =
         detailed_base_resource_references.find(source);
       assert(finder != detailed_base_resource_references.end());
       assert(finder->second >= cnt);
@@ -1140,7 +1142,7 @@ namespace Legion {
       assert(has_resource_references);
 #endif
       resource_references -= cnt;
-      std::map<DistributedID,int>::iterator finder = 
+      std::map<DistributedID,int>::iterator finder =
         detailed_nested_resource_references.find(did);
       assert(finder != detailed_nested_resource_references.end());
       assert(finder->second >= cnt);
@@ -1212,7 +1214,7 @@ namespace Legion {
       RtUserEvent done_event = Runtime::create_rt_user_event();
       Serializer rez;
       rez.serialize(did);
-      rez.serialize(done_event); 
+      rez.serialize(done_event);
       runtime->send_did_remote_unregister(target, rez, vc);
       done_events.insert(done_event);
     }
@@ -1227,7 +1229,7 @@ namespace Legion {
       assert(!remote_instances.empty());
 #endif
       std::set<RtEvent> done_events;
-      UnregisterFunctor functor(runtime, did, vc, done_events); 
+      UnregisterFunctor functor(runtime, did, vc, done_events);
       // No need for the lock since we're being destroyed
       remote_instances.map(functor);
       return Runtime::merge_events(done_events);
@@ -1278,7 +1280,7 @@ namespace Legion {
         rez.serialize(did);
         rez.serialize(registered_event);
       }
-      runtime->send_did_remote_registration(owner_space, rez);     
+      runtime->send_did_remote_registration(owner_space, rez);
       mutator->record_reference_mutation_effect(registered_event);
     }
 
@@ -1377,7 +1379,7 @@ namespace Legion {
       assert((copy == ACTIVE_INVALID_STATE) || (copy == VALID_STATE) ||
              (copy == PENDING_VALID_STATE) || (copy == PENDING_INVALID_STATE));
 #endif
-      ReferenceKind result; 
+      ReferenceKind result;
       if (copy == VALID_STATE)
         result = VALID_REF_KIND;
       else
@@ -1435,12 +1437,12 @@ namespace Legion {
       derez.deserialize(did);
       RtUserEvent done_event;
       derez.deserialize(done_event);
-      DistributedCollectable *target = 
+      DistributedCollectable *target =
         runtime->find_distributed_collectable(did);
       target->update_remote_instances(source);
       Runtime::trigger_event(done_event);
     }
-    
+
     //--------------------------------------------------------------------------
     /*static*/ void DistributedCollectable::handle_did_remote_valid_update(
                                          Runtime *runtime, Deserializer &derez)
@@ -1451,7 +1453,7 @@ namespace Legion {
       derez.deserialize(did);
       int count;
       derez.deserialize(count);
-      DistributedCollectable *target = 
+      DistributedCollectable *target =
         runtime->find_distributed_collectable(did);
       if (count > 0)
       {
@@ -1461,7 +1463,7 @@ namespace Legion {
         RtUserEvent done_event;
         derez.deserialize(done_event);
         if (!mutator_events.empty())
-          Runtime::trigger_event(done_event, 
+          Runtime::trigger_event(done_event,
               Runtime::merge_events(mutator_events));
         else
           Runtime::trigger_event(done_event);
@@ -1481,7 +1483,7 @@ namespace Legion {
       derez.deserialize(did);
       int count;
       derez.deserialize(count);
-      DistributedCollectable *target = 
+      DistributedCollectable *target =
         runtime->find_distributed_collectable(did);
       if (count > 0)
       {
@@ -1511,11 +1513,11 @@ namespace Legion {
       derez.deserialize(did);
       int count;
       derez.deserialize(count);
-      DistributedCollectable *target = 
+      DistributedCollectable *target =
         runtime->find_distributed_collectable(did);
       if (count > 0)
         target->add_base_resource_ref(REMOTE_DID_REF, unsigned(count));
-      else if (target->remove_base_resource_ref(REMOTE_DID_REF, 
+      else if (target->remove_base_resource_ref(REMOTE_DID_REF,
                                                 unsigned(-count)))
         delete target;
     }
@@ -1535,7 +1537,7 @@ namespace Legion {
       derez.deserialize(target);
       ReferenceKind kind;
       derez.deserialize(kind);
-      DistributedCollectable *dist = 
+      DistributedCollectable *dist =
         runtime->find_distributed_collectable(did);
       if (dist->add_create_reference(source, target, kind))
         delete dist;
@@ -1566,7 +1568,7 @@ namespace Legion {
       if (runtime->address_space == owner)
       {
         // We're the owner so handle it
-        DistributedCollectable *dist = 
+        DistributedCollectable *dist =
           runtime->find_distributed_collectable(did);
         if (source == owner)
         {
@@ -1610,7 +1612,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    bool DistributedCollectable::update_state(bool &need_activate, 
+    bool DistributedCollectable::update_state(bool &need_activate,
                                               bool &need_validate,
                                               bool &need_invalidate,
                                               bool &need_deactivate,
@@ -1687,7 +1689,7 @@ namespace Legion {
             if (has_valid_references || !create_valid_refs.empty())
 #else
             if (has_valid_references)
-#endif           
+#endif
               assert(false);
             // See if we have a reason to move towards deletion
 #ifdef USE_REMOTE_REFERENCES
@@ -1761,7 +1763,7 @@ namespace Legion {
               }
               else
               {
-                // Not still valid, go to pending inactive 
+                // Not still valid, go to pending inactive
                 current_state = PENDING_INACTIVE_STATE;
                 need_validate = false;
                 need_deactivate = true;
@@ -1769,7 +1771,7 @@ namespace Legion {
             }
             else
             {
-              // We weren't the ones doing the activate so 
+              // We weren't the ones doing the activate so
               // we can't help, just keep going
               need_validate = false;
               need_deactivate = false;
@@ -1970,14 +1972,14 @@ namespace Legion {
               }
               else
               {
-                // Not still active, go to pending inactive 
+                // Not still active, go to pending inactive
                 current_state = PENDING_INACTIVE_DELETED_STATE;
                 need_deactivate = true;
               }
             }
             else
             {
-              // We weren't the ones doing the activate so 
+              // We weren't the ones doing the activate so
               // we can't help, just keep going
               need_deactivate = false;
             }
@@ -2072,7 +2074,7 @@ namespace Legion {
         default:
           assert(false); // should never get here
       }
-      const bool done = !(need_activate || need_validate || 
+      const bool done = !(need_activate || need_validate ||
                           need_invalidate || need_deactivate);
       if (done)
         do_deletion = can_delete();
@@ -2088,21 +2090,20 @@ namespace Legion {
       // Better be called while holding the lock
 #ifdef USE_REMOTE_REFERENCES
       bool result = (!has_resource_references && !has_gc_references &&
-              !has_valid_references && create_gc_refs.empty() && 
-              create_valid_refs.empty() && 
-              ((current_state == INACTIVE_STATE) || 
+              !has_valid_references && create_gc_refs.empty() &&
+              create_valid_refs.empty() &&
+              ((current_state == INACTIVE_STATE) ||
                (current_state == DELETED_STATE)));
 #else
       bool result = (!has_resource_references && !has_gc_references &&
-              !has_valid_references && 
-              ((current_state == INACTIVE_STATE) || 
+              !has_valid_references &&
+              ((current_state == INACTIVE_STATE) ||
                (current_state == DELETED_STATE)));
 #endif
       return result;
     }
 
-  }; // namespace Internal 
+  }; // namespace Internal
 }; // namespace Legion
 
 // EOF
-

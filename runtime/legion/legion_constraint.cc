@@ -13,11 +13,13 @@
  * limitations under the License.
  */
 
+#include <cinttypes>
+
 #include "legion_utilities.h"
 #include "legion_constraint.h"
 
 namespace Legion {
-  
+
     // some helper methods
 
     //--------------------------------------------------------------------------
@@ -29,7 +31,7 @@ namespace Legion {
       {
         case LT_EK: // < v1
           {
-            // Can entail for <, <=, !=  
+            // Can entail for <, <=, !=
             if ((eq2 == LT_EK) && (v1 <= v2)) // < v2
               return true;
             if ((eq2 == LE_EK) && (v1 < v2)) // <= v2
@@ -121,7 +123,7 @@ namespace Legion {
           }
         case LE_EK: // <= v1
           {
-            // conflicts with >, >=, == 
+            // conflicts with >, >=, ==
             if ((eq2 == GT_EK) && (v1 <= v2)) // > v2
               return true;
             if ((eq2 == GE_EK) && (v1 < v2)) // >= v2
@@ -183,7 +185,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // ISAConstraint 
+    // ISAConstraint
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -192,7 +194,7 @@ namespace Legion {
     //--------------------------------------------------------------------------
     {
     }
-    
+
     //--------------------------------------------------------------------------
     void ISAConstraint::serialize(Serializer &rez) const
     //--------------------------------------------------------------------------
@@ -208,7 +210,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // Processor Constraint 
+    // Processor Constraint
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -233,7 +235,7 @@ namespace Legion {
       if (valid)
         rez.serialize(kind);
     }
-    
+
     //--------------------------------------------------------------------------
     void ProcessorConstraint::deserialize(Deserializer &derez)
     //--------------------------------------------------------------------------
@@ -281,7 +283,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // LaunchConstraint 
+    // LaunchConstraint
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -332,7 +334,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // ColocationConstraint 
+    // ColocationConstraint
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -396,7 +398,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // ColocationConstraint 
+    // ColocationConstraint
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -510,7 +512,7 @@ namespace Legion {
       }
       else
       {
-        if ((kind != REDUCTION_FOLD_SPECIALIZE) && 
+        if ((kind != REDUCTION_FOLD_SPECIALIZE) &&
             (kind != REDUCTION_LIST_SPECIALIZE))
         {
           fprintf(stderr,"Illegal %s reduction specialized constraint with "
@@ -558,7 +560,7 @@ namespace Legion {
     //--------------------------------------------------------------------------
     {
       rez.serialize(kind);
-      if ((kind == REDUCTION_FOLD_SPECIALIZE) || 
+      if ((kind == REDUCTION_FOLD_SPECIALIZE) ||
           (kind == REDUCTION_LIST_SPECIALIZE))
         rez.serialize(redop);
     }
@@ -568,7 +570,7 @@ namespace Legion {
     //--------------------------------------------------------------------------
     {
       derez.deserialize(kind);
-      if ((kind == REDUCTION_FOLD_SPECIALIZE) || 
+      if ((kind == REDUCTION_FOLD_SPECIALIZE) ||
           (kind == REDUCTION_LIST_SPECIALIZE))
         derez.deserialize(redop);
     }
@@ -591,7 +593,7 @@ namespace Legion {
     bool SpecializedConstraint::is_reduction(void) const
     //--------------------------------------------------------------------------
     {
-      return ((kind == REDUCTION_FOLD_SPECIALIZE) || 
+      return ((kind == REDUCTION_FOLD_SPECIALIZE) ||
               (kind == REDUCTION_LIST_SPECIALIZE));
     }
 
@@ -603,7 +605,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // Memory Constraint 
+    // Memory Constraint
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -663,7 +665,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // Field Constraint 
+    // Field Constraint
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -674,7 +676,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    FieldConstraint::FieldConstraint(const std::vector<FieldID> &set, 
+    FieldConstraint::FieldConstraint(const std::vector<FieldID> &set,
                                      bool cg, bool in)
       : field_set(set), contiguous(cg), inorder(in)
     //--------------------------------------------------------------------------
@@ -727,7 +729,7 @@ namespace Legion {
           // If we're not both contiguous and inorder we can't entail it
           if (!contiguous || !inorder)
             return false;
-          // See if our fields are in order and grow by one each time 
+          // See if our fields are in order and grow by one each time
           for (unsigned idx = 1; idx < field_indexes.size(); idx++)
           {
             if ((field_indexes[idx-1]+1) != field_indexes[idx])
@@ -741,7 +743,7 @@ namespace Legion {
           // If we're not contiguous we can't entail it
           if (!contiguous)
             return false;
-          // See if all our indexes are continuous 
+          // See if all our indexes are continuous
           std::set<unsigned> sorted_indexes(field_indexes.begin(),
                                             field_indexes.end());
           int previous = -1;
@@ -753,7 +755,7 @@ namespace Legion {
               if ((previous+1) != int(*it))
                 return false;
             }
-            previous = (*it); 
+            previous = (*it);
           }
           return true;
         }
@@ -767,7 +769,7 @@ namespace Legion {
           if (!inorder)
             return false;
           // Must be in order but not necessarily contiguous
-          // See if our indexes are monotonically increasing 
+          // See if our indexes are monotonically increasing
           for (unsigned idx = 1; idx < field_indexes.size(); idx++)
           {
             // Not monotonically increasing
@@ -779,7 +781,7 @@ namespace Legion {
         else
         {
           // Other is neither inorder or contiguous
-          // We already know we have all the fields so we are done 
+          // We already know we have all the fields so we are done
           return true;
         }
       }
@@ -793,7 +795,7 @@ namespace Legion {
       // and the other one wants them also to be inorder but a different order
       if (inorder && other.inorder)
       {
-        // Both inorder, see if our fields come in the same order 
+        // Both inorder, see if our fields come in the same order
         // Do this different if they both are contigous or not
         if (contiguous && other.contiguous)
         {
@@ -855,7 +857,7 @@ namespace Legion {
           }
         }
       }
-      return false;  
+      return false;
     }
 
     //--------------------------------------------------------------------------
@@ -869,7 +871,7 @@ namespace Legion {
             it != field_set.end(); it++)
         rez.serialize(*it);
     }
-    
+
     //--------------------------------------------------------------------------
     void FieldConstraint::deserialize(Deserializer &derez)
     //--------------------------------------------------------------------------
@@ -885,7 +887,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // Ordering Constraint 
+    // Ordering Constraint
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -915,7 +917,7 @@ namespace Legion {
       // See if we have all the dimensions
       std::vector<unsigned> dim_indexes(other.ordering.size());
       unsigned local_idx = 0;
-      for (std::vector<DimensionKind>::const_iterator it = 
+      for (std::vector<DimensionKind>::const_iterator it =
            other.ordering.begin(); it != other.ordering.end(); it++,local_idx++)
       {
         bool found = false;
@@ -940,7 +942,7 @@ namespace Legion {
         if (!contiguous)
           return false;
         // See if the indexes are contiguous
-        std::set<unsigned> sorted_indexes(dim_indexes.begin(), 
+        std::set<unsigned> sorted_indexes(dim_indexes.begin(),
                                           dim_indexes.end());
         int previous = -1;
         for (std::set<unsigned>::const_iterator it = sorted_indexes.begin();
@@ -959,7 +961,7 @@ namespace Legion {
       else
       {
         // We've got all the dimensions in the right order so we are good
-        return true; 
+        return true;
       }
     }
 
@@ -967,7 +969,7 @@ namespace Legion {
     bool OrderingConstraint::conflicts(const OrderingConstraint &other) const
     //--------------------------------------------------------------------------
     {
-      // If they both must be contiguous there is a slightly different check      
+      // If they both must be contiguous there is a slightly different check
       if (contiguous && other.contiguous)
       {
         int previous_idx = -1;
@@ -1051,7 +1053,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // Splitting Constraint 
+    // Splitting Constraint
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -1122,7 +1124,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // Dimension Constraint 
+    // Dimension Constraint
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -1132,7 +1134,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    DimensionConstraint::DimensionConstraint(DimensionKind k, 
+    DimensionConstraint::DimensionConstraint(DimensionKind k,
                                              EqualityKind eq, size_t val)
       : kind(k), eqk(eq), value(val)
     //--------------------------------------------------------------------------
@@ -1180,7 +1182,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // Alignment Constraint 
+    // Alignment Constraint
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -1190,7 +1192,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    AlignmentConstraint::AlignmentConstraint(FieldID f, 
+    AlignmentConstraint::AlignmentConstraint(FieldID f,
                                              EqualityKind eq, size_t align)
       : fid(f), eqk(eq), alignment(align)
     //--------------------------------------------------------------------------
@@ -1238,7 +1240,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // Offset Constraint 
+    // Offset Constraint
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -1293,7 +1295,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // Pointer Constraint 
+    // Pointer Constraint
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -1363,7 +1365,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // Layout Constraint Set 
+    // Layout Constraint Set
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -1461,7 +1463,7 @@ namespace Legion {
         return false;
       if (!ordering_constraint.entails(other.ordering_constraint))
         return false;
-      for (std::vector<SplittingConstraint>::const_iterator it = 
+      for (std::vector<SplittingConstraint>::const_iterator it =
             other.splitting_constraints.begin(); it !=
             other.splitting_constraints.end(); it++)
       {
@@ -1477,8 +1479,8 @@ namespace Legion {
         if (!entailed)
           return false;
       }
-      for (std::vector<DimensionConstraint>::const_iterator it = 
-            other.dimension_constraints.begin(); it != 
+      for (std::vector<DimensionConstraint>::const_iterator it =
+            other.dimension_constraints.begin(); it !=
             other.dimension_constraints.end(); it++)
       {
         bool entailed = false;
@@ -1493,8 +1495,8 @@ namespace Legion {
         if (!entailed)
           return false;
       }
-      for (std::vector<AlignmentConstraint>::const_iterator it = 
-            other.alignment_constraints.begin(); it != 
+      for (std::vector<AlignmentConstraint>::const_iterator it =
+            other.alignment_constraints.begin(); it !=
             other.alignment_constraints.end(); it++)
       {
         bool entailed = false;
@@ -1509,8 +1511,8 @@ namespace Legion {
         if (!entailed)
           return false;
       }
-      for (std::vector<OffsetConstraint>::const_iterator it = 
-            other.offset_constraints.begin(); it != 
+      for (std::vector<OffsetConstraint>::const_iterator it =
+            other.offset_constraints.begin(); it !=
             other.offset_constraints.end(); it++)
       {
         bool entailed = false;
@@ -1543,15 +1545,15 @@ namespace Legion {
         return true;
       if (ordering_constraint.conflicts(other.ordering_constraint))
         return true;
-      for (std::vector<SplittingConstraint>::const_iterator it = 
-            splitting_constraints.begin(); it != 
+      for (std::vector<SplittingConstraint>::const_iterator it =
+            splitting_constraints.begin(); it !=
             splitting_constraints.end(); it++)
       {
         for (unsigned idx = 0; idx < other.splitting_constraints.size(); idx++)
           if (it->conflicts(other.splitting_constraints[idx]))
             return true;
       }
-      for (std::vector<DimensionConstraint>::const_iterator it = 
+      for (std::vector<DimensionConstraint>::const_iterator it =
             dimension_constraints.begin(); it !=
             dimension_constraints.end(); it++)
       {
@@ -1559,7 +1561,7 @@ namespace Legion {
           if (it->conflicts(other.dimension_constraints[idx]))
             return true;
       }
-      for (std::vector<AlignmentConstraint>::const_iterator it = 
+      for (std::vector<AlignmentConstraint>::const_iterator it =
             alignment_constraints.begin(); it !=
             alignment_constraints.end(); it++)
       {
@@ -1567,8 +1569,8 @@ namespace Legion {
           if (it->conflicts(other.alignment_constraints[idx]))
             return true;
       }
-      for (std::vector<OffsetConstraint>::const_iterator it = 
-            offset_constraints.begin(); it != 
+      for (std::vector<OffsetConstraint>::const_iterator it =
+            offset_constraints.begin(); it !=
             offset_constraints.end(); it++)
       {
         for (unsigned idx = 0; idx < other.offset_constraints.size(); idx++)
@@ -1629,7 +1631,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // Task Layout Constraint Set 
+    // Task Layout Constraint Set
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -1646,7 +1648,7 @@ namespace Legion {
     //--------------------------------------------------------------------------
     {
       rez.serialize<size_t>(layouts.size());
-      for (std::multimap<unsigned,LayoutConstraintID>::const_iterator it = 
+      for (std::multimap<unsigned,LayoutConstraintID>::const_iterator it =
             layouts.begin(); it != layouts.end(); it++)
       {
         rez.serialize(it->first);
@@ -1672,4 +1674,3 @@ namespace Legion {
 }; // namespace Legion
 
 // EOF
-

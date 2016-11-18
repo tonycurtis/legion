@@ -15,6 +15,8 @@
 
 // Realm modules
 
+#include <cinttypes>
+
 #include "realm_config.h"
 
 #define REALM_MODULE_REGISTRATION_STATIC
@@ -49,7 +51,7 @@ namespace Realm {
 
   Logger log_module("module");
 
-  
+
   ////////////////////////////////////////////////////////////////////////
   //
   // class Module
@@ -85,12 +87,12 @@ namespace Realm {
   {
     log_module.debug() << "module " << name << " create_processors";
   }
-  
+
   void Module::create_dma_channels(RuntimeImpl *runtime)
   {
     log_module.debug() << "module " << name << " create_dma_channels";
   }
-  
+
   void Module::create_code_translators(RuntimeImpl *runtime)
   {
     log_module.debug() << "module " << name << " create_code_translators";
@@ -262,5 +264,5 @@ namespace Realm {
     // done during init, so single-threaded
     static_module_registrations().push_back(reg);
   }
-  
+
 }; // namespace Realm

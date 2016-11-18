@@ -14,6 +14,8 @@
  */
 
 
+#include <cinttypes>
+
 #include "legion.h"
 #include "runtime.h"
 #include "legion_ops.h"
@@ -28,7 +30,7 @@ namespace Legion {
     };
 
     const LogicalRegion LogicalRegion::NO_REGION = LogicalRegion();
-    const LogicalPartition LogicalPartition::NO_PART = LogicalPartition(); 
+    const LogicalPartition LogicalPartition::NO_PART = LogicalPartition();
     const LgEvent LgEvent::NO_LG_EVENT = LgEvent();
     const ApEvent ApEvent::NO_AP_EVENT = ApEvent();
     const ApUserEvent ApUserEvent::NO_AP_USER_EVENT = ApUserEvent();
@@ -38,7 +40,7 @@ namespace Legion {
     const RtBarrier RtBarrier::NO_RT_BARRIER = RtBarrier();
 
     /////////////////////////////////////////////////////////////
-    // Mappable 
+    // Mappable
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -49,7 +51,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // Task 
+    // Task
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -61,7 +63,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // Copy 
+    // Copy
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -72,7 +74,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // Inline Mapping 
+    // Inline Mapping
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -83,7 +85,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // Acquire 
+    // Acquire
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -94,7 +96,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // Release 
+    // Release
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -105,7 +107,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // Close 
+    // Close
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -116,7 +118,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // IndexSpace 
+    // IndexSpace
     /////////////////////////////////////////////////////////////
 
     /*static*/ const IndexSpace IndexSpace::NO_SPACE = IndexSpace();
@@ -143,7 +145,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // IndexPartition 
+    // IndexPartition
     /////////////////////////////////////////////////////////////
 
     /*static*/ const IndexPartition IndexPartition::NO_PART = IndexPartition();
@@ -170,7 +172,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // FieldSpace 
+    // FieldSpace
     /////////////////////////////////////////////////////////////
 
     /*static*/ const FieldSpace FieldSpace::NO_SPACE = FieldSpace(0);
@@ -188,7 +190,7 @@ namespace Legion {
     //--------------------------------------------------------------------------
     {
     }
-    
+
     //--------------------------------------------------------------------------
     FieldSpace::FieldSpace(const FieldSpace &rhs)
       : id(rhs.id)
@@ -197,11 +199,11 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // Logical Region  
+    // Logical Region
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
-    LogicalRegion::LogicalRegion(RegionTreeID tid, IndexSpace index, 
+    LogicalRegion::LogicalRegion(RegionTreeID tid, IndexSpace index,
                                  FieldSpace field)
       : tree_id(tid), index_space(index), field_space(field)
     //--------------------------------------------------------------------------
@@ -210,7 +212,7 @@ namespace Legion {
 
     //--------------------------------------------------------------------------
     LogicalRegion::LogicalRegion(void)
-      : tree_id(0), index_space(IndexSpace::NO_SPACE), 
+      : tree_id(0), index_space(IndexSpace::NO_SPACE),
         field_space(FieldSpace::NO_SPACE)
     //--------------------------------------------------------------------------
     {
@@ -218,18 +220,18 @@ namespace Legion {
 
     //--------------------------------------------------------------------------
     LogicalRegion::LogicalRegion(const LogicalRegion &rhs)
-      : tree_id(rhs.tree_id), index_space(rhs.index_space), 
+      : tree_id(rhs.tree_id), index_space(rhs.index_space),
         field_space(rhs.field_space)
     //--------------------------------------------------------------------------
     {
     }
 
     /////////////////////////////////////////////////////////////
-    // Logical Partition 
+    // Logical Partition
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
-    LogicalPartition::LogicalPartition(RegionTreeID tid, IndexPartition pid, 
+    LogicalPartition::LogicalPartition(RegionTreeID tid, IndexPartition pid,
                                        FieldSpace field)
       : tree_id(tid), index_partition(pid), field_space(field)
     //--------------------------------------------------------------------------
@@ -238,7 +240,7 @@ namespace Legion {
 
     //--------------------------------------------------------------------------
     LogicalPartition::LogicalPartition(void)
-      : tree_id(0), index_partition(IndexPartition::NO_PART), 
+      : tree_id(0), index_partition(IndexPartition::NO_PART),
         field_space(FieldSpace::NO_SPACE)
     //--------------------------------------------------------------------------
     {
@@ -246,16 +248,16 @@ namespace Legion {
 
     //--------------------------------------------------------------------------
     LogicalPartition::LogicalPartition(const LogicalPartition &rhs)
-      : tree_id(rhs.tree_id), index_partition(rhs.index_partition), 
+      : tree_id(rhs.tree_id), index_partition(rhs.index_partition),
         field_space(rhs.field_space)
     //--------------------------------------------------------------------------
     {
     }
 
     /////////////////////////////////////////////////////////////
-    // Index Allocator 
+    // Index Allocator
     /////////////////////////////////////////////////////////////
-    
+
     //--------------------------------------------------------------------------
     IndexAllocator::IndexAllocator(void)
       : index_space(IndexSpace::NO_SPACE), allocator(NULL)
@@ -272,7 +274,7 @@ namespace Legion {
 
     //--------------------------------------------------------------------------
     IndexAllocator::IndexAllocator(IndexSpace space, IndexSpaceAllocator *a)
-      : index_space(space), allocator(a) 
+      : index_space(space), allocator(a)
     //--------------------------------------------------------------------------
     {
     }
@@ -293,7 +295,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // Field Allocator 
+    // Field Allocator
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -305,14 +307,14 @@ namespace Legion {
 
     //--------------------------------------------------------------------------
     FieldAllocator::FieldAllocator(const FieldAllocator &allocator)
-      : field_space(allocator.field_space), parent(allocator.parent), 
+      : field_space(allocator.field_space), parent(allocator.parent),
         runtime(allocator.runtime)
     //--------------------------------------------------------------------------
     {
     }
 
     //--------------------------------------------------------------------------
-    FieldAllocator::FieldAllocator(FieldSpace f, Context p, 
+    FieldAllocator::FieldAllocator(FieldSpace f, Context p,
                                    Runtime *rt)
       : field_space(f), parent(p), runtime(rt)
     //--------------------------------------------------------------------------
@@ -336,7 +338,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // Argument Map 
+    // Argument Map
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -383,7 +385,7 @@ namespace Legion {
         impl = NULL;
       }
     }
-    
+
     //--------------------------------------------------------------------------
     ArgumentMap& ArgumentMap::operator=(const ArgumentMap &rhs)
     //--------------------------------------------------------------------------
@@ -417,7 +419,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    void ArgumentMap::set_point(const DomainPoint &point, 
+    void ArgumentMap::set_point(const DomainPoint &point,
                                 const TaskArgument &arg, bool replace/*= true*/)
     //--------------------------------------------------------------------------
     {
@@ -448,7 +450,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // Predicate 
+    // Predicate
     /////////////////////////////////////////////////////////////
 
     const Predicate Predicate::TRUE_PRED = Predicate(true);
@@ -512,7 +514,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // Lock 
+    // Lock
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -566,7 +568,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // Grant 
+    // Grant
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -622,7 +624,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // Phase Barrier 
+    // Phase Barrier
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -690,7 +692,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // Dynamic Collective 
+    // Dynamic Collective
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -708,16 +710,16 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    void DynamicCollective::arrive(const void *value, size_t size, 
+    void DynamicCollective::arrive(const void *value, size_t size,
                                    unsigned count /*=1*/)
     //--------------------------------------------------------------------------
     {
-      Internal::Runtime::phase_barrier_arrive(*this, count, 
+      Internal::Runtime::phase_barrier_arrive(*this, count,
                                             ApEvent::NO_AP_EVENT, value, size);
     }
 
     /////////////////////////////////////////////////////////////
-    // Region Requirement 
+    // Region Requirement
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -727,18 +729,18 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    RegionRequirement::RegionRequirement(LogicalRegion _handle, 
+    RegionRequirement::RegionRequirement(LogicalRegion _handle,
                                         const std::set<FieldID> &priv_fields,
                                         const std::vector<FieldID> &inst_fields,
-                                        PrivilegeMode _priv, 
-                                        CoherenceProperty _prop, 
+                                        PrivilegeMode _priv,
+                                        CoherenceProperty _prop,
                                         LogicalRegion _parent,
 				        MappingTagID _tag, bool _verified)
       : region(_handle), privilege(_priv), prop(_prop), parent(_parent),
-        redop(0), tag(_tag), flags(_verified ? VERIFIED_FLAG : NO_FLAG), 
+        redop(0), tag(_tag), flags(_verified ? VERIFIED_FLAG : NO_FLAG),
         handle_type(SINGULAR), projection(0)
     //--------------------------------------------------------------------------
-    { 
+    {
       privilege_fields = priv_fields;
       instance_fields = inst_fields;
 #ifdef DEBUG_LEGION
@@ -753,8 +755,8 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    RegionRequirement::RegionRequirement(LogicalPartition pid, 
-                ProjectionID _proj, 
+    RegionRequirement::RegionRequirement(LogicalPartition pid,
+                ProjectionID _proj,
                 const std::set<FieldID> &priv_fields,
                 const std::vector<FieldID> &inst_fields,
                 PrivilegeMode _priv, CoherenceProperty _prop,
@@ -763,7 +765,7 @@ namespace Legion {
         redop(0), tag(_tag), flags(_verified ? VERIFIED_FLAG : NO_FLAG),
         handle_type(PART_PROJECTION), projection(_proj)
     //--------------------------------------------------------------------------
-    { 
+    {
       privilege_fields = priv_fields;
       instance_fields = inst_fields;
 #ifdef DEBUG_LEGION
@@ -778,7 +780,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    RegionRequirement::RegionRequirement(LogicalRegion _handle, 
+    RegionRequirement::RegionRequirement(LogicalRegion _handle,
                 ProjectionID _proj,
                 const std::set<FieldID> &priv_fields,
                 const std::vector<FieldID> &inst_fields,
@@ -803,14 +805,14 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    RegionRequirement::RegionRequirement(LogicalRegion _handle,  
+    RegionRequirement::RegionRequirement(LogicalRegion _handle,
                                     const std::set<FieldID> &priv_fields,
                                     const std::vector<FieldID> &inst_fields,
-                                    ReductionOpID op, CoherenceProperty _prop, 
-                                    LogicalRegion _parent, MappingTagID _tag, 
+                                    ReductionOpID op, CoherenceProperty _prop,
+                                    LogicalRegion _parent, MappingTagID _tag,
                                     bool _verified)
       : region(_handle), privilege(REDUCE), prop(_prop), parent(_parent),
-        redop(op), tag(_tag), flags(_verified ? VERIFIED_FLAG : NO_FLAG), 
+        redop(op), tag(_tag), flags(_verified ? VERIFIED_FLAG : NO_FLAG),
         handle_type(SINGULAR)
     //--------------------------------------------------------------------------
     {
@@ -827,12 +829,12 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    RegionRequirement::RegionRequirement(LogicalPartition pid, 
-                        ProjectionID _proj,  
+    RegionRequirement::RegionRequirement(LogicalPartition pid,
+                        ProjectionID _proj,
                         const std::set<FieldID> &priv_fields,
                         const std::vector<FieldID> &inst_fields,
                         ReductionOpID op, CoherenceProperty _prop,
-                        LogicalRegion _parent, MappingTagID _tag, 
+                        LogicalRegion _parent, MappingTagID _tag,
                         bool _verified)
       : partition(pid), privilege(REDUCE), prop(_prop), parent(_parent),
         redop(op), tag(_tag), flags(_verified ? VERIFIED_FLAG : NO_FLAG),
@@ -852,12 +854,12 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    RegionRequirement::RegionRequirement(LogicalRegion _handle, 
+    RegionRequirement::RegionRequirement(LogicalRegion _handle,
                         ProjectionID _proj,
                         const std::set<FieldID> &priv_fields,
                         const std::vector<FieldID> &inst_fields,
                         ReductionOpID op, CoherenceProperty _prop,
-                        LogicalRegion _parent, MappingTagID _tag, 
+                        LogicalRegion _parent, MappingTagID _tag,
                         bool _verified)
       : region(_handle), privilege(REDUCE), prop(_prop), parent(_parent),
         redop(op), tag(_tag), flags(_verified ? VERIFIED_FLAG : NO_FLAG),
@@ -877,17 +879,17 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    RegionRequirement::RegionRequirement(LogicalRegion _handle, 
-                                         PrivilegeMode _priv, 
-                                         CoherenceProperty _prop, 
+    RegionRequirement::RegionRequirement(LogicalRegion _handle,
+                                         PrivilegeMode _priv,
+                                         CoherenceProperty _prop,
                                          LogicalRegion _parent,
-					 MappingTagID _tag, 
+					 MappingTagID _tag,
                                          bool _verified)
       : region(_handle), privilege(_priv), prop(_prop), parent(_parent),
-        redop(0), tag(_tag), flags(_verified ? VERIFIED_FLAG : NO_FLAG), 
+        redop(0), tag(_tag), flags(_verified ? VERIFIED_FLAG : NO_FLAG),
         handle_type(SINGULAR)
     //--------------------------------------------------------------------------
-    { 
+    {
 #ifdef DEBUG_LEGION
       if (IS_REDUCE(*this)) // Shouldn't use this constructor for reductions
       {
@@ -900,18 +902,18 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    RegionRequirement::RegionRequirement(LogicalPartition pid, 
-                                         ProjectionID _proj, 
-                                         PrivilegeMode _priv, 
+    RegionRequirement::RegionRequirement(LogicalPartition pid,
+                                         ProjectionID _proj,
+                                         PrivilegeMode _priv,
                                          CoherenceProperty _prop,
-                                         LogicalRegion _parent, 
-                                         MappingTagID _tag, 
+                                         LogicalRegion _parent,
+                                         MappingTagID _tag,
                                          bool _verified)
       : partition(pid), privilege(_priv), prop(_prop), parent(_parent),
-        redop(0), tag(_tag), flags(_verified ? VERIFIED_FLAG : NO_FLAG), 
+        redop(0), tag(_tag), flags(_verified ? VERIFIED_FLAG : NO_FLAG),
         handle_type(PART_PROJECTION), projection(_proj)
     //--------------------------------------------------------------------------
-    { 
+    {
 #ifdef DEBUG_LEGION
       if (IS_REDUCE(*this))
       {
@@ -924,15 +926,15 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    RegionRequirement::RegionRequirement(LogicalRegion _handle, 
+    RegionRequirement::RegionRequirement(LogicalRegion _handle,
                                          ProjectionID _proj,
-                                         PrivilegeMode _priv, 
+                                         PrivilegeMode _priv,
                                          CoherenceProperty _prop,
-                                         LogicalRegion _parent, 
-                                         MappingTagID _tag, 
+                                         LogicalRegion _parent,
+                                         MappingTagID _tag,
                                          bool _verified)
       : region(_handle), privilege(_priv), prop(_prop), parent(_parent),
-        redop(0), tag(_tag), flags(_verified ? VERIFIED_FLAG : NO_FLAG), 
+        redop(0), tag(_tag), flags(_verified ? VERIFIED_FLAG : NO_FLAG),
         handle_type(REG_PROJECTION), projection(_proj)
     //--------------------------------------------------------------------------
     {
@@ -948,14 +950,14 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    RegionRequirement::RegionRequirement(LogicalRegion _handle,  
-                                         ReductionOpID op, 
-                                         CoherenceProperty _prop, 
-                                         LogicalRegion _parent, 
-                                         MappingTagID _tag, 
+    RegionRequirement::RegionRequirement(LogicalRegion _handle,
+                                         ReductionOpID op,
+                                         CoherenceProperty _prop,
+                                         LogicalRegion _parent,
+                                         MappingTagID _tag,
                                          bool _verified)
       : region(_handle), privilege(REDUCE), prop(_prop), parent(_parent),
-        redop(op), tag(_tag), flags(_verified ? VERIFIED_FLAG : NO_FLAG), 
+        redop(op), tag(_tag), flags(_verified ? VERIFIED_FLAG : NO_FLAG),
         handle_type(SINGULAR)
     //--------------------------------------------------------------------------
     {
@@ -970,15 +972,15 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    RegionRequirement::RegionRequirement(LogicalPartition pid, 
-                                         ProjectionID _proj,  
-                                         ReductionOpID op, 
+    RegionRequirement::RegionRequirement(LogicalPartition pid,
+                                         ProjectionID _proj,
+                                         ReductionOpID op,
                                          CoherenceProperty _prop,
-                                         LogicalRegion _parent, 
-                                         MappingTagID _tag, 
+                                         LogicalRegion _parent,
+                                         MappingTagID _tag,
                                          bool _verified)
       : partition(pid), privilege(REDUCE), prop(_prop), parent(_parent),
-        redop(op), tag(_tag), flags(_verified ? VERIFIED_FLAG : NO_FLAG), 
+        redop(op), tag(_tag), flags(_verified ? VERIFIED_FLAG : NO_FLAG),
         handle_type(PART_PROJECTION), projection(_proj)
     //--------------------------------------------------------------------------
     {
@@ -993,15 +995,15 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    RegionRequirement::RegionRequirement(LogicalRegion _handle, 
+    RegionRequirement::RegionRequirement(LogicalRegion _handle,
                                          ProjectionID _proj,
-                                         ReductionOpID op, 
+                                         ReductionOpID op,
                                          CoherenceProperty _prop,
-                                         LogicalRegion _parent, 
-                                         MappingTagID _tag, 
+                                         LogicalRegion _parent,
+                                         MappingTagID _tag,
                                          bool _verified)
       : region(_handle), privilege(REDUCE), prop(_prop), parent(_parent),
-        redop(op), tag(_tag), flags(_verified ? VERIFIED_FLAG : NO_FLAG), 
+        redop(op), tag(_tag), flags(_verified ? VERIFIED_FLAG : NO_FLAG),
         handle_type(REG_PROJECTION), projection(_proj)
     //--------------------------------------------------------------------------
     {
@@ -1024,14 +1026,14 @@ namespace Legion {
           && (tag == rhs.tag) && (flags == rhs.flags))
       {
         if (((handle_type == SINGULAR) && (region == rhs.region)) ||
-            ((handle_type == PART_PROJECTION) && (partition == rhs.partition) && 
+            ((handle_type == PART_PROJECTION) && (partition == rhs.partition) &&
              (projection == rhs.projection)) ||
             ((handle_type == REG_PROJECTION) && (region == rhs.region)))
         {
           if ((privilege_fields.size() == rhs.privilege_fields.size()) &&
               (instance_fields.size() == rhs.instance_fields.size()))
           {
-            return ((privilege_fields == rhs.privilege_fields) 
+            return ((privilege_fields == rhs.privilege_fields)
                 && (instance_fields == rhs.instance_fields));
           }
         }
@@ -1104,7 +1106,7 @@ namespace Legion {
                           if (partition < rhs.partition)
                             return true;
                           // therefore greater than
-                          else if (partition != rhs.partition) 
+                          else if (partition != rhs.partition)
                             return false;
                           else
                             return (projection < rhs.projection);
@@ -1160,21 +1162,21 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // Index Space Requirement 
+    // Index Space Requirement
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
     IndexSpaceRequirement::IndexSpaceRequirement(void)
-      : handle(IndexSpace::NO_SPACE), privilege(NO_MEMORY), 
+      : handle(IndexSpace::NO_SPACE), privilege(NO_MEMORY),
         parent(IndexSpace::NO_SPACE), verified(false)
     //--------------------------------------------------------------------------
     {
     }
 
     //--------------------------------------------------------------------------
-    IndexSpaceRequirement::IndexSpaceRequirement(IndexSpace _handle, 
+    IndexSpaceRequirement::IndexSpaceRequirement(IndexSpace _handle,
                                                  AllocateMode _priv,
-                                                 IndexSpace _parent, 
+                                                 IndexSpace _parent,
                                                  bool _verified /*=false*/)
       : handle(_handle), privilege(_priv), parent(_parent), verified(_verified)
     //--------------------------------------------------------------------------
@@ -1218,7 +1220,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // Field Space Requirement 
+    // Field Space Requirement
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -1229,7 +1231,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    FieldSpaceRequirement::FieldSpaceRequirement(FieldSpace _handle, 
+    FieldSpaceRequirement::FieldSpaceRequirement(FieldSpace _handle,
                                                  AllocateMode _priv,
                                                  bool _verified /*=false*/)
       : handle(_handle), privilege(_priv), verified(_verified)
@@ -1262,12 +1264,12 @@ namespace Legion {
                                         const FieldSpaceRequirement &rhs) const
     //--------------------------------------------------------------------------
     {
-      return (handle == rhs.handle) && 
+      return (handle == rhs.handle) &&
               (privilege == rhs.privilege) && (verified == rhs.verified);
     }
 
     /////////////////////////////////////////////////////////////
-    // TaskLauncher 
+    // TaskLauncher
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -1282,21 +1284,21 @@ namespace Legion {
     TaskLauncher::TaskLauncher(Processor::TaskFuncID tid, TaskArgument arg,
                                Predicate pred /*= Predicate::TRUE_PRED*/,
                                MapperID mid /*=0*/, MappingTagID t /*=0*/)
-      : task_id(tid), argument(arg), predicate(pred), 
+      : task_id(tid), argument(arg), predicate(pred),
         map_id(mid), tag(t), point(DomainPoint())
     //--------------------------------------------------------------------------
     {
     }
 
     /////////////////////////////////////////////////////////////
-    // IndexLauncher 
+    // IndexLauncher
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
     IndexLauncher::IndexLauncher(void)
-      : task_id(0), launch_domain(Domain::NO_DOMAIN), 
-        global_arg(TaskArgument()), argument_map(ArgumentMap()), 
-        predicate(Predicate::TRUE_PRED), must_parallelism(false), 
+      : task_id(0), launch_domain(Domain::NO_DOMAIN),
+        global_arg(TaskArgument()), argument_map(ArgumentMap()),
+        predicate(Predicate::TRUE_PRED), must_parallelism(false),
         map_id(0), tag(0)
     //--------------------------------------------------------------------------
     {
@@ -1309,7 +1311,7 @@ namespace Legion {
                                  Predicate pred /*= Predicate::TRUE_PRED*/,
                                  bool must /*=false*/, MapperID mid /*=0*/,
                                  MappingTagID t /*=0*/)
-      : task_id(tid), launch_domain(dom), global_arg(global), 
+      : task_id(tid), launch_domain(dom), global_arg(global),
         argument_map(map), predicate(pred), must_parallelism(must),
         map_id(mid), tag(t)
     //--------------------------------------------------------------------------
@@ -1317,7 +1319,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // InlineLauncher 
+    // InlineLauncher
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -1337,7 +1339,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // CopyLauncher 
+    // CopyLauncher
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -1349,7 +1351,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // AcquireLauncher 
+    // AcquireLauncher
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -1357,14 +1359,14 @@ namespace Legion {
                                      PhysicalRegion phy,
                                      Predicate pred /*= Predicate::TRUE_PRED*/,
                                      MapperID id /*=0*/, MappingTagID t /*=0*/)
-      : logical_region(reg), parent_region(par), physical_region(phy), 
+      : logical_region(reg), parent_region(par), physical_region(phy),
         predicate(pred), map_id(id), tag(t)
     //--------------------------------------------------------------------------
     {
     }
 
     /////////////////////////////////////////////////////////////
-    // ReleaseLauncher 
+    // ReleaseLauncher
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -1372,19 +1374,19 @@ namespace Legion {
                                      PhysicalRegion phy,
                                      Predicate pred /*= Predicate::TRUE_PRED*/,
                                      MapperID id /*=0*/, MappingTagID t /*=0*/)
-      : logical_region(reg), parent_region(par), physical_region(phy), 
+      : logical_region(reg), parent_region(par), physical_region(phy),
         predicate(pred), map_id(id), tag(t)
     //--------------------------------------------------------------------------
     {
     }
 
     /////////////////////////////////////////////////////////////
-    // FillLauncher 
+    // FillLauncher
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
     FillLauncher::FillLauncher(LogicalRegion h, LogicalRegion p,
-                               TaskArgument arg, 
+                               TaskArgument arg,
                                Predicate pred /*= Predicate::TRUE_PRED*/)
       : handle(h), parent(p), argument(arg), predicate(pred)
     //--------------------------------------------------------------------------
@@ -1400,11 +1402,11 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // MustEpochLauncher 
+    // MustEpochLauncher
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
-    MustEpochLauncher::MustEpochLauncher(MapperID id /*= 0*/,   
+    MustEpochLauncher::MustEpochLauncher(MapperID id /*= 0*/,
                                          MappingTagID tag/*= 0*/)
       : map_id(id), mapping_tag(tag)
     //--------------------------------------------------------------------------
@@ -1431,13 +1433,13 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // TaskVariantRegistrar 
+    // TaskVariantRegistrar
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
     TaskVariantRegistrar::TaskVariantRegistrar(void)
-      : task_id(0), generator(NULL), global_registration(true), 
-        task_variant_name(NULL), leaf_variant(false), 
+      : task_id(0), generator(NULL), global_registration(true),
+        task_variant_name(NULL), leaf_variant(false),
         inner_variant(false), idempotent_variant(false)
     //--------------------------------------------------------------------------
     {
@@ -1447,8 +1449,8 @@ namespace Legion {
     TaskVariantRegistrar::TaskVariantRegistrar(TaskID tid, bool global/*=true*/,
                                                GeneratorContext ctx/*=NULL*/,
                                                const char *name/*= NULL*/)
-      : task_id(tid), generator(ctx), global_registration(global), 
-        task_variant_name(name), leaf_variant(false), 
+      : task_id(tid), generator(ctx), global_registration(global),
+        task_variant_name(name), leaf_variant(false),
         inner_variant(false), idempotent_variant(false)
     //--------------------------------------------------------------------------
     {
@@ -1459,15 +1461,15 @@ namespace Legion {
 					       const char *variant_name,
 					       bool global/*=true*/,
 					       GeneratorContext ctx/*=NULL*/)
-      : task_id(task_id), generator(ctx), global_registration(global), 
-        task_variant_name(variant_name), leaf_variant(false), 
+      : task_id(task_id), generator(ctx), global_registration(global),
+        task_variant_name(variant_name), leaf_variant(false),
         inner_variant(false), idempotent_variant(false)
     //--------------------------------------------------------------------------
     {
     }
 
     /////////////////////////////////////////////////////////////
-    // MPILegionHandshake 
+    // MPILegionHandshake
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -1582,7 +1584,7 @@ namespace Legion {
 #endif
       return impl->get_legion_arrive_phase_barrier();
     }
-    
+
     //--------------------------------------------------------------------------
     void MPILegionHandshake::advance_legion_handshake(void) const
     //--------------------------------------------------------------------------
@@ -1594,7 +1596,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // Future 
+    // Future
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -1677,7 +1679,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // Future Map 
+    // Future Map
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -1759,7 +1761,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // Physical Region 
+    // Physical Region
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -1883,7 +1885,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // Index Iterator  
+    // Index Iterator
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -1944,7 +1946,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // Task Config Options 
+    // Task Config Options
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -1957,7 +1959,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // ProjectionFunctor 
+    // ProjectionFunctor
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -1981,7 +1983,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // Coloring Serializer 
+    // Coloring Serializer
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -2011,7 +2013,7 @@ namespace Legion {
     size_t ColoringSerializer::legion_serialize(void *buffer) const
     //--------------------------------------------------------------------------
     {
-      char *target = (char*)buffer; 
+      char *target = (char*)buffer;
       *((size_t*)target) = coloring.size();
       target += sizeof(size_t);
       for (Coloring::const_iterator it = coloring.begin();
@@ -2029,7 +2031,7 @@ namespace Legion {
         }
         *((size_t*)target) = it->second.ranges.size();
         target += sizeof(size_t);
-        for (std::set<std::pair<ptr_t,ptr_t> >::const_iterator range_it = 
+        for (std::set<std::pair<ptr_t,ptr_t> >::const_iterator range_it =
               it->second.ranges.begin(); range_it != it->second.ranges.end();
               range_it++)
         {
@@ -2078,7 +2080,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // Domain Coloring Serializer 
+    // Domain Coloring Serializer
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -2107,7 +2109,7 @@ namespace Legion {
       for (DomainColoring::const_iterator it = coloring.begin();
             it != coloring.end(); it++)
       {
-        *((Color*)target) = it->first; 
+        *((Color*)target) = it->first;
         target += sizeof(it->first);
         *((Domain*)target) = it->second;
         target += sizeof(it->second);
@@ -2135,7 +2137,7 @@ namespace Legion {
     }
 
     /////////////////////////////////////////////////////////////
-    // High Level Runtime 
+    // High Level Runtime
     /////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
@@ -2161,7 +2163,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    IndexSpace Runtime::create_index_space(Context ctx, 
+    IndexSpace Runtime::create_index_space(Context ctx,
                                                 const std::set<Domain> &domains)
     //--------------------------------------------------------------------------
     {
@@ -2202,7 +2204,7 @@ namespace Legion {
 
     //--------------------------------------------------------------------------
     IndexPartition Runtime::create_index_partition(Context ctx,
-                                          IndexSpace parent, 
+                                          IndexSpace parent,
                                           const Domain &color_space,
                                           const DomainPointColoring &coloring,
                                           PartitionKind part_kind, int color)
@@ -2217,7 +2219,7 @@ namespace Legion {
                                           Context ctx, IndexSpace parent,
                                           Domain color_space,
                                           const DomainColoring &coloring,
-                                          bool disjoint, 
+                                          bool disjoint,
                                           int part_color)
     //--------------------------------------------------------------------------
     {
@@ -2258,12 +2260,12 @@ namespace Legion {
                                                       int part_color)
     //--------------------------------------------------------------------------
     {
-      return runtime->create_index_partition(ctx, parent, field_accessor, 
+      return runtime->create_index_partition(ctx, parent, field_accessor,
                                              part_color);
     }
 
     //--------------------------------------------------------------------------
-    void Runtime::destroy_index_partition(Context ctx, 
+    void Runtime::destroy_index_partition(Context ctx,
                                                    IndexPartition handle)
     //--------------------------------------------------------------------------
     {
@@ -2271,7 +2273,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    IndexPartition Runtime::create_equal_partition(Context ctx, 
+    IndexPartition Runtime::create_equal_partition(Context ctx,
                                                       IndexSpace parent,
                                                       Domain color_space,
                                                       size_t granularity,
@@ -2290,8 +2292,8 @@ namespace Legion {
                                       bool allocable)
     //--------------------------------------------------------------------------
     {
-      return runtime->create_weighted_partition(ctx, parent, color_space, 
-                                                weights, granularity, 
+      return runtime->create_weighted_partition(ctx, parent, color_space,
+                                                weights, granularity,
                                                 color, allocable);
     }
 
@@ -2302,16 +2304,16 @@ namespace Legion {
                                     int color, bool allocable)
     //--------------------------------------------------------------------------
     {
-      return runtime->create_partition_by_union(ctx, parent, handle1, handle2, 
+      return runtime->create_partition_by_union(ctx, parent, handle1, handle2,
                                                 kind, color, allocable);
     }
 
     //--------------------------------------------------------------------------
     IndexPartition Runtime::create_partition_by_intersection(
                                                 Context ctx, IndexSpace parent,
-                                                IndexPartition handle1, 
+                                                IndexPartition handle1,
                                                 IndexPartition handle2,
-                                                PartitionKind kind, int color, 
+                                                PartitionKind kind, int color,
                                                 bool allocable)
     //--------------------------------------------------------------------------
     {
@@ -2347,7 +2349,7 @@ namespace Legion {
 
     //--------------------------------------------------------------------------
     IndexPartition Runtime::create_partition_by_field(Context ctx,
-                   LogicalRegion handle, LogicalRegion parent, FieldID fid, 
+                   LogicalRegion handle, LogicalRegion parent, FieldID fid,
                    const Domain &color_space, int color, bool allocable)
     //--------------------------------------------------------------------------
     {
@@ -2381,18 +2383,18 @@ namespace Legion {
 
     //--------------------------------------------------------------------------
     IndexPartition Runtime::create_pending_partition(Context ctx,
-                             IndexSpace parent, const Domain &color_space, 
+                             IndexSpace parent, const Domain &color_space,
                              PartitionKind part_kind, int color, bool allocable)
     //--------------------------------------------------------------------------
     {
-      return runtime->create_pending_partition(ctx, parent, color_space, 
+      return runtime->create_pending_partition(ctx, parent, color_space,
                                                part_kind, color, allocable);
     }
 
     //--------------------------------------------------------------------------
     IndexSpace Runtime::create_index_space_union(Context ctx,
                       IndexPartition parent, const DomainPoint &color,
-                      const std::vector<IndexSpace> &handles) 
+                      const std::vector<IndexSpace> &handles)
     //--------------------------------------------------------------------------
     {
       return runtime->create_index_space_union(ctx, parent, color, handles);
@@ -2413,7 +2415,7 @@ namespace Legion {
                       const std::vector<IndexSpace> &handles)
     //--------------------------------------------------------------------------
     {
-      return runtime->create_index_space_intersection(ctx, parent, 
+      return runtime->create_index_space_intersection(ctx, parent,
                                                       color, handles);
     }
 
@@ -2423,22 +2425,22 @@ namespace Legion {
                       IndexPartition handle)
     //--------------------------------------------------------------------------
     {
-      return runtime->create_index_space_intersection(ctx, parent, 
+      return runtime->create_index_space_intersection(ctx, parent,
                                                       color, handle);
     }
 
     //--------------------------------------------------------------------------
     IndexSpace Runtime::create_index_space_difference(Context ctx,
-          IndexPartition parent, const DomainPoint &color, IndexSpace initial, 
+          IndexPartition parent, const DomainPoint &color, IndexSpace initial,
           const std::vector<IndexSpace> &handles)
     //--------------------------------------------------------------------------
     {
-      return runtime->create_index_space_difference(ctx, parent, color, 
+      return runtime->create_index_space_difference(ctx, parent, color,
                                                     initial, handles);
     }
 
     //--------------------------------------------------------------------------
-    IndexPartition Runtime::get_index_partition(Context ctx, 
+    IndexPartition Runtime::get_index_partition(Context ctx,
                                                 IndexSpace parent, Color color)
     //--------------------------------------------------------------------------
     {
@@ -2485,7 +2487,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    IndexSpace Runtime::get_index_subspace(Context ctx, 
+    IndexSpace Runtime::get_index_subspace(Context ctx,
                                                   IndexPartition p, Color color)
     //--------------------------------------------------------------------------
     {
@@ -2508,7 +2510,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    IndexSpace Runtime::get_index_subspace(IndexPartition p, 
+    IndexSpace Runtime::get_index_subspace(IndexPartition p,
                                            const DomainPoint &color)
     //--------------------------------------------------------------------------
     {
@@ -2516,7 +2518,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    bool Runtime::has_index_subspace(Context ctx, 
+    bool Runtime::has_index_subspace(Context ctx,
                                      IndexPartition p, const DomainPoint &color)
     //--------------------------------------------------------------------------
     {
@@ -2559,7 +2561,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    void Runtime::get_index_space_domains(Context ctx, 
+    void Runtime::get_index_space_domains(Context ctx,
                                 IndexSpace handle, std::vector<Domain> &domains)
     //--------------------------------------------------------------------------
     {
@@ -2575,7 +2577,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    Domain Runtime::get_index_partition_color_space(Context ctx, 
+    Domain Runtime::get_index_partition_color_space(Context ctx,
                                                              IndexPartition p)
     //--------------------------------------------------------------------------
     {
@@ -2590,7 +2592,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    void Runtime::get_index_space_partition_colors(Context ctx, 
+    void Runtime::get_index_space_partition_colors(Context ctx,
                                                             IndexSpace sp,
                                                         std::set<Color> &colors)
     //--------------------------------------------------------------------------
@@ -2606,7 +2608,7 @@ namespace Legion {
     {
       runtime->get_index_space_partition_colors(ctx, sp, colors);
     }
-    
+
     //--------------------------------------------------------------------------
     void Runtime::get_index_space_partition_colors(IndexSpace sp,
                                                    std::set<Color> &colors)
@@ -2652,7 +2654,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    Color Runtime::get_index_space_color(Context ctx, 
+    Color Runtime::get_index_space_color(Context ctx,
                                                   IndexSpace handle)
     //--------------------------------------------------------------------------
     {
@@ -2703,7 +2705,7 @@ namespace Legion {
     {
       return runtime->get_index_partition_color_point(ctx, handle);
     }
-    
+
     //--------------------------------------------------------------------------
     DomainPoint Runtime::get_index_partition_color_point(IndexPartition handle)
     //--------------------------------------------------------------------------
@@ -2771,7 +2773,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    unsigned Runtime::get_index_partition_depth(Context ctx,  
+    unsigned Runtime::get_index_partition_depth(Context ctx,
                                                 IndexPartition handle)
     //--------------------------------------------------------------------------
     {
@@ -2786,7 +2788,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    ptr_t Runtime::safe_cast(Context ctx, ptr_t pointer, 
+    ptr_t Runtime::safe_cast(Context ctx, ptr_t pointer,
                                       LogicalRegion region)
     //--------------------------------------------------------------------------
     {
@@ -2794,7 +2796,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    DomainPoint Runtime::safe_cast(Context ctx, DomainPoint point, 
+    DomainPoint Runtime::safe_cast(Context ctx, DomainPoint point,
                                             LogicalRegion region)
     //--------------------------------------------------------------------------
     {
@@ -2867,7 +2869,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    LogicalRegion Runtime::create_logical_region(Context ctx, 
+    LogicalRegion Runtime::create_logical_region(Context ctx,
                                             IndexSpace index, FieldSpace fields)
     //--------------------------------------------------------------------------
     {
@@ -2875,7 +2877,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    void Runtime::destroy_logical_region(Context ctx, 
+    void Runtime::destroy_logical_region(Context ctx,
                                                   LogicalRegion handle)
     //--------------------------------------------------------------------------
     {
@@ -2883,7 +2885,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    void Runtime::destroy_logical_partition(Context ctx, 
+    void Runtime::destroy_logical_partition(Context ctx,
                                                      LogicalPartition handle)
     //--------------------------------------------------------------------------
     {
@@ -2891,7 +2893,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    LogicalPartition Runtime::get_logical_partition(Context ctx, 
+    LogicalPartition Runtime::get_logical_partition(Context ctx,
                                     LogicalRegion parent, IndexPartition handle)
     //--------------------------------------------------------------------------
     {
@@ -2899,7 +2901,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    LogicalPartition Runtime::get_logical_partition(LogicalRegion parent, 
+    LogicalPartition Runtime::get_logical_partition(LogicalRegion parent,
                                                     IndexPartition handle)
     //--------------------------------------------------------------------------
     {
@@ -2947,7 +2949,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    bool Runtime::has_logical_partition_by_color(LogicalRegion parent, 
+    bool Runtime::has_logical_partition_by_color(LogicalRegion parent,
                                                  const DomainPoint &c)
     //--------------------------------------------------------------------------
     {
@@ -2956,8 +2958,8 @@ namespace Legion {
 
     //--------------------------------------------------------------------------
     LogicalPartition Runtime::get_logical_partition_by_tree(
-                                            Context ctx, IndexPartition handle, 
-                                            FieldSpace fspace, RegionTreeID tid) 
+                                            Context ctx, IndexPartition handle,
+                                            FieldSpace fspace, RegionTreeID tid)
     //--------------------------------------------------------------------------
     {
       return runtime->get_logical_partition_by_tree(ctx, handle, fspace, tid);
@@ -2965,15 +2967,15 @@ namespace Legion {
 
     //--------------------------------------------------------------------------
     LogicalPartition Runtime::get_logical_partition_by_tree(
-                                            IndexPartition handle, 
-                                            FieldSpace fspace, RegionTreeID tid) 
+                                            IndexPartition handle,
+                                            FieldSpace fspace, RegionTreeID tid)
     //--------------------------------------------------------------------------
     {
       return runtime->get_logical_partition_by_tree(handle, fspace, tid);
     }
 
     //--------------------------------------------------------------------------
-    LogicalRegion Runtime::get_logical_subregion(Context ctx, 
+    LogicalRegion Runtime::get_logical_subregion(Context ctx,
                                     LogicalPartition parent, IndexSpace handle)
     //--------------------------------------------------------------------------
     {
@@ -2981,7 +2983,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    LogicalRegion Runtime::get_logical_subregion(LogicalPartition parent, 
+    LogicalRegion Runtime::get_logical_subregion(LogicalPartition parent,
                                                  IndexSpace handle)
     //--------------------------------------------------------------------------
     {
@@ -2989,7 +2991,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    LogicalRegion Runtime::get_logical_subregion_by_color(Context ctx, 
+    LogicalRegion Runtime::get_logical_subregion_by_color(Context ctx,
                                              LogicalPartition parent, Color c)
     //--------------------------------------------------------------------------
     {
@@ -3019,7 +3021,7 @@ namespace Legion {
     {
       return runtime->get_logical_subregion_by_color(parent, c);
     }
-    
+
     //--------------------------------------------------------------------------
     bool Runtime::has_logical_subregion_by_color(Context ctx,
                                   LogicalPartition parent, const DomainPoint &c)
@@ -3029,7 +3031,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    bool Runtime::has_logical_subregion_by_color(LogicalPartition parent, 
+    bool Runtime::has_logical_subregion_by_color(LogicalPartition parent,
                                                  const DomainPoint &c)
     //--------------------------------------------------------------------------
     {
@@ -3037,7 +3039,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    LogicalRegion Runtime::get_logical_subregion_by_tree(Context ctx, 
+    LogicalRegion Runtime::get_logical_subregion_by_tree(Context ctx,
                         IndexSpace handle, FieldSpace fspace, RegionTreeID tid)
     //--------------------------------------------------------------------------
     {
@@ -3045,7 +3047,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    LogicalRegion Runtime::get_logical_subregion_by_tree(IndexSpace handle, 
+    LogicalRegion Runtime::get_logical_subregion_by_tree(IndexSpace handle,
                                             FieldSpace fspace, RegionTreeID tid)
     //--------------------------------------------------------------------------
     {
@@ -3159,7 +3161,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    IndexAllocator Runtime::create_index_allocator(Context ctx, 
+    IndexAllocator Runtime::create_index_allocator(Context ctx,
                                                             IndexSpace handle)
     //--------------------------------------------------------------------------
     {
@@ -3167,7 +3169,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    FieldAllocator Runtime::create_field_allocator(Context ctx, 
+    FieldAllocator Runtime::create_field_allocator(Context ctx,
                                                             FieldSpace handle)
     //--------------------------------------------------------------------------
     {
@@ -3182,7 +3184,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    Future Runtime::execute_task(Context ctx, 
+    Future Runtime::execute_task(Context ctx,
                                           const TaskLauncher &launcher)
     //--------------------------------------------------------------------------
     {
@@ -3190,7 +3192,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    FutureMap Runtime::execute_index_space(Context ctx, 
+    FutureMap Runtime::execute_index_space(Context ctx,
                                                   const IndexLauncher &launcher)
     //--------------------------------------------------------------------------
     {
@@ -3198,7 +3200,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    Future Runtime::execute_index_space(Context ctx, 
+    Future Runtime::execute_index_space(Context ctx,
                             const IndexLauncher &launcher, ReductionOpID redop)
     //--------------------------------------------------------------------------
     {
@@ -3206,14 +3208,14 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    Future Runtime::execute_task(Context ctx, 
+    Future Runtime::execute_task(Context ctx,
                         Processor::TaskFuncID task_id,
                         const std::vector<IndexSpaceRequirement> &indexes,
                         const std::vector<FieldSpaceRequirement> &fields,
                         const std::vector<RegionRequirement> &regions,
-                        const TaskArgument &arg, 
+                        const TaskArgument &arg,
                         const Predicate &predicate,
-                        MapperID id, 
+                        MapperID id,
                         MappingTagID tag)
     //--------------------------------------------------------------------------
     {
@@ -3222,17 +3224,17 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    FutureMap Runtime::execute_index_space(Context ctx, 
+    FutureMap Runtime::execute_index_space(Context ctx,
                         Processor::TaskFuncID task_id,
                         const Domain domain,
                         const std::vector<IndexSpaceRequirement> &indexes,
                         const std::vector<FieldSpaceRequirement> &fields,
                         const std::vector<RegionRequirement> &regions,
-                        const TaskArgument &global_arg, 
+                        const TaskArgument &global_arg,
                         const ArgumentMap &arg_map,
                         const Predicate &predicate,
-                        bool must_parallelism, 
-                        MapperID id, 
+                        bool must_parallelism,
+                        MapperID id,
                         MappingTagID tag)
     //--------------------------------------------------------------------------
     {
@@ -3244,19 +3246,19 @@ namespace Legion {
 
 
     //--------------------------------------------------------------------------
-    Future Runtime::execute_index_space(Context ctx, 
+    Future Runtime::execute_index_space(Context ctx,
                         Processor::TaskFuncID task_id,
                         const Domain domain,
                         const std::vector<IndexSpaceRequirement> &indexes,
                         const std::vector<FieldSpaceRequirement> &fields,
                         const std::vector<RegionRequirement> &regions,
-                        const TaskArgument &global_arg, 
+                        const TaskArgument &global_arg,
                         const ArgumentMap &arg_map,
-                        ReductionOpID reduction, 
+                        ReductionOpID reduction,
                         const TaskArgument &initial_value,
                         const Predicate &predicate,
-                        bool must_parallelism, 
-                        MapperID id, 
+                        bool must_parallelism,
+                        MapperID id,
                         MappingTagID tag)
     //--------------------------------------------------------------------------
     {
@@ -3267,7 +3269,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    PhysicalRegion Runtime::map_region(Context ctx, 
+    PhysicalRegion Runtime::map_region(Context ctx,
                                                 const InlineLauncher &launcher)
     //--------------------------------------------------------------------------
     {
@@ -3275,7 +3277,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    PhysicalRegion Runtime::map_region(Context ctx, 
+    PhysicalRegion Runtime::map_region(Context ctx,
                     const RegionRequirement &req, MapperID id, MappingTagID tag)
     //--------------------------------------------------------------------------
     {
@@ -3283,7 +3285,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    PhysicalRegion Runtime::map_region(Context ctx, unsigned idx, 
+    PhysicalRegion Runtime::map_region(Context ctx, unsigned idx,
                                                   MapperID id, MappingTagID tag)
     //--------------------------------------------------------------------------
     {
@@ -3343,7 +3345,7 @@ namespace Legion {
 
     //--------------------------------------------------------------------------
     void Runtime::fill_fields(Context ctx, LogicalRegion handle,
-                                       LogicalRegion parent, 
+                                       LogicalRegion parent,
                                        const std::set<FieldID> &fields,
                                        Future f, Predicate pred)
     //--------------------------------------------------------------------------
@@ -3359,7 +3361,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    PhysicalRegion Runtime::attach_hdf5(Context ctx, 
+    PhysicalRegion Runtime::attach_hdf5(Context ctx,
                                                  const char *file_name,
                                                  LogicalRegion handle,
                                                  LogicalRegion parent,
@@ -3367,7 +3369,7 @@ namespace Legion {
                                                  LegionFileMode mode)
     //--------------------------------------------------------------------------
     {
-      return runtime->attach_hdf5(ctx, file_name, handle, 
+      return runtime->attach_hdf5(ctx, file_name, handle,
                                   parent, field_map, mode);
     }
 
@@ -3399,7 +3401,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    void Runtime::issue_copy_operation(Context ctx, 
+    void Runtime::issue_copy_operation(Context ctx,
                                                 const CopyLauncher &launcher)
     //--------------------------------------------------------------------------
     {
@@ -3414,14 +3416,14 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    Predicate Runtime::predicate_not(Context ctx, const Predicate &p) 
+    Predicate Runtime::predicate_not(Context ctx, const Predicate &p)
     //--------------------------------------------------------------------------
     {
       return runtime->predicate_not(ctx, p);
     }
 
     //--------------------------------------------------------------------------
-    Predicate Runtime::predicate_and(Context ctx, 
+    Predicate Runtime::predicate_and(Context ctx,
                                        const Predicate &p1, const Predicate &p2)
     //--------------------------------------------------------------------------
     {
@@ -3430,7 +3432,7 @@ namespace Legion {
 
     //--------------------------------------------------------------------------
     Predicate Runtime::predicate_or(Context ctx,
-                                       const Predicate &p1, const Predicate &p2)  
+                                       const Predicate &p1, const Predicate &p2)
     //--------------------------------------------------------------------------
     {
       return runtime->predicate_or(ctx, p1, p2);
@@ -3466,7 +3468,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    PhaseBarrier Runtime::create_phase_barrier(Context ctx, 
+    PhaseBarrier Runtime::create_phase_barrier(Context ctx,
                                                         unsigned arrivals)
     //--------------------------------------------------------------------------
     {
@@ -3481,7 +3483,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    PhaseBarrier Runtime::advance_phase_barrier(Context ctx, 
+    PhaseBarrier Runtime::advance_phase_barrier(Context ctx,
                                                          PhaseBarrier pb)
     //--------------------------------------------------------------------------
     {
@@ -3499,9 +3501,9 @@ namespace Legion {
       return runtime->create_dynamic_collective(ctx, arrivals, redop,
                                                 init_value, init_size);
     }
-    
+
     //--------------------------------------------------------------------------
-    void Runtime::destroy_dynamic_collective(Context ctx, 
+    void Runtime::destroy_dynamic_collective(Context ctx,
                                                       DynamicCollective dc)
     //--------------------------------------------------------------------------
     {
@@ -3512,7 +3514,7 @@ namespace Legion {
     void Runtime::arrive_dynamic_collective(Context ctx,
                                                      DynamicCollective dc,
                                                      const void *buffer,
-                                                     size_t size, 
+                                                     size_t size,
                                                      unsigned count)
     //--------------------------------------------------------------------------
     {
@@ -3663,7 +3665,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    void Runtime::raise_region_exception(Context ctx, 
+    void Runtime::raise_region_exception(Context ctx,
                                                   PhysicalRegion region,
                                                   bool nuclear)
     //--------------------------------------------------------------------------
@@ -3672,7 +3674,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    const std::map<int,AddressSpace>& 
+    const std::map<int,AddressSpace>&
                                 Runtime::find_forward_MPI_mapping(void)
     //--------------------------------------------------------------------------
     {
@@ -3709,7 +3711,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    void Runtime::add_mapper(MapperID map_id, Mapping::Mapper *mapper, 
+    void Runtime::add_mapper(MapperID map_id, Mapping::Mapper *mapper,
                              Processor proc)
     //--------------------------------------------------------------------------
     {
@@ -3785,7 +3787,7 @@ namespace Legion {
                                                        size_t size, bool is_mut)
     //--------------------------------------------------------------------------
     {
-      runtime->attach_semantic_information(handle, fid, tag, buffer, 
+      runtime->attach_semantic_information(handle, fid, tag, buffer,
                                            size, is_mut);
     }
 
@@ -3926,7 +3928,7 @@ namespace Legion {
                                                          bool wait_until)
     //--------------------------------------------------------------------------
     {
-      return runtime->retrieve_semantic_information(handle, fid, tag, result, 
+      return runtime->retrieve_semantic_information(handle, fid, tag, result,
                                                     size, can_fail, wait_until);
     }
 
@@ -4073,7 +4075,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    void Runtime::end_task(Context ctx, const void *result, 
+    void Runtime::end_task(Context ctx, const void *result,
                                     size_t result_size, bool owned /*= false*/)
     //--------------------------------------------------------------------------
     {
@@ -4081,7 +4083,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    Future Runtime::from_value(const void *value, 
+    Future Runtime::from_value(const void *value,
                                         size_t value_size, bool owned)
     //--------------------------------------------------------------------------
     {
@@ -4094,7 +4096,7 @@ namespace Legion {
     }
 
     //--------------------------------------------------------------------------
-    /*static*/ int Runtime::start(int argc, char **argv, 
+    /*static*/ int Runtime::start(int argc, char **argv,
                                            bool background)
     //--------------------------------------------------------------------------
     {
@@ -4250,19 +4252,19 @@ namespace Legion {
       return runtime->register_variant(registrar, user_data, user_data_size,
                                        realm, has_return);
     }
-    
+
     //--------------------------------------------------------------------------
     /*static*/ VariantID Runtime::preregister_variant(
                                   const TaskVariantRegistrar &registrar,
                                   const void *user_data, size_t user_data_size,
                                   CodeDescriptor *realm,
-                                  bool has_return, const char *task_name, 
+                                  bool has_return, const char *task_name,
                                   bool check_task_id)
     //--------------------------------------------------------------------------
     {
-      return Internal::Runtime::preregister_variant(registrar, user_data, 
+      return Internal::Runtime::preregister_variant(registrar, user_data,
                   user_data_size, realm, has_return, task_name, check_task_id);
-    } 
+    }
 
     //--------------------------------------------------------------------------
     /*static*/ void Runtime::enable_profiling(void)
@@ -4370,4 +4372,3 @@ namespace Legion {
 }; // namespace Legion
 
 // EOF
-

@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+#include <cinttypes>
+
 #include "machine_impl.h"
 
 #include "logging.h"
@@ -32,7 +34,7 @@ namespace Realm {
   // class Machine
   //
 
-    /*static*/ Machine Machine::get_machine(void) 
+    /*static*/ Machine Machine::get_machine(void)
     {
       return Machine(get_runtime()->machine);
     }
@@ -46,7 +48,7 @@ namespace Realm {
     {
       return ((MachineImpl *)impl)->get_all_memories(mset);
     }
-    
+
     void Machine::get_all_processors(std::set<Processor>& pset) const
     {
       return ((MachineImpl *)impl)->get_all_processors(pset);
@@ -157,7 +159,7 @@ namespace Realm {
 	    assert(id.proc.proc_idx < num_procs);
 	    Processor::Kind kind = (Processor::Kind)(*cur++);
             int num_cores = (int)(*cur++);
-            log_annc.debug() << "adding proc " << p << " (kind = " << kind << 
+            log_annc.debug() << "adding proc " << p << " (kind = " << kind <<
                                 " num_cores = " << num_cores << ")";
 	    if(remote) {
 	      RemoteProcessor *proc = new RemoteProcessor(p, kind, num_cores);
@@ -285,7 +287,7 @@ namespace Realm {
 	  it++) {
 	if((*it).m1 == m && (*it).m2.capacity() > 0)
 	  mset.insert((*it).m2);
-	
+
 	if((*it).m2 == m && (*it).m1.capacity() > 0)
 	  mset.insert((*it).m1);
       }
@@ -386,9 +388,9 @@ namespace Realm {
 	for(std::vector<Machine::MemoryMemoryAffinity>::const_iterator it = mem_mem_affinities.begin();
 	    it != mem_mem_affinities.end();
 	    it++) {
-	  if(restrict_mem1.exists() && 
+	  if(restrict_mem1.exists() &&
 	     ((*it).m1 != restrict_mem1)) continue;
-	  if(restrict_mem2.exists() && 
+	  if(restrict_mem2.exists() &&
 	     ((*it).m2 != restrict_mem2)) continue;
 	  result.push_back(*it);
 	  count++;
@@ -481,7 +483,7 @@ namespace Realm {
     ((ProcessorQueryImpl *)impl)->restrict_to_node(ID(m).proc.owner_node);
     return *this;
   }
-      
+
   Machine::ProcessorQuery& Machine::ProcessorQuery::has_affinity_to(Memory m,
 								    unsigned min_bandwidth /*= 0*/,
 								    unsigned max_latency /*= 0*/)
@@ -579,7 +581,7 @@ namespace Realm {
     ((MemoryQueryImpl *)impl)->restrict_to_node(ID(m).memory.owner_node);
     return *this;
   }
-      
+
   Machine::MemoryQuery& Machine::MemoryQuery::has_affinity_to(Memory m,
 							      unsigned min_bandwidth /*= 0*/,
 							      unsigned max_latency /*= 0*/)
@@ -733,7 +735,7 @@ namespace Realm {
     , is_restricted(false)
     , restricted_node_id(-1)
   {}
-     
+
   ProcessorQueryImpl::ProcessorQueryImpl(const ProcessorQueryImpl& copy_from)
     : references(1)
     , machine(copy_from.machine)
@@ -1066,7 +1068,7 @@ namespace Realm {
     , is_restricted(false)
     , restricted_node_id(-1)
   {}
-     
+
   MemoryQueryImpl::MemoryQueryImpl(const MemoryQueryImpl& copy_from)
     : references(1)
     , machine(copy_from.machine)
@@ -1255,7 +1257,7 @@ namespace Realm {
 		  args.node_id,
 		  args.num_procs,
 		  args.num_memories);
-    
+
     Node *n = &(get_runtime()->nodes[args.node_id]);
     n->processors.resize(args.num_procs);
     n->memories.resize(args.num_memories);

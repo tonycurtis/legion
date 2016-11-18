@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+#include <cinttypes>
+
 #include "procset_module.h"
 
 #include "logging.h"
@@ -86,14 +88,14 @@ namespace Realm {
       , cfg_stack_size_in_mb(2)
     {
     }
-      
+
     ProcSetModule::~ProcSetModule(void)
     {}
 
     /*static*/ Module *ProcSetModule::create_module(RuntimeImpl *runtime,
 						 std::vector<std::string>& cmdline)
     {
-      // create a module to fill in with stuff 
+      // create a module to fill in with stuff
       ProcSetModule *m = new ProcSetModule;
 
       // read command line parameters
@@ -138,7 +140,7 @@ namespace Realm {
       }
       if (cfg_num_mp_threads) {
         // if num_mp_procs is not set then assume one procset on every node
-        if (cfg_num_mp_procs == 0 || static_cast<int>(gasnet_mynode()) < cfg_num_mp_procs ) { 
+        if (cfg_num_mp_procs == 0 || static_cast<int>(gasnet_mynode()) < cfg_num_mp_procs ) {
           Processor p = runtime->next_local_processor_id();
           ProcessorImpl *pi = new LocalProcessorSet(p, runtime->core_reservation_set(),
             cfg_stack_size_in_mb << 20, cfg_num_mp_threads);
@@ -152,10 +154,10 @@ namespace Realm {
               cfg_stack_size_in_mb << 20);
             runtime->add_processor(pi);
           }
-        }      
+        }
       }
     }
-    
+
     // create any DMA channels provided by the module (default == do nothing)
     void ProcSetModule::create_dma_channels(RuntimeImpl *runtime)
     {
